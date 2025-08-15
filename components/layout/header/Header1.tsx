@@ -155,12 +155,11 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/history">History <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/junior-champions">Junor Champions</Link></li>
-													<li><Link href="/autralian-master">Australian Masters</Link></li>
-													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
-													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
-													<li><Link href="/victorian-country-champions">Victorian Country Champions</Link></li>
-													<li><Link href="/victorian-open">Victorian Open</Link></li>
+													<li><Link href="/champions/junior-champions">Junor Champions</Link></li>
+													<li><Link href="/champions/australian-master">Australian Masters</Link></li>
+													<li><Link href="/champions/victorian-champions">Victorian Champions</Link></li>
+													<li><Link href="/champions/victorian-country-champions">Victorian Country Champions</Link></li>
+													<li><Link href="/champions/victorian-open">Victorian Open</Link></li>
 													<li><Link href="/victorian-women">Victorian Women</Link></li>
 												</ul>
 											</li>

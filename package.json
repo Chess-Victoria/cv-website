@@ -10,6 +10,8 @@
     "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.1.0",
+    "@contentful/rich-text-types": "^17.1.0",
     "aos": "^2.3.4",
     "contentful": "^11.7.15",
     "contentful-management": "^11.54.4",

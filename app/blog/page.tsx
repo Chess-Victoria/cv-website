@@ -1,12 +1,8 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { getEntries } from '@/lib/contentful';
 
 export default async function Blog() {
-	// Replace 'blogPost' with your Contentful content type ID
-	const posts = await getEntries('blogPost');
-
 	return (
 		<>
 
@@ -278,7 +274,7 @@ export default async function Blog() {
 								<div className="col-lg-10 m-auto">
 									<div className="cta1-main-boxarea">
 										<div className="timer-btn-area">
-										<Countdown />
+											<Countdown />
 											<div className="btn-area1">
 												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
 											</div>
@@ -304,7 +300,7 @@ export default async function Blog() {
 								<div className="col-lg-10 m-auto">
 									<div className="cta1-main-boxarea">
 										<div className="timer-btn-area">
-										<Countdown />
+											<Countdown />
 											<div className="btn-area1">
 												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
 											</div>
