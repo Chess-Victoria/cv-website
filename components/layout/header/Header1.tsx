@@ -11,7 +11,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 							<div className="col-lg-12">
 								<div className="header-elements">
 									<div className="site-logo">
-										<Link href="/"><img src="/assets/img/logo/logo1.png" alt="" /></Link>
+										<Link href="/"><img src="/assets/img/logo/cvlogo1.png" alt="" /></Link>
 									</div>
 									<div className="main-menu">
 										<ul>
@@ -138,7 +138,13 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 													</div>
 												</div>
 											</li> */}
-											<li><Link href="/about">About Chess Victoria</Link></li>
+											<li><Link href="/about">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
+
+												<ul className="dropdown-padding">
+													<li><Link href="/memories">Galerry</Link></li>
+													<li><Link href="/notice-board">Notice Board</Link></li>
+												</ul>
+											</li>
 											<li>
 												<Link href="/#">Commitees<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
@@ -154,7 +160,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
 													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
 													<li><Link href="/victorian-country-champions">Victorian Country Champions</Link></li>
-													<li><Link href="/victorian-open">Victorian Open</Link></li>	
+													<li><Link href="/victorian-open">Victorian Open</Link></li>
 													<li><Link href="/victorian-women">Victorian Women</Link></li>
 												</ul>
 											</li>
