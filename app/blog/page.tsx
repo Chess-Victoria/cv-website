@@ -1,9 +1,11 @@
-
-
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-export default function Blog() {
+import { getEntries } from '@/lib/contentful';
+
+export default async function Blog() {
+	// Replace 'blogPost' with your Contentful content type ID
+	const posts = await getEntries('blogPost');
 
 	return (
 		<>
