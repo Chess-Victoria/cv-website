@@ -147,6 +147,18 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 											<li>
+												<Link href="/history">History <i className="fa-solid fa-angle-down" /></Link>
+												<ul className="dropdown-padding">
+													<li><Link href="/junior-champions">Junor Champions</Link></li>
+													<li><Link href="/autralian-master">Australian Masters</Link></li>
+													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
+													<li><Link href="/victorian-champions">Victorian Champions</Link></li>
+													<li><Link href="/victorian-country-champions">Victorian Country Champions</Link></li>
+													<li><Link href="/victorian-open">Victorian Open</Link></li>	
+													<li><Link href="/victorian-women">Victorian Women</Link></li>
+												</ul>
+											</li>
+											<li>
 												<Link href="/#">Events <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/event">Our Event</Link></li>
@@ -164,13 +176,13 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 
-											<li>
+											{/* <li>
 												<Link href="/#">Blogs <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/blog">Our Blog</Link></li>
 													<li><Link href="/blog-single">Blog Details</Link></li>
 												</ul>
-											</li>
+											</li> */}
 											<li>
 												<Link href="/#">Pages <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
