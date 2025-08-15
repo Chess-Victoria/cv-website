@@ -15,9 +15,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 									</div>
 									<div className="main-menu">
 										<ul>
-											<li>
+											{/* <li>
 												<Link href="/#">Home <i className="fa-solid fa-angle-down" /></Link>
-												<div className="tp-submenu">
+												<div className="tp-submenu hidden">
 													<div className="row">
 														<div className="col-lg-12">
 															<div className="all-images-menu">
@@ -137,23 +137,33 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 														</div>
 													</div>
 												</div>
-											</li>
-											<li><Link href="/about">About Event</Link></li>
+											</li> */}
+											<li><Link href="/about">About Chess Victoria</Link></li>
 											<li>
-												<Link href="/#">Speakers <i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/#">Commitees<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/speakers">Speakers</Link></li>
+													<li><Link href="/members">Members</Link></li>
 													<li><Link href="/speakers-single">Speakers Details</Link></li>
 												</ul>
 											</li>
 											<li>
-												<Link href="/#">Schedule <i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/#">Events <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/event">Our Event</Link></li>
 													<li><Link href="/event-schedule">Event Schedule</Link></li>
 													<li><Link href="/event-single">Event Details</Link></li>
 												</ul>
 											</li>
+
+											<li>
+												<Link href="/chess-clubs">Victoria Club <i className="fa-solid fa-angle-down" /></Link>
+												<ul className="dropdown-padding">
+													<li><Link href="/event">Melbourne Chess Club</Link></li>
+													<li><Link href="/event-schedule">Boxhill Chess Club</Link></li>
+													<li><Link href="/event-single">Hobsons Bay Chess Club</Link></li>
+												</ul>
+											</li>
+
 											<li>
 												<Link href="/#">Blogs <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
@@ -178,7 +188,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 										</div>
 										<ul>
 											<li>
-												<Link href="/#"><i className="fa-brands fa-facebook-f" /></Link>
+												<Link href="https://www.facebook.com/ChessVictoria/" target='_blank'><i className="fa-brands fa-facebook-f" /></Link>
 											</li>
 											<li>
 												<Link href="/#"><i className="fa-brands fa-instagram" /></Link>

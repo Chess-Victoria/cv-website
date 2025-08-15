@@ -2,11 +2,10 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-export default function Speakers() {
+export default function Members() {
 
 	return (
 		<>
-
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
 					<div className="inner-page-header" style={{ backgroundImage: 'url(assets/img/bg/header-bg6.png)' }}>
@@ -14,9 +13,9 @@ export default function Speakers() {
 							<div className="row">
 								<div className="col-lg-5 m-auto">
 									<div className="heading1 text-center">
-										<h1>Our Speakers</h1>
+										<h1>Our Commitees</h1>
 										<div className="space20" />
-										<Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Our Speakers</span></Link>
+										<Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Our Commitees</span></Link>
 									</div>
 								</div>
 							</div>
