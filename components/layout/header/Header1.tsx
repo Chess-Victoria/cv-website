@@ -1,7 +1,12 @@
+import { useSiteConfig } from '@/lib/hooks/useSiteConfig';
 import Link from 'next/link'
 
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
+	const config = useSiteConfig()
+	if (!config || config.loading) {
+		return <div>...</div>; // Handle loading state
+	}
 	return (
 		<>
 			<header>
@@ -205,7 +210,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 										</div>
 										<ul>
 											<li>
-												<Link href="https://www.facebook.com/ChessVictoria/" target='_blank'><i className="fa-brands fa-facebook-f" /></Link>
+												<Link href={config.facebookUrl as string} target='_blank'><i className="fa-brands fa-facebook-f" /></Link>
 											</li>
 											<li>
 												<Link href="/#"><i className="fa-brands fa-instagram" /></Link>

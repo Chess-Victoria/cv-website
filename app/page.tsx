@@ -9,7 +9,11 @@ import Section6 from '@/components/sections/home1/section6'
 import Section7 from '@/components/sections/home1/section7'
 import Section8 from '@/components/sections/home1/section8'
 import Section9 from '@/components/sections/home1/section9'
-export default function Home() {
+import { getHomePageData } from './home.data'
+
+export default async function Home() {
+	// Load homepage data from Contentful
+	const homePageData = await getHomePageData()
 
 	return (
 		<>
@@ -25,7 +29,12 @@ export default function Home() {
 				<Section9 />
 			</Layout>
 			
-			<Popup />
+			{homePageData.popupContent && (
+				<Popup 
+					content={homePageData.popupContent}
+					isVisible={true}
+				/>
+			)}
 		</>
 	)
 }

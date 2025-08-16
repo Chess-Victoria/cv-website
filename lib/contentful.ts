@@ -1,21 +1,36 @@
 import { createClient } from 'contentful';
 
+console.log(process.env.CONTENTFUL_SPACE_ID, process.env.CONTENTFUL_ACCESS_TOKEN);
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 });
 
-export async function getEntries(contentType: string) {
-  const entries = await client.getEntries({ content_type: contentType });
+
+
+export async function getEntries(contentType: string, include: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 = 2) {
+  const entries = await client.getEntries({ 
+    content_type: contentType,
+    include: include
+  });
   return entries.items;
 }
 
-export async function getEntryBySlug(contentType: string, slug: string) {
-  const entries = await client.getEntries({
+export async function getSingleEntry(contentType: string, include: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 = 2) {
+  const entries = await client.getEntries({ 
     content_type: contentType,
-    'fields.slug': slug,
+    include: include,
+    limit: 1
   });
   return entries.items[0] || null;
+}
+
+export async function getEntryBySlug(contentType: string, slug: string) {
+    const entries = await client.getEntries({
+        content_type: contentType,
+        'fields.slug': slug,
+    });
+    return entries.items[0] || null;
 }
 
 export default client;

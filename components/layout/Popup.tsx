@@ -1,76 +1,100 @@
 'use client'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { PopupProps, PopupContent } from '@/lib/types/popup'
 
-export default function Popup() {
+export default function Popup({ 
+	content, 
+	isVisible = true, 
+	onClose, 
+	onNoThanks, 
+	onAction 
+}: PopupProps) {
+	const [isOpen, setIsOpen] = useState(false)
+
 	useEffect(() => {
-		// Ensure the elements are properly typed, and add event listeners in useEffect
-		const popup = document.getElementById('popup') as HTMLElement | null
-		const closeBtn = document.getElementById('close-popup') as HTMLElement | null
-		const noThanksBtn = document.querySelector('.no-thanks') as HTMLElement | null
-
-		// Display the popup after a short delay
-		if (popup) {
-			setTimeout(() => {
-				popup.style.display = 'flex'
+		// Display the popup after a short delay if visible
+		if (isVisible && content) {
+			const timer = setTimeout(() => {
+				setIsOpen(true)
 			}, 100)
-		}
 
-		// Close the popup when the close button is clicked
-		if (closeBtn) {
-			closeBtn.addEventListener('click', () => {
-				if (popup) {
-					popup.style.display = 'none'
-				}
-			})
+			return () => clearTimeout(timer)
 		}
+	}, [isVisible, content])
 
-		// Close the popup when the "No thanks" button is clicked
-		if (noThanksBtn) {
-			noThanksBtn.addEventListener('click', () => {
-				if (popup) {
-					popup.style.display = 'none'
-				}
-			})
-		}
+	const handleClose = () => {
+		setIsOpen(false)
+		onClose?.()
+	}
 
-		// Cleanup event listeners on component unmount
-		return () => {
-			if (closeBtn) {
-				closeBtn.removeEventListener('click', () => { })
-			}
-			if (noThanksBtn) {
-				noThanksBtn.removeEventListener('click', () => { })
-			}
-		}
-	}, [])
+	const handleNoThanks = () => {
+		setIsOpen(false)
+		onNoThanks?.()
+	}
+
+	const handleAction = () => {
+		onAction?.()
+	}
+
+	// Don't render if no content or not visible
+	if (!content || !isOpen) {
+		return null
+	}
 
 	return (
 		<>
-			<div id="popup" className="popup-overlay">
+			<div id="popup" className="popup-overlay" style={{ display: isOpen ? 'flex' : 'none' }}>
 				<div className="popup-content">
-					<span className="close-btn" id="close-popup">×</span>
+					<span className="close-btn" id="close-popup" onClick={handleClose}>×</span>
 					<div className="popup-icon">
-						<img src="/assets/img/logo/popup-logo.png" alt="" />
+						<img src={content.logo?.src || "/assets/img/logo/popup-logo.png"} alt={content.logo?.alt || ""} />
 					</div>
 					<div className="space32" />
 					<div className="heading2">
-						<h2>Grow your business with our agency</h2>
+						{content.title && <h2>{content.title}</h2>}
 						<div className="space8" />
-						<ul>
-							<li><img src="/assets/img/icons/check3.svg" alt="" />Elevate User Experience Expertise</li>
-							<li><img src="/assets/img/icons/check3.svg" alt="" /> Elevate Your UI/UX Skills Designer</li>
-							<li><img src="/assets/img/icons/check3.svg" alt="" />Join Leading UI/UX Event the Year</li>
-						</ul>
+						{content.description && (
+							typeof content.description === 'string' ? (
+								<p>{content.description}</p>
+							) : (
+								content.description
+							)
+						)}
+						{content.items && content.items.length > 0 && (
+							<ul>
+								{content.items.map((item: string, index: number) => (
+									<li key={index}>
+										<img src="/assets/img/icons/check3.svg" alt="" />
+										{item}
+									</li>
+								))}
+							</ul>
+						)}
 					</div>
 					<div className="space50" />
-					<Link className="vl-btn2" href="/contact">
-						<span className="demo">Buy Ticket Now</span>
-						<span className="arrow">
-							<i className="fa-solid fa-arrow-right" />
-						</span>
-					</Link>
-					<p className="no-thanks">No thanks</p>
+					{content.actionButton && (
+						content.actionButton.url ? (
+							<Link className="vl-btn2" href={content.actionButton.url} onClick={handleAction}>
+								<span className="demo">{content.actionButton.text}</span>
+								<span className="arrow">
+									<i className="fa-solid fa-arrow-right" />
+								</span>
+							</Link>
+						) : (
+							<button className="vl-btn2" onClick={handleAction}>
+								<span className="demo">{content.actionButton.text}</span>
+								<span className="arrow">
+									<i className="fa-solid fa-arrow-right" />
+								</span>
+							</button>
+						)
+					)}
+					{content.showNoThanks !== false && (
+						<p className="no-thanks" onClick={handleNoThanks}>
+							{content.noThanksText || "No thanks"}
+						</p>
+					)}
 				</div>
 			</div>
 		</>
