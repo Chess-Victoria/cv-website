@@ -1,0 +1,16 @@
+{
+  "spaceId": "j5mfd0rflg30",
+  "environmentId": "master",
+  "contentTypes": [
+    "contentful/content-types/homePage.json",
+    "contentful/content-types/announcement.json"
+  ],
+  "locales": [
+    {
+      "code": "en-US",
+      "name": "English (United States)",
+      "fallbackCode": null,
+      "default": true
+    }
+  ]
+}

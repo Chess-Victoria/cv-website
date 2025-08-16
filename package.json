@@ -7,7 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css"
+    "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css",
+    "contentful:login": "contentful login",
+    "contentful:space": "contentful space use --space-id $CONTENTFUL_SPACE_ID",
+    "contentful:environment": "contentful environment use --environment-id master",
+    "contentful:push": "contentful space import --config-file contentful/config.json",
+    "contentful:pull": "contentful space export --config-file contentful/config.json --export-dir contentful/exports",
+    "contentful:generate": "contentful space generate migration --config-file contentful/config.json",
+    "contentful:apply": "contentful space migration --config-file contentful/config.json"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.0",
