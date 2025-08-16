@@ -1,0 +1,44 @@
+/* FAQ Page Specific Styles */
+
+/* Target only the tab navigation structure */
+.faq-inner-section-area .faq-widget-area .faq-tab-navigation ul {
+  /* Apply your custom styles here */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.faq-inner-section-area .faq-widget-area .faq-tab-navigation ul li {
+  /* Tab item styles */
+}
+
+.faq-inner-section-area .faq-widget-area .faq-tab-navigation ul li button {
+  /* Tab button styles */
+}
+
+/* Ensure dynamic content (FAQ answers) are not affected */
+.faq-inner-section-area .faq-widget-area .accordion-body ul {
+  /* Reset styles for lists in FAQ answers */
+  list-style: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.faq-inner-section-area .faq-widget-area .accordion-body ul li {
+  /* Reset styles for list items in FAQ answers */
+  margin-bottom: 5px;
+}
+
+.faq-inner-section-area .faq-widget-area .accordion-body a {
+  /* Ensure links in FAQ answers are styled normally */
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.faq-inner-section-area .faq-widget-area .accordion-body a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}

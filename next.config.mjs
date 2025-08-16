@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    ignoreBuildErrors: true,
+    distDir: process.env.NODE_ENV === 'production' ? 'build' : '.next',
 
 };
 

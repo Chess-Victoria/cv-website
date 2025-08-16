@@ -9,10 +9,9 @@ export default function Footer1() {
 					<div className="row">
 						<div className="col-lg-3 col-md-6">
 							<div className="footer-logo-area">
-								<img src="/assets/img/logo/logo2.png" alt="" />
+								<img src="/assets/img/logo/cvlogo-black.png" alt="" width={100} />
 								<div className="space16" />
-								<p>We are committed to creating a platform where business leaders, innovators, and professionals
-									can come together to exchange ideas</p>
+								<p>We strive to create an environment where the Victorian chess community can collaborate, compete, and celebrate the game of chess.</p>
 								<div className="space24" />
 								<ul>
 									<li>
@@ -35,9 +34,8 @@ export default function Footer1() {
 								<h3>Quick Links</h3>
 								<ul>
 									<li><Link href="/about">About Us</Link></li>
-									<li><Link href="/blog">Our Blogs</Link></li>
-									<li><Link href="/event">Event Listing</Link></li>
-									<li><Link href="/pricing-plan">Pricing Plan</Link></li>
+									<li><Link href="/posts">News & Updates</Link></li>
+									<li><Link href="/faq">Frequently Asked Questions</Link></li>
 									<li><Link href="/contact">Contact Us</Link></li>
 								</ul>
 							</div>
