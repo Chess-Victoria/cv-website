@@ -27340,4 +27340,27 @@ html {
 
 /*============= MEMORY CSS AREA ===============*/
 
+/*============= ALERT CSS AREA ===============*/
+.alert {
+	padding: 12px 16px;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	font-family: var(--figtree);
+	font-size: 14px;
+	line-height: 1.4;
+	border: 1px solid transparent;
+}
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
 /*# sourceMappingURL=main.css.map */

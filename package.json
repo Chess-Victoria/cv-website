@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.0",
     "@contentful/rich-text-types": "^17.1.0",
+    "@react-email/render": "1.2.0",
     "aos": "^2.3.4",
     "contentful": "^11.7.15",
     "contentful-management": "^11.54.4",
@@ -22,6 +23,7 @@
     "react-dom": "^18",
     "react-modal-video": "^2.0.2",
     "react-slick": "^0.30.2",
+    "resend": "^6.0.1",
     "sass": "^1.81.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.14",

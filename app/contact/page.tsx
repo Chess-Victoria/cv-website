@@ -1,12 +1,79 @@
+'use client'
 
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import { useState } from 'react'
+
 export default function Contact() {
+	const [formData, setFormData] = useState({
+		name: '',
+		phone: '',
+		email: '',
+		subject: '',
+		message: ''
+	})
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [submitStatus, setSubmitStatus] = useState<{
+		type: 'success' | 'error' | null
+		message: string
+	}>({ type: null, message: '' })
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value } = e.target
+		setFormData(prev => ({
+			...prev,
+			[name]: value
+		}))
+	}
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault()
+		setIsSubmitting(true)
+		setSubmitStatus({ type: null, message: '' })
+
+		try {
+			const response = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			})
+
+			const result = await response.json()
+
+			if (response.ok) {
+				setSubmitStatus({
+					type: 'success',
+					message: 'Thank you! Your message has been sent successfully.'
+				})
+				// Reset form
+				setFormData({
+					name: '',
+					phone: '',
+					email: '',
+					subject: '',
+					message: ''
+				})
+			} else {
+				setSubmitStatus({
+					type: 'error',
+					message: result.error || 'Failed to send message. Please try again.'
+				})
+			}
+		} catch (error) {
+			setSubmitStatus({
+				type: 'error',
+				message: 'An error occurred. Please try again.'
+			})
+		} finally {
+			setIsSubmitting(false)
+		}
+	}
 
 	return (
 		<>
-
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
 					<div className="inner-page-header" style={{ backgroundImage: 'url(assets/img/bg/header-bg12.png)' }}>
@@ -36,39 +103,88 @@ export default function Contact() {
 									<div className="contact4-boxarea">
 										<h3 className="text-anime-style-3">Get In Touch Now</h3>
 										<div className="space8" />
-										<div className="row">
-											<div className="col-lg-6 col-md-6">
-												<div className="input-area">
-													<input type="text" placeholder="Name" />
+										
+										{/* Status Messages */}
+										{submitStatus.type && (
+											<div className={`alert ${submitStatus.type === 'success' ? 'alert-success' : 'alert-danger'}`} style={{ marginBottom: '20px' }}>
+												{submitStatus.message}
+											</div>
+										)}
+
+										<form onSubmit={handleSubmit}>
+											<div className="row">
+												<div className="col-lg-6 col-md-6">
+													<div className="input-area">
+														<input 
+															type="text" 
+															placeholder="Name" 
+															name="name"
+															value={formData.name}
+															onChange={handleInputChange}
+															required
+														/>
+													</div>
+												</div>
+												<div className="col-lg-6 col-md-6">
+													<div className="input-area">
+														<input 
+															type="text" 
+															placeholder="Phone" 
+															name="phone"
+															value={formData.phone}
+															onChange={handleInputChange}
+														/>
+													</div>
+												</div>
+												<div className="col-lg-12 col-md-6">
+													<div className="input-area">
+														<input 
+															type="email" 
+															placeholder="Email" 
+															name="email"
+															value={formData.email}
+															onChange={handleInputChange}
+															required
+														/>
+													</div>
+												</div>
+												<div className="col-lg-12 col-md-6">
+													<div className="input-area">
+														<input 
+															type="text" 
+															placeholder="Subjects" 
+															name="subject"
+															value={formData.subject}
+															onChange={handleInputChange}
+														/>
+													</div>
+												</div>
+												<div className="col-lg-12">
+													<div className="input-area">
+														<textarea 
+															placeholder="Message" 
+															name="message"
+															value={formData.message}
+															onChange={handleInputChange}
+															required
+															rows={5}
+														/>
+													</div>
+												</div>
+												<div className="col-lg-12">
+													<div className="space24" />
+													<div className="input-area text-end">
+														<button 
+															type="submit" 
+															className="vl-btn1"
+															disabled={isSubmitting}
+														>
+															{isSubmitting ? 'Sending...' : 'Submit Now'}
+														</button>
+													</div>
 												</div>
 											</div>
-											<div className="col-lg-6 col-md-6">
-												<div className="input-area">
-													<input type="text" placeholder="Phone" />
-												</div>
-											</div>
-											<div className="col-lg-12 col-md-6">
-												<div className="input-area">
-													<input type="email" placeholder="Email" />
-												</div>
-											</div>
-											<div className="col-lg-12 col-md-6">
-												<div className="input-area">
-													<input type="text" placeholder="Subjects" />
-												</div>
-											</div>
-											<div className="col-lg-12">
-												<div className="input-area">
-													<textarea placeholder="Message" />
-												</div>
-											</div>
-											<div className="col-lg-12">
-												<div className="space24" />
-												<div className="input-area text-end">
-													<button type="submit" className="vl-btn1">Submit Now</button>
-												</div>
-											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
