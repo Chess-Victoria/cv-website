@@ -43,7 +43,7 @@ export default function EventSchedule() {
 										<div className="content-area">
 											<Link href="/event-single">Make Ideas Happen</Link>
 											<div className="space16" />
-											<p>Eventify 2024 brings together the brightest minds and industry leaders for best of transformative business.</p>
+											<p>Chess Victoria 2024 brings together the brightest minds and industry leaders for best of transformative business.</p>
 											<div className="space24" />
 											<Link href="/event-single" className="readmore">Read More <i className="fa-solid fa-arrow-right" /></Link>
 										</div>

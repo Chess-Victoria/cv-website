@@ -6,25 +6,18 @@ export default async function SimpleContentfulExample() {
   // Simple approach: directly get homepage with depth 2
   const homePage = await getSingleEntry('homePage', 2);
   
-  let popupContent = null;
+  let popupContent: any = undefined;
   
-  if (homePage?.fields?.announcement?.sys?.id) {
-    // Find announcement in includes
-    const announcementId = homePage.fields.announcement.sys.id;
-    const includedAnnouncement = (homePage as any).includes?.Entry?.find(
-      (entry: any) => entry.sys.id === announcementId
-    );
-    
-    if (includedAnnouncement) {
-      const announcement = {
-        title: includedAnnouncement.fields.title as string,
-        summary: includedAnnouncement.fields.summary as any,
-        reference: includedAnnouncement.fields.reference as any,
-        url: includedAnnouncement.fields.url as string,
-        items: includedAnnouncement.fields.items as string[],
-      };
-      popupContent = mapAnnouncementToPopupContent(announcement);
-    }
+  if (homePage?.fields?.announcement) {
+    const announcementFields = (homePage.fields.announcement as any).fields;
+    const announcement = {
+      title: announcementFields.title as string,
+      summary: announcementFields.summary as any,
+      reference: announcementFields.reference as any,
+      url: announcementFields.url as string,
+      items: announcementFields.items as string[],
+    };
+    popupContent = mapAnnouncementToPopupContent(announcement);
   }
 
   return (
@@ -37,8 +30,8 @@ export default async function SimpleContentfulExample() {
         <p><strong>Found:</strong> {homePage ? 'Yes' : 'No'}</p>
         {homePage && (
           <>
-            <p><strong>Title:</strong> {homePage.fields.title || 'Not set'}</p>
-            <p><strong>Description:</strong> {homePage.fields.description || 'Not set'}</p>
+            <p><strong>Title:</strong> {(homePage.fields as any).name || 'Not set'}</p>
+            <p><strong>Description:</strong> {(homePage.fields as any).name || 'Not set'}</p>
             <p><strong>Has Announcement:</strong> {homePage.fields.announcement ? 'Yes' : 'No'}</p>
             <p><strong>Has Popup Content:</strong> {popupContent ? 'Yes' : 'No'}</p>
           </>

@@ -28,7 +28,7 @@ export default function Section6() {
 								<div className="content-area">
 									<Link href="/speakers-single">Alex Carter</Link>
 									<div className="space12" />
-									<p>Marketing Strategist, Marketing Manager At Eventify.</p>
+									<p>Marketing Strategist, Marketing Manager At Chess Victoria.</p>
 								</div>
 							</div>
 						</div>

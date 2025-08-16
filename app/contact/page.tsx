@@ -209,7 +209,7 @@ export default function Contact() {
 												<div className="text">
 													<h5>Our Email</h5>
 													<div className="space14" />
-													<Link href="/maito:eventify@gmail.com">eventify@gmail.com</Link>
+													<Link href="/maito:Chess Victoria@gmail.com">Chess Victoria@gmail.com</Link>
 												</div>
 											</div>
 											<div className="space18" />
@@ -244,7 +244,7 @@ export default function Contact() {
 												<div className="text">
 													<h5>Instagram</h5>
 													<div className="space14" />
-													<Link href="/#">eneventify.eve</Link>
+													<Link href="/#">enChess Victoria.eve</Link>
 												</div>
 											</div>
 										</div>

@@ -48,7 +48,7 @@ export default function Popup({
 				<div className="popup-content">
 					<span className="close-btn" id="close-popup" onClick={handleClose}>×</span>
 					<div className="popup-icon">
-						<img src={content.logo?.src || "/assets/img/logo/popup-logo.png"} alt={content.logo?.alt || ""} />
+						<img src={content.logo?.src || "/assets/img/logo/cvlogo-notext.png"} alt={content.logo?.alt || ""} />
 					</div>
 					<div className="space32" />
 					<div className="heading2">

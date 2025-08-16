@@ -52,10 +52,10 @@ export default function Footer3() {
 										<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The UK</Link>
 									</li>
 									<li>
-										<Link href="/mailto:eventifyevent@gmail.com"><img src="/assets/img/icons/mail1.svg" alt="" />eventifyevent@gmail.com</Link>
+										<Link href="/mailto:Chess Victoriaevent@gmail.com"><img src="/assets/img/icons/mail1.svg" alt="" />Chess Victoriaevent@gmail.com</Link>
 									</li>
 									<li>
-										<Link href="/#"> <img src="/assets/img/icons/world1.svg" alt="" />eventifyevent.com</Link>
+										<Link href="/#"> <img src="/assets/img/icons/world1.svg" alt="" />Chess Victoriaevent.com</Link>
 									</li>
 								</ul>
 							</div>

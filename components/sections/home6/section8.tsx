@@ -127,7 +127,7 @@ export default function Section8() {
 							<div className="testimonial-heading heading9 text-center space-margin60">
 								<h5><img src="/assets/img/icons/sub-logo1.svg" alt="" />Testimonials</h5>
 								<div className="space20" />
-								<h2 className="text-anime-style-3">Register For Eventify “2025”</h2>
+								<h2 className="text-anime-style-3">Register For Chess Victoria “2025”</h2>
 							</div>
 						</div>
 					</div>

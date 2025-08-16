@@ -33,7 +33,7 @@ export default function Section8() {
 									<div className="text">
 										<h4>Our Email</h4>
 										<div className="space14" />
-										<Link href="/mailto:eventify@gmail.com">eventify@gmail.com</Link>
+										<Link href="/mailto:Chess Victoria@gmail.com">Chess Victoria@gmail.com</Link>
 									</div>
 								</div>
 								<div className="space30" />

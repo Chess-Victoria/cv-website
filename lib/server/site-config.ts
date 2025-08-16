@@ -44,5 +44,5 @@ export async function getServerNavigationLinks() {
  */
 export async function getServerLogoUrl(): Promise<string | undefined> {
   const config = await getSiteConfiguration();
-  return config.logo?.fields?.file?.url;
+  return (config.logo as any)?.fields?.file?.url;
 }

@@ -87,7 +87,7 @@ export default function SpeakersSingle() {
 															<div className="heading2">
 																<h3>Personal Information</h3>
 																<div className="space16" />
-																<p>His passion for fostering creativity and driving strategic change has made him a sought-after speaker at top business conferences around the world. At meet Eventify 2024, Kireon will share his the unique insights on future-proofing best businesses, offering practical strategies to help organizations stay agile and on competitive in a rapidly changing meet environment knowledge and real-world.</p>
+																<p>His passion for fostering creativity and driving strategic change has made him a sought-after speaker at top business conferences around the world. At meet Chess Victoria 2024, Kireon will share his the unique insights on future-proofing best businesses, offering practical strategies to help organizations stay agile and on competitive in a rapidly changing meet environment knowledge and real-world.</p>
 															</div>
 														</div>
 													</div>

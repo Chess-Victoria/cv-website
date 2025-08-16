@@ -49,9 +49,9 @@ export default function BlogSingle() {
 											</li>
 										</ul>
 										<div className="space18" />
-										<h2>Step Into the Future of Business with Eventify</h2>
+										<h2>Step Into the Future of Business with Chess Victoria</h2>
 										<div className="space16" />
-										<p>At Eventify 2024, you'll join an exclusive gathering of business leaders and innovators shaping the future their industries. This one-day conference offers dynamic sessions on leadership, technology, and strategy to help you stay ahead in today's competitive market. Whether you're looking to unlock new opportunities or build lasting eventify partnerships, Eventify is where you need to be.</p>
+										<p>At Chess Victoria 2024, you'll join an exclusive gathering of business leaders and innovators shaping the future their industries. This one-day conference offers dynamic sessions on leadership, technology, and strategy to help you stay ahead in today's competitive market. Whether you're looking to unlock new opportunities or build lasting Chess Victoria partnerships, Chess Victoria is where you need to be.</p>
 										<div className="space48" />
 										<div className="row">
 											<div className="col-lg-6 col-md-6">
@@ -67,11 +67,11 @@ export default function BlogSingle() {
 											</div>
 										</div>
 										<div className="space32" />
-										<h3>Eventify: Your Gateway Strategic Growth</h3>
+										<h3>Chess Victoria: Your Gateway Strategic Growth</h3>
 										<div className="space16" />
-										<p>Fuel an your business growth with actionable insights from world-class experts at Eventify 2024. This premier event brings together forward-thinking professionals to explore the latest trends, technologies, and strategies for success. From keynote speeches to interactive workshops, Eventify provides you with the tools you need.</p>
+										<p>Fuel an your business growth with actionable insights from world-class experts at Chess Victoria 2024. This premier event brings together forward-thinking professionals to explore the latest trends, technologies, and strategies for success. From keynote speeches to interactive workshops, Chess Victoria provides you with the tools you need.</p>
 										<div className="space16" />
-										<p>"Join us at Eventify 2024, where innovation meets opportunity. This conference is the ultimate destination for business leaders seeking to push the boundaries of an what's possible. With sessions on disruptive technologies, leadership trends, and market strategies, you'll walk away with the knowledge and connections to lead.</p>
+										<p>"Join us at Chess Victoria 2024, where innovation meets opportunity. This conference is the ultimate destination for business leaders seeking to push the boundaries of an what's possible. With sessions on disruptive technologies, leadership trends, and market strategies, you'll walk away with the knowledge and connections to lead.</p>
 										<div className="space48" />
 										<div className="video-btn-area">
 											<div className="img1">
@@ -82,9 +82,9 @@ export default function BlogSingle() {
 											</div>
 										</div>
 										<div className="space32" />
-										<h3>Reimagine Business Possibilities Eventify</h3>
+										<h3>Reimagine Business Possibilities Chess Victoria</h3>
 										<div className="space16" />
-										<p>"Eventify 2024 is the ultimate destination for professionals eager to stay ahead in the evolving business landscape. This event brings together to innovators, meetup industry leaders, and experts to explore the future of business strategy technology.</p>
+										<p>"Chess Victoria 2024 is the ultimate destination for professionals eager to stay ahead in the evolving business landscape. This event brings together to innovators, meetup industry leaders, and experts to explore the future of business strategy technology.</p>
 										<div className="space32" />
 										<div className="tags-social-area">
 											<div className="tags">
@@ -157,7 +157,7 @@ export default function BlogSingle() {
 												<li><Link href="/#">#Event</Link></li>
 											</ul>
 											<ul>
-												<li><Link href="/#">#Eventify2024</Link></li>
+												<li><Link href="/#">#Chess Victoria2024</Link></li>
 												<li><Link href="/#">#DigitalTransformation</Link></li>
 											</ul>
 											<ul>
@@ -214,7 +214,7 @@ export default function BlogSingle() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Eventify 2024: Unlock the Future of Business</Link>
+											<Link href="/blog-single">Chess Victoria 2024: Unlock the Future of Business</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -238,7 +238,7 @@ export default function BlogSingle() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Where Vision Meetup Connect: Eventify 2024</Link>
+											<Link href="/blog-single">Where Vision Meetup Connect: Chess Victoria 2024</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -262,7 +262,7 @@ export default function BlogSingle() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Fuel Your Business Growth at Eventify</Link>
+											<Link href="/blog-single">Fuel Your Business Growth at Chess Victoria</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">

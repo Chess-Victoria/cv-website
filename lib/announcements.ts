@@ -34,11 +34,11 @@ export async function getAnnouncementById(id: string): Promise<Announcement | nu
     }
 
     return {
-      title: announcement.fields.title,
-      summary: announcement.fields.summary,
-      reference: announcement.fields.reference,
-      url: announcement.fields.url,
-      items: announcement.fields.items,
+      title: announcement.fields.title as string,
+      summary: announcement.fields.summary as any,
+      reference: announcement.fields.reference as any,
+      url: announcement.fields.url as string,
+      items: announcement.fields.items as string[],
     };
   } catch (error) {
     console.error('Error loading announcement:', error);

@@ -15,11 +15,25 @@ const getPartsOfTimeDuration = (duration: number) => {
 	return { days, hours, minutes, seconds }
 }
 
-export default function Countdown({ style }: any) {
+interface CountdownProps {
+	style?: number;
+	targetDate?: string; // ISO datetime string
+}
+
+export default function Countdown({ style, targetDate }: CountdownProps) {
 	const [timeDif, setTimeDif] = useState(() => {
 		const now = Date.now()
-		const endDateTime = new Date()
-		endDateTime.setDate(endDateTime.getDate() + 2) // Set end date 2 days from now
+		let endDateTime: Date
+		
+		if (targetDate) {
+			// Parse the ISO datetime string from Contentful
+			endDateTime = new Date(targetDate)
+		} else {
+			// Fallback to 2 days from now
+			endDateTime = new Date()
+			endDateTime.setDate(endDateTime.getDate() + 2)
+		}
+		
 		return endDateTime.getTime() - now
 	})
 

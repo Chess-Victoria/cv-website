@@ -62,7 +62,7 @@ export default function Section8() {
 									<div className="text">
 										<h4>Our Email</h4>
 										<div className="space10" />
-										<Link href="/mailto:eventify@gmail.com">eventify@gmail.com</Link>
+										<Link href="/mailto:Chess Victoria@gmail.com">Chess Victoria@gmail.com</Link>
 									</div>
 								</div>
 								<div className="contact-author-box" data-aos="fade-left" data-aos-duration={1100}>
@@ -82,7 +82,7 @@ export default function Section8() {
 									<div className="text">
 										<h4>Schedule</h4>
 										<div className="space10" />
-										<Link href="/mailto:eventify@gmail.com">Sunday-Fri: 9 AM – 6 PM</Link>
+										<Link href="/mailto:Chess Victoria@gmail.com">Sunday-Fri: 9 AM – 6 PM</Link>
 									</div>
 								</div>
 							</div>

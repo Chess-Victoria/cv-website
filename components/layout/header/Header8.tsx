@@ -13,7 +13,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 										<p>Are you Ready to Enenify Conferences?<Link href="/#">Buy Ticket</Link></p>
 										<ul>
 											<li>
-												<Link href="/mailto:eventifyconference@.com"><img src="/assets/img/icons/mail1.svg" alt="" />eventifyconference@.com <span> | </span></Link>
+												<Link href="/mailto:Chess Victoriaconference@.com"><img src="/assets/img/icons/mail1.svg" alt="" />Chess Victoriaconference@.com <span> | </span></Link>
 											</li>
 											<li>
 												<Link href="/tel:(234)345-4574"><img src="/assets/img/icons/phn1.svg" alt="" />(234)
@@ -43,7 +43,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/">Eventify-Homepage 01</Link>
+																		<Link href="/">Chess Victoria-Homepage 01</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -55,7 +55,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index2">Eventify-Homepage 02</Link>
+																		<Link href="/index2">Chess Victoria-Homepage 02</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -67,7 +67,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index3">Eventify-Homepage 03</Link>
+																		<Link href="/index3">Chess Victoria-Homepage 03</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -79,7 +79,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index4">Eventify-Homepage 04</Link>
+																		<Link href="/index4">Chess Victoria-Homepage 04</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb" style={{ margin: 0 }}>
@@ -91,7 +91,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index5">Eventify-Homepage 05</Link>
+																		<Link href="/index5">Chess Victoria-Homepage 05</Link>
 																	</div>
 																</div>
 															</div>
@@ -105,7 +105,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index6">Eventify-Homepage 06</Link>
+																		<Link href="/index6">Chess Victoria-Homepage 06</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -117,7 +117,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index7">Eventify-Homepage 07</Link>
+																		<Link href="/index7">Chess Victoria-Homepage 07</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -129,7 +129,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index8">Eventify-Homepage 08</Link>
+																		<Link href="/index8">Chess Victoria-Homepage 08</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb">
@@ -141,7 +141,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index9">Eventify-Homepage 09</Link>
+																		<Link href="/index9">Chess Victoria-Homepage 09</Link>
 																	</div>
 																</div>
 																<div className="homemenu-thumb" style={{ margin: 0 }}>
@@ -153,7 +153,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 																		</Link>
 																	</div>
 																	<div className="homemenu-text">
-																		<Link href="/index10">Eventify-Homepage 10</Link>
+																		<Link href="/index10">Chess Victoria-Homepage 10</Link>
 																	</div>
 																</div>
 															</div>

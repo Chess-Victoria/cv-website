@@ -2,8 +2,6 @@
   "spaceId": "j5mfd0rflg30",
   "environmentId": "master",
   "contentTypes": [
-    "contentful/content-types/homePage.json",
-    "contentful/content-types/announcement.json"
   ],
   "locales": [
     {

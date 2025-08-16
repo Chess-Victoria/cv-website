@@ -12,7 +12,7 @@ export default function Section7() {
 							<div className="pricing-heading heading9 text-center space-margin60">
 								<h5><img src="/assets/img/icons/sub-logo1.svg" alt="" /> PRICING</h5>
 								<div className="space20" />
-								<h2 className="text-anime-style-3">Register For Eventify “2025”</h2>
+								<h2 className="text-anime-style-3">Register For Chess Victoria “2025”</h2>
 							</div>
 						</div>
 					</div>
@@ -22,9 +22,9 @@ export default function Section7() {
 								<h3>Conference Pass</h3>
 								<div className="space24" />
 								<p>Get full access to all man stage keynotes, mastermind sessions, and installation for the
-									conference at Eventify.</p>
+									conference at Chess Victoria.</p>
 								<div className="space32" />
-								<h2>$249<span>2x1 with code Eventify</span></h2>
+								<h2>$249<span>2x1 with code Chess Victoria</span></h2>
 								<div className="space40" />
 								<div className="btn-area1">
 									<Link href="/pricing-plan" className="vl-btn6">Buy Tickets Now <img src="/assets/img/icons/arrow2.svg" alt="" /></Link>
@@ -50,9 +50,9 @@ export default function Section7() {
 								<h3>VIP Pass</h3>
 								<div className="space24" />
 								<p>Get full access to all man stage keynotes, mastermind sessions, and installation for the
-									conference at Eventify.</p>
+									conference at Chess Victoria.</p>
 								<div className="space32" />
-								<h2>$449<span>2x1 with code Eventify</span></h2>
+								<h2>$449<span>2x1 with code Chess Victoria</span></h2>
 								<div className="space40" />
 								<div className="btn-area1">
 									<Link href="/pricing-plan" className="vl-btn6">Buy Tickets Now <img src="/assets/img/icons/arrow2.svg" alt="" /></Link>

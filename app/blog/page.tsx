@@ -113,7 +113,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Eventify 2024: Unlock the Future of Business</Link>
+											<Link href="/blog-single">Chess Victoria 2024: Unlock the Future of Business</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -137,7 +137,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Where Vision Meetup Connect: Eventify 2024</Link>
+											<Link href="/blog-single">Where Vision Meetup Connect: Chess Victoria 2024</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -161,7 +161,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Fuel Your Business Growth at Eventify</Link>
+											<Link href="/blog-single">Fuel Your Business Growth at Chess Victoria</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -185,7 +185,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Ignite Your Business Potential at Eventify</Link>
+											<Link href="/blog-single">Ignite Your Business Potential at Chess Victoria</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -209,7 +209,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Step Into the Future of Business with Eventify</Link>
+											<Link href="/blog-single">Step Into the Future of Business with Chess Victoria</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">
@@ -233,7 +233,7 @@ export default async function Blog() {
 												</li>
 											</ul>
 											<div className="space20" />
-											<Link href="/blog-single">Empowering Business Growth at Eventify</Link>
+											<Link href="/blog-single">Empowering Business Growth at Chess Victoria</Link>
 											<div className="space24" />
 											<Link href="/blog-single" className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
 											<div className="arrow">

@@ -1,0 +1,5757 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "promotionBanner",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T10:40:00.993Z",
+        "updatedAt": "2025-08-16T05:31:16.654Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-16T05:31:16.654Z",
+        "firstPublishedAt": "2025-08-15T10:40:01.592Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/promotionBanner"
+      },
+      "displayField": "title",
+      "name": "Promotion Banner",
+      "description": "The promotion banner to display on home page",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "subTitle",
+          "name": "Sub Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "summary",
+          "name": "Summary",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "actionUrl",
+          "name": "Action Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "event",
+          "name": "Event",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "event"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "clubDetail",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T11:22:35.011Z",
+        "updatedAt": "2025-08-15T13:38:05.725Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2025-08-15T13:38:05.725Z",
+        "firstPublishedAt": "2025-08-15T11:22:35.385Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/clubDetail"
+      },
+      "displayField": "name",
+      "name": "Chess Club",
+      "description": "details of a club",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "contact",
+          "name": "Contact",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Location",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "website",
+          "name": "Website",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "quickIntro",
+          "name": "Quick Intro",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "images",
+          "name": "images",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Asset"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "contact",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T11:26:22.807Z",
+        "updatedAt": "2025-08-15T11:26:23.243Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-15T11:26:23.243Z",
+        "firstPublishedAt": "2025-08-15T11:26:23.243Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/contact"
+      },
+      "displayField": "name",
+      "name": "Contact",
+      "description": "Details of a contact of a chess club",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "email",
+          "name": "Email",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "phone",
+          "name": "Phone",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "champion",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T12:21:56.603Z",
+        "updatedAt": "2025-08-15T12:21:57.242Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-15T12:21:57.242Z",
+        "firstPublishedAt": "2025-08-15T12:21:57.242Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/champion"
+      },
+      "displayField": "name",
+      "name": "Champion",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "year",
+          "name": "year",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "division",
+          "name": "division",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "championPage",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T12:24:10.753Z",
+        "updatedAt": "2025-08-15T12:29:04.847Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-15T12:29:04.847Z",
+        "firstPublishedAt": "2025-08-15T12:24:11.351Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/championPage"
+      },
+      "displayField": "title",
+      "name": "Champion Page",
+      "description": "To create content of championship pages",
+      "fields": [
+        {
+          "id": "slug",
+          "name": "slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "champions",
+          "name": "champions",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "image",
+          "name": "image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "event",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T13:22:19.453Z",
+        "updatedAt": "2025-08-16T06:48:15.201Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-16T06:48:15.201Z",
+        "firstPublishedAt": "2025-08-15T13:22:20.053Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/event"
+      },
+      "displayField": "name",
+      "name": "Event",
+      "description": "The upcomming event",
+      "fields": [
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "datetime",
+          "name": "datetime",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "location",
+          "name": "location",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "contact",
+          "name": "contact",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "summary",
+          "name": "Summary",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "person",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T13:24:15.308Z",
+        "updatedAt": "2025-08-15T13:24:15.919Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-15T13:24:15.919Z",
+        "firstPublishedAt": "2025-08-15T13:24:15.919Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/person"
+      },
+      "displayField": "name",
+      "name": "Person",
+      "description": "to hold person information",
+      "fields": [
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "phone",
+          "name": "phone",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "email",
+          "name": "email",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "jobTitle",
+          "name": "Job Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "linkedin",
+          "name": "linkedin",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "facebook",
+          "name": "facebook",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "eventList",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T13:27:38.902Z",
+        "updatedAt": "2025-08-16T09:28:37.694Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-16T09:28:37.694Z",
+        "firstPublishedAt": "2025-08-15T13:27:39.529Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/eventList"
+      },
+      "displayField": "name",
+      "name": "Event List",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "events",
+          "name": "events",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "event"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "clubPage",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T13:40:50.678Z",
+        "updatedAt": "2025-08-15T13:40:51.286Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-15T13:40:51.286Z",
+        "firstPublishedAt": "2025-08-15T13:40:51.286Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/clubPage"
+      },
+      "displayField": "title",
+      "name": "Club Page",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "promotedClub",
+          "name": "Promoted Club",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "clubDetail"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "clubs",
+          "name": "Clubs",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "clubDetail"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "comiteeMember",
+        "type": "ContentType",
+        "createdAt": "2025-08-15T13:55:40.260Z",
+        "updatedAt": "2025-08-15T13:56:21.224Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-15T13:56:21.224Z",
+        "firstPublishedAt": "2025-08-15T13:55:40.891Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/comiteeMember"
+      },
+      "displayField": "role",
+      "name": "Comitee Member",
+      "description": "",
+      "fields": [
+        {
+          "id": "role",
+          "name": "Role",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "about",
+          "name": "About",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "personal",
+          "name": "Personal",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "person"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "siteConfiguration",
+        "type": "ContentType",
+        "createdAt": "2025-08-16T02:15:19.109Z",
+        "updatedAt": "2025-08-16T02:33:32.735Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-16T02:33:32.735Z",
+        "firstPublishedAt": "2025-08-16T02:15:19.754Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/siteConfiguration"
+      },
+      "displayField": "name",
+      "name": "SiteConfiguration",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "values",
+          "name": "Values",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "announcement",
+        "type": "ContentType",
+        "createdAt": "2025-08-16T03:26:45.799Z",
+        "updatedAt": "2025-08-16T03:26:46.483Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-16T03:26:46.483Z",
+        "firstPublishedAt": "2025-08-16T03:26:46.483Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/announcement"
+      },
+      "displayField": "title",
+      "name": "Announcement",
+      "description": "Simple data to push home page popup",
+      "fields": [
+        {
+          "id": "title",
+          "name": "title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "summary",
+          "name": "summary",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "reference",
+          "name": "Reference",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "url",
+          "name": "Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "items",
+          "name": "items",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "homePage",
+        "type": "ContentType",
+        "createdAt": "2025-08-16T03:49:02.701Z",
+        "updatedAt": "2025-08-16T09:25:32.015Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2025-08-16T09:25:32.015Z",
+        "firstPublishedAt": "2025-08-16T03:49:08.917Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/homePage"
+      },
+      "displayField": "name",
+      "name": "Home Page",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metadata",
+          "name": "Metadata",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "pageMetadata"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "announcement",
+          "name": "Announcement",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "announcement"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "heroBanner",
+          "name": "Hero Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "promotionBanner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "scheduledEvents",
+          "name": "Scheduled Events",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "eventList"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "pageMetadata",
+        "type": "ContentType",
+        "createdAt": "2025-08-16T04:46:57.514Z",
+        "updatedAt": "2025-08-16T06:22:27.872Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-16T06:22:27.872Z",
+        "firstPublishedAt": "2025-08-16T04:46:58.138Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/pageMetadata"
+      },
+      "displayField": "pageTitle",
+      "name": "Page Metadata",
+      "description": "Create me the Page Metadata content type that capture all requires information for generate open graph",
+      "fields": [
+        {
+          "id": "pageTitle",
+          "name": "Page Title",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageDescription",
+          "name": "Page Description",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset and inline entry nodes are allowed"
+            },
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code"
+              ],
+              "message": "Only bold, italic, underline and code marks are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageType",
+          "name": "Page Type",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageUrl",
+          "name": "Page URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "imageUrl",
+          "name": "Image URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "imageAltText",
+          "name": "Image Alt Text",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "keywords",
+          "name": "Keywords",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 12,
+        "createdAt": "2025-08-15T10:40:01.676Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T05:31:17.571Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "promotionBanner",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "subTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "summary",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "actionUrl",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "event",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 16,
+        "createdAt": "2025-08-15T11:22:35.465Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T13:38:06.588Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "clubDetail",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "contact",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "locationEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "website",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "quickIntro",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "content",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "images",
+          "widgetId": "assetLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-15T11:26:23.397Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T11:26:24.236Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "contact",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "email",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "phone",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-15T12:21:57.326Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T12:21:58.213Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "champion",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "year",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "division",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2025-08-15T12:24:11.474Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T12:29:05.793Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "championPage",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "introduction",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "champions",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 8,
+        "createdAt": "2025-08-15T13:22:20.182Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T06:48:16.218Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "event",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "datetime",
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "contact",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "summary",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-15T13:24:16.041Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T13:24:16.946Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "person",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "phone",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "email",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "jobTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "linkedin",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "facebook",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 8,
+        "createdAt": "2025-08-15T13:27:39.654Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T09:28:38.491Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "eventList",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "events",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-15T13:40:51.413Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T13:40:52.376Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "clubPage",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "promotedClub",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "clubs",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2025-08-15T13:55:41.011Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-15T13:56:22.094Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "comiteeMember",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "role",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "about",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "personal",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2025-08-16T02:15:19.840Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T02:33:33.597Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "siteConfiguration",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "value",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "values",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-16T03:26:46.712Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T03:26:47.982Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "announcement",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "summary",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "reference",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "items",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 16,
+        "createdAt": "2025-08-16T03:49:08.997Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T09:25:32.847Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "homePage",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metadata",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "announcement",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "heroBanner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "scheduledEvents",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2025-08-16T04:46:58.266Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-16T06:22:28.678Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "pageMetadata",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "pageTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageDescription",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageType",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageUrl",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "imageUrl",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "imageAltText",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "keywords",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "1S76nrGoZDJJV9kM2iN79y",
+        "type": "Entry",
+        "createdAt": "2025-08-15T12:24:25.116Z",
+        "updatedAt": "2025-08-15T12:30:37.203Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-15T12:30:37.203Z",
+        "firstPublishedAt": "2025-08-15T12:30:37.203Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "championPage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/1S76nrGoZDJJV9kM2iN79y"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "victorian-champions"
+        },
+        "title": {
+          "en-US": "Victorian Champions"
+        },
+        "introduction": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "This page chronicles the rich history of chess in Victoria by showcasing every titleholder of the Victorian Chess Championship. From its early pioneers to modern-day masters, each champion listed here has left a lasting mark on the state’s chess legacy. Explore the names, years, and remarkable achievements that together tell the story of Victorian chess excellence.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "champions": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "47PEX9Vlh51h6jnKPx90q3"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "ksZsGNGABeqEGovoD5zPn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "47PEX9Vlh51h6jnKPx90q3",
+        "type": "Entry",
+        "createdAt": "2025-08-15T12:26:09.383Z",
+        "updatedAt": "2025-08-15T12:26:56.303Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-15T12:26:56.303Z",
+        "firstPublishedAt": "2025-08-15T12:26:56.303Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "champion"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/47PEX9Vlh51h6jnKPx90q3"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Chris Wallis"
+        },
+        "year": {
+          "en-US": 2019
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "ksZsGNGABeqEGovoD5zPn",
+        "type": "Entry",
+        "createdAt": "2025-08-15T12:30:00.281Z",
+        "updatedAt": "2025-08-15T12:30:09.151Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-15T12:30:09.151Z",
+        "firstPublishedAt": "2025-08-15T12:30:09.151Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "champion"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/ksZsGNGABeqEGovoD5zPn"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Nemeth, John"
+        },
+        "year": {
+          "en-US": 2018
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6H182EYRkqC2zfF6WdrBzD",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:13:10.528Z",
+        "updatedAt": "2025-08-15T13:16:28.097Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-15T13:16:28.097Z",
+        "firstPublishedAt": "2025-08-15T13:16:28.097Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "championPage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6H182EYRkqC2zfF6WdrBzD"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "australian-master"
+        },
+        "title": {
+          "en-US": "Australasian Masters Champions"
+        },
+        "introduction": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "This page celebrates the champions of the prestigious Australasian Masters tournament, a pinnacle event in the region’s chess calendar. From its earliest contests to recent triumphs, these champions represent the highest level of skill and dedication in Australasian chess. Discover the players, years, and memorable victories that define this remarkable tradition.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "champions": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "Defww2vDuHZ25iWt9LEWh"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "60XDOmk0oxE5n01Xcn04w5"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2UaZm83j85KI37SprksCFh"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "Defww2vDuHZ25iWt9LEWh",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:14:40.457Z",
+        "updatedAt": "2025-08-15T13:15:11.709Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-15T13:15:11.709Z",
+        "firstPublishedAt": "2025-08-15T13:15:11.709Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "champion"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/Defww2vDuHZ25iWt9LEWh"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Temur Kuybokarov (GM Norm Event)"
+        },
+        "year": {
+          "en-US": 2019
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "60XDOmk0oxE5n01Xcn04w5",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:15:32.203Z",
+        "updatedAt": "2025-08-15T13:15:41.105Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-15T13:15:41.105Z",
+        "firstPublishedAt": "2025-08-15T13:15:41.105Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "champion"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/60XDOmk0oxE5n01Xcn04w5"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Anton Smirnov (GM Norm Event)"
+        },
+        "year": {
+          "en-US": 2018
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2UaZm83j85KI37SprksCFh",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:15:55.317Z",
+        "updatedAt": "2025-08-15T13:16:01.639Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-15T13:16:01.639Z",
+        "firstPublishedAt": "2025-08-15T13:16:01.639Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "champion"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2UaZm83j85KI37SprksCFh"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Adien Demuth & Vasily Papin (GM Norm Event)"
+        },
+        "year": {
+          "en-US": 2017
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3Qb4UMmBVeHLkTGZkQatDr",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:27:57.133Z",
+        "updatedAt": "2025-08-15T13:35:07.426Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-15T13:35:07.426Z",
+        "firstPublishedAt": "2025-08-15T13:35:07.426Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3Qb4UMmBVeHLkTGZkQatDr"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Victorian Juniors"
+        },
+        "slug": {
+          "en-US": "victorian-juniors-event"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2BglGXwy9R4uRqYErylzER",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:29:24.445Z",
+        "updatedAt": "2025-08-15T13:31:35.732Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-08-15T13:31:35.732Z",
+        "firstPublishedAt": "2025-08-15T13:31:35.732Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "event"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2BglGXwy9R4uRqYErylzER"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 Victorian Junior Rapid Championship"
+        },
+        "datetime": {
+          "en-US": "2025-09-23T13:00+10:00"
+        },
+        "location": {
+          "en-US": "Glen Waverley Secondary College School"
+        },
+        "url": {
+          "en-US": "https://www.chesschat.org/showthread.php?19924-2025-Victorian-Junior-Rapid-Championship"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2Hz3X2W42ow7sF8UCYYJct",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:41:20.762Z",
+        "updatedAt": "2025-08-15T13:44:28.687Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-15T13:44:28.687Z",
+        "firstPublishedAt": "2025-08-15T13:44:28.687Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2Hz3X2W42ow7sF8UCYYJct"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Melbourne Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "2dQywHs6YMCJ0AtgwRt8SB"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.9777,
+            "lat": -37.7952
+          }
+        },
+        "website": {
+          "en-US": "https://www.melbournechessclub.org/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "The ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "Melbourne Chess Club (MCC)",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", founded in ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "1866",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", is one of Australia’s—and the Southern Hemisphere’s—oldest continuously operating chess clubs. Located at ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "66 Leicester Street, Fitzroy",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", MCC is a volunteer-run, not-for-profit organisation dedicated to promoting chess for players of all ages and skill levels. The club reinvests all its revenue into improving facilities, running events, and nurturing its vibrant chess community.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Melbourne Chess Club (MCC)",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", founded in ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "1866",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", is one of Australia’s—and the Southern Hemisphere’s—oldest continuously operating chess clubs. Located at ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "66 Leicester Street, Fitzroy",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", MCC is a volunteer-run, not-for-profit organisation dedicated to promoting chess for players of all ages and skill levels. The club reinvests all its revenue into improving facilities, running events, and nurturing its vibrant chess community.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "MCC’s long history is documented in two volumes by former club president Justice Bob Brooking: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      }
+                    ],
+                    "value": "Care for a Game?",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " (covering up to 1977) and ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      }
+                    ],
+                    "value": "Play On!",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " (1978–2009). Over the years, the club has hosted countless tournaments, lectures, and exhibitions, celebrating milestones such as its ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "150th anniversary in 2016",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " with special events and a skittles tournament. Many notable players have graced its boards, including multiple-time champion Charles G. M. Watson, Australian champion in 1922 and 1931.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club’s calendar is filled with regular events catering to different levels and preferences. ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Wednesday Social Night",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " offers a friendly, informal setting for anyone to drop in and play, while ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Thursday Masterclasses",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "—led by experienced coaches like Julia Ryjanova—help players improve their game. Juniors benefit from ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Saturday Morning Coaching",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", and competitive spirits can join the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Saturday Afternoon Allegro",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", a fast-paced Swiss tournament. While the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Tuesday Night Blitz",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " is on hold for now, it is expected to return in 2025.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "MCC is also known for hosting major tournaments, many of which are ACF- and FIDE-rated. These include the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "City of Melbourne Open",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Victorian Open",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Greg Hjorth Weekender",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", and the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Melbourne International Open",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "—the latter scheduled for April 2025 and set to attract strong players nationally and internationally. Seasonal events like the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Spring Festival of Chess",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " combine classical, rapid, and blitz formats, often with substantial prize pools.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Membership provides significant benefits: discounted tournament fees, free social night entry, voting rights (for members over 18), and eligibility for the Club Championships. There are options for individuals, families, and remote members, but visitors are also welcome—first visits are free, and casual attendance is possible for a small fee.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The atmosphere at MCC is widely praised for being ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "welcoming and inclusive",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ". Players range from complete beginners to seasoned masters, and juniors are particularly encouraged to participate. Social play is relaxed and enjoyable, while competitive events offer a challenging environment for those seeking to test their skills. As one club regular put it, the blend of friendly camaraderie and fierce competition makes MCC “the heart of Melbourne’s chess scene.”",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "With its rich legacy, diverse activities, and commitment to fostering a love for chess, the Melbourne Chess Club remains a cultural and competitive hub for chess enthusiasts. Whether you’re looking to learn, compete, or simply enjoy the game, MCC offers a place where chess thrives year-round in a historic and community-focused setting.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2dQywHs6YMCJ0AtgwRt8SB",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:41:39.224Z",
+        "updatedAt": "2025-08-15T13:42:05.521Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-15T13:42:05.521Z",
+        "firstPublishedAt": "2025-08-15T13:41:50.649Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2dQywHs6YMCJ0AtgwRt8SB"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Thai Ly"
+        },
+        "email": {
+          "en-US": "melbournechessclub@gmail.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4PI5rsdcnC2nXLXfsMv338",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:45:07.075Z",
+        "updatedAt": "2025-08-15T13:45:23.729Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-15T13:45:23.729Z",
+        "firstPublishedAt": "2025-08-15T13:45:23.729Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4PI5rsdcnC2nXLXfsMv338"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Boxhill Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7qCwNNziuEEG8Neip8gTpN",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:45:33.793Z",
+        "updatedAt": "2025-08-15T13:45:42.777Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-15T13:45:42.777Z",
+        "firstPublishedAt": "2025-08-15T13:45:42.777Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7qCwNNziuEEG8Neip8gTpN"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Hobsons Bay Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2cVkvkcxZ1xWVtIvUDT07H",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:45:55.127Z",
+        "updatedAt": "2025-08-15T13:46:11.604Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-15T13:46:11.604Z",
+        "firstPublishedAt": "2025-08-15T13:46:11.604Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2cVkvkcxZ1xWVtIvUDT07H"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Ballarat chess club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4l3VUarH0IudCmmMP6xyWh",
+        "type": "Entry",
+        "createdAt": "2025-08-16T02:33:43.506Z",
+        "updatedAt": "2025-08-16T02:40:55.572Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-16T02:40:55.572Z",
+        "firstPublishedAt": "2025-08-16T02:34:20.356Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "siteConfiguration"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4l3VUarH0IudCmmMP6xyWh"
+      },
+      "fields": {
+        "name": {
+          "en-US": "facebookUrl"
+        },
+        "value": {
+          "en-US": "https://www.facebook.com/ChessVictoria/"
+        },
+        "description": {
+          "en-US": "Link to CV Facebook"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5y6diXAcCA34k6fk4MYSCZ",
+        "type": "Entry",
+        "createdAt": "2025-08-16T03:26:58.249Z",
+        "updatedAt": "2025-08-16T04:29:48.008Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2025-08-16T04:29:48.008Z",
+        "firstPublishedAt": "2025-08-16T03:28:51.028Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "announcement"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5y6diXAcCA34k6fk4MYSCZ"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Chess Victioria  redesign on the way"
+        },
+        "summary": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Join our community and discover the world of chess.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "url": {
+          "en-US": "https://chess-victoria.vercel.app/"
+        },
+        "items": {
+          "en-US": [
+            "Elevate User Experience Expertise",
+            "Create better public information access",
+            "Connect with a vibrant community of chess enthusiasts"
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "17nf1Sgooqnn1Zkzdsem12",
+        "type": "Entry",
+        "createdAt": "2025-08-16T03:51:04.242Z",
+        "updatedAt": "2025-08-16T09:26:07.393Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-08-16T05:46:13.321Z",
+        "firstPublishedAt": "2025-08-16T03:51:38.637Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "changed"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "homePage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/17nf1Sgooqnn1Zkzdsem12"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Home Page"
+        },
+        "metadata": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7mHkMbHktjwyvWFjeY4Xlb"
+            }
+          }
+        },
+        "announcement": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5y6diXAcCA34k6fk4MYSCZ"
+            }
+          }
+        },
+        "heroBanner": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "10DmZBfH7zDre9XBWAg0YH"
+            }
+          }
+        },
+        "scheduledEvents": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "27zt0ni06fJR808JeIXVcx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "10DmZBfH7zDre9XBWAg0YH",
+        "type": "Entry",
+        "createdAt": "2025-08-16T05:29:33.371Z",
+        "updatedAt": "2025-08-16T06:45:51.377Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 16,
+        "publishedAt": "2025-08-16T06:45:51.377Z",
+        "firstPublishedAt": "2025-08-16T05:46:03.374Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 17,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "promotionBanner"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/10DmZBfH7zDre9XBWAg0YH"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Empowering the Future of Chess in Victoria"
+        },
+        "subTitle": {
+          "en-US": "Chess inspiring growth, inclusion, and excellence"
+        },
+        "summary": {
+          "en-US": "Chess Victoria’s mission is to grow and support chess across all ages and abilities, fostering community, inclusion, and excellence."
+        },
+        "event": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4nzeVYkTej6UaTaKadYXCn"
+            }
+          }
+        },
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6cCez79178bL2w7QZ89LNM"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7mHkMbHktjwyvWFjeY4Xlb",
+        "type": "Entry",
+        "createdAt": "2025-08-16T06:19:20.337Z",
+        "updatedAt": "2025-08-16T06:23:47.003Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-08-16T06:23:47.003Z",
+        "firstPublishedAt": "2025-08-16T06:21:50.593Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "pageMetadata"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7mHkMbHktjwyvWFjeY4Xlb"
+      },
+      "fields": {
+        "pageTitle": {
+          "en-US": "Chess Victoria | Promoting Chess Growth, Inclusion & Excellence"
+        },
+        "pageDescription": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Discover Chess Victoria, the leading body promoting chess across Victoria. We support players of all ages and abilities, host tournaments, foster community, and inspire excellence through the game of chess.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "imageAltText": {
+          "en-US": "Chess Victoria\n\nChess tournaments Victoria\n\nChess clubs Victoria\n\nLearn chess Victoria\n\nJunior chess Victoria\n\nChess community Victoria\n\nCompetitive chess Victoria\n\nChess events Victoria"
+        },
+        "keywords": {
+          "en-US": [
+            "Chess Victoria",
+            "Chess tournaments Victoria",
+            "Chess clubs Victoria",
+            "Junior chess Victoria",
+            "Learn chess Victoria",
+            "Chess community Victoria",
+            "Competitive chess Victoria",
+            "Chess events Victoria"
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4nzeVYkTej6UaTaKadYXCn",
+        "type": "Entry",
+        "createdAt": "2025-08-16T06:43:03.797Z",
+        "updatedAt": "2025-08-16T06:54:30.295Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2025-08-16T06:54:30.295Z",
+        "firstPublishedAt": "2025-08-16T06:45:46.651Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "event"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4nzeVYkTej6UaTaKadYXCn"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 Victorian Championship - R3"
+        },
+        "datetime": {
+          "en-US": "2025-08-16T19:30+10:00"
+        },
+        "location": {
+          "en-US": "Box Hill Chess Club (21A Electra Avenue, Ashwood)"
+        },
+        "url": {
+          "en-US": "https://www.chesschat.org/showthread.php?19868-2025-Victorian-Championship"
+        },
+        "contact": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2WEcogMB9Nre7GzADNNQDW"
+              }
+            }
+          ]
+        },
+        "description": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Premier Division",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " – Round Robin; ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Reserves Division",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " - Swiss",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "summary": {
+          "en-US": "Premier Division – Round Robin; Reserves Division - Swiss"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2WEcogMB9Nre7GzADNNQDW",
+        "type": "Entry",
+        "createdAt": "2025-08-16T06:45:01.923Z",
+        "updatedAt": "2025-08-16T06:45:38.289Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-16T06:45:38.289Z",
+        "firstPublishedAt": "2025-08-16T06:45:38.289Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "contact"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2WEcogMB9Nre7GzADNNQDW"
+      },
+      "fields": {
+        "name": {
+          "en-US": "IA Dr Peter Tsai"
+        },
+        "title": {
+          "en-US": "IA Dr Peter Tsai"
+        },
+        "email": {
+          "en-US": "chess@t-s-a-i.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "27zt0ni06fJR808JeIXVcx",
+        "type": "Entry",
+        "createdAt": "2025-08-16T09:26:01.933Z",
+        "updatedAt": "2025-08-16T09:29:50.234Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-16T09:29:50.234Z",
+        "firstPublishedAt": "2025-08-16T09:27:38.052Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/27zt0ni06fJR808JeIXVcx"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Our Events Schedule Plan"
+        },
+        "slug": {
+          "en-US": "our-events-scheduled"
+        },
+        "events": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2BglGXwy9R4uRqYErylzER"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4nzeVYkTej6UaTaKadYXCn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4MZVdEj6xVoLvUkTzaCW4V",
+        "type": "Asset",
+        "createdAt": "2025-08-16T05:42:45.480Z",
+        "updatedAt": "2025-08-16T05:45:55.076Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-16T05:45:55.076Z",
+        "firstPublishedAt": "2025-08-16T05:43:11.948Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/assets/4MZVdEj6xVoLvUkTzaCW4V"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Generic Mission Image"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/j5mfd0rflg30/4MZVdEj6xVoLvUkTzaCW4V/c1748c4e0be4a036e9b5f91bac01d4dd/Gemini_Generated_Image_u6kbsgu6kbsgu6kb__1_.png",
+            "details": {
+              "size": 507711,
+              "image": {
+                "width": 1000,
+                "height": 1000
+              }
+            },
+            "fileName": "Gemini_Generated_Image_u6kbsgu6kbsgu6kb (1).png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6cCez79178bL2w7QZ89LNM",
+        "type": "Asset",
+        "createdAt": "2025-08-16T06:00:15.558Z",
+        "updatedAt": "2025-08-16T06:00:44.590Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-16T06:00:44.590Z",
+        "firstPublishedAt": "2025-08-16T06:00:44.590Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/assets/6cCez79178bL2w7QZ89LNM"
+      },
+      "fields": {
+        "title": {
+          "en-US": "New Growth Png image"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/j5mfd0rflg30/6cCez79178bL2w7QZ89LNM/7284be7bd9c390030cf643af22ae7598/Gemini_Generated_Image_u6kbsgu6kbsgu6kb__1_-removebg-preview.png",
+            "details": {
+              "size": 190540,
+              "image": {
+                "width": 500,
+                "height": 500
+              }
+            },
+            "fileName": "Gemini_Generated_Image_u6kbsgu6kbsgu6kb__1_-removebg-preview.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "2rF0ARh4ISD0IuPYYHn0uv",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "5650ce84-838c-4a41-b71e-ce30ba202a64"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "createdAt": "2025-08-15T10:27:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedAt": "2025-08-15T10:27:05Z"
+      }
+    }
+  ],
+  "webhooks": [
+  ],
+  "roles": [
+    {
+      "name": "Editor",
+      "description": "Allows editing, publishing and archiving of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "2scg09Iyk4Ob9eFuoXJNCr",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "createdAt": "2025-08-15T10:27:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedAt": "2025-08-15T10:27:05Z"
+      }
+    }
+  ]
+}

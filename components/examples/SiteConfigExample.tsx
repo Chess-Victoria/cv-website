@@ -38,12 +38,12 @@ export default function SiteConfigExample() {
 
       <div style={{ marginBottom: '20px' }}>
         <h3>Social Media</h3>
-        {socialMedia ? (
+        {socialMedia && typeof socialMedia === 'object' ? (
           <ul>
-            {socialMedia.facebook && <li>Facebook: {socialMedia.facebook}</li>}
-            {socialMedia.twitter && <li>Twitter: {socialMedia.twitter}</li>}
-            {socialMedia.instagram && <li>Instagram: {socialMedia.instagram}</li>}
-            {socialMedia.linkedin && <li>LinkedIn: {socialMedia.linkedin}</li>}
+            {(socialMedia as any).facebook && <li>Facebook: {(socialMedia as any).facebook}</li>}
+            {(socialMedia as any).twitter && <li>Twitter: {(socialMedia as any).twitter}</li>}
+            {(socialMedia as any).instagram && <li>Instagram: {(socialMedia as any).instagram}</li>}
+            {(socialMedia as any).linkedin && <li>LinkedIn: {(socialMedia as any).linkedin}</li>}
           </ul>
         ) : (
           <p>No social media configured</p>
@@ -52,9 +52,9 @@ export default function SiteConfigExample() {
 
       <div style={{ marginBottom: '20px' }}>
         <h3>Header Links</h3>
-        {headerLinks.length > 0 ? (
+        {Array.isArray(headerLinks) && headerLinks.length > 0 ? (
           <ul>
-            {headerLinks.map((link, index) => (
+            {(headerLinks as any[]).map((link, index) => (
               <li key={index}>
                 <a href={link.url}>{link.title}</a>
               </li>
@@ -67,9 +67,9 @@ export default function SiteConfigExample() {
 
       <div style={{ marginBottom: '20px' }}>
         <h3>Footer Links</h3>
-        {footerLinks.length > 0 ? (
+        {Array.isArray(footerLinks) && footerLinks.length > 0 ? (
           <ul>
-            {footerLinks.map((link, index) => (
+            {(footerLinks as any[]).map((link, index) => (
               <li key={index}>
                 <a href={link.url}>{link.title}</a>
               </li>

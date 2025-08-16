@@ -39,7 +39,7 @@ export default function EventSingle() {
 										<div className="space32" />
 										<h3>Elevate User Experience Expertise</h3>
 										<div className="space16" />
-										<p>In today's digital landscape, exceptional user experience (UX) is the key to creating products and services that truly resonate with people. At Eventify, dive deep into the world of UX with expert-led sessions that explore and cutting-edge techniques, research-driven insights, and innovative tools.</p>
+										<p>In today's digital landscape, exceptional user experience (UX) is the key to creating products and services that truly resonate with people. At Chess Victoria, dive deep into the world of UX with expert-led sessions that explore and cutting-edge techniques, research-driven insights, and innovative tools.</p>
 										<div className="space40" />
 										<h4>Event Speakers</h4>
 										<div className="row">

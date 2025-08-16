@@ -31,7 +31,7 @@ export default function Section3() {
 												your professional network.</p>
 											<div className="space32" />
 											<div className="btn-area1">
-												<Link href="/event" className="vl-btn10">See Eventify <img src="/assets/img/icons/arrow2.svg" alt="" /></Link>
+												<Link href="/event" className="vl-btn10">See Chess Victoria <img src="/assets/img/icons/arrow2.svg" alt="" /></Link>
 											</div>
 										</div>
 									</div>
