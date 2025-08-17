@@ -17,11 +17,6 @@ export default async function Home() {
 	// Load homepage data from Contentful
 	const homePageData = await getHomePageData()
 	
-	console.log('=== HOMEPAGE COMPONENT DEBUG ===');
-	console.log('homePageData.eventList:', homePageData.eventList);
-	console.log('homePageData.eventList exists:', !!homePageData.eventList);
-	console.log('=== END HOMEPAGE COMPONENT DEBUG ===');
-
 	return (
 		<>
 			<Layout headerStyle={1} footerStyle={1}>

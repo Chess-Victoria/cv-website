@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    distDir: process.env.NODE_ENV === 'production' ? 'build' : '.next',
+    distDir: process.env.NEXT_RUN_LOCAL === 'true' ? '.next-local' : '.next',
 
 };
 

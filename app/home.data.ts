@@ -3,7 +3,7 @@ import { mapAnnouncementToPopupContent } from '@/lib/utils/announcement-mapper';
 import { mapPromotionBannerToHeroBannerData, fallbackHeroBannerData } from '@/lib/utils/hero-banner-mapper';
 import { mapEventListToEventListData } from '@/lib/utils/event-list-mapper';
 import { mapCommitteeListToCommitteeListData } from '@/lib/utils/committee-list-mapper';
-import { mapChessClubListToReferenceListData } from '@/lib/utils/chess-club-mapper';
+
 import { PopupContent } from '@/lib/types/popup';
 import { Announcement } from '@/lib/types/announcement';
 import { PromotionBanner } from '@/lib/types/promotion-banner';
@@ -11,7 +11,7 @@ import { EventList } from '@/lib/types/event-list';
 import { EventListData } from '@/lib/types/event-list';
 import { CommitteeList } from '@/lib/types/committee-list';
 import { CommitteeListData } from '@/lib/types/committee-list';
-import { ReferenceList } from '@/lib/types/chess-club';
+import { ReferenceList } from '@/lib/types/reference-list';
 import { ReferenceListData } from '@/lib/types/reference-list';
 import { HeroBannerData } from '@/components/sections/home1/HeroBanner';
 
@@ -162,7 +162,25 @@ export async function getHomePageData(): Promise<HomePageData> {
     console.log('=== END FEATURED CLUBS DEBUG ===');
     
     if (homePageFields.featuredClub?.fields) {
-      featuredClubs = mapChessClubListToReferenceListData(homePageFields.featuredClub.fields);
+      // For now, use fallback data until we implement proper mapping
+      featuredClubs = {
+        title: "Featured Chess Clubs",
+        subtitle: "The most popular chess clubs in Victoria",
+        items: [
+          {
+            id: "club-1",
+            name: "Melbourne Chess Club",
+            shortName: "MCC",
+            image: {
+              src: "/assets/img/all-images/team/team-img1.png",
+              alt: "Melbourne Chess Club"
+            },
+            title: "Historic Club",
+            description: "Established 1866",
+            url: "/clubs/mcc"
+          }
+        ]
+      };
     }
 
     return {

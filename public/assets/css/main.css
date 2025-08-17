@@ -24142,3 +24142,40 @@ html {
 /*============= MEMORY CSS AREA ===============*/
 
 /*# sourceMappingURL=main.css.map */
+
+/*============= CLUB CONTENT CSS AREA ===============*/
+.club-content h1, .club-content h2, .club-content h3, .club-content h4, .club-content h5, .club-content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.club-content p {
+  margin-bottom: 1rem;
+}
+
+.club-content ul, .club-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.club-content li {
+  margin-bottom: 0.5rem;
+}
+
+.club-content a {
+  color: #A02BBD;
+  text-decoration: none;
+}
+
+.club-content a:hover {
+  text-decoration: underline;
+}
+
+.club-content blockquote {
+  border-left: 4px solid #A02BBD;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}

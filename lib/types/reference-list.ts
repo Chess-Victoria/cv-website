@@ -19,6 +19,12 @@ export interface ReferenceItem {
   };
 }
 
+export interface ReferenceList {
+  title?: string;
+  subTitle?: string;
+  items?: ReferenceItem[];
+}
+
 export interface ReferenceListData {
   title: string;
   subtitle: string;

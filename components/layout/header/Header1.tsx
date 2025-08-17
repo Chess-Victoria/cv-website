@@ -180,9 +180,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/chess-clubs">Victoria Club <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/event">Melbourne Chess Club</Link></li>
-													<li><Link href="/event-schedule">Boxhill Chess Club</Link></li>
-													<li><Link href="/event-single">Hobsons Bay Chess Club</Link></li>
+													<li><Link href="/chess-clubs/mcc">Melbourne Chess Club</Link></li>
+													<li><Link href="/chess-clubs/bhcc">Boxhill Chess Club</Link></li>
+													<li><Link href="/chess-clubs/hbcc">Hobsons Bay Chess Club</Link></li>
 												</ul>
 											</li>
 
