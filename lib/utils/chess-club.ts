@@ -48,14 +48,14 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
     slug: club.fields.slug,
     name: club.fields.name,
     website: club.fields.website,
-    quickIntro: club.fields.quickIntro,
-    content: club.fields.content ? documentToReactComponents(club.fields.content) : null,
+    quickIntro: club.fields.quickIntro ? documentToReactComponents(club.fields.quickIntro) : undefined,
+    content: club.fields.content ? documentToReactComponents(club.fields.content) : undefined,
     location: club.fields.location ? {
       lat: club.fields.location.lat,
       lon: club.fields.location.lon
     } : undefined,
-    contact: null,
-    currentEvents: null,
+    contact: undefined,
+    currentEvents: undefined,
     images: []
   };
 
@@ -64,52 +64,70 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
     const contact = club.fields.contact as any;
     clubData.contact = {
       name: contact.fields.name || '',
-      phone: contact.fields.phone || '',
+      title: contact.fields.title || contact.fields.jobTitle || '',
       email: contact.fields.email || '',
       image: contact.fields.image ? {
         url: contact.fields.image.fields.file?.url || getContactImage(),
         alt: contact.fields.image.fields.description || contact.fields.name || 'Contact'
-      } : {
-        url: getContactImage(),
-        alt: contact.fields.name || 'Contact'
-      }
+      } : undefined
     };
   }
 
   // Map current events
-  if (club.fields.currentEvents && Array.isArray(club.fields.currentEvents)) {
+  if (club.fields.currentEvents && typeof club.fields.currentEvents === 'object' && 'fields' in club.fields.currentEvents) {
+    const eventsList = club.fields.currentEvents as any;
+    const events = eventsList.fields.events || [];
+    
     clubData.currentEvents = {
-      events: club.fields.currentEvents.map((eventRef: any) => {
+      title: eventsList.fields.name || '',
+      subtitle: eventsList.fields.slug || '',
+      events: events.map((eventRef: any) => {
         if (eventRef && typeof eventRef === 'object' && 'fields' in eventRef) {
           const event = eventRef as any;
           return {
             id: event.sys.id,
-            name: event.fields.name,
-            datetime: event.fields.datetime,
-            location: event.fields.location,
+            name: event.fields.name || '',
+            datetime: event.fields.datetime || new Date().toISOString(),
+            location: event.fields.location || '',
             url: event.fields.url,
-            contacts: event.fields.contact ? event.fields.contact.map((contactRef: any) => {
+            summary: event.fields.summary,
+            description: event.fields.description ? documentToReactComponents(event.fields.description) : undefined,
+            contact: event.fields.contact ? event.fields.contact.map((contactRef: any) => {
               if (contactRef && typeof contactRef === 'object' && 'fields' in contactRef) {
                 const contact = contactRef as any;
                 return {
                   name: contact.fields.name || '',
-                  phone: contact.fields.phone || '',
+                  title: contact.fields.title || contact.fields.jobTitle || '',
                   email: contact.fields.email || '',
                   image: contact.fields.image ? {
                     url: contact.fields.image.fields.file?.url || getContactImage(),
                     alt: contact.fields.image.fields.description || contact.fields.name || 'Contact'
-                  } : {
-                    url: getContactImage(),
-                    alt: contact.fields.name || 'Contact'
-                  }
+                  } : undefined
                 };
               }
               return null;
-            }).filter(Boolean) : []
+            }).filter(Boolean) : undefined
           };
         }
         return null;
-      }).filter(Boolean)
+      }).filter(Boolean) as Array<{
+        id: string;
+        name: string;
+        datetime: string;
+        location: string;
+        url?: string;
+        summary?: string;
+        description?: React.ReactNode;
+        contact?: Array<{
+          name: string;
+          title?: string;
+          email?: string;
+          image?: {
+            url: string;
+            alt?: string;
+          };
+        }>;
+      }>
     };
   }
 
@@ -119,12 +137,21 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
       if (imageRef && typeof imageRef === 'object' && 'fields' in imageRef) {
         const image = imageRef as any;
         return {
+          id: image.sys.id,
           url: image.fields.file?.url || getClubImage(),
-          alt: image.fields.description || club.fields.name || 'Club Image'
+          alt: image.fields.description || club.fields.name || 'Club Image',
+          width: image.fields.file?.details?.image?.width,
+          height: image.fields.file?.details?.image?.height
         };
       }
       return null;
-    }).filter(Boolean);
+    }).filter(Boolean) as Array<{
+      id: string;
+      url: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    }>;
   }
 
   return clubData;

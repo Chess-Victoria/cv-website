@@ -23,7 +23,7 @@ export interface FAQ {
 export interface FAQData {
   id: string;
   question: string;
-  answer: React.ReactNode;
+  answer: string;
   tags: string[];
 }
 

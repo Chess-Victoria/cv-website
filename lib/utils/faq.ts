@@ -1,7 +1,24 @@
 import { getEntries } from '@/lib/contentful';
 import { FAQ, FAQData, FAQListData } from '@/lib/types/faq';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { unstable_cache } from 'next/cache';
+
+/**
+ * Extract plain text from rich text content
+ */
+function extractTextFromRichText(content: any): string {
+  if (!content || !content.content) return '';
+  
+  const extractText = (items: any[]): string => {
+    return items.map(item => {
+      if (item.content) {
+        return extractText(item.content);
+      }
+      return item.value || '';
+    }).join(' ');
+  };
+  
+  return extractText(content.content);
+}
 
 /**
  * Fetch FAQ data from Contentful with caching
@@ -24,7 +41,7 @@ export const getFAQData = unstable_cache(
       const faqData: FAQData[] = faqs.map((faq) => ({
         id: faq.sys.id,
         question: faq.fields.question,
-        answer: documentToReactComponents(faq.fields.answer) || null,
+        answer: extractTextFromRichText(faq.fields.answer),
         tags: faq.metadata.tags.map(tag => tag.sys.id)
       }));
 

@@ -32,7 +32,7 @@ export default async function FAQPage() {
                       <div key={faq.id} className="faq-item">
                         <h3>{faq.question}</h3>
                         <div className="faq-answer">
-                          {faq.answer}
+                          <p>{faq.answer}</p>
                         </div>
                       </div>
                     ))}
