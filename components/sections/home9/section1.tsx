@@ -6,7 +6,7 @@ export default function Section1() {
 	return (
 		<>
 
-			<div className="hero9-slider-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg22.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}>
+			<div className="hero9-slider-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg22.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-7">

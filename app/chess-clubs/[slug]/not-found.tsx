@@ -6,7 +6,7 @@ export default function NotFound() {
     <Layout headerStyle={1} footerStyle={1}>
       <div>
         {/* Header Section */}
-        <div className="inner-page-header" style={{ backgroundImage: 'url(assets/img/bg/header-bg9.png)' }}>
+        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg9.png)' }}>
           <div className="container">
             <div className="row">
               <div className="col-lg-6 m-auto">

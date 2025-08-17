@@ -17,11 +17,13 @@ export const REVALIDATION_CONFIG = {
   FAQ: parseInt(process.env.REVALIDATE_FAQ || '3600'),
   CHAMPION: parseInt(process.env.REVALIDATE_CHAMPION || '3600'),
   CLUB_PAGE: parseInt(process.env.REVALIDATE_CLUB_PAGE || '3600'),
+  EVENT: parseInt(process.env.REVALIDATE_EVENT || '3600'),
 } as const;
 
 // Helper function to get revalidation time based on environment
 export function getRevalidationTime(contentType?: keyof typeof REVALIDATION_CONFIG): number {
   const isDevelopment = process.env.NODE_ENV === 'development';
+  
   if (isDevelopment) {
     return REVALIDATION_CONFIG.DEVELOPMENT;
   }

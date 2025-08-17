@@ -1121,7 +1121,7 @@
         "id": "eventList",
         "type": "ContentType",
         "createdAt": "2025-08-15T13:27:38.902Z",
-        "updatedAt": "2025-08-16T09:28:37.694Z",
+        "updatedAt": "2025-08-17T12:59:31.318Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1129,8 +1129,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2025-08-16T09:28:37.694Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T12:59:31.318Z",
         "firstPublishedAt": "2025-08-15T13:27:39.529Z",
         "createdBy": {
           "sys": {
@@ -1146,8 +1146,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 4,
-        "version": 8,
+        "publishedCounter": 5,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1204,6 +1204,17 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "description",
+          "name": "description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -3109,7 +3120,7 @@
             "linkType": "Space"
           }
         },
-        "version": 8,
+        "version": 10,
         "createdAt": "2025-08-15T13:27:39.654Z",
         "createdBy": {
           "sys": {
@@ -3118,7 +3129,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T09:28:38.491Z",
+        "updatedAt": "2025-08-17T12:59:32.340Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3155,6 +3166,11 @@
         {
           "fieldId": "events",
           "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         }
       ]
@@ -4583,7 +4599,7 @@
         "id": "60nw3IDwza8hO2tS1IAcP9",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:05.579Z",
-        "updatedAt": "2025-08-17T05:40:41.677Z",
+        "updatedAt": "2025-08-17T11:08:32.307Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4591,8 +4607,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 13,
-        "publishedAt": "2025-08-17T05:40:41.677Z",
+        "publishedVersion": 23,
+        "publishedAt": "2025-08-17T11:08:32.307Z",
         "firstPublishedAt": "2025-08-17T04:21:56.568Z",
         "createdBy": {
           "sys": {
@@ -4608,8 +4624,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 4,
-        "version": 14,
+        "publishedCounter": 9,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4691,6 +4707,55 @@
                 "linkType": "Entry",
                 "id": "44rBljlmavqUAWh0OvUs9k"
               }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4PI5rsdcnC2nXLXfsMv338"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2Hz3X2W42ow7sF8UCYYJct"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7qCwNNziuEEG8Neip8gTpN"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4yzpkiwzKGyw5EWERQNq5U"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4ld3z46t8KfLMoaXI40Oav"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1OhJTGpzauKEwbqJLN2bZH"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4Fc0D8n9H3SxzpBsfkxmwZ"
+              }
             }
           ]
         }
@@ -4714,7 +4779,7 @@
         "id": "2Hz3X2W42ow7sF8UCYYJct",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:20.762Z",
-        "updatedAt": "2025-08-16T23:26:35.159Z",
+        "updatedAt": "2025-08-17T11:51:02.587Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4722,8 +4787,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 11,
-        "publishedAt": "2025-08-16T23:26:35.159Z",
+        "publishedVersion": 25,
+        "publishedAt": "2025-08-17T11:51:02.587Z",
         "firstPublishedAt": "2025-08-15T13:44:28.687Z",
         "createdBy": {
           "sys": {
@@ -4739,8 +4804,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 12,
+        "publishedCounter": 10,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4971,348 +5036,7 @@
                     },
                     "marks": [
                     ],
-                    "value": "MCC’s long history is documented in two volumes by former club president Justice Bob Brooking: ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "italic"
-                      }
-                    ],
-                    "value": "Care for a Game?",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " (covering up to 1977) and ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "italic"
-                      }
-                    ],
-                    "value": "Play On!",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " (1978–2009). Over the years, the club has hosted countless tournaments, lectures, and exhibitions, celebrating milestones such as its ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "150th anniversary in 2016",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " with special events and a skittles tournament. Many notable players have graced its boards, including multiple-time champion Charles G. M. Watson, Australian champion in 1922 and 1931.",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "The club’s calendar is filled with regular events catering to different levels and preferences. ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Wednesday Social Night",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " offers a friendly, informal setting for anyone to drop in and play, while ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Thursday Masterclasses",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "—led by experienced coaches like Julia Ryjanova—help players improve their game. Juniors benefit from ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Saturday Morning Coaching",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", and competitive spirits can join the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Saturday Afternoon Allegro",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", a fast-paced Swiss tournament. While the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Tuesday Night Blitz",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " is on hold for now, it is expected to return in 2025.",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "MCC is also known for hosting major tournaments, many of which are ACF- and FIDE-rated. These include the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "City of Melbourne Open",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Victorian Open",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Greg Hjorth Weekender",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", and the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Melbourne International Open",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "—the latter scheduled for April 2025 and set to attract strong players nationally and internationally. Seasonal events like the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Spring Festival of Chess",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " combine classical, rapid, and blitz formats, often with substantial prize pools.",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "Membership provides significant benefits: discounted tournament fees, free social night entry, voting rights (for members over 18), and eligibility for the Club Championships. There are options for individuals, families, and remote members, but visitors are also welcome—first visits are free, and casual attendance is possible for a small fee.",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "The atmosphere at MCC is widely praised for being ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "welcoming and inclusive",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ". Players range from complete beginners to seasoned masters, and juniors are particularly encouraged to participate. Social play is relaxed and enjoyable, while competitive events offer a challenging environment for those seeking to test their skills. As one club regular put it, the blend of friendly camaraderie and fierce competition makes MCC “the heart of Melbourne’s chess scene.”",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": "With its rich legacy, diverse activities, and commitment to fostering a love for chess, the Melbourne Chess Club remains a cultural and competitive hub for chess enthusiasts. Whether you’re looking to learn, compete, or simply enjoy the game, MCC offers a place where chess thrives year-round in a historic and community-focused setting.",
+                    "value": "",
                     "nodeType": "text"
                   }
                 ],
@@ -5745,7 +5469,7 @@
         "id": "7qCwNNziuEEG8Neip8gTpN",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:33.793Z",
-        "updatedAt": "2025-08-16T22:22:27.767Z",
+        "updatedAt": "2025-08-17T09:45:21.822Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5753,8 +5477,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 4,
-        "publishedAt": "2025-08-16T22:22:27.767Z",
+        "publishedVersion": 16,
+        "publishedAt": "2025-08-17T09:45:21.822Z",
         "firstPublishedAt": "2025-08-15T13:45:42.777Z",
         "createdBy": {
           "sys": {
@@ -5770,8 +5494,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 5,
+        "publishedCounter": 5,
+        "version": 17,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5801,6 +5525,362 @@
         },
         "name": {
           "en-US": "Hobsons Bay Chess Club"
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.8312,
+            "lat": -37.8697
+          }
+        },
+        "website": {
+          "en-US": "https://hobsonsbaychess.com/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Hobsons Bay Chess Club, based in Altona in Western Melbourne, has been promoting chess since 1974 and prides itself on being ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "multicultural and community-oriented",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ". Members hail from diverse backgrounds—Australia, Greece, Germany, Italy, Hungary, the Philippines, Ukraine, Macedonia, China, Chile—and include players aged from 8 to over 60, demonstrating how chess has the power to unify individuals across age and heritage",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Nestled in the heart of Altona in Melbourne’s west, ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Hobsons Bay Chess Club",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " has been a hub for chess lovers since 1974. More than just a place to play, it is a ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "multicultural meeting ground",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", welcoming players of all ages and backgrounds—from eight-year-old juniors making their first moves to veterans in their 70s with decades of experience. Members represent a tapestry of cultures including Australian, Greek, Italian, German, Chinese, Filipino, Ukrainian, Macedonian, Chilean, and more. This diversity gives the club a truly international flavor while maintaining a distinctly local, friendly feel.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Every ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Tuesday night at the Salvation Army Hall in Queen Street, Altona",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", the club comes alive. The evening begins with juniors at 6:30 PM, where young players enjoy coaching and practice, before the main open session at 7:30 PM, where adults and seasoned players face off in rated games. The atmosphere is competitive but never intimidating—newcomers are encouraged, learning is celebrated, and laughter often accompanies the clicking of chess clocks.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club’s calendar is impressively full, offering ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "ACF- and FIDE-rated tournaments",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " that provide opportunities for official ratings. From classical games with 90+30 time controls to rapid and blitz events, there’s something for every style of play. Annual highlights include the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Best in the West Festival",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", one of Melbourne’s most exciting weekend chess events, alongside the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Purdy Cup, Koshnitsky Cup, Western Masters, Blitz Championships, and Junior Championships",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ". Beyond the tournaments, monthly ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Social Chess & Coaching nights",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " create a relaxed, café-like setting where players can explore ideas, ask questions, or just enjoy a friendly game without the pressure of competition.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "One of the club’s unique strengths lies in its commitment to accessibility and community engagement. Games are often ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "broadcast live online",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", allowing players, families, and enthusiasts to follow along from anywhere. Past games are archived for study, giving both juniors and experienced players a chance to learn from real matches played within their own club.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "What makes Hobsons Bay Chess Club stand out is its balance: it is both a ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "serious chess institution",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " that nurtures competitive excellence and a ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "social community hub",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " where friendships are formed around the board. For over 50 years, it has been proof that chess is more than a game—it is a bridge across cultures, generations, and personal journeys.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Whether you are a parent looking for a safe, structured activity for your child, a casual player seeking friendly matches, or a seasoned competitor chasing titles and ratings, Hobsons Bay Chess Club offers a place to grow, connect, and belong.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "currentEvents": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "57fXyCUP0jCXMPJlgWk3C4"
+            }
+          }
+        },
+        "schedules": {
+          "en-US": [
+            "Tuesday - 7:30 PM  - Open",
+            "Tuesday - 6:30 PM - Juniors"
+          ]
         }
       }
     },
@@ -5822,7 +5902,7 @@
         "id": "2cVkvkcxZ1xWVtIvUDT07H",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:55.127Z",
-        "updatedAt": "2025-08-16T22:22:14.261Z",
+        "updatedAt": "2025-08-17T11:03:33.158Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5830,8 +5910,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 5,
-        "publishedAt": "2025-08-16T22:22:14.261Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T11:03:33.158Z",
         "firstPublishedAt": "2025-08-15T13:46:11.604Z",
         "createdBy": {
           "sys": {
@@ -5847,8 +5927,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 6,
+        "publishedCounter": 3,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5878,6 +5958,24 @@
         },
         "name": {
           "en-US": "Ballarat chess club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "50KB5AgsqjmaDIrmuO04qJ"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 143.8584,
+            "lat": -37.5625
+          }
+        },
+        "website": {
+          "en-US": "https://www.ballaratchess.com/"
         }
       }
     },
@@ -6878,7 +6976,7 @@
         "id": "15Ks2Mo0eqwCt1JtuFYHoV",
         "type": "Entry",
         "createdAt": "2025-08-16T11:40:09.940Z",
-        "updatedAt": "2025-08-17T06:43:12.797Z",
+        "updatedAt": "2025-08-17T07:16:15.149Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6886,8 +6984,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2025-08-17T06:43:12.797Z",
+        "publishedVersion": 12,
+        "publishedAt": "2025-08-17T07:16:15.149Z",
         "firstPublishedAt": "2025-08-16T11:49:47.509Z",
         "createdBy": {
           "sys": {
@@ -6903,8 +7001,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 10,
+        "publishedCounter": 4,
+        "version": 13,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6937,1012 +7035,41 @@
         },
         "about": {
           "en-US": {
+            "nodeType": "document",
             "data": {
             },
             "content": [
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Player Overview",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "heading-4"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "FIDE Profile",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ": Walter Wolffs is an Australian male chess player born in 1998, with FIDE standard rating around 1561 as of August 2025 (Rapid: 1647; Blitz: 1632) ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://ratings.fide.com/profile/3213994?utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "International Chess Federation (FIDE)",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  },
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "National Ratings",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ": According to the Australian Chess Federation (ACF), his standard rating is approximately ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "1401",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": " as of June 2024, with a maximum recorded rating of 1450. He ranks around 144th in Victoria and 1292 nationally among active players ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://sachess.org.au/ratings/player?id=1667853&utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "Sachess",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  },
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "Chess.com Profile",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ": On Chess.com, Walter Wolffs (username possibly \"walter634\") has been active since at least 2020. His profile lists classical, rapid, and blitz ratings of ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "1554",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ", ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "1647",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ", and ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "1632",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": " respectively ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://www.chess.com/players/walter-wolffs?utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "Chess.com+1",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  }
-                ],
-                "nodeType": "unordered-list"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Arbiter & Tournament Organizer",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "heading-4"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "FIDE Arbiter",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ": Licensed as a Category D FIDE Arbiter since January 2024, appointed in 2023 ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://ratings.fide.com/profile/3213994/arbiter_organizer?utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "International Chess Federation (FIDE)+1",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  },
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "Chief Arbiter / Organizer for Local Events",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ": Walter Wolffs is frequently the Chief Arbiter or Chief Organizer for several tournaments held at the Melbourne Chess Club (66 Leicester Street, Fitzroy, VIC), including:",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      },
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "2024 & 2025 MCC Spring & Winter Festivals of Chess",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://www.independentchessaustralia.com.au/Info-2024-SFC/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "Independent Chess Australia+2Independent Chess Australia+2",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": "",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://independentchessaustralia.com.au/Info-2024-WFC/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "Independent Chess Australia",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "2025 Melbourne International Open (MIO)",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " – he serves as Chief Organizer and Chief Arbiter for several sections (Masters, Rapid, Blitz) ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://melbourneio.com.au/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "MelbourneIO+1",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "2024 Junior Championship Rounds 1–4",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " – acted as Chief Arbiter and Chief Organizer ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://ratings.fide.com/tournament_details.phtml?event=355321&utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "International Chess Federation (FIDE)",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "2023 Melbourne Summer Mega Blitz",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " – listed as NA (National Arbiter) and Chief Arbiter ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://www.independentchessaustralia.com.au/Info-2023-SMB/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "Independent Chess Australia",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "2023 World Festival of Chess (WFC)",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " – was both Organiser and Chief Arbiter ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://www.independentchessaustralia.com.au/Info-2023-WFC/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "Independent Chess Australia",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "Victorian Junior Club Championship and League",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": " – again holding organizing and arbiter roles ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://www.chesschat.org/archive/index.php/t-19791.html?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "ChessChat+1",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          },
-                          {
-                            "data": {
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "content": [
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                      {
-                                        "type": "bold"
-                                      }
-                                    ],
-                                    "value": "Fundraising events",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ", like a bughouse tournament to support junior players IM Cameron McGowan and WCM Jody Middleton ",
-                                    "nodeType": "text"
-                                  },
-                                  {
-                                    "data": {
-                                      "uri": "https://redcliffechessclub.com.au/2023/09/having-to-fund-raise-to-send-our-juniors-overseas-and-still-able-to-burn-rating-prizes/?utm_source=chatgpt.com"
-                                    },
-                                    "content": [
-                                      {
-                                        "data": {
-                                        },
-                                        "marks": [
-                                        ],
-                                        "value": "Redcliffe Chess Club",
-                                        "nodeType": "text"
-                                      }
-                                    ],
-                                    "nodeType": "hyperlink"
-                                  },
-                                  {
-                                    "data": {
-                                    },
-                                    "marks": [
-                                    ],
-                                    "value": ".",
-                                    "nodeType": "text"
-                                  }
-                                ],
-                                "nodeType": "paragraph"
-                              }
-                            ],
-                            "nodeType": "list-item"
-                          }
-                        ],
-                        "nodeType": "unordered-list"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  },
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "Melbourne International Open 2025",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": " – confirmed involvement as Tournament Director and Arbiter ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://chess-results.com/tnr1158369.aspx?art=4&lan=1&utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "Chess Results",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  }
-                ],
-                "nodeType": "unordered-list"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Competitor (Over-the-Board & Online)",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "heading-4"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": "Games database records include tournaments like the ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "value": "57th Biel Rapid Open (Switzerland)",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": " in 2024, where he played and lost a game against Kheerthi Ganta (Rating 1918 vs. Wolffs’ 1554) in 35 moves ",
-                            "nodeType": "text"
-                          },
-                          {
-                            "data": {
-                              "uri": "https://chesstempo.com/game-database/game/kheerthi-ganta-vs-walter-wolffs/6084419?utm_source=chatgpt.com"
-                            },
-                            "content": [
-                              {
-                                "data": {
-                                },
-                                "marks": [
-                                ],
-                                "value": "ChessTempo",
-                                "nodeType": "text"
-                              }
-                            ],
-                            "nodeType": "hyperlink"
-                          },
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": ".",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  },
-                  {
-                    "data": {
-                    },
-                    "content": [
-                      {
-                        "data": {
-                        },
-                        "content": [
-                          {
-                            "data": {
-                            },
-                            "marks": [
-                            ],
-                            "value": "On Chess.com, his most recent recorded games show he has played and won matches against opponents such as Gauthey Nils and Noe Koehler—both with him playing as Black and winning all recorded games from 2024",
-                            "nodeType": "text"
-                          }
-                        ],
-                        "nodeType": "paragraph"
-                      }
-                    ],
-                    "nodeType": "list-item"
-                  }
-                ],
-                "nodeType": "unordered-list"
-              },
-              {
-                "data": {
-                },
-                "content": [
-                  {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "Walter Wolffs is an Australian male chess player born in 1998, with FIDE standard rating around 1561 as of August 2025 (Rapid: 1647; Blitz: 1632) ",
                     "marks": [
                     ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
                     "value": "",
-                    "nodeType": "text"
+                    "marks": [
+                    ],
+                    "data": {
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               }
-            ],
-            "nodeType": "document"
+            ]
           }
         },
         "personal": {
@@ -11505,6 +10632,1943 @@
           "en-US": "leonidsandlerchess@gmail.com"
         }
       }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4yzpkiwzKGyw5EWERQNq5U",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:01:21.647Z",
+        "updatedAt": "2025-08-17T09:03:24.975Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-17T09:03:24.975Z",
+        "firstPublishedAt": "2025-08-17T09:03:24.975Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4yzpkiwzKGyw5EWERQNq5U"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "dandenong-chess-club"
+        },
+        "name": {
+          "en-US": "Dandenong Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4cV266o7RhPwJw34nDSdtF"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.2469,
+            "lat": -37.9655
+          }
+        },
+        "website": {
+          "en-US": "https://www.facebook.com/p/Dandenong-Chess-Club-100068880201901/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4cV266o7RhPwJw34nDSdtF",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:01:54.952Z",
+        "updatedAt": "2025-08-17T09:02:20.575Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T09:02:20.575Z",
+        "firstPublishedAt": "2025-08-17T09:02:20.575Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4cV266o7RhPwJw34nDSdtF"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Paul Huver"
+        },
+        "phone": {
+          "en-US": "0406786242"
+        },
+        "email": {
+          "en-US": "paulhuver@hotmail.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4ld3z46t8KfLMoaXI40Oav",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:03:56.652Z",
+        "updatedAt": "2025-08-17T09:06:12.500Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-17T09:06:12.500Z",
+        "firstPublishedAt": "2025-08-17T09:06:12.500Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4ld3z46t8KfLMoaXI40Oav"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "croydon-chess-club"
+        },
+        "name": {
+          "en-US": "Croydon Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5Ys91tdsZwzpaLByuhDQ6c"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.281,
+            "lat": -37.7994
+          }
+        },
+        "website": {
+          "en-US": "https://www.croydonchess.com/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5Ys91tdsZwzpaLByuhDQ6c",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:05:07.609Z",
+        "updatedAt": "2025-08-17T09:05:54.377Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T09:05:54.377Z",
+        "firstPublishedAt": "2025-08-17T09:05:54.377Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5Ys91tdsZwzpaLByuhDQ6c"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Kyle Gibson"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "57fXyCUP0jCXMPJlgWk3C4",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:42:48.268Z",
+        "updatedAt": "2025-08-17T09:45:17.914Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-17T09:45:17.914Z",
+        "firstPublishedAt": "2025-08-17T09:45:17.914Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/57fXyCUP0jCXMPJlgWk3C4"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 Hobsons Bay Chess Club Event"
+        },
+        "slug": {
+          "en-US": "2025-hbcc-events"
+        },
+        "events": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6sKKbMD8XMVaRC2lehlNIp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6sKKbMD8XMVaRC2lehlNIp",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:43:14.854Z",
+        "updatedAt": "2025-08-17T09:45:06.753Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-08-17T09:45:06.753Z",
+        "firstPublishedAt": "2025-08-17T09:45:06.753Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "event"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6sKKbMD8XMVaRC2lehlNIp"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 Best in the West"
+        },
+        "datetime": {
+          "en-US": "2025-08-30T10:00+10:00"
+        },
+        "location": {
+          "en-US": "Melbourne Chess Club - 66 Leicester St, Fitzroy"
+        },
+        "url": {
+          "en-US": "https://www.chesschat.org/showthread.php?19782-2025-Best-in-the-West-(Hobsons-Bay-Melbourne)"
+        },
+        "contact": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3fQqHOeTxTrIXz1anT8UCp"
+              }
+            }
+          ]
+        },
+        "description": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Time Control: 60 mins + 30 seconds per move (scoresheet required)\n\nFIDE and ACF Rated\n\nCost: $70 Standard, $60 Concession (Pensioners and Students), $50 Juniors (U/18 as at 30 August 2025)\n\nA late Entry additional fee of $10 applies to entries after Tuesday 26 August.\n\nFree GM/WGM/IM/WIM/FM/WFM entries if received by 26 August\n\nPrize Pool: $2000 (Guaranteed) $1,200 1st prize (guaranteed)\n\nByes: 1 half point bye on round 1 to 3. Must be advised 1 week in advance\n\nRecommended players have a rating of at least 1000 ACF or FIDE to play\n\nDates; 30th of August - 31st of August 2025\n\nRound 1: Saturday 30 August 10:30am\n\nRound 2: Saturday 30 August 2:00pm\n\nRound 3: Saturday 30 August 5:30pm\n\nRound 4: Sunday 31 August 10:30am\n\nRound 5: Sunday 31 August 2:00pm",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "summary": {
+          "en-US": "THE FLAGSHIP CHESS WEEKEND IN THE MELBOURNE WESTERN SUBURBS IS RETURNING IN 2025!"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3fQqHOeTxTrIXz1anT8UCp",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:43:53.771Z",
+        "updatedAt": "2025-08-17T09:44:21.584Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T09:44:21.584Z",
+        "firstPublishedAt": "2025-08-17T09:44:21.584Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3fQqHOeTxTrIXz1anT8UCp"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Steven Hogan"
+        },
+        "phone": {
+          "en-US": " 0413 941 467"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "nonExecutive"
+            }
+          }
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "dJWJtvtczR2HI6BfgU5Vx",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:53:22.925Z",
+        "updatedAt": "2025-08-17T09:57:24.063Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T09:57:24.063Z",
+        "firstPublishedAt": "2025-08-17T09:54:59.946Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "committeeList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/dJWJtvtczR2HI6BfgU5Vx"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Honorary life members"
+        },
+        "members": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "16CoQ5B1C94c8tHOKntx2A"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "62IA3M9dEzZFlsnh3s8EGs"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "550xjyFHWBdACBZpyvumbu"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1VOu8n7LV603y6rMbIdvTp"
+              }
+            }
+          ]
+        },
+        "year": {
+          "en-US": 2025
+        },
+        "isCurrent": {
+          "en-US": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "16CoQ5B1C94c8tHOKntx2A",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:54:09.095Z",
+        "updatedAt": "2025-08-17T09:54:52.354Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T09:54:52.354Z",
+        "firstPublishedAt": "2025-08-17T09:54:52.354Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/16CoQ5B1C94c8tHOKntx2A"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "ian-laurie"
+        },
+        "role": {
+          "en-US": "Member"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "64wXlyRycNFik7d0oknLb0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "64wXlyRycNFik7d0oknLb0",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:54:41.394Z",
+        "updatedAt": "2025-08-17T09:54:47.788Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T09:54:47.788Z",
+        "firstPublishedAt": "2025-08-17T09:54:47.788Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/64wXlyRycNFik7d0oknLb0"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Ian Laurie"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "62IA3M9dEzZFlsnh3s8EGs",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:55:21.398Z",
+        "updatedAt": "2025-08-17T09:55:56.851Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T09:55:56.851Z",
+        "firstPublishedAt": "2025-08-17T09:55:56.851Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/62IA3M9dEzZFlsnh3s8EGs"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "trevor-stanning"
+        },
+        "role": {
+          "en-US": "Member"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3HrVSWsDw0vEyfTH6DnkGq"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3HrVSWsDw0vEyfTH6DnkGq",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:55:47.903Z",
+        "updatedAt": "2025-08-17T09:55:52.764Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T09:55:52.764Z",
+        "firstPublishedAt": "2025-08-17T09:55:52.764Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3HrVSWsDw0vEyfTH6DnkGq"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Trevor Stanning"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "550xjyFHWBdACBZpyvumbu",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:56:01.480Z",
+        "updatedAt": "2025-08-17T09:56:47.448Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T09:56:47.448Z",
+        "firstPublishedAt": "2025-08-17T09:56:47.448Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/550xjyFHWBdACBZpyvumbu"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "Gerrit-Hartland"
+        },
+        "role": {
+          "en-US": "Member"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "LbwY9qpijE2jqiYpqjBlc"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "LbwY9qpijE2jqiYpqjBlc",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:56:38.033Z",
+        "updatedAt": "2025-08-17T09:56:42.371Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T09:56:42.371Z",
+        "firstPublishedAt": "2025-08-17T09:56:42.371Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/LbwY9qpijE2jqiYpqjBlc"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Gerrit Hartland"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "1VOu8n7LV603y6rMbIdvTp",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:56:52.570Z",
+        "updatedAt": "2025-08-17T09:57:21.012Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T09:57:21.012Z",
+        "firstPublishedAt": "2025-08-17T09:57:21.012Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/1VOu8n7LV603y6rMbIdvTp"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "Gary-Wastell"
+        },
+        "role": {
+          "en-US": "Member"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "35JcxCsx559HjbTwOMKMsu"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "35JcxCsx559HjbTwOMKMsu",
+        "type": "Entry",
+        "createdAt": "2025-08-17T09:57:12.766Z",
+        "updatedAt": "2025-08-17T09:57:17.031Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T09:57:17.031Z",
+        "firstPublishedAt": "2025-08-17T09:57:17.031Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/35JcxCsx559HjbTwOMKMsu"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Gary Wastell"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "1OhJTGpzauKEwbqJLN2bZH",
+        "type": "Entry",
+        "createdAt": "2025-08-17T10:53:35.840Z",
+        "updatedAt": "2025-08-17T10:55:54.762Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-08-17T10:55:54.762Z",
+        "firstPublishedAt": "2025-08-17T10:55:54.762Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/1OhJTGpzauKEwbqJLN2bZH"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "mentone-chess-club"
+        },
+        "name": {
+          "en-US": "Mentone Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1T5SrIX5YOTUyUWFNphII2"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.064,
+            "lat": -37.9855
+          }
+        },
+        "website": {
+          "en-US": "https://mentonechess.club/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "We are a friendly group of players with varying age, ethnicity and skill levels. It’s the perfect place to sharpen your skills, gain rating or just have some fun and play some casual games. First night is free so please come by and play a few games.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "1T5SrIX5YOTUyUWFNphII2",
+        "type": "Entry",
+        "createdAt": "2025-08-17T10:54:16.359Z",
+        "updatedAt": "2025-08-17T10:54:24.158Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T10:54:24.158Z",
+        "firstPublishedAt": "2025-08-17T10:54:24.158Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/1T5SrIX5YOTUyUWFNphII2"
+      },
+      "fields": {
+        "name": {
+          "en-US": " L.Leontyev"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "50KB5AgsqjmaDIrmuO04qJ",
+        "type": "Entry",
+        "createdAt": "2025-08-17T11:01:52.205Z",
+        "updatedAt": "2025-08-17T11:02:20.311Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T11:02:20.311Z",
+        "firstPublishedAt": "2025-08-17T11:02:20.311Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/50KB5AgsqjmaDIrmuO04qJ"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Peter Stickland"
+        },
+        "phone": {
+          "en-US": "0499 255 240"
+        },
+        "email": {
+          "en-US": "president@ballaratchess.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4Fc0D8n9H3SxzpBsfkxmwZ",
+        "type": "Entry",
+        "createdAt": "2025-08-17T11:05:31.249Z",
+        "updatedAt": "2025-08-17T11:08:23.941Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-17T11:08:23.941Z",
+        "firstPublishedAt": "2025-08-17T11:08:23.941Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4Fc0D8n9H3SxzpBsfkxmwZ"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "Geelong-Chess-Club"
+        },
+        "name": {
+          "en-US": "Geelong Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4X8642R1XCRmb2625DqWfK"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.3554,
+            "lat": -38.15
+          }
+        },
+        "website": {
+          "en-US": "https://geelongchess.wordpress.com/"
+        },
+        "schedules": {
+          "en-US": [
+            "THURSDAY 7PM"
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4X8642R1XCRmb2625DqWfK",
+        "type": "Entry",
+        "createdAt": "2025-08-17T11:05:42.906Z",
+        "updatedAt": "2025-08-17T11:07:31.314Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T11:07:31.314Z",
+        "firstPublishedAt": "2025-08-17T11:07:31.314Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4X8642R1XCRmb2625DqWfK"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Geelong Chess Club"
+        },
+        "email": {
+          "en-US": "geelongchessclub@gmail.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6jNqnYO2V9xXowyS9YKa9Y",
+        "type": "Entry",
+        "createdAt": "2025-08-17T12:59:48.399Z",
+        "updatedAt": "2025-08-17T13:01:44.868Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-17T13:01:44.868Z",
+        "firstPublishedAt": "2025-08-17T13:01:44.868Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6jNqnYO2V9xXowyS9YKa9Y"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Victoria State Level Tournament"
+        },
+        "slug": {
+          "en-US": "2025-state-tournaments"
+        },
+        "events": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4nzeVYkTej6UaTaKadYXCn"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2BglGXwy9R4uRqYErylzER"
+              }
+            }
+          ]
+        },
+        "description": {
+          "en-US": "All tournaments conducted at the state level under the authority and governance of Chess Victoria."
+        }
+      }
     }
   ],
   "assets": [
@@ -11718,6 +12782,53 @@
     }
   ],
   "webhooks": [
+    {
+      "name": "Revalidate Cache",
+      "url": "https://chess-victoria.vercel.app/api/revalidate",
+      "httpBasicUsername": null,
+      "topics": [
+        "Entry.*"
+      ],
+      "filters": null,
+      "transformation": {
+        "contentType": "application/json"
+      },
+      "active": true,
+      "sys": {
+        "type": "WebhookDefinition",
+        "id": "4bwDV5XT6CgcrsmMJcpkQ7",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "createdAt": "2025-08-17T10:19:09Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedAt": "2025-08-17T10:19:50Z"
+      },
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer &DbjFMM%sMPhkPNm$#kRo72*tGfSTcdV6FD!z&^YAnzRt6!"
+        }
+      ]
+    }
   ],
   "roles": [
     {

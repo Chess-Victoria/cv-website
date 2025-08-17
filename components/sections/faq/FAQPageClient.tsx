@@ -124,7 +124,7 @@ export default function FAQPageClient({ data }: FAQPageClientProps) {
   return (
     <div>
 
-      <div className="inner-page-header" style={{ backgroundImage: 'url(assets/img/bg/header-bg15.png)' }}>
+      <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg15.png)' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-9 m-auto">

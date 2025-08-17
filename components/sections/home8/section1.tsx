@@ -6,7 +6,7 @@ export default function Section1() {
 	return (
 		<>
 
-			<div className="hero8-slider-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg19.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}>
+			<div className="hero8-slider-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg19.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}>
 				<img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
 				<div className="container">
 					<div className="row">

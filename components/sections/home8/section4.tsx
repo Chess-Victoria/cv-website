@@ -6,7 +6,7 @@ export default function Section4() {
 	return (
 		<>
 
-			<div className="brands8-section-area sp8" style={{ backgroundImage: 'url(assets/img/bg/header-bg20.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+			<div className="brands8-section-area sp8" style={{ backgroundImage: 'url(/assets/img/bg/header-bg20.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
 				<img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
 				<div className="container">
 					<div className="row">

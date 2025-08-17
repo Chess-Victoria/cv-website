@@ -6,7 +6,7 @@ export default function Section2() {
 	return (
 		<>
 
-			<div className="about8-section-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg20.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+			<div className="about8-section-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg20.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
 				<img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
 				<div className="container">
 					<div className="row align-items-center">

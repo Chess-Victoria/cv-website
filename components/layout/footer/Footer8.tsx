@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer8() {
 	return (
 		<>
-			<div className="footer8-sertion-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg21.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+			<div className="footer8-sertion-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg21.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
 				<img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
 				<div className="container">
 					<div className="row">

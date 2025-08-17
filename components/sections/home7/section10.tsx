@@ -9,7 +9,7 @@ export default function Section10() {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-12">
-							<div className="cta7-bg-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg18.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+							<div className="cta7-bg-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg18.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
 								<div className="row">
 									<div className="col-lg-7 m-auto">
 										<div className="cta-heading text-center">

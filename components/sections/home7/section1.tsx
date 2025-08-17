@@ -7,7 +7,7 @@ export default function Section1() {
 	return (
 		<>
 
-			<div className="hero7-section-area" style={{ backgroundImage: 'url(assets/img/bg/header-bg18.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+			<div className="hero7-section-area" style={{ backgroundImage: 'url(/assets/img/bg/header-bg18.png)', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-2 col-md-3">

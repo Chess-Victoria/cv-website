@@ -10,7 +10,7 @@ export default function Section3() {
 	return (
 		<>
 
-			<div className="event8-section-area sp1" style={{ backgroundImage: 'url(assets/img/bg/header-bg20.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+			<div className="event8-section-area sp1" style={{ backgroundImage: 'url(/assets/img/bg/header-bg20.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-10 m-auto">

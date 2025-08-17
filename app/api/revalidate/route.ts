@@ -76,10 +76,13 @@ export async function POST(request: NextRequest) {
       case 'event':
       case 'eventList':
         // Revalidate event pages
+        revalidatePath('/events');
+        revalidatePath('/events/[slug]');
         revalidatePath('/event');
         revalidatePath('/event-schedule');
         revalidatePath('/event-single');
         revalidateTag('events');
+        revalidateTag('event-lists');
         break;
 
       case 'frequentlyAskedQuestion':

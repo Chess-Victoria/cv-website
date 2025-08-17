@@ -168,11 +168,12 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 											<li>
-												<Link href="/#">Events <i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/events">Events <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/events/chess-victoria/">Our Event</Link></li>
-													<li><Link href="/events/state-victoria">State level Tournaments</Link></li>
-													<li><Link href="/events/clubs">Clubs Level Tournaments</Link></li>
+													<li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
+													<li><Link href="/events/2025-state-tournaments">State level Tournaments</Link></li>
+													<li><Link href="/events/2025-clubs-tournaments">Clubs Level Tournaments</Link></li>
+													<li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
 												</ul>
 											</li>
 
