@@ -123,19 +123,12 @@ export async function getHomePageData(): Promise<HomePageData> {
 
     // If no hero banner data, use fallback
     if (!heroBanner) {
-      console.log('Using fallback hero banner data');
       heroBanner = fallbackHeroBannerData;
     }
 
     // Get scheduledEvents from resolved fields
     let eventList: EventListData | undefined;
     
-    console.log('=== SCHEDULED EVENTS DEBUG ===');
-    console.log('homePageFields.scheduledEvents:', homePageFields.scheduledEvents);
-    console.log('homePageFields.scheduledEvents?.fields:', homePageFields.scheduledEvents?.fields);
-    console.log('All homePageFields keys:', Object.keys(homePageFields));
-    console.log('Full homePageFields structure:', JSON.stringify(homePageFields, null, 2));
-    console.log('=== END SCHEDULED EVENTS DEBUG ===');
     
     if (homePageFields.scheduledEvents?.fields) {
       eventList = mapEventListToEventListData(homePageFields.scheduledEvents.fields);
@@ -144,10 +137,6 @@ export async function getHomePageData(): Promise<HomePageData> {
     // Get currentCommittees from resolved fields
     let committeeList: CommitteeListData | undefined;
     
-    console.log('=== COMMITTEE LIST DEBUG ===');
-    console.log('homePageFields.currentCommittees:', homePageFields.currentCommittees);
-    console.log('homePageFields.currentCommittees?.fields:', homePageFields.currentCommittees?.fields);
-    console.log('=== END COMMITTEE LIST DEBUG ===');
     
     if (homePageFields.currentCommittees?.fields) {
       committeeList = mapCommitteeListToCommitteeListData(homePageFields.currentCommittees.fields);
@@ -156,10 +145,6 @@ export async function getHomePageData(): Promise<HomePageData> {
     // Get featuredClub from resolved fields
     let featuredClubs: ReferenceListData | undefined;
     
-    console.log('=== FEATURED CLUBS DEBUG ===');
-    console.log('homePageFields.featuredClub:', homePageFields.featuredClub);
-    console.log('homePageFields.featuredClub?.fields:', homePageFields.featuredClub?.fields);
-    console.log('=== END FEATURED CLUBS DEBUG ===');
     
     if (homePageFields.featuredClub?.fields) {
       // For now, use fallback data until we implement proper mapping

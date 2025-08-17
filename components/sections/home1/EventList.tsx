@@ -8,11 +8,6 @@ interface EventListProps {
 }
 
 export default function EventList({ data }: EventListProps) {
-  console.log('=== EVENT LIST COMPONENT DEBUG ===');
-  console.log('EventList data received:', data);
-  console.log('Number of days:', data.days.length);
-  console.log('=== END EVENT LIST COMPONENT DEBUG ===');
-  
   const [isTab, setIsTab] = useState(1)
   
   const handleTab = (i: number) => {

@@ -150,7 +150,7 @@
         "id": "clubDetail",
         "type": "ContentType",
         "createdAt": "2025-08-15T11:22:35.011Z",
-        "updatedAt": "2025-08-17T00:14:06.115Z",
+        "updatedAt": "2025-08-17T02:41:36.102Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -158,8 +158,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 23,
-        "publishedAt": "2025-08-17T00:14:06.115Z",
+        "publishedVersion": 25,
+        "publishedAt": "2025-08-17T02:41:36.102Z",
         "firstPublishedAt": "2025-08-15T11:22:35.385Z",
         "createdBy": {
           "sys": {
@@ -175,8 +175,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 12,
-        "version": 24,
+        "publishedCounter": 13,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -382,6 +382,22 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
+        },
+        {
+          "id": "schedules",
+          "name": "Schedules",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
         }
       ]
     },
@@ -397,7 +413,7 @@
         "id": "contact",
         "type": "ContentType",
         "createdAt": "2025-08-15T11:26:22.807Z",
-        "updatedAt": "2025-08-15T11:26:23.243Z",
+        "updatedAt": "2025-08-17T01:45:38.255Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -405,8 +421,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2025-08-15T11:26:23.243Z",
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T01:45:38.255Z",
         "firstPublishedAt": "2025-08-15T11:26:23.243Z",
         "createdBy": {
           "sys": {
@@ -422,8 +438,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -480,6 +496,18 @@
           ],
           "disabled": false,
           "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
         }
       ]
     },
@@ -736,7 +764,7 @@
         "id": "event",
         "type": "ContentType",
         "createdAt": "2025-08-15T13:22:19.453Z",
-        "updatedAt": "2025-08-16T06:48:15.201Z",
+        "updatedAt": "2025-08-17T01:44:50.571Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -744,8 +772,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2025-08-16T06:48:15.201Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T01:44:50.571Z",
         "firstPublishedAt": "2025-08-15T13:22:20.053Z",
         "createdBy": {
           "sys": {
@@ -761,8 +789,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 4,
-        "version": 8,
+        "publishedCounter": 5,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -833,6 +861,12 @@
           "items": {
             "type": "Link",
             "validations": [
+              {
+                "linkContentType": [
+                  "contact",
+                  "person"
+                ]
+              }
             ],
             "linkType": "Entry"
           }
@@ -1873,7 +1907,7 @@
         "id": "committeeList",
         "type": "ContentType",
         "createdAt": "2025-08-16T11:11:06.861Z",
-        "updatedAt": "2025-08-16T11:13:50.528Z",
+        "updatedAt": "2025-08-17T05:19:34.882Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1881,8 +1915,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 5,
-        "publishedAt": "2025-08-16T11:13:50.528Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T05:19:34.882Z",
         "firstPublishedAt": "2025-08-16T11:11:07.585Z",
         "createdBy": {
           "sys": {
@@ -1898,8 +1932,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 6,
+        "publishedCounter": 5,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1915,7 +1949,7 @@
       "fields": [
         {
           "id": "name",
-          "name": "name",
+          "name": "Name",
           "type": "Symbol",
           "localized": false,
           "required": true,
@@ -1926,7 +1960,7 @@
         },
         {
           "id": "members",
-          "name": "members",
+          "name": "Members",
           "type": "Array",
           "localized": false,
           "required": false,
@@ -1945,6 +1979,28 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "year",
+          "name": "Year",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "isCurrent",
+          "name": "Is Current?",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -2472,7 +2528,7 @@
             "linkType": "Space"
           }
         },
-        "version": 24,
+        "version": 26,
         "createdAt": "2025-08-15T11:22:35.465Z",
         "createdBy": {
           "sys": {
@@ -2481,7 +2537,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-17T00:14:06.938Z",
+        "updatedAt": "2025-08-17T02:41:37.182Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -2549,6 +2605,11 @@
           "fieldId": "currentEvents",
           "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "schedules",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -2563,7 +2624,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2025-08-15T11:26:23.397Z",
         "createdBy": {
           "sys": {
@@ -2572,7 +2633,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-15T11:26:24.236Z",
+        "updatedAt": "2025-08-17T01:45:39.361Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -2614,6 +2675,11 @@
         {
           "fieldId": "phone",
           "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -2761,7 +2827,7 @@
             "linkType": "Space"
           }
         },
-        "version": 8,
+        "version": 10,
         "createdAt": "2025-08-15T13:22:20.182Z",
         "createdBy": {
           "sys": {
@@ -2770,7 +2836,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T06:48:16.218Z",
+        "updatedAt": "2025-08-17T01:44:51.762Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3359,7 +3425,7 @@
             "linkType": "Space"
           }
         },
-        "version": 6,
+        "version": 10,
         "createdAt": "2025-08-16T11:11:07.667Z",
         "createdBy": {
           "sys": {
@@ -3368,7 +3434,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T11:13:51.391Z",
+        "updatedAt": "2025-08-17T05:19:36.439Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3400,6 +3466,16 @@
         {
           "fieldId": "members",
           "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "year",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "isCurrent",
+          "widgetId": "boolean",
           "widgetNamespace": "builtin"
         }
       ]
@@ -4376,6 +4452,137 @@
         },
         "url": {
           "en-US": "https://www.chesschat.org/showthread.php?19924-2025-Victorian-Junior-Rapid-Championship"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "60nw3IDwza8hO2tS1IAcP9",
+        "type": "Entry",
+        "createdAt": "2025-08-15T13:41:05.579Z",
+        "updatedAt": "2025-08-17T04:34:49.215Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-17T04:33:18.791Z",
+        "firstPublishedAt": "2025-08-17T04:21:56.568Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "changed"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubPage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/60nw3IDwza8hO2tS1IAcP9"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Chess Club In Victoria"
+        },
+        "promotedClub": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2Hz3X2W42ow7sF8UCYYJct"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4PI5rsdcnC2nXLXfsMv338"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7qCwNNziuEEG8Neip8gTpN"
+              }
+            }
+          ]
+        },
+        "clubs": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2cVkvkcxZ1xWVtIvUDT07H"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5GM9Mg774jxmEU3grQvsKE"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5EqiCvxnqQLQIWxaF9ZGPO"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "44rBljlmavqUAWh0OvUs9k"
+              }
+            }
+          ]
         }
       }
     },
@@ -6435,7 +6642,7 @@
         "id": "6x3LC9BpepwWfK1BkjuH39",
         "type": "Entry",
         "createdAt": "2025-08-16T11:39:38.308Z",
-        "updatedAt": "2025-08-16T12:00:09.536Z",
+        "updatedAt": "2025-08-17T05:34:32.608Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6443,8 +6650,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2025-08-16T12:00:09.536Z",
+        "publishedVersion": 14,
+        "publishedAt": "2025-08-17T05:34:32.608Z",
         "firstPublishedAt": "2025-08-16T12:00:09.536Z",
         "createdBy": {
           "sys": {
@@ -6460,8 +6667,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 10,
+        "publishedCounter": 3,
+        "version": 15,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6487,7 +6694,7 @@
       },
       "fields": {
         "name": {
-          "en-US": "Current Committee Board"
+          "en-US": "Current Executive Committee Members"
         },
         "members": {
           "en-US": [
@@ -6527,6 +6734,12 @@
               }
             }
           ]
+        },
+        "year": {
+          "en-US": 2025
+        },
+        "isCurrent": {
+          "en-US": true
         }
       }
     },
@@ -10026,6 +10239,1104 @@
               }
             }
           ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5GM9Mg774jxmEU3grQvsKE",
+        "type": "Entry",
+        "createdAt": "2025-08-17T04:26:03.886Z",
+        "updatedAt": "2025-08-17T04:30:18.097Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2025-08-17T04:30:18.097Z",
+        "firstPublishedAt": "2025-08-17T04:29:51.832Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5GM9Mg774jxmEU3grQvsKE"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "bendigo-chess-club"
+        },
+        "name": {
+          "en-US": "Bendigo Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7bs1gyDcHYtf8scSrILECT"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.2836,
+            "lat": -36.7633
+          }
+        },
+        "website": {
+          "en-US": "https://www.facebook.com/groups/281799982322159/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Bendigo Chess Club",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " is a welcoming chess community based in Bendigo, Victoria. It meets every Wednesday evening—players start gathering around 6:30 pm, and games begin promptly at 7:30 pm (except on Christmas Day)",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Bendigo Chess Club",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " is a welcoming chess community based in Bendigo, Victoria. It meets every Wednesday evening—players start gathering around 6:30 pm, and games begin promptly at 7:30 pm (except on Christmas Day)",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "schedules": {
+          "en-US": [
+            "Wednesday - 6:30 PM"
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7bs1gyDcHYtf8scSrILECT",
+        "type": "Entry",
+        "createdAt": "2025-08-17T04:27:24.160Z",
+        "updatedAt": "2025-08-17T04:27:43.641Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T04:27:43.641Z",
+        "firstPublishedAt": "2025-08-17T04:27:43.641Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7bs1gyDcHYtf8scSrILECT"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Mr David Schepisi"
+        },
+        "phone": {
+          "en-US": "0419 371 075"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5EqiCvxnqQLQIWxaF9ZGPO",
+        "type": "Entry",
+        "createdAt": "2025-08-17T04:30:54.307Z",
+        "updatedAt": "2025-08-17T04:33:13.812Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T04:33:13.812Z",
+        "firstPublishedAt": "2025-08-17T04:33:13.812Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5EqiCvxnqQLQIWxaF9ZGPO"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "chess-artists-caulfield"
+        },
+        "name": {
+          "en-US": "Chess Artists Caulfield"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3iXf4wHrNW98eaXdejZGFW"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.0232,
+            "lat": -37.8722
+          }
+        },
+        "website": {
+          "en-US": "https://sites.google.com/view/chess-artists"
+        },
+        "quickIntro": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Chess Artists Caulfield Chess Club Inc.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "content": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Chess Artists Caulfield Chess Club Inc.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3iXf4wHrNW98eaXdejZGFW",
+        "type": "Entry",
+        "createdAt": "2025-08-17T04:31:23.575Z",
+        "updatedAt": "2025-08-17T04:31:50.824Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-17T04:31:50.824Z",
+        "firstPublishedAt": "2025-08-17T04:31:50.824Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3iXf4wHrNW98eaXdejZGFW"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Tom Kalisch"
+        },
+        "email": {
+          "en-US": "tkalisch@bigpond.net.au"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "44rBljlmavqUAWh0OvUs9k",
+        "type": "Entry",
+        "createdAt": "2025-08-17T04:34:43.566Z",
+        "updatedAt": "2025-08-17T05:34:08.955Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-17T05:34:08.955Z",
+        "firstPublishedAt": "2025-08-17T05:34:08.955Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/44rBljlmavqUAWh0OvUs9k"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "frankston-chess-club"
+        },
+        "name": {
+          "en-US": "Frankston Chess Club"
+        },
+        "location": {
+          "en-US": {
+            "lat": -38.1474,
+            "lon": 145.1433
+          }
+        },
+        "website": {
+          "en-US": "https://www.frankstonchessclub.com/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6B2y45kNuqF8Drm5J3xEcD",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:28:23.720Z",
+        "updatedAt": "2025-08-17T05:32:11.158Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-17T05:32:11.158Z",
+        "firstPublishedAt": "2025-08-17T05:32:11.158Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "committeeList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6B2y45kNuqF8Drm5J3xEcD"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Current Non-Executive Members"
+        },
+        "members": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4G2MleEnvILqTahqqLgALZ"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5uGiViBq4lM4DdVum8iHPL"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4MlxG0khpe8sTw8Tb90Dq9"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4G2MleEnvILqTahqqLgALZ",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:29:14.384Z",
+        "updatedAt": "2025-08-17T05:30:14.103Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T05:30:14.103Z",
+        "firstPublishedAt": "2025-08-17T05:30:14.103Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4G2MleEnvILqTahqqLgALZ"
+      },
+      "fields": {
+        "role": {
+          "en-US": "Meetings Chair"
+        },
+        "about": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Meetings Chair",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7iSC1eTmR2TtQIjYN6Zk5l"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7iSC1eTmR2TtQIjYN6Zk5l",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:29:33.821Z",
+        "updatedAt": "2025-08-17T05:30:04.448Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T05:30:04.448Z",
+        "firstPublishedAt": "2025-08-17T05:30:04.448Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7iSC1eTmR2TtQIjYN6Zk5l"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Geoff Keenan"
+        },
+        "phone": {
+          "en-US": "(03)98363571"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5uGiViBq4lM4DdVum8iHPL",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:30:20.115Z",
+        "updatedAt": "2025-08-17T05:30:45.944Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T05:30:45.944Z",
+        "firstPublishedAt": "2025-08-17T05:30:45.944Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5uGiViBq4lM4DdVum8iHPL"
+      },
+      "fields": {
+        "role": {
+          "en-US": "Public Officer"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7iSC1eTmR2TtQIjYN6Zk5l"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4MlxG0khpe8sTw8Tb90Dq9",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:31:16.821Z",
+        "updatedAt": "2025-08-17T05:32:06.174Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-17T05:32:06.174Z",
+        "firstPublishedAt": "2025-08-17T05:32:06.174Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "comitteeMember"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4MlxG0khpe8sTw8Tb90Dq9"
+      },
+      "fields": {
+        "role": {
+          "en-US": "Junior Chess Director"
+        },
+        "personal": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5PnwSfYFg2xiQgrla4jyEZ"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5PnwSfYFg2xiQgrla4jyEZ",
+        "type": "Entry",
+        "createdAt": "2025-08-17T05:31:28.317Z",
+        "updatedAt": "2025-08-17T05:32:00.330Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-17T05:32:00.330Z",
+        "firstPublishedAt": "2025-08-17T05:32:00.330Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5PnwSfYFg2xiQgrla4jyEZ"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Leonid Sandler"
+        },
+        "phone": {
+          "en-US": "0412 201 891"
+        },
+        "email": {
+          "en-US": "leonidsandlerchess@gmail.com"
         }
       }
     }

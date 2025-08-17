@@ -50,6 +50,38 @@ export interface ChessClubContact {
     name: string;
     title?: string;
     email?: string;
+    image?: {
+      sys: {
+        id: string;
+        type: string;
+        linkType: string;
+      };
+    };
+  };
+}
+
+export interface Person {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+  };
+  fields: {
+    name: string;
+    jobTitle?: string;
+    email?: string;
+    phone?: string;
+    image?: {
+      sys: {
+        id: string;
+        type: string;
+        linkType: string;
+      };
+    };
+    linkedin?: string;
+    facebook?: string;
+    instagram?: string;
   };
 }
 
@@ -61,6 +93,10 @@ export interface ChessClubData {
     name: string;
     title?: string;
     email?: string;
+    image?: {
+      url: string;
+      alt?: string;
+    };
   };
   location?: {
     lat: number;
@@ -91,6 +127,10 @@ export interface ChessClubData {
         name: string;
         title?: string;
         email?: string;
+        image?: {
+          url: string;
+          alt?: string;
+        };
       }>;
     }>;
   };

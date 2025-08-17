@@ -34,7 +34,7 @@ export default function EventSingle() {
 								<div className="col-lg-7">
 									<div className="event-side-images">
 										<div className="img1">
-											<img src="/assets/img/all-images/event/event-img8.png" alt="" />
+											<img src="/assets/img/default/generic-chess-club.png" alt="" />
 										</div>
 										<div className="space32" />
 										<h3>Elevate User Experience Expertise</h3>
@@ -49,7 +49,7 @@ export default function EventSingle() {
 														<img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
 														<img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
 														<div className="img1">
-															<img src="/assets/img/all-images/team/team-img12.png" alt="" className="team-img4" />
+															<img src="/assets/img/default/no-photo.png" alt="" className="team-img4" />
 															<div className="share">
 																<Link href="/#"><img src="/assets/img/icons/share1.svg" alt="" /></Link>
 															</div>

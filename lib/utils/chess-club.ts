@@ -1,6 +1,7 @@
 import { getEntries, getEntryBySlug } from '@/lib/contentful';
 import { ChessClub, ChessClubData } from '@/lib/types/chess-club';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { getContactImage } from '@/lib/constants';
 
 /**
  * Fetch all chess club entries from Contentful
@@ -42,7 +43,11 @@ export async function mapChessClubsToData(clubs: ChessClub[]): Promise<ChessClub
       contactData = {
         name: contact.fields.name,
         title: contact.fields.title,
-        email: contact.fields.email
+        email: contact.fields.email,
+        image: {
+          url: getContactImage(contact.fields.image?.fields?.file?.url),
+          alt: contact.fields.image?.fields?.title || contact.fields.name
+        }
       };
     }
 
@@ -61,11 +66,19 @@ export async function mapChessClubsToData(clubs: ChessClub[]): Promise<ChessClub
           url: event.fields?.url,
           summary: event.fields?.summary,
           description: event.fields?.description ? documentToReactComponents(event.fields.description) : undefined,
-          contact: event.fields?.contact?.map((contact: any) => ({
-            name: contact.fields?.name || 'Contact',
-            title: contact.fields?.title,
-            email: contact.fields?.email
-          })) || []
+          contact: event.fields?.contact?.map((contact: any) => {
+            // Handle both contact and person types
+            const contactData = {
+              name: contact.fields?.name || 'Contact',
+              title: contact.fields?.title || contact.fields?.jobTitle,
+              email: contact.fields?.email,
+              image: {
+                url: getContactImage(contact.fields?.image?.fields?.file?.url),
+                alt: contact.fields?.image?.fields?.title || contact.fields?.name || 'Contact'
+              }
+            };
+            return contactData;
+          }) || []
         })) || []
       };
     }

@@ -2,11 +2,16 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-export default function EventSchedule() {
+import { getClubPageData } from "@/lib/utils/club-page"
+import PromotedClubs from "@/components/sections/chess-clubs/PromotedClubs"
+import ClubsTable from "@/components/sections/chess-clubs/ClubsTable"
+
+export default async function ChessClubsPage() {
+	// Fetch data from Contentful
+	const clubPageData = await getClubPageData();
 
 	return (
 		<>
-
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
 					<div className="inner-page-header" style={{ backgroundImage: 'url(assets/img/bg/header-bg10.png)' }}>
@@ -23,120 +28,57 @@ export default function EventSchedule() {
 						</div>
 					</div>
 					{/*===== HERO AREA ENDS =======*/}
-					{/*===== OTHERS AREA STARTS =======*/}
-					<div className="choose-section-area sp2">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-4 m-auto">
-									<div className="heading2 text-center space-margin60">
-										<h2>Top Clubs</h2>
-									</div>
-								</div>
-							</div>
-							<div className="row">
-								<div className="col-lg-4 col-md-6">
-									<div className="choose-widget-boxarea">
-										<div className="icons">
-											<img src="/assets/img/icons/choose-icons1.svg" alt="" />
-										</div>
-										<div className="space24" />
-										<div className="content-area">
-											<Link href="/event-single">Make Ideas Happen</Link>
-											<div className="space16" />
-											<p>Chess Victoria 2024 brings together the brightest minds and industry leaders for best of transformative business.</p>
-											<div className="space24" />
-											<Link href="/event-single" className="readmore">Read More <i className="fa-solid fa-arrow-right" /></Link>
+					
+					{/*===== PROMOTED CLUBS AREA STARTS =======*/}
+					{clubPageData?.promotedClubs && clubPageData.promotedClubs.length > 0 ? (
+						<PromotedClubs clubs={clubPageData.promotedClubs} />
+					) : (
+						<div className="choose-section-area sp2">
+							<div className="container">
+								<div className="row">
+									<div className="col-lg-4 m-auto">
+										<div className="heading2 text-center space-margin60">
+											<h2>Top Clubs</h2>
 										</div>
 									</div>
 								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="choose-widget-boxarea">
-										<div className="icons">
-											<img src="/assets/img/icons/choose-icons1.svg" alt="" />
-										</div>
-										<div className="space24" />
-										<div className="content-area">
-											<Link href="/event-single">Great Speakers</Link>
-											<div className="space16" />
-											<p>Whether you're looking to elevate your business strategy, discover the latest industry trends, or connect.</p>
-											<div className="space24" />
-											<Link href="/event-single" className="readmore">Read More <i className="fa-solid fa-arrow-right" /></Link>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="choose-widget-boxarea">
-										<div className="icons">
-											<img src="/assets/img/icons/choose-icons1.svg" alt="" />
-										</div>
-										<div className="space24" />
-										<div className="content-area">
-											<Link href="/event-single">One Day Ticket</Link>
-											<div className="space16" />
-											<p>We empower businesses to thrive in an ever-evolving marketplace. This conference more than just an event.</p>
-											<div className="space24" />
-											<Link href="/event-single" className="readmore">Read More <i className="fa-solid fa-arrow-right" /></Link>
+								<div className="row">
+									<div className="col-lg-12">
+										<div className="text-center">
+											<p>No promoted clubs configured yet. Please create a clubPage entry in Contentful.</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					{/*===== OTHERS AREA ENDS =======*/}
-					{/*===== EVENT AREA STARTS =======*/}
-					<div className="schedule-section-area sp10">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-11 m-auto">
-									<div className="schedule">
-										<table>
-											<thead>
-												<tr>
-													<th>Time</th>
-													<th>Friday</th>
-													<th>Saturday</th>
-													<th>Sunday</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>09:00-10:00 AM</td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-												</tr>
-												<tr>
-													<td>09:00-10:00 AM</td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-												</tr>
-												<tr>
-													<td>09:00-10:00 AM</td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-												</tr>
-												<tr>
-													<td>09:00-10:00 AM</td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-												</tr>
-												<tr>
-													<td>09:00-10:00 AM</td>
-													<td>Business Conferences<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-													<td>UI/UX Design<br /><span>By Event Organizer</span></td>
-												</tr>
-											</tbody>
-										</table>
+					)}
+					{/*===== PROMOTED CLUBS AREA ENDS =======*/}
+					
+					{/*===== ALL CLUBS TABLE AREA STARTS =======*/}
+					{clubPageData?.allClubs && clubPageData.allClubs.length > 0 ? (
+						<ClubsTable clubs={clubPageData.allClubs} />
+					) : (
+						<div className="schedule-section-area sp10">
+							<div className="container">
+								<div className="row">
+									<div className="col-lg-11 m-auto">
+										<div className="text-center">
+											<h3>All Chess Clubs</h3>
+											<p>No clubs configured yet. Please create a clubPage entry in Contentful with clubs data.</p>
+											<p>You need to:</p>
+											<ul className="list-unstyled">
+												<li>1. Create a clubPage content type entry</li>
+												<li>2. Add promotedClub references (featured clubs)</li>
+												<li>3. Add clubs references (all clubs listing)</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					{/*===== EVENT AREA ENDS =======*/}
+					)}
+					{/*===== ALL CLUBS TABLE AREA ENDS =======*/}
+					
 					{/*===== CTA AREA STARTS =======*/}
 					<div className="cta1-section-area d-lg-block d-block">
 						<div className="container">
@@ -146,15 +88,15 @@ export default function EventSchedule() {
 										<div className="timer-btn-area">
 										<Countdown />
 											<div className="btn-area1">
-												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
+												<Link href="/contact" className="vl-btn1">Contact Us</Link>
 											</div>
 										</div>
 										<ul>
 											<li>
-												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />30 January 2025 - 6pm to 11:30pm</Link>
+												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />Join a Chess Club Today</Link>
 											</li>
 											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The UK</Link>
+												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
 											</li>
 										</ul>
 									</div>
@@ -177,10 +119,10 @@ export default function EventSchedule() {
 										</div>
 										<ul>
 											<li>
-												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />30 January 2025 - 6pm to 11:30pm</Link>
+												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />Join a Chess Club Today</Link>
 											</li>
 											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The UK</Link>
+												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
 											</li>
 										</ul>
 									</div>

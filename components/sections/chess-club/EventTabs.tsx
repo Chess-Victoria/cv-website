@@ -2,11 +2,16 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { getContactImage, getEventImage } from "@/lib/constants"
 
 interface EventContact {
   name: string;
   title?: string;
   email?: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
 }
 
 interface Event {
@@ -93,9 +98,9 @@ export default function EventTabs({ events }: EventTabsProps) {
                           <h1 className="active">0{index + 1}</h1>
                           <div className="row align-items-center">
                             <div className="col-lg-5">
-                              <div className="img1">
-                                <img src="/assets/img/all-images/event/event-img4.png" alt="" />
-                              </div>
+                                                          <div className="img1">
+                              <img src={getEventImage()} alt="" />
+                            </div>
                             </div>
                             <div className="col-lg-1" />
                             <div className="col-lg-6">
@@ -123,7 +128,10 @@ export default function EventTabs({ events }: EventTabsProps) {
                                     {event.contact.map((contact, contactIndex) => (
                                       <div key={contactIndex} className="autho-name-area" style={contactIndex > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
                                         <div className="img1">
-                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
+                                          <img 
+                                            src={getContactImage(contact.image?.url)} 
+                                            alt={contact.image?.alt || contact.name || ""} 
+                                          />
                                         </div>
                                         <div className="text">
                                           <Link href={`mailto:${contact.email}`}>{contact.name}</Link>

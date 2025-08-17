@@ -3,6 +3,7 @@ import Link from "next/link"
 import { getChessClubData } from "@/lib/utils/chess-club"
 import { notFound } from "next/navigation"
 import EventTabs from "@/components/sections/chess-club/EventTabs"
+import { getContactImage, getClubImage, getEventImage } from "@/lib/constants"
 
 interface ClubPageProps {
   params: {
@@ -53,7 +54,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
                     {clubData.images && clubData.images.length > 0 ? (
                       <img src={clubData.images[0].url} alt={clubData.images[0].alt || clubData.name} />
                     ) : (
-                      <img src="/assets/img/all-images/event/event-img8.png" alt={clubData.name} />
+                      <img src={getClubImage()} alt={clubData.name} />
                     )}
                   </div>
                   <div className="space32" />
@@ -83,7 +84,11 @@ export default async function ClubPage({ params }: ClubPageProps) {
                               <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
                               <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
                               <div className="img1">
-                                <img src="/assets/img/all-images/team/team-img12.png" alt="" className="team-img4" />
+                                <img 
+                                  src={getContactImage(clubData.contact?.image?.url)} 
+                                  alt={clubData.contact?.image?.alt || clubData.contact?.name || ""} 
+                                  className="team-img4" 
+                                />
                                 <div className="share">
                                   <Link href={`mailto:${clubData.contact.email}`}>
                                     <img src="/assets/img/icons/share1.svg" alt="" />
@@ -154,7 +159,10 @@ export default async function ClubPage({ params }: ClubPageProps) {
                         {featuredEvent.contact.map((contact, index) => (
                           <div key={index} className="autho-name-area" style={index > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
                             <div className="img1">
-                              <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
+                              <img 
+                                src={getContactImage(contact.image?.url)} 
+                                alt={contact.image?.alt || contact.name || ""} 
+                              />
                             </div>
                             <div className="text">
                               <Link href={`mailto:${contact.email}`}>{contact.name}</Link>
