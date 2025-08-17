@@ -7,6 +7,7 @@ import PromotedClubs from "@/components/sections/chess-clubs/PromotedClubs"
 import ClubsTable from "@/components/sections/chess-clubs/ClubsTable"
 import ClubsMap from "@/components/sections/chess-clubs/ClubsMap"
 import { unstable_cache } from 'next/cache';
+import { getRevalidationTime } from '@/lib/config';
 
 // Cache the data fetching with tags for revalidation
 const getCachedClubPageData = unstable_cache(
@@ -16,7 +17,7 @@ const getCachedClubPageData = unstable_cache(
   ['chess-clubs-data'],
   {
     tags: ['chess-clubs', 'clubDetail'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('CLUB_PAGE')
   }
 );
 

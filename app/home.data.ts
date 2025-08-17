@@ -4,6 +4,7 @@ import { mapPromotionBannerToHeroBannerData, fallbackHeroBannerData } from '@/li
 import { mapEventListToEventListData } from '@/lib/utils/event-list-mapper';
 import { mapCommitteeListToCommitteeListData } from '@/lib/utils/committee-list-mapper';
 import { unstable_cache } from 'next/cache';
+import { getRevalidationTime } from '@/lib/config';
 
 import { PopupContent } from '@/lib/types/popup';
 import { Announcement } from '@/lib/types/announcement';
@@ -187,7 +188,7 @@ export const getHomePageData = unstable_cache(
   ['homePage-data'],
   {
     tags: ['homepage', 'announcement', 'promotionBanner', 'eventList', 'committeeList', 'referenceList'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('HOMEPAGE')
   }
 );
 

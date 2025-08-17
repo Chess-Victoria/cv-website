@@ -4,7 +4,9 @@ import { getChessClubData } from "@/lib/utils/chess-club"
 import { notFound } from "next/navigation"
 import EventTabs from "@/components/sections/chess-club/EventTabs"
 import { getContactImage, getClubImage, getEventImage } from "@/lib/constants"
-import { unstable_cache } from 'next/cache';
+import RichTextRenderer from "@/components/elements/RichTextRenderer"
+import { unstable_cache } from 'next/cache'
+import { getRevalidationTime } from '@/lib/config'
 
 // Cache the data fetching with tags for revalidation
 const getCachedChessClub = unstable_cache(
@@ -14,7 +16,7 @@ const getCachedChessClub = unstable_cache(
   ['chess-club-data'],
   {
     tags: ['chess-club', 'clubDetail'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('CHESS_CLUB')
   }
 );
 
@@ -27,18 +29,26 @@ interface ClubPageProps {
 export default async function ClubPage({ params }: ClubPageProps) {
   const { slug } = params
   
+  console.log(`🏠 Chess club page rendering for slug: ${slug}`);
+  
   // Fetch chess club data from Contentful
   const clubData = await getCachedChessClub(slug)
   
+  console.log(`📊 Club data received:`, clubData);
+  console.log(`📊 Club content:`, clubData?.content);
+  console.log(`📊 Club quickIntro:`, clubData?.quickIntro);
+  console.log(`📊 Club name:`, clubData?.name);
+  
   // If no club found, show 404
   if (!clubData) {
+    console.log(`❌ No club data found, showing 404`);
     notFound()
   }
 
-
-
   // Get featured event (first event or null)
   const featuredEvent = clubData.currentEvents?.events?.[0] || null
+  
+  console.log(`🎯 Featured event:`, featuredEvent);
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -74,15 +84,49 @@ export default async function ClubPage({ params }: ClubPageProps) {
                   <h3>{clubData.name}</h3>
                   <div className="space16" />
                   {clubData.content ? (
-                    <div className="club-content" style={{
-                      lineHeight: '1.6',
-                      fontSize: '16px',
-                      color: '#333'
-                    }}>
-                      {clubData.content}
+                    <div className="club-content">
+                      <RichTextRenderer content={clubData.content} />
+                    </div>
+                  ) : clubData.quickIntro ? (
+                    <div className="club-content">
+                      <RichTextRenderer content={clubData.quickIntro} />
                     </div>
                   ) : (
-                    <p>Welcome to {clubData.name}. Join us for exciting chess activities and events.</p>
+                    <div>
+                      <p>Welcome to {clubData.name}. Join us for exciting chess activities and events.</p>
+                      
+                      {/* Debug section - remove this after debugging */}
+                      <div style={{ 
+                        marginTop: '20px', 
+                        padding: '15px', 
+                        backgroundColor: '#f0f0f0', 
+                        border: '1px solid #ccc',
+                        borderRadius: '5px'
+                      }}>
+                        <h4>🔍 Debug Info:</h4>
+                        <p><strong>Club Name:</strong> {clubData.name}</p>
+                        <p><strong>Content exists:</strong> {clubData.content ? 'Yes' : 'No'}</p>
+                        <p><strong>QuickIntro exists:</strong> {clubData.quickIntro ? 'Yes' : 'No'}</p>
+                        <p><strong>Content type:</strong> {typeof clubData.content}</p>
+                        <p><strong>QuickIntro type:</strong> {typeof clubData.quickIntro}</p>
+                        {clubData.content && (
+                          <div>
+                            <p><strong>Content structure:</strong></p>
+                            <pre style={{ fontSize: '12px', overflow: 'auto' }}>
+                              {JSON.stringify(clubData.content, null, 2)}
+                            </pre>
+                          </div>
+                        )}
+                        {clubData.quickIntro && (
+                          <div>
+                            <p><strong>QuickIntro structure:</strong></p>
+                            <pre style={{ fontSize: '12px', overflow: 'auto' }}>
+                              {JSON.stringify(clubData.quickIntro, null, 2)}
+                            </pre>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   )}
                   <div className="space40" />
                   
@@ -225,11 +269,13 @@ export default async function ClubPage({ params }: ClubPageProps) {
             </div>
           </div>
         </div>
+        {/*===== EVENT AREA ENDS =======*/}
 
-                {/* Event Schedule Section */}
+        {/*===== EVENT TABS AREA STARTS =======*/}
         {clubData.currentEvents && clubData.currentEvents.events.length > 0 && (
           <EventTabs events={clubData.currentEvents.events} />
         )}
+        {/*===== EVENT TABS AREA ENDS =======*/}
 
         {/*===== CTA AREA STARTS =======*/}
         <div className="cta1-section-area d-lg-block d-block">

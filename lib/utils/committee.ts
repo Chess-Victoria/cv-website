@@ -3,6 +3,7 @@ import { CommitteeList, CommitteeMember, CommitteeListData, CommitteeMemberData,
 import { getContactImage } from '@/lib/constants';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { unstable_cache } from 'next/cache';
+import { getRevalidationTime } from '@/lib/config';
 
 /**
  * Fetch current committee lists from Contentful with caching
@@ -12,14 +13,14 @@ export const getCurrentCommitteeLists = unstable_cache(
     const response = await client.getEntries({
       content_type: 'committeeList',
       'fields.isCurrent': true,
-      include: 4
+      include: 5
     });
     return response.items;
   },
   ['committee-lists'],
   {
     tags: ['committees'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('COMMITTEE')
   }
 );
 
@@ -72,8 +73,9 @@ function mapCommitteeMemberToData(committeeMember: any): CommitteeMemberData | n
     };
 
     // Map person data if available
-    if (committeeMember.fields.person && typeof committeeMember.fields.person === 'object' && 'fields' in committeeMember.fields.person) {
-      const person = committeeMember.fields.person as any;
+    if (committeeMember.fields.personal && typeof committeeMember.fields.personal === 'object' && 'fields' in committeeMember.fields.personal) {
+      const person = committeeMember.fields.personal as any;
+      
       member.person = {
         id: person.sys?.id || '',
         name: person.fields.name || '',
@@ -82,8 +84,8 @@ function mapCommitteeMemberToData(committeeMember: any): CommitteeMemberData | n
         jobTitle: person.fields.jobTitle || '',
         about: person.fields.about || ''
       };
+      
     }
-
     return member;
   } catch (error) {
     console.error('Error mapping committee member to data:', error);
@@ -103,9 +105,10 @@ export const getCommitteePageData = unstable_cache(
         return [];
       }
 
-      const mappedLists: CommitteeListData[] = committeeLists.map((committeeList: any) => 
-        mapCommitteeListToData(committeeList)
-      );
+      const mappedLists: CommitteeListData[] = committeeLists.map((committeeList: any) => {
+        const mapped = mapCommitteeListToData(committeeList);
+        return mapped;
+      });
 
       // Sort by tags (Executive first, then Non-Executive)
       return mappedLists.sort((a, b) => {
@@ -124,7 +127,7 @@ export const getCommitteePageData = unstable_cache(
   ['committee-page-data'],
   {
     tags: ['committees'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('COMMITTEE')
   }
 );
 
@@ -155,6 +158,6 @@ export const getCommitteeMemberBySlug = unstable_cache(
   ['committee-member-data'],
   {
     tags: ['committees'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('COMMITTEE')
   }
 );

@@ -1,3 +1,5 @@
+import { Document } from '@contentful/rich-text-types';
+
 export interface ChessClub {
   sys: {
     id: string;
@@ -20,8 +22,8 @@ export interface ChessClub {
       lon: number;
     };
     website?: string;
-    quickIntro?: any; // RichText content
-    content?: any; // RichText content
+    quickIntro?: Document; // RichText content
+    content?: Document; // RichText content
     images?: Array<{
       sys: {
         id: string;
@@ -103,8 +105,8 @@ export interface ChessClubData {
     lon: number;
   };
   website?: string;
-  quickIntro?: React.ReactNode;
-  content?: React.ReactNode;
+  quickIntro?: any; // Raw Contentful response
+  content?: any; // Raw Contentful response
   images?: Array<{
     id: string;
     url: string;
@@ -122,7 +124,7 @@ export interface ChessClubData {
       location: string;
       url?: string;
       summary?: string;
-      description?: React.ReactNode;
+      description?: any; // Raw Contentful response
       contact?: Array<{
         name: string;
         title?: string;

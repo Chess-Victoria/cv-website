@@ -1,8 +1,9 @@
 import { getEntries, getEntryBySlug } from '@/lib/contentful';
 import { ChessClub, ChessClubData } from '@/lib/types/chess-club';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { getContactImage, getClubImage, getEventImage } from '@/lib/constants';
 import { unstable_cache } from 'next/cache';
+import { Document } from '@contentful/rich-text-types';
+import { getRevalidationTime } from '@/lib/config';
 
 /**
  * Fetch all chess clubs from Contentful with caching
@@ -24,18 +25,30 @@ export const getAllChessClubs = unstable_cache(
  */
 export const getChessClubData = unstable_cache(
   async (slug: string) => {
-    const response = await getEntryBySlug('clubDetail', slug, 4);
+    console.log(`🔍 Fetching chess club data for slug: ${slug}`);
+    
+    const response = await getEntryBySlug('clubDetail', slug, 3);
+    
+    console.log(`📥 Raw Contentful response:`, response);
+    console.log(`📥 Response type:`, typeof response);
+    console.log(`📥 Response fields:`, response?.fields);
     
     if (!response) {
+      console.log(`❌ No response found for slug: ${slug}`);
       return null;
     }
 
-    return mapChessClubToData(response as unknown as ChessClub);
+    const mappedData = mapChessClubToData(response as unknown as ChessClub);
+    console.log(`🗺️ Mapped chess club data:`, mappedData);
+    console.log(`🗺️ Content field:`, mappedData?.content);
+    console.log(`🗺️ QuickIntro field:`, mappedData?.quickIntro);
+    
+    return mappedData;
   },
   ['chess-club-data'],
   {
     tags: ['chess-club', 'clubDetail'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('CHESS_CLUB')
   }
 );
 
@@ -43,13 +56,19 @@ export const getChessClubData = unstable_cache(
  * Map Contentful chess club entry to component data
  */
 function mapChessClubToData(club: ChessClub): ChessClubData {
+  console.log(`🗺️ Mapping chess club: ${club.fields.name}`);
+  console.log(`🗺️ Raw content field:`, club.fields.content);
+  console.log(`🗺️ Raw content type:`, typeof club.fields.content);
+  console.log(`🗺️ Raw quickIntro field:`, club.fields.quickIntro);
+  console.log(`🗺️ Raw quickIntro type:`, typeof club.fields.quickIntro);
+  
   const clubData: ChessClubData = {
     id: club.sys.id,
     slug: club.fields.slug,
     name: club.fields.name,
     website: club.fields.website,
-    quickIntro: club.fields.quickIntro ? documentToReactComponents(club.fields.quickIntro) : undefined,
-    content: club.fields.content ? documentToReactComponents(club.fields.content) : undefined,
+    quickIntro: club.fields.quickIntro as any, // Keep raw Contentful response
+    content: club.fields.content as any, // Keep raw Contentful response
     location: club.fields.location ? {
       lat: club.fields.location.lat,
       lon: club.fields.location.lon
@@ -58,6 +77,11 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
     currentEvents: undefined,
     images: []
   };
+
+  console.log(`🗺️ Mapped content:`, clubData.content);
+  console.log(`🗺️ Mapped content type:`, typeof clubData.content);
+  console.log(`🗺️ Mapped quickIntro:`, clubData.quickIntro);
+  console.log(`🗺️ Mapped quickIntro type:`, typeof clubData.quickIntro);
 
   // Map contact information
   if (club.fields.contact && typeof club.fields.contact === 'object' && 'fields' in club.fields.contact) {
@@ -91,7 +115,7 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
             location: event.fields.location || '',
             url: event.fields.url,
             summary: event.fields.summary,
-            description: event.fields.description ? documentToReactComponents(event.fields.description) : undefined,
+            description: event.fields.description as any, // Keep raw Contentful response
             contact: event.fields.contact ? event.fields.contact.map((contactRef: any) => {
               if (contactRef && typeof contactRef === 'object' && 'fields' in contactRef) {
                 const contact = contactRef as any;
@@ -117,7 +141,7 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
         location: string;
         url?: string;
         summary?: string;
-        description?: React.ReactNode;
+        description?: any; // Keep raw Contentful response
         contact?: Array<{
           name: string;
           title?: string;

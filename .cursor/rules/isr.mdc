@@ -4,3 +4,5 @@ alwaysApply: false
 ---
 
 - All the server side render will need to implement ISR cache + Revalidate logic
+- Do not change layout design if I not ask you to do so
+- Give me  warning message if you make any adjustment on layout such as change position, remove element, add more element

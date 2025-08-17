@@ -1,6 +1,7 @@
 import { getEntries } from '@/lib/contentful';
 import { FAQ, FAQData, FAQListData } from '@/lib/types/faq';
 import { unstable_cache } from 'next/cache';
+import { getRevalidationTime } from '@/lib/config';
 
 /**
  * Extract plain text from rich text content
@@ -70,6 +71,6 @@ export const getFAQData = unstable_cache(
   ['faq-data'],
   {
     tags: ['faq'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('FAQ')
   }
 );

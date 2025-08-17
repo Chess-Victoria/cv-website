@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { getContactImage, getEventImage } from "@/lib/constants"
+import { Document } from '@contentful/rich-text-types';
 
 interface EventContact {
   name: string;
@@ -21,7 +22,7 @@ interface Event {
   location: string;
   url?: string;
   summary?: string;
-  description?: React.ReactNode;
+  description?: any; // Raw Contentful response
   contact?: EventContact[];
 }
 

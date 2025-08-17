@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { PopupProps, PopupContent } from '@/lib/types/popup'
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 
 export default function Popup({ 
 	content, 
@@ -58,7 +59,7 @@ export default function Popup({
 							typeof content.description === 'string' ? (
 								<p>{content.description}</p>
 							) : (
-								content.description
+								<RichTextRenderer content={content.description} />
 							)
 						)}
 						{content.items && content.items.length > 0 && (
