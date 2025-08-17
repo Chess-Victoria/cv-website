@@ -1,382 +1,119 @@
 
-import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { notFound } from "next/navigation"
 import { getCommitteeMemberBySlug } from "@/lib/utils/committee"
+import { notFound } from "next/navigation"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { getContactImage } from "@/lib/constants"
 
-export default async function CommitteeMemberPage({ params }: { params: { slug: string } }) {
-  const member = await getCommitteeMemberBySlug(params.slug);
+interface CommitteeMemberPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function CommitteeMemberPage({ params }: CommitteeMemberPageProps) {
+  const { slug } = params;
+  const member = await getCommitteeMemberBySlug(slug);
 
   if (!member) {
     notFound();
   }
 
-  const imageUrl = member.image?.url || member.person.image?.url || getContactImage();
-  const imageAlt = member.image?.alt || member.person.image?.alt || member.person.name;
-
   return (
-    <>
-      <Layout headerStyle={1} footerStyle={1}>
-        <div>
-          <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg7.png)' }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Committee Member Details</h1>
-                    <div className="space20" />
-                    <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/committees">Committees</Link> <i className="fa-solid fa-angle-right" /> <span>{member.person.name}</span></Link>
-                  </div>
+    <Layout headerStyle={1} footerStyle={1}>
+      <div>
+        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg9.png)' }}>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 m-auto">
+                <div className="heading1 text-center">
+                  <h1>{member.person.name}</h1>
+                  <div className="space20" />
+                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>{member.person.name}</span></Link>
                 </div>
               </div>
             </div>
           </div>
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== TEAM AREA STARTS =======*/}
-          <div className="team-details-section-area sp1">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-10 m-auto">
-                  <div className="speakers-details-box">
-                    <div className="row align-items-center">
-                      <div className="col-lg-3">
-                        <div className="our-team-boxarea">
-                          <div className="team-widget-area">
-                            <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
-                            <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
-                            <div className="img1">
-                              <img src={imageUrl} alt={imageAlt} className="team-img4" />
-                            </div>
-                          </div>
-                          <div className="content-area">
-                            <Link href={`/committees/${member.slug}`}>{member.person.name}</Link>
-                            <div className="space16" />
-                            <p>{member.role}</p>
-                            {member.person.jobTitle && (
-                              <p style={{ fontSize: '14px', color: '#666', marginTop: '8px' }}>{member.person.jobTitle}</p>
-                            )}
-                            <div className="space24" />
-                            <ul>
-                              <li>
-                                <Link href={`/committees/${member.slug}`} className="icon1"><i className="fa-solid fa-user" /></Link>
-                              </li>
-                              {member.person.email && (
-                                <li>
-                                  <Link href={`mailto:${member.person.email}`} className="icon2"><i className="fa-solid fa-envelope" /></Link>
-                                </li>
-                              )}
-                              {member.person.phone && (
-                                <li>
-                                  <Link href={`tel:${member.person.phone}`} className="icon3"><i className="fa-solid fa-phone" /></Link>
-                                </li>
-                              )}
-                              <li>
-                                <Link href={`/committees/${member.slug}`} className="icon4"><i className="fa-solid fa-info" /></Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-7">
-                        <div className="speakesr-details-content heading2">
-                          <h2>Overview</h2>
-                          <div className="space16" />
-                          {member.about ? (
-                            <div className="about-content">
-                              {documentToReactComponents(member.about)}
-                            </div>
-                          ) : (
-                            <p>No detailed information available for this committee member.</p>
-                          )}
-                          <div className="space32" />
-                          <div className="row">
-                            <div className="col-lg-5">
-                              <div className="details-content">
-                                {member.person.email && (
-                                  <>
-                                    <h4>Email:</h4>
-                                    <div className="space12" />
-                                    <Link href={`mailto:${member.person.email}`}>{member.person.email}</Link>
-                                    <div className="space32" />
-                                  </>
-                                )}
-                                {member.person.phone && (
-                                  <>
-                                    <h4>Phone:</h4>
-                                    <div className="space12" />
-                                    <Link href={`tel:${member.person.phone}`}>{member.person.phone}</Link>
-                                    <div className="space32" />
-                                  </>
-                                )}
-                                <h4>Role:</h4>
-                                <div className="space12" />
-                                {member.role}
-                              </div>
-                            </div>
-                            <div className="col-lg-7">
-                              <div className="heading2">
-                                <h3>Committee Member</h3>
-                                <div className="space16" />
-                                {member.person.about ? (
-                                  <p>{member.person.about}</p>
-                                ) : (
-                                  <p>{member.person.name} serves as {member.role} in the Chess Victoria committee. {member.person.jobTitle && `They work as ${member.person.jobTitle}.`} Their dedication and expertise contribute significantly to the chess community in Victoria.</p>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        </div>
+
+        {/* Member Details */}
+        <div className="speakers-single-section-area sp8">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
+                <div className="speakers-single-content">
+                  <div className="img1">
+                    <img src="/assets/img/all-images/team/team-img1.png" alt={member.person.name} />
+                  </div>
+                  <div className="space32" />
+                  <h3>{member.person.name}</h3>
+                  <p className="role">{member.role}</p>
+                  {member.person.jobTitle && <p className="job-title">{member.person.jobTitle}</p>}
+                  
+                  {/* Contact Information */}
+                  <div className="contact-info">
+                    {member.person.email && (
+                      <p><strong>Email:</strong> <a href={`mailto:${member.person.email}`}>{member.person.email}</a></p>
+                    )}
+                    {member.person.phone && (
+                      <p><strong>Phone:</strong> <a href={`tel:${member.person.phone}`}>{member.person.phone}</a></p>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="event-team-area sp10">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading2 text-center space-margin60">
-                    <h2>Event History {member.person.name}</h2>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-12 m-auto">
-                  <div className="event-widget-area">
-                    <div className="row">
-                      <div className="col-lg-10 m-auto">
-                        <div className="event2-boxarea box1">
-                          <h1 className="active">01</h1>
-                          <div className="row align-items-center">
-                            <div className="col-lg-5">
-                              <div className="img1">
-                                <img src="/assets/img/all-images/event/event-img4.png" alt="" />
-                              </div>
-                            </div>
-                            <div className="col-lg-1" />
-                            <div className="col-lg-6">
-                              <div className="content-area">
-                                <ul>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/clock1.svg" alt="" />10.00 AM -12.00 PM <span> | </span></Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />26/C Asana, New York </Link>
-                                  </li>
-                                </ul>
-                                <div className="space20" />
-                                <Link href="/event-single" className="head">Elevate User Experience Expertise</Link>
-                                <div className="space24" />
-                                <div className="author-area">
-                                  <div className="autho-name-area">
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alex Roberton</Link>
-                                      <div className="space8" />
-                                      <p>UI/UX Designer</p>
-                                    </div>
-                                  </div>
-                                  <div className="autho-name-area" style={{ padding: '0 0 0 12px', border: 'none' }}>
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alexys Archer</Link>
-                                      <div className="space8" />
-                                      <p>WP Developer</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space24" />
-                                <div className="btn-area1">
-                                  <Link href="/pricing-plan" className="vl-btn1"><span className="demo">purchase ticket Now</span></Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+              
+              <div className="col-lg-4">
+                <div className="speakers-single-sidebar">
+                  {/* Overview Section */}
+                  {member.about && (
+                    <div className="widget-box">
+                      <h4>Overview</h4>
+                      <div className="content">
+                        {documentToReactComponents(member.about)}
                       </div>
                     </div>
-                    <div className="space48" />
-                    <div className="row">
-                      <div className="col-lg-10 m-auto">
-                        <div className="event2-boxarea box1">
-                          <h1 className="active">02</h1>
-                          <div className="row align-items-center">
-                            <div className="col-lg-7">
-                              <div className="content-area">
-                                <ul>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/clock1.svg" alt="" />10.00 AM -12.00 PM <span> | </span></Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />26/C Asana, New York </Link>
-                                  </li>
-                                </ul>
-                                <div className="space20" />
-                                <Link href="/event-single" className="head">Elevate User Experience Expertise</Link>
-                                <div className="space24" />
-                                <div className="author-area">
-                                  <div className="autho-name-area">
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alex Roberton</Link>
-                                      <div className="space8" />
-                                      <p>UI/UX Designer</p>
-                                    </div>
-                                  </div>
-                                  <div className="autho-name-area" style={{ padding: '0 0 0 12px', border: 'none' }}>
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alexys Archer</Link>
-                                      <div className="space8" />
-                                      <p>WP Developer</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space24" />
-                                <div className="btn-area1">
-                                  <Link href="/pricing-plan" className="vl-btn1"><span className="demo">purchase ticket Now</span></Link>
-                                </div>
-                              </div>
-                              <div className="space30 d-lg-none d-block" />
-                            </div>
-                            <div className="col-lg-5">
-                              <div className="img1">
-                                <img src="/assets/img/all-images/event/event-img5.png" alt="" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  )}
+                  
+                  {/* Committee Member Section */}
+                  {member.person.about && (
+                    <div className="widget-box">
+                      <h4>Committee Member</h4>
+                      <div className="content">
+                        <p>{member.person.about}</p>
                       </div>
                     </div>
-                    <div className="space30" />
-                    <div className="row">
-                      <div className="col-lg-10 m-auto">
-                        <div className="event2-boxarea box1">
-                          <h1 className="active">03</h1>
-                          <div className="row align-items-center">
-                            <div className="col-lg-5">
-                              <div className="img1">
-                                <img src="/assets/img/all-images/event/event-img6.png" alt="" />
-                              </div>
-                            </div>
-                            <div className="col-lg-1" />
-                            <div className="col-lg-6">
-                              <div className="content-area">
-                                <ul>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/clock1.svg" alt="" />10.00 AM -12.00 PM <span> | </span></Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />26/C Asana, New York </Link>
-                                  </li>
-                                </ul>
-                                <div className="space20" />
-                                <Link href="/event-single" className="head">Elevate User Experience Expertise</Link>
-                                <div className="space24" />
-                                <div className="author-area">
-                                  <div className="autho-name-area">
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alex Roberton</Link>
-                                      <div className="space8" />
-                                      <p>UI/UX Designer</p>
-                                    </div>
-                                  </div>
-                                  <div className="autho-name-area" style={{ padding: '0 0 0 12px', border: 'none' }}>
-                                    <div className="img1">
-                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
-                                    </div>
-                                    <div className="text">
-                                      <Link href="/speakers-single">Alexys Archer</Link>
-                                      <div className="space8" />
-                                      <p>WP Developer</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space24" />
-                                <div className="btn-area1">
-                                  <Link href="/pricing-plan" className="vl-btn1"><span className="demo">purchase ticket Now</span></Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  )}
+                  
+                  {/* Member Events Section (Hardcoded for now) */}
+                  <div className="widget-box">
+                    <h4>Member Events</h4>
+                    <div className="content">
+                      <p>Event information will be available soon.</p>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/*===== TEAM AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
-          <div className="cta1-section-area d-lg-block d-block">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-10 m-auto">
-                  <div className="cta1-main-boxarea">
-                    <div className="timer-btn-area">
-                      <Countdown />
-                      <div className="btn-area1">
-                        <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                      </div>
-                    </div>
-                    <ul>
-                      <li>
-                        <Link href="/committees"><img src="/assets/img/icons/calender1.svg" alt="" />View All Committee Members</Link>
-                      </li>
-                      <li className="m-0">
-                        <Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
-          <div className="cta1-section-area d-lg-none d-block">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-10 m-auto">
-                  <div className="cta1-main-boxarea">
-                    <div className="timer-btn-area">
-                      <Countdown />
-                      <div className="btn-area1">
-                        <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                      </div>
-                    </div>
-                    <ul>
-                      <li>
-                        <Link href="/committees"><img src="/assets/img/icons/calender1.svg" alt="" />View All Committee Members</Link>
-                      </li>
-                      <li className="m-0">
-                        <Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </Layout>
-    </>
-  )
+
+        {/* CTA Section */}
+        <div className="cta-section-area sp10">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="cta-content text-center">
+                  <h2>Contact Committee Member</h2>
+                  <p>Get in touch with {member.person.name} for committee-related inquiries.</p>
+                  <Link href="/contact" className="readmore">
+                    Contact Us <i className="fa-solid fa-arrow-right"></i>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
 }

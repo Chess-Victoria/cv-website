@@ -4,6 +4,19 @@ import { getChessClubData } from "@/lib/utils/chess-club"
 import { notFound } from "next/navigation"
 import EventTabs from "@/components/sections/chess-club/EventTabs"
 import { getContactImage, getClubImage, getEventImage } from "@/lib/constants"
+import { unstable_cache } from 'next/cache';
+
+// Cache the data fetching with tags for revalidation
+const getCachedChessClub = unstable_cache(
+  async (slug: string) => {
+    return await getChessClubData(slug);
+  },
+  ['chess-club-data'],
+  {
+    tags: ['chess-club', 'clubDetail'],
+    revalidate: 3600 // 1 hour fallback
+  }
+);
 
 interface ClubPageProps {
   params: {
@@ -15,7 +28,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
   const { slug } = params
   
   // Fetch chess club data from Contentful
-  const clubData = await getChessClubData(slug)
+  const clubData = await getCachedChessClub(slug)
   
   // If no club found, show 404
   if (!clubData) {

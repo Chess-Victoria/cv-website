@@ -1,0 +1,6 @@
+---
+globs: *.tsx
+alwaysApply: false
+---
+
+- All the server side render will need to implement ISR cache + Revalidate logic

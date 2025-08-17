@@ -1,57 +1,47 @@
 import client from '@/lib/contentful';
-import { CommitteeList, CommitteeMember, Person, CommitteeMemberData, CommitteeListData, CommitteePageData } from '@/lib/types/committee';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { CommitteeList, CommitteeMember, CommitteeListData, CommitteeMemberData, PersonData } from '@/lib/types/committee';
 import { getContactImage } from '@/lib/constants';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { unstable_cache } from 'next/cache';
 
 /**
- * Fetch all current committee lists from Contentful
+ * Fetch current committee lists from Contentful with caching
  */
-export async function getCurrentCommitteeLists(): Promise<CommitteeListData[]> {
-  try {
+export const getCurrentCommitteeLists = unstable_cache(
+  async () => {
     const response = await client.getEntries({
       content_type: 'committeeList',
       'fields.isCurrent': true,
       include: 4
     });
-
-    if (!response.items || response.items.length === 0) {
-      return [];
-    }
-
-    return response.items.map((item: any) => mapCommitteeListToData(item as unknown as CommitteeList));
-  } catch (error) {
-    console.error('Error fetching committee lists:', error);
-    return [];
+    return response.items;
+  },
+  ['committee-lists'],
+  {
+    tags: ['committees'],
+    revalidate: 3600 // 1 hour fallback
   }
-}
+);
 
 /**
- * Map Contentful committee list entry to component data
+ * Map committee list entry to data structure
  */
-function mapCommitteeListToData(committeeList: CommitteeList): CommitteeListData {
+function mapCommitteeListToData(committeeList: any): CommitteeListData {
   const members: CommitteeMemberData[] = [];
-
+  
   if (committeeList.fields.members) {
     committeeList.fields.members.forEach((memberRef: any) => {
       if (memberRef && typeof memberRef === 'object' && 'fields' in memberRef) {
-        const member = memberRef as any;
-        const memberData = mapCommitteeMemberToData(member);
-        if (memberData) {
-          members.push(memberData);
+        const member = mapCommitteeMemberToData(memberRef);
+        if (member) {
+          members.push(member);
         }
       }
     });
   }
 
   // Extract tags from metadata
-  const tags: string[] = [];
-  if (committeeList.metadata && committeeList.metadata.tags) {
-    committeeList.metadata.tags.forEach((tag: any) => {
-      if (tag.sys && tag.sys.id) {
-        tags.push(tag.sys.id);
-      }
-    });
-  }
+  const tags = committeeList.metadata?.tags?.map((tag: any) => tag.sys.id) || [];
 
   return {
     id: committeeList.sys.id,
@@ -64,78 +54,107 @@ function mapCommitteeListToData(committeeList: CommitteeList): CommitteeListData
 }
 
 /**
- * Map Contentful committee member entry to CommitteeMemberData
+ * Map committee member entry to data structure
  */
-export function mapCommitteeMemberToData(member: any): CommitteeMemberData {
-  const person = member.fields.personal?.fields;
-  const image = member.fields.image?.fields;
-  
-  return {
-    id: member.sys.id,
-    slug: member.fields.slug,
-    role: member.fields.role,
-    about: member.fields.about, // Rich text from committee member
-    person: {
-      id: member.fields.personal?.sys.id || '',
-      name: person?.name || '',
-      email: person?.email || '',
-      phone: person?.phone || '',
-      jobTitle: person?.jobTitle || '',
-      about: person?.about || '', // Text from person
-      image: image ? {
-        url: image.file?.url || '',
-        alt: image.description || ''
-      } : undefined
-    },
-    image: member.fields.image?.fields ? {
-      url: member.fields.image.fields.file?.url || '',
-      alt: member.fields.image.fields.description || ''
-    } : undefined
-  };
-}
-
-/**
- * Fetch committee page data with all current committee lists
- */
-export async function getCommitteePageData(): Promise<CommitteeListData[]> {
-  const committeeLists = await getCurrentCommitteeLists();
-  
-  // Sort committees: Executive first, then Non-Executive
-  return committeeLists.sort((a, b) => {
-    const aTags = a.tags || [];
-    const bTags = b.tags || [];
-    
-    const aIsExecutive = aTags.some(tag => tag.toLowerCase().includes('executive'));
-    const bIsExecutive = bTags.some(tag => tag.toLowerCase().includes('executive'));
-    
-    // Executive committees come first
-    if (aIsExecutive && !bIsExecutive) return -1;
-    if (!aIsExecutive && bIsExecutive) return 1;
-    
-    // If both are same type, maintain original order
-    return 0;
-  });
-}
-
-/**
- * Fetch a committee member by slug
- */
-export async function getCommitteeMemberBySlug(slug: string): Promise<CommitteeMemberData | null> {
+function mapCommitteeMemberToData(committeeMember: any): CommitteeMemberData | null {
   try {
-    const response = await client.getEntries({
-      content_type: 'comitteeMember',
-      'fields.slug': slug,
-      include: 4
-    });
+    const member: CommitteeMemberData = {
+      id: committeeMember.sys.id,
+      slug: committeeMember.fields.slug,
+      role: committeeMember.fields.role,
+      about: committeeMember.fields.about,
+      person: {
+        id: '',
+        name: '',
+        phone: '',
+        email: ''
+      }
+    };
 
-    if (!response.items || response.items.length === 0) {
-      return null;
+    // Map person data if available
+    if (committeeMember.fields.person && typeof committeeMember.fields.person === 'object' && 'fields' in committeeMember.fields.person) {
+      const person = committeeMember.fields.person as any;
+      member.person = {
+        id: person.sys?.id || '',
+        name: person.fields.name || '',
+        phone: person.fields.phone || '',
+        email: person.fields.email || '',
+        jobTitle: person.fields.jobTitle || '',
+        about: person.fields.about || ''
+      };
     }
 
-    const member = response.items[0] as any;
-    return mapCommitteeMemberToData(member);
+    return member;
   } catch (error) {
-    console.error('Error fetching committee member by slug:', error);
+    console.error('Error mapping committee member to data:', error);
     return null;
   }
 }
+
+/**
+ * Get committee page data with caching
+ */
+export const getCommitteePageData = unstable_cache(
+  async () => {
+    try {
+      const committeeLists = await getCurrentCommitteeLists();
+      
+      if (!committeeLists || committeeLists.length === 0) {
+        return [];
+      }
+
+      const mappedLists: CommitteeListData[] = committeeLists.map((committeeList: any) => 
+        mapCommitteeListToData(committeeList)
+      );
+
+      // Sort by tags (Executive first, then Non-Executive)
+      return mappedLists.sort((a, b) => {
+        const aIsExecutive = a.tags?.some(tag => tag.toLowerCase().includes('executive'));
+        const bIsExecutive = b.tags?.some(tag => tag.toLowerCase().includes('executive'));
+        
+        if (aIsExecutive && !bIsExecutive) return -1;
+        if (!aIsExecutive && bIsExecutive) return 1;
+        return 0;
+      });
+    } catch (error) {
+      console.error('Error getting committee page data:', error);
+      return [];
+    }
+  },
+  ['committee-page-data'],
+  {
+    tags: ['committees'],
+    revalidate: 3600 // 1 hour fallback
+  }
+);
+
+/**
+ * Get committee member by slug with caching
+ */
+export const getCommitteeMemberBySlug = unstable_cache(
+  async (slug: string) => {
+    try {
+      const response = await client.getEntries({
+        content_type: 'comitteeMember',
+        'fields.slug': slug,
+        include: 4,
+        limit: 1
+      });
+
+      if (!response.items || response.items.length === 0) {
+        return null;
+      }
+
+      const committeeMember = response.items[0];
+      return mapCommitteeMemberToData(committeeMember);
+    } catch (error) {
+      console.error('Error getting committee member by slug:', error);
+      return null;
+    }
+  },
+  ['committee-member-data'],
+  {
+    tags: ['committees'],
+    revalidate: 3600 // 1 hour fallback
+  }
+);

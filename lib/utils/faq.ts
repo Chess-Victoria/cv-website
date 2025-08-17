@@ -1,72 +1,58 @@
 import { getEntries } from '@/lib/contentful';
 import { FAQ, FAQData, FAQListData } from '@/lib/types/faq';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { unstable_cache } from 'next/cache';
 
 /**
- * Fetch all FAQ entries from Contentful
+ * Fetch FAQ data from Contentful with caching
  */
-export async function getFAQs(): Promise<FAQ[]> {
-  try {
-    const response = await getEntries('frequentlyAskedQuestion', 2);
-    return response as unknown as FAQ[];
-  } catch (error) {
-    console.error('Error fetching FAQs:', error);
-    return [];
+export const getFAQData = unstable_cache(
+  async (): Promise<FAQListData> => {
+    try {
+      const response = await getEntries('frequentlyAskedQuestion', 2);
+      
+      if (!response || response.length === 0) {
+        return {
+          title: "Frequently Asked Questions",
+          subtitle: "Find answers to common questions about Chess Victoria",
+          faqs: [],
+          availableTags: []
+        };
+      }
+
+      const faqs = response as unknown as FAQ[];
+      const faqData: FAQData[] = faqs.map((faq) => ({
+        id: faq.sys.id,
+        question: faq.fields.question,
+        answer: documentToReactComponents(faq.fields.answer) || null,
+        tags: faq.metadata.tags.map(tag => tag.sys.id)
+      }));
+
+      // Extract unique tags
+      const allTags = faqs.flatMap(faq => 
+        faq.metadata.tags.map(tag => tag.sys.id)
+      );
+      const availableTags = [...new Set(allTags)].sort();
+
+      return {
+        title: "Frequently Asked Questions",
+        subtitle: "Find answers to common questions about Chess Victoria",
+        faqs: faqData,
+        availableTags
+      };
+    } catch (error) {
+      console.error('Error fetching FAQ data:', error);
+      return {
+        title: "Frequently Asked Questions",
+        subtitle: "Find answers to common questions about Chess Victoria",
+        faqs: [],
+        availableTags: []
+      };
+    }
+  },
+  ['faq-data'],
+  {
+    tags: ['faq'],
+    revalidate: 3600 // 1 hour fallback
   }
-}
-
-/**
- * Map FAQ entries to FAQData with rendered RichText
- */
-export function mapFAQsToData(faqs: FAQ[]): FAQData[] {
-  return faqs.map((faq) => ({
-    id: faq.sys.id,
-    question: faq.fields.question,
-    answer: documentToReactComponents(faq.fields.answer) || null,
-    tags: faq.metadata.tags.map(tag => tag.sys.id)
-  }));
-}
-
-/**
- * Get all unique tags from FAQ entries
- */
-export function getUniqueTags(faqs: FAQ[]): string[] {
-  const allTags = faqs.flatMap(faq => 
-    faq.metadata.tags.map(tag => tag.sys.id)
-  );
-  return [...new Set(allTags)].sort();
-}
-
-/**
- * Filter FAQs by tag
- */
-export function filterFAQsByTag(faqs: FAQData[], tag: string | null): FAQData[] {
-  if (!tag) return faqs;
-  return faqs.filter(faq => faq.tags.includes(tag));
-}
-
-/**
- * Get complete FAQ data for the page
- */
-export async function getFAQData(): Promise<FAQListData> {
-  try {
-    const faqs = await getFAQs();
-    const faqData = mapFAQsToData(faqs);
-    const availableTags = getUniqueTags(faqs);
-
-    return {
-      title: "Frequently Asked Questions",
-      subtitle: "Find answers to common questions about Chess Victoria",
-      faqs: faqData,
-      availableTags
-    };
-  } catch (error) {
-    console.error('Error getting FAQ data:', error);
-    return {
-      title: "Frequently Asked Questions",
-      subtitle: "Find answers to common questions about Chess Victoria",
-      faqs: [],
-      availableTags: []
-    };
-  }
-}
+);
