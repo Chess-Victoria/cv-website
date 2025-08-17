@@ -153,8 +153,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/committees">Commitees<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/members">Members</Link></li>
-													<li><Link href="/speakers-single">Speakers Details</Link></li>
+													<li><Link href="/committees/archived">Past Committees</Link></li>
 												</ul>
 											</li>
 											<li>
@@ -171,9 +170,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/#">Events <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/event">Our Event</Link></li>
-													<li><Link href="/event-schedule">Event Schedule</Link></li>
-													<li><Link href="/event-single">Event Details</Link></li>
+													<li><Link href="/events/chess-victoria/">Our Event</Link></li>
+													<li><Link href="/events/state-victoria">State level Tournaments</Link></li>
+													<li><Link href="/events/clubs">Clubs Level Tournaments</Link></li>
 												</ul>
 											</li>
 

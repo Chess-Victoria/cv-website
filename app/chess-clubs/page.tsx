@@ -5,6 +5,7 @@ import Link from "next/link"
 import { getClubPageData } from "@/lib/utils/club-page"
 import PromotedClubs from "@/components/sections/chess-clubs/PromotedClubs"
 import ClubsTable from "@/components/sections/chess-clubs/ClubsTable"
+import ClubsMap from "@/components/sections/chess-clubs/ClubsMap"
 
 export default async function ChessClubsPage() {
 	// Fetch data from Contentful
@@ -78,6 +79,12 @@ export default async function ChessClubsPage() {
 						</div>
 					)}
 					{/*===== ALL CLUBS TABLE AREA ENDS =======*/}
+					
+					{/*===== CLUBS MAP AREA STARTS =======*/}
+					{clubPageData?.allClubs && clubPageData.allClubs.length > 0 && (
+						<ClubsMap clubs={clubPageData.allClubs} />
+					)}
+					{/*===== CLUBS MAP AREA ENDS =======*/}
 					
 					{/*===== CTA AREA STARTS =======*/}
 					<div className="cta1-section-area d-lg-block d-block">

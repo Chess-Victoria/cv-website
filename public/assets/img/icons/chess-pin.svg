@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pin shadow -->
+  <ellipse cx="16" cy="28" rx="4" ry="2" fill="rgba(0,0,0,0.2)"/>
+  
+  <!-- Pin body -->
+  <path d="M16 4C12.6863 4 10 6.68629 10 10C10 13.3137 12.6863 16 16 16C19.3137 16 22 13.3137 22 10C22 6.68629 19.3137 4 16 4Z" fill="#8B4513"/>
+  
+  <!-- Chess piece silhouette -->
+  <path d="M14 8C14 7.44772 14.4477 7 15 7H17C17.5523 7 18 7.44772 18 8V10C18 10.5523 17.5523 11 17 11H15C14.4477 11 14 10.5523 14 10V8Z" fill="#F5DEB3"/>
+  
+  <!-- Pin point -->
+  <path d="M16 16L18 24L16 26L14 24L16 16Z" fill="#8B4513"/>
+  
+  <!-- Chess piece details -->
+  <circle cx="16" cy="9" r="1" fill="#654321"/>
+  <rect x="15.5" y="9.5" width="1" height="1" fill="#654321"/>
+</svg>
