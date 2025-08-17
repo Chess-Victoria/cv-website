@@ -151,7 +151,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 											<li>
-												<Link href="/#">Commitees<i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/committees">Commitees<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/members">Members</Link></li>
 													<li><Link href="/speakers-single">Speakers Details</Link></li>

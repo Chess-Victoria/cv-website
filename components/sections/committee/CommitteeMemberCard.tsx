@@ -1,13 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { CommitteeMemberData } from "@/lib/types/committee";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { getContactImage } from '@/lib/constants'
 
 interface CommitteeMemberCardProps {
   member: CommitteeMemberData;
 }
 
 export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps) {
-  const imageUrl = member.image?.url || member.person.image?.url || '/assets/img/default/no-photo.png';
+  const imageUrl = member.image?.url || member.person.image?.url || getContactImage();
   const imageAlt = member.image?.alt || member.person.image?.alt || member.person.name;
 
   return (
@@ -19,31 +21,49 @@ export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps
           <div className="img1">
             <img src={imageUrl} alt={imageAlt} className="team-img4" />
             <div className="share">
-              <Link href="/#"><img src="/assets/img/icons/share1.svg" alt="" /></Link>
+              <Link href={`/committees/${member.slug}`}>
+                <img src="/assets/img/icons/share1.svg" alt="" />
+              </Link>
             </div>
             <ul>
               <li>
-                <Link href="/#" className="icon1"><i className="fa-brands fa-facebook-f" /></Link>
+                <Link href={`/committees/${member.slug}`} className="icon1">
+                  <i className="fa-solid fa-user" />
+                </Link>
               </li>
+              {member.person.email && (
+                <li>
+                  <Link href={`mailto:${member.person.email}`} className="icon2">
+                    <i className="fa-solid fa-envelope" />
+                  </Link>
+                </li>
+              )}
+              {member.person.phone && (
+                <li>
+                  <Link href={`tel:${member.person.phone}`} className="icon3">
+                    <i className="fa-solid fa-phone" />
+                  </Link>
+                </li>
+              )}
               <li>
-                <Link href="/#" className="icon2"><i className="fa-brands fa-linkedin-in" /></Link>
-              </li>
-              <li>
-                <Link href="/#" className="icon3"><i className="fa-brands fa-instagram" /></Link>
-              </li>
-              <li>
-                <Link href="/#" className="icon4"><i className="fa-brands fa-pinterest-p" /></Link>
+                <Link href={`/committees/${member.slug}`} className="icon4">
+                  <i className="fa-solid fa-info" />
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="space28" />
         <div className="content-area">
-          <Link href="/speakers-single">{member.person.name}</Link>
+          <h3>
+            <Link href={`/committees/${member.slug}`}>
+              {member.person.name}
+            </Link>
+          </h3>
           <div className="space16" />
-          <p>{member.role}</p>
+          <p className="role">{member.role}</p>
           {member.person.jobTitle && (
-            <p style={{ fontSize: '14px', color: '#666' }}>{member.person.jobTitle}</p>
+            <p className="job-title">{member.person.jobTitle}</p>
           )}
         </div>
       </div>

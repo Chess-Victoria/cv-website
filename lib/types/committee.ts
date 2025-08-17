@@ -44,8 +44,9 @@ export interface CommitteeMember {
     updatedAt: string;
   };
   fields: {
+    slug: string;
     role: string;
-    about?: Document; // Rich text field
+    about?: Document; // Rich text field from committee member
     personal: {
       sys: {
         id: string;
@@ -83,25 +84,30 @@ export interface Person {
         linkType: string;
       };
     };
+    about?: string; // Text field from person
   };
 }
 
-// Mapped data for committee member display
+// Mapped data structures for components
+export interface PersonData {
+  id: string;
+  name: string;
+  email?: string;
+  phone?: string;
+  jobTitle?: string;
+  about?: string; // Text field from person
+  image?: {
+    url: string;
+    alt: string;
+  };
+}
+
 export interface CommitteeMemberData {
   id: string;
+  slug: string;
   role: string;
-  about?: Document;
-  person: {
-    id: string;
-    name: string;
-    email?: string;
-    phone?: string;
-    jobTitle?: string;
-    image?: {
-      url: string;
-      alt: string;
-    };
-  };
+  about?: Document; // Rich text field from committee member
+  person: PersonData;
   image?: {
     url: string;
     alt: string;

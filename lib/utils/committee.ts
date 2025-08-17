@@ -64,51 +64,34 @@ function mapCommitteeListToData(committeeList: CommitteeList): CommitteeListData
 }
 
 /**
- * Map Contentful committee member entry to component data
+ * Map Contentful committee member entry to CommitteeMemberData
  */
-function mapCommitteeMemberToData(member: any): CommitteeMemberData | null {
-  try {
-    const person = member.fields.personal;
-    if (!person || typeof person !== 'object' || !('fields' in person)) {
-      return null;
-    }
-
-    const personData = person as any;
-    
-    const memberData: CommitteeMemberData = {
-      id: member.sys.id,
-      role: member.fields.role,
-      person: {
-        id: person.sys.id,
-        name: personData.fields.name,
-        email: personData.fields.email,
-        phone: personData.fields.phone,
-        jobTitle: personData.fields.jobTitle,
-        image: personData.fields.image ? {
-          url: getContactImage(personData.fields.image.fields.file.url),
-          alt: personData.fields.image.fields.title || personData.fields.name
-        } : undefined
-      }
-    };
-
-    // Map about field (rich text)
-    if (member.fields.about) {
-      memberData.about = member.fields.about;
-    }
-
-    // Map member image
-    if (member.fields.image) {
-      memberData.image = {
-        url: getContactImage(member.fields.image.fields.file.url),
-        alt: member.fields.image.fields.title || member.fields.role
-      };
-    }
-
-    return memberData;
-  } catch (error) {
-    console.error('Error mapping committee member:', error);
-    return null;
-  }
+export function mapCommitteeMemberToData(member: any): CommitteeMemberData {
+  const person = member.fields.personal?.fields;
+  const image = member.fields.image?.fields;
+  
+  return {
+    id: member.sys.id,
+    slug: member.fields.slug,
+    role: member.fields.role,
+    about: member.fields.about, // Rich text from committee member
+    person: {
+      id: member.fields.personal?.sys.id || '',
+      name: person?.name || '',
+      email: person?.email || '',
+      phone: person?.phone || '',
+      jobTitle: person?.jobTitle || '',
+      about: person?.about || '', // Text from person
+      image: image ? {
+        url: image.file?.url || '',
+        alt: image.description || ''
+      } : undefined
+    },
+    image: member.fields.image?.fields ? {
+      url: member.fields.image.fields.file?.url || '',
+      alt: member.fields.image.fields.description || ''
+    } : undefined
+  };
 }
 
 /**
@@ -132,4 +115,27 @@ export async function getCommitteePageData(): Promise<CommitteeListData[]> {
     // If both are same type, maintain original order
     return 0;
   });
+}
+
+/**
+ * Fetch a committee member by slug
+ */
+export async function getCommitteeMemberBySlug(slug: string): Promise<CommitteeMemberData | null> {
+  try {
+    const response = await client.getEntries({
+      content_type: 'comitteeMember',
+      'fields.slug': slug,
+      include: 4
+    });
+
+    if (!response.items || response.items.length === 0) {
+      return null;
+    }
+
+    const member = response.items[0] as any;
+    return mapCommitteeMemberToData(member);
+  } catch (error) {
+    console.error('Error fetching committee member by slug:', error);
+    return null;
+  }
 }

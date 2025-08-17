@@ -945,7 +945,7 @@
         "id": "person",
         "type": "ContentType",
         "createdAt": "2025-08-15T13:24:15.308Z",
-        "updatedAt": "2025-08-16T11:36:14.048Z",
+        "updatedAt": "2025-08-17T07:11:43.615Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -953,8 +953,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T11:36:14.048Z",
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-17T07:11:43.615Z",
         "firstPublishedAt": "2025-08-15T13:24:15.919Z",
         "createdBy": {
           "sys": {
@@ -970,8 +970,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 3,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1089,6 +1089,17 @@
           "id": "fide",
           "name": "fide",
           "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "about",
+          "name": "about",
+          "type": "Text",
           "localized": false,
           "required": false,
           "validations": [
@@ -2016,7 +2027,7 @@
         "id": "comitteeMember",
         "type": "ContentType",
         "createdAt": "2025-08-16T11:12:52.060Z",
-        "updatedAt": "2025-08-16T11:13:25.754Z",
+        "updatedAt": "2025-08-17T06:42:40.250Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2024,8 +2035,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T11:13:25.754Z",
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-17T06:42:40.250Z",
         "firstPublishedAt": "2025-08-16T11:12:52.670Z",
         "createdBy": {
           "sys": {
@@ -2041,8 +2052,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 4,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2056,6 +2067,17 @@
       "name": "Comittee Member",
       "description": "",
       "fields": [
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
         {
           "id": "role",
           "name": "Role",
@@ -2433,6 +2455,84 @@
         "visibility": "public"
       },
       "name": "Contact"
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "nonExecutive",
+        "type": "Tag",
+        "createdAt": "2025-08-17T05:54:57.518Z",
+        "updatedAt": "2025-08-17T05:54:57.518Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "version": 1,
+        "visibility": "public"
+      },
+      "name": "Non-Executive"
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "executive",
+        "type": "Tag",
+        "createdAt": "2025-08-17T05:55:46.500Z",
+        "updatedAt": "2025-08-17T05:55:46.500Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "version": 1,
+        "visibility": "public"
+      },
+      "name": "Executive"
     }
   ],
   "editorInterfaces": [
@@ -2908,7 +3008,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 6,
         "createdAt": "2025-08-15T13:24:16.041Z",
         "createdBy": {
           "sys": {
@@ -2917,7 +3017,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T11:36:14.953Z",
+        "updatedAt": "2025-08-17T07:11:44.710Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -2989,6 +3089,11 @@
         {
           "fieldId": "fide",
           "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "about",
+          "widgetId": "markdown",
           "widgetNamespace": "builtin"
         }
       ]
@@ -3491,7 +3596,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 8,
         "createdAt": "2025-08-16T11:12:52.791Z",
         "createdBy": {
           "sys": {
@@ -3500,7 +3605,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T11:13:26.635Z",
+        "updatedAt": "2025-08-17T06:42:41.179Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3524,6 +3629,11 @@
         }
       },
       "controls": [
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
         {
           "fieldId": "role",
           "widgetId": "singleLine",
@@ -4473,7 +4583,7 @@
         "id": "60nw3IDwza8hO2tS1IAcP9",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:05.579Z",
-        "updatedAt": "2025-08-17T04:34:49.215Z",
+        "updatedAt": "2025-08-17T05:40:41.677Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4481,8 +4591,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 11,
-        "publishedAt": "2025-08-17T04:33:18.791Z",
+        "publishedVersion": 13,
+        "publishedAt": "2025-08-17T05:40:41.677Z",
         "firstPublishedAt": "2025-08-17T04:21:56.568Z",
         "createdBy": {
           "sys": {
@@ -4498,8 +4608,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 13,
+        "publishedCounter": 4,
+        "version": 14,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4509,7 +4619,7 @@
         },
         "fieldStatus": {
           "*": {
-            "en-US": "changed"
+            "en-US": "published"
           }
         },
         "automationTags": [
@@ -6627,6 +6737,13 @@
     {
       "metadata": {
         "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "executive"
+            }
+          }
         ],
         "concepts": [
         ]
@@ -6642,7 +6759,7 @@
         "id": "6x3LC9BpepwWfK1BkjuH39",
         "type": "Entry",
         "createdAt": "2025-08-16T11:39:38.308Z",
-        "updatedAt": "2025-08-17T05:34:32.608Z",
+        "updatedAt": "2025-08-17T05:55:52.303Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6650,8 +6767,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 14,
-        "publishedAt": "2025-08-17T05:34:32.608Z",
+        "publishedVersion": 16,
+        "publishedAt": "2025-08-17T05:55:52.303Z",
         "firstPublishedAt": "2025-08-16T12:00:09.536Z",
         "createdBy": {
           "sys": {
@@ -6667,8 +6784,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 15,
+        "publishedCounter": 4,
+        "version": 17,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6761,7 +6878,7 @@
         "id": "15Ks2Mo0eqwCt1JtuFYHoV",
         "type": "Entry",
         "createdAt": "2025-08-16T11:40:09.940Z",
-        "updatedAt": "2025-08-16T11:49:58.744Z",
+        "updatedAt": "2025-08-17T06:43:12.797Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6769,8 +6886,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 6,
-        "publishedAt": "2025-08-16T11:49:58.744Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T06:43:12.797Z",
         "firstPublishedAt": "2025-08-16T11:49:47.509Z",
         "createdBy": {
           "sys": {
@@ -6786,8 +6903,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 7,
+        "publishedCounter": 3,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6812,6 +6929,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/15Ks2Mo0eqwCt1JtuFYHoV"
       },
       "fields": {
+        "slug": {
+          "en-US": "2025-treasurer"
+        },
         "role": {
           "en-US": "Treasure"
         },
@@ -7931,7 +8051,7 @@
         "id": "4krBixWftHK72kYdTBLerZ",
         "type": "Entry",
         "createdAt": "2025-08-16T11:50:04.752Z",
-        "updatedAt": "2025-08-16T12:00:03.322Z",
+        "updatedAt": "2025-08-17T06:44:11.967Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -7939,8 +8059,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T12:00:03.322Z",
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-17T06:44:11.967Z",
         "firstPublishedAt": "2025-08-16T12:00:03.322Z",
         "createdBy": {
           "sys": {
@@ -7956,8 +8076,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7982,6 +8102,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4krBixWftHK72kYdTBLerZ"
       },
       "fields": {
+        "slug": {
+          "en-US": "2025-vice-president"
+        },
         "role": {
           "en-US": "Vice President"
         },
@@ -8094,7 +8217,7 @@
         "id": "4zUoKgaLN4mnyhKKVv7uDS",
         "type": "Entry",
         "createdAt": "2025-08-16T11:51:30.712Z",
-        "updatedAt": "2025-08-16T11:52:14.353Z",
+        "updatedAt": "2025-08-17T06:43:53.612Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8102,8 +8225,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2025-08-16T11:52:14.353Z",
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-17T06:43:53.612Z",
         "firstPublishedAt": "2025-08-16T11:52:14.353Z",
         "createdBy": {
           "sys": {
@@ -8119,8 +8242,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 7,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8145,8 +8268,35 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4zUoKgaLN4mnyhKKVv7uDS"
       },
       "fields": {
+        "slug": {
+          "en-US": "2025-secretary"
+        },
         "role": {
           "en-US": "Secretary"
+        },
+        "about": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "NA",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
         },
         "personal": {
           "en-US": {
@@ -8257,7 +8407,7 @@
         "id": "13pNCzrhwe2BpY2vwD4lcs",
         "type": "Entry",
         "createdAt": "2025-08-16T11:58:49.152Z",
-        "updatedAt": "2025-08-16T11:59:14.429Z",
+        "updatedAt": "2025-08-17T06:45:34.316Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8265,8 +8415,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T11:59:14.429Z",
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-17T06:45:34.316Z",
         "firstPublishedAt": "2025-08-16T11:59:14.429Z",
         "createdBy": {
           "sys": {
@@ -8282,8 +8432,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 7,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8308,6 +8458,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/13pNCzrhwe2BpY2vwD4lcs"
       },
       "fields": {
+        "slug": {
+          "en-US": "2025-executive-member-anna"
+        },
         "role": {
           "en-US": "Executive Member"
         },
@@ -8414,7 +8567,7 @@
         "id": "7sdt0SUSnrAuCDVy13SusK",
         "type": "Entry",
         "createdAt": "2025-08-16T11:59:23.911Z",
-        "updatedAt": "2025-08-16T11:59:55.239Z",
+        "updatedAt": "2025-08-17T06:45:05.698Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8422,8 +8575,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 4,
-        "publishedAt": "2025-08-16T11:59:55.239Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-17T06:45:05.698Z",
         "firstPublishedAt": "2025-08-16T11:59:55.239Z",
         "createdBy": {
           "sys": {
@@ -8439,8 +8592,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 5,
+        "publishedCounter": 2,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8465,6 +8618,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7sdt0SUSnrAuCDVy13SusK"
       },
       "fields": {
+        "slug": {
+          "en-US": "2025-executive-member-kuanysh"
+        },
         "role": {
           "en-US": "Executive Member"
         },
@@ -10814,6 +10970,13 @@
     {
       "metadata": {
         "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "nonExecutive"
+            }
+          }
         ],
         "concepts": [
         ]
@@ -10829,7 +10992,7 @@
         "id": "6B2y45kNuqF8Drm5J3xEcD",
         "type": "Entry",
         "createdAt": "2025-08-17T05:28:23.720Z",
-        "updatedAt": "2025-08-17T05:32:11.158Z",
+        "updatedAt": "2025-08-17T05:55:05.822Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10837,8 +11000,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2025-08-17T05:32:11.158Z",
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-17T05:55:05.822Z",
         "firstPublishedAt": "2025-08-17T05:32:11.158Z",
         "createdBy": {
           "sys": {
@@ -10854,8 +11017,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 8,
+        "publishedCounter": 3,
+        "version": 12,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10907,6 +11070,9 @@
               }
             }
           ]
+        },
+        "isCurrent": {
+          "en-US": true
         }
       }
     },
