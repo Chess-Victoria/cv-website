@@ -68,6 +68,11 @@ validate: ## Validate content type definitions
 	@echo "Validating content type definitions..."
 	./scripts/contentful.sh validate
 
+.PHONY: clean-exports
+clean-exports: ## Clean up Contentful exports folder
+	@echo "Cleaning up Contentful exports folder..."
+	./scripts/contentful.sh clean
+
 # Development Commands
 .PHONY: dev
 dev: ## Start development server

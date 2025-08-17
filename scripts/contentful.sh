@@ -65,23 +65,49 @@ setup() {
 # Function to push content types to Contentful
 push() {
 	print_status "Pushing content types to Contentful..."
-	print_warning "Note: Contentful CLI import requires a content file, not a config file."
-	print_warning "To push content types, you need to:"
-	print_warning "1. Export current content: make pull"
-	print_warning "2. Modify the exported JSON file"
-	print_warning "3. Import the modified file: contentful space import --content-file contentful/exports/latest.json"
-	print_warning ""
-	print_warning "For now, use the Contentful web interface to create content types."
-	print_warning "Then use 'make pull' to download them locally."
-	print_success "Content types workflow explained"
+	
+	if [ ! -f "contentful/exports/latest.json" ]; then
+		print_error "No export file found. Run 'make pull' first to export current content."
+		exit 1
+	fi
+	
+	print_status "Importing content from contentful/exports/latest.json..."
+	contentful space import --content-file contentful/exports/latest.json
+	print_success "Content types pushed successfully"
 }
 
 # Function to pull content types from Contentful
 pull() {
 	print_status "Pulling content types from Contentful..."
 	mkdir -p contentful/exports
+	
+	# Clean up old export files
+	print_status "Cleaning up old export files..."
+	rm -f contentful/exports/*
+	
+	# Export to a temporary location first
+	print_status "Exporting content types..."
 	contentful space export --config-file contentful/config.json --export-dir contentful/exports
-	print_success "Content types pulled successfully"
+	
+	# Find the exported file and rename it to latest.json
+	print_status "Renaming exported file to latest.json..."
+	for file in contentful/exports/*.json; do
+		if [ -f "$file" ]; then
+			if [ "$(basename "$file")" != "latest.json" ]; then
+				print_status "Found exported file: $(basename "$file")"
+				mv "$file" contentful/exports/latest.json
+			fi
+			break
+		fi
+	done
+	
+	# Check if the file was created successfully
+	if [ -f "contentful/exports/latest.json" ]; then
+		print_success "Content types pulled successfully to contentful/exports/latest.json"
+	else
+		print_error "Failed to create latest.json file"
+		exit 1
+	fi
 }
 
 # Function to generate migration
@@ -119,6 +145,13 @@ validate() {
     print_success "All content type definitions are valid"
 }
 
+# Function to clean up exports folder
+clean() {
+    print_status "Cleaning up exports folder..."
+    rm -rf contentful/exports/*
+    print_success "Exports folder cleaned"
+}
+
 # Function to show help
 show_help() {
     echo "Contentful Management Script"
@@ -133,6 +166,7 @@ show_help() {
     echo "  generate  - Generate migration"
     echo "  apply     - Apply migration"
     echo "  validate  - Validate content type definitions"
+    echo "  clean     - Clean up exports folder"
     echo "  help      - Show this help message"
     echo ""
     echo "Environment Variables:"
@@ -168,6 +202,9 @@ case "$1" in
         ;;
     "validate")
         validate
+        ;;
+    "clean")
+        clean
         ;;
     "help"|"--help"|"-h"|"")
         show_help

@@ -150,7 +150,7 @@
         "id": "clubDetail",
         "type": "ContentType",
         "createdAt": "2025-08-15T11:22:35.011Z",
-        "updatedAt": "2025-08-15T13:38:05.725Z",
+        "updatedAt": "2025-08-17T00:14:06.115Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -158,8 +158,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 15,
-        "publishedAt": "2025-08-15T13:38:05.725Z",
+        "publishedVersion": 23,
+        "publishedAt": "2025-08-17T00:14:06.115Z",
         "firstPublishedAt": "2025-08-15T11:22:35.385Z",
         "createdBy": {
           "sys": {
@@ -175,8 +175,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 8,
-        "version": 16,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -190,6 +190,17 @@
       "name": "Chess Club",
       "description": "details of a club",
       "fields": [
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
         {
           "id": "name",
           "name": "Name",
@@ -208,6 +219,11 @@
           "localized": false,
           "required": false,
           "validations": [
+            {
+              "linkContentType": [
+                "person"
+              ]
+            }
           ],
           "disabled": false,
           "omitted": false,
@@ -349,6 +365,23 @@
             ],
             "linkType": "Asset"
           }
+        },
+        {
+          "id": "currentEvents",
+          "name": "Current Events",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "eventList"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
         }
       ]
     },
@@ -2163,7 +2196,7 @@
         "id": "frequentlyAskedQuestion",
         "type": "ContentType",
         "createdAt": "2025-08-16T13:52:36.930Z",
-        "updatedAt": "2025-08-16T13:52:48.740Z",
+        "updatedAt": "2025-08-16T21:55:48.072Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2171,8 +2204,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T13:52:48.740Z",
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-16T21:55:48.072Z",
         "firstPublishedAt": "2025-08-16T13:52:37.543Z",
         "createdBy": {
           "sys": {
@@ -2188,8 +2221,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 4,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2241,8 +2274,6 @@
                 "heading-4",
                 "heading-5",
                 "heading-6",
-                "ordered-list",
-                "unordered-list",
                 "hr",
                 "blockquote",
                 "embedded-entry-block",
@@ -2251,9 +2282,11 @@
                 "asset-hyperlink",
                 "embedded-entry-inline",
                 "entry-hyperlink",
-                "hyperlink"
+                "hyperlink",
+                "unordered-list",
+                "ordered-list"
               ],
-              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry and link to Url nodes are allowed"
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, link to Url, unordered list and ordered list nodes are allowed"
             },
             {
               "nodes": {
@@ -2267,6 +2300,84 @@
     }
   ],
   "tags": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "tournament",
+        "type": "Tag",
+        "createdAt": "2025-08-16T14:06:12.679Z",
+        "updatedAt": "2025-08-16T14:06:12.679Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "version": 1,
+        "visibility": "public"
+      },
+      "name": "Tournament"
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "contact",
+        "type": "Tag",
+        "createdAt": "2025-08-16T14:06:40.563Z",
+        "updatedAt": "2025-08-16T14:06:40.563Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "version": 1,
+        "visibility": "public"
+      },
+      "name": "Contact"
+    }
   ],
   "editorInterfaces": [
     {
@@ -2361,7 +2472,7 @@
             "linkType": "Space"
           }
         },
-        "version": 16,
+        "version": 24,
         "createdAt": "2025-08-15T11:22:35.465Z",
         "createdBy": {
           "sys": {
@@ -2370,7 +2481,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-15T13:38:06.588Z",
+        "updatedAt": "2025-08-17T00:14:06.938Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -2394,6 +2505,11 @@
         }
       },
       "controls": [
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
         {
           "fieldId": "name",
           "widgetId": "singleLine",
@@ -2427,6 +2543,11 @@
         {
           "fieldId": "images",
           "widgetId": "assetLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "currentEvents",
+          "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -3421,7 +3542,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 8,
         "createdAt": "2025-08-16T13:52:37.682Z",
         "createdBy": {
           "sys": {
@@ -3430,7 +3551,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T13:52:49.611Z",
+        "updatedAt": "2025-08-16T21:55:48.923Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -4276,7 +4397,7 @@
         "id": "2Hz3X2W42ow7sF8UCYYJct",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:20.762Z",
-        "updatedAt": "2025-08-15T13:44:28.687Z",
+        "updatedAt": "2025-08-16T23:26:35.159Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4284,8 +4405,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2025-08-15T13:44:28.687Z",
+        "publishedVersion": 11,
+        "publishedAt": "2025-08-16T23:26:35.159Z",
         "firstPublishedAt": "2025-08-15T13:44:28.687Z",
         "createdBy": {
           "sys": {
@@ -4301,8 +4422,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 8,
+        "publishedCounter": 3,
+        "version": 12,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4327,6 +4448,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2Hz3X2W42ow7sF8UCYYJct"
       },
       "fields": {
+        "slug": {
+          "en-US": "mcc"
+        },
         "name": {
           "en-US": "Melbourne Chess Club"
         },
@@ -4350,98 +4474,98 @@
         },
         "quickIntro": {
           "en-US": {
-            "nodeType": "document",
             "data": {
             },
             "content": [
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "The ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
                     "value": "Melbourne Chess Club (MCC)",
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": ", founded in ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
                     "value": "1866",
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": ", is one of Australia’s—and the Southern Hemisphere’s—oldest continuously operating chess clubs. Located at ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": "66 Leicester Street, Fitzroy",
+                    "data": {
+                    },
                     "marks": [
                       {
                         "type": "bold"
                       }
                     ],
-                    "data": {
-                    }
+                    "value": "66 Leicester Street, Fitzroy",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": ", MCC is a volunteer-run, not-for-profit organisation dedicated to promoting chess for players of all ages and skill levels. The club reinvests all its revenue into improving facilities, running events, and nurturing its vibrant chess community.",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": ", MCC is a volunteer-run, not-for-profit organisation dedicated to promoting chess for players of all ages and skill levels. The club reinvests all its revenue into improving facilities, running events, and nurturing its vibrant chess community.",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               }
-            ]
+            ],
+            "nodeType": "document"
           }
         },
         "content": {
@@ -4880,6 +5004,15 @@
             ],
             "nodeType": "document"
           }
+        },
+        "currentEvents": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "44Z3RV2v9JS7Tz05KZSQ1Z"
+            }
+          }
         }
       }
     },
@@ -4978,7 +5111,7 @@
         "id": "4PI5rsdcnC2nXLXfsMv338",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:07.075Z",
-        "updatedAt": "2025-08-15T13:45:23.729Z",
+        "updatedAt": "2025-08-17T00:13:46.967Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4986,8 +5119,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-15T13:45:23.729Z",
+        "publishedVersion": 21,
+        "publishedAt": "2025-08-17T00:13:46.967Z",
         "firstPublishedAt": "2025-08-15T13:45:23.729Z",
         "createdBy": {
           "sys": {
@@ -5003,8 +5136,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 5,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5029,8 +5162,251 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4PI5rsdcnC2nXLXfsMv338"
       },
       "fields": {
+        "slug": {
+          "en-US": "bhcc"
+        },
         "name": {
           "en-US": "Boxhill Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5hccY0GkmTUM8pqafjBvLt"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.1091,
+            "lat": -37.8696
+          }
+        },
+        "website": {
+          "en-US": "https://boxhillchess.org.au/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "The club meets at 21a Electra Avenue on Friday nights and Sunday afternoons. Rated tournaments are organised for both sessions throughout the year.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club meets at 21a Electra Avenue on Friday nights and Sunday afternoons. Rated tournaments are organised for both sessions throughout the year.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club actively supports the development of junior chess through its junior organization Canterbury Junior Chess Club inc. New members and visitors are welcome at the club and membership and tournament fees are kept at a reasonable level.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The clubs premises are spacious, modern and well lit with plenty of parking, areas for children to run around and accompanying persons to sit and relax\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Tea, coffee and light refreshments at moderate prices are available.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club is affiliated with Chess Victoria.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The club maintains extensive programmes for Friday and Sunday tournaments. Members and visitors are welcome to all our events.\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "All events have an entry fee with club members eligible for a discount.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "If you apply for membership part-way through our financial year then your subscription may be reduced pro-rata\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Individual events held at the Club are also subject to an entry fee which includes a Chess Victoria registration fee if they are rated.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "currentEvents": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5mT4PvsXtrR09lGEb0NrOI"
+            }
+          }
         }
       }
     },
@@ -5052,7 +5428,7 @@
         "id": "7qCwNNziuEEG8Neip8gTpN",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:33.793Z",
-        "updatedAt": "2025-08-15T13:45:42.777Z",
+        "updatedAt": "2025-08-16T22:22:27.767Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5060,8 +5436,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2025-08-15T13:45:42.777Z",
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-16T22:22:27.767Z",
         "firstPublishedAt": "2025-08-15T13:45:42.777Z",
         "createdBy": {
           "sys": {
@@ -5077,8 +5453,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5103,6 +5479,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7qCwNNziuEEG8Neip8gTpN"
       },
       "fields": {
+        "slug": {
+          "en-US": "hbcc"
+        },
         "name": {
           "en-US": "Hobsons Bay Chess Club"
         }
@@ -5126,7 +5505,7 @@
         "id": "2cVkvkcxZ1xWVtIvUDT07H",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:55.127Z",
-        "updatedAt": "2025-08-15T13:46:11.604Z",
+        "updatedAt": "2025-08-16T22:22:14.261Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5134,8 +5513,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-15T13:46:11.604Z",
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-16T22:22:14.261Z",
         "firstPublishedAt": "2025-08-15T13:46:11.604Z",
         "createdBy": {
           "sys": {
@@ -5151,8 +5530,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5177,6 +5556,9 @@
         "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2cVkvkcxZ1xWVtIvUDT07H"
       },
       "fields": {
+        "slug": {
+          "en-US": "bcc"
+        },
         "name": {
           "en-US": "Ballarat chess club"
         }
@@ -8183,7 +8565,7 @@
         "id": "7DxIcWjg43V0NknHEZQAPl",
         "type": "Entry",
         "createdAt": "2025-08-16T13:55:01.807Z",
-        "updatedAt": "2025-08-16T13:55:45.659Z",
+        "updatedAt": "2025-08-16T21:56:05.526Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8191,8 +8573,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T13:55:45.659Z",
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-16T21:56:05.526Z",
         "firstPublishedAt": "2025-08-16T13:55:45.659Z",
         "createdBy": {
           "sys": {
@@ -8208,8 +8590,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8396,6 +8778,21 @@
                     }
                   }
                 ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -8405,6 +8802,20 @@
     {
       "metadata": {
         "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "contact"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "tournament"
+            }
+          }
         ],
         "concepts": [
         ]
@@ -8420,7 +8831,7 @@
         "id": "3lsZ5zfHxb8SuWbydYdwiD",
         "type": "Entry",
         "createdAt": "2025-08-16T13:56:18.418Z",
-        "updatedAt": "2025-08-16T13:56:44.930Z",
+        "updatedAt": "2025-08-16T14:06:53.463Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8428,8 +8839,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-08-16T13:56:44.930Z",
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-16T14:06:53.463Z",
         "firstPublishedAt": "2025-08-16T13:56:44.930Z",
         "createdBy": {
           "sys": {
@@ -8445,8 +8856,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 7,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8651,6 +9062,970 @@
               }
             ]
           }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "44Z3RV2v9JS7Tz05KZSQ1Z",
+        "type": "Entry",
+        "createdAt": "2025-08-16T23:23:02.154Z",
+        "updatedAt": "2025-08-16T23:26:30.593Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-16T23:26:30.593Z",
+        "firstPublishedAt": "2025-08-16T23:26:30.593Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/44Z3RV2v9JS7Tz05KZSQ1Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "MCC  2025 Events"
+        },
+        "slug": {
+          "en-US": "mcc-2025-events"
+        },
+        "events": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4DoDybdlCxxmR4vsXrwsOL"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4DoDybdlCxxmR4vsXrwsOL",
+        "type": "Entry",
+        "createdAt": "2025-08-16T23:23:22.649Z",
+        "updatedAt": "2025-08-16T23:26:22.528Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-08-16T23:26:22.528Z",
+        "firstPublishedAt": "2025-08-16T23:26:22.528Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "event"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4DoDybdlCxxmR4vsXrwsOL"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 MCC Classic"
+        },
+        "datetime": {
+          "en-US": "2025-08-25T19:15+10:00"
+        },
+        "location": {
+          "en-US": "Melbourne Chess Club - 66 Leicester St, Fitzroy"
+        },
+        "url": {
+          "en-US": "https://www.chesschat.org/showthread.php?19915-2025-MCC-Classic-(RR-Swiss)-(25-Aug-20-Oct)"
+        },
+        "contact": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2dQywHs6YMCJ0AtgwRt8SB"
+              }
+            }
+          ]
+        },
+        "description": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "DUAL FORMAT",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nA dual-format tournament, the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "MCC Classic",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " comprises (1) a 9 rounds round-robin event for the top 9 rated players + 2024 Qualifier, and (2) a 9 round Swiss open event for the rest of the field.\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://tornelo.com/chess/orgs/melbourne-chess-club/events/2025-mcc-classic"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "value": "Tornelo Tournament Page",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Location",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nMelbourne Chess Club - 66 Leicester St, Fitzroy\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Format",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n9 Rounds Round-Robin Tournament for the top 9 FIDE rated players + 2024 Qualifier*\n9 Rounds Swiss Open Tournament for the rest of the entered players\nBoth tournaments will be ACF and FIDE (",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://ratings.fide.com/tournament_information.phtml?event=415430"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Round-Robin",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " and ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://ratings.fide.com/tournament_information.phtml?event=415433"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Swiss",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ") rated\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Round-Robin Entry Date and Swiss Eligibility\nRound-Robin players must enter by Saturday 23 August 2025.",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " This is to allow the pairings for the Round-Robin Tournament to be set a day or so before Round 1.\nA rating cap on Swiss entries at around the rating of the bottom seeded Round Robin player may be set for players registering after Saturday 23 August.\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Time Control",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n90 minutes per game + 30 seconds per move.\nForfeit time is 30 minutes after the advertised start time.\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Entry Fee",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n$90 Full Member, $80 Concession / Junior Member (add $15 for Non-Members)\nEarly bird discount of $10 if paid by Wednesday 20 August\nFree entry for Club Member GMs/WGMs, IMs/WIMs and FMs/WFMs and non Victorian GMs/WGMs and IMs/WIMs.\nIf you want a round 1 bye (for the Swiss only) you must have have fully paid your entry to be paired. Refunds are available if notified 24 hours before the event.\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Timetable",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nRound 1: Mon 25 Aug, 7.15pm\nRound 2: Mon 1 Sep, 7.15pm\nRound 3: Mon 8 Sep, 7.15pm\nRound 4: Mon 15 Sep, 7.15pm\nRound 5: Mon 22 Sep, 7.15pm\nRound 6: Mon 29 Sep, 7.15pm\nRound 7: Mon 6 Oct, 7.15pm\nRound 8: Mon 13 Oct, 7.15pm\nRound 9: Mon 20 Oct, 7.15pm\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Byes (Swiss Open Tournament only)",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nPlayer may take up to two half point byes for rounds 1-7\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Prizes",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "underline"
+                      }
+                    ],
+                    "value": "Round-Robin Tournament",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " (",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Guaranteed!",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ")\n1st: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "$1000",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n2nd: $400\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "underline"
+                      }
+                    ],
+                    "value": "Swiss Open Tournament",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n$1500 prize pool (Provisional)\nField will be divided into three prize divisions:\nPrize category 1: 1st-$300 & 2nd-$200\nPrize category 2: 1st-$300 & 2nd-$200\nPrize category 3: 1st-$300 & 2nd-$200\nBrilliancy prize (over both Tournaments): $40 book voucher at club bookshop\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "underline"
+                      }
+                    ],
+                    "value": "2026 Round-Robin Qualification",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nThe winner of the Swiss qualifies to play in the 2026 MCC Classic Round-Robin tournament (subject to payment of applicable entry fee).\nShould the winner decline to play, qualification will then pass on to the 2nd placegetter and then on to 3rd placegetter.\nThe tie-break method to determine rankings of placegetters will be the Buchholz method. The tie-break will be used only to rank players for the purpose of qualification into the 2025 MCC Classic Round-Robin.\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Results/Pairings",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nIn this Chess Chat tournament thread\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Arbiter",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nAlexej Khamatgaleev (0426 731 726 or ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "mailto:lehak10@hotmail.com"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "lehak10@hotmail.com",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ")\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Tournament Organiser",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\nThai Ly (0421 912 296 or ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "mailto:melbchessclub@gmail.com"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "melbchessclub@gmail.com",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ")\n\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Further Questions",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "mailto:melbchessclub@gmail.com"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "melbchessclub@gmail.com",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "summary": {
+          "en-US": "A dual-format tournament, the MCC Classic comprises (1) a 9 rounds round-robin event for the top 9 rated players + 2024 Qualifier, and (2) a 9 round Swiss open event for the rest of the field."
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7Dl2OoPfjTcClUzWTmTc3A",
+        "type": "Entry",
+        "createdAt": "2025-08-16T23:52:48.110Z",
+        "updatedAt": "2025-08-16T23:53:26.962Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-16T23:53:26.962Z",
+        "firstPublishedAt": "2025-08-16T23:53:26.962Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "contact"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7Dl2OoPfjTcClUzWTmTc3A"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Peter Tsai"
+        },
+        "email": {
+          "en-US": "chess@t-s-a-i.com"
+        },
+        "phone": {
+          "en-US": "0419324870"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5hccY0GkmTUM8pqafjBvLt",
+        "type": "Entry",
+        "createdAt": "2025-08-16T23:55:20.642Z",
+        "updatedAt": "2025-08-16T23:56:06.873Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-16T23:56:06.873Z",
+        "firstPublishedAt": "2025-08-16T23:56:06.873Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5hccY0GkmTUM8pqafjBvLt"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Peter Tsai"
+        },
+        "phone": {
+          "en-US": "0419324870"
+        },
+        "email": {
+          "en-US": "chess@t-s-a-i.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5mT4PvsXtrR09lGEb0NrOI",
+        "type": "Entry",
+        "createdAt": "2025-08-16T23:56:23.051Z",
+        "updatedAt": "2025-08-16T23:57:13.859Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-16T23:57:13.859Z",
+        "firstPublishedAt": "2025-08-16T23:57:13.859Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5mT4PvsXtrR09lGEb0NrOI"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2025 Boxhill  Chess Club Events"
+        },
+        "slug": {
+          "en-US": "2025-bhcc-events"
+        },
+        "events": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4nzeVYkTej6UaTaKadYXCn"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2BglGXwy9R4uRqYErylzER"
+              }
+            }
+          ]
         }
       }
     }
