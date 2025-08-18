@@ -1,5 +1,6 @@
 import { Document } from '@contentful/rich-text-types';
 
+// Contentful ChessClub entry structure
 export interface ChessClub {
   sys: {
     id: string;
@@ -8,8 +9,8 @@ export interface ChessClub {
     updatedAt: string;
   };
   fields: {
-    slug: string;
     name: string;
+    slug: string;
     contact?: {
       sys: {
         id: string;
@@ -22,8 +23,8 @@ export interface ChessClub {
       lon: number;
     };
     website?: string;
-    quickIntro?: Document; // RichText content
-    content?: Document; // RichText content
+    quickIntro?: string;
+    content?: Document;
     images?: Array<{
       sys: {
         id: string;
@@ -38,27 +39,7 @@ export interface ChessClub {
         linkType: string;
       };
     };
-  };
-}
-
-export interface ChessClubContact {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-  fields: {
-    name: string;
-    title?: string;
-    email?: string;
-    image?: {
-      sys: {
-        id: string;
-        type: string;
-        linkType: string;
-      };
-    };
+    schedules?: string[];
   };
 }
 
@@ -84,6 +65,9 @@ export interface Person {
     linkedin?: string;
     facebook?: string;
     instagram?: string;
+    youtube?: string;
+    fide?: string;
+    about?: string;
   };
 }
 

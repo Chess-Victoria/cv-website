@@ -146,6 +146,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li><Link href="/about">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
 
 												<ul className="dropdown-padding">
+													<li><Link href="/about/players">Players</Link></li>
 													<li><Link href="/memories">Galerry</Link></li>
 													<li><Link href="/notice-board">Notice Board</Link></li>
 												</ul>
