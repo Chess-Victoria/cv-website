@@ -7,7 +7,7 @@ import CommitteeList from '@/components/sections/home1/CommitteeList'
 import ReferenceList from '@/components/sections/home1/ReferenceList'
 import Section5 from '@/components/sections/home1/section5'
 import Section6 from '@/components/sections/home1/section6'
-import Section8 from '@/components/sections/home1/section8'
+import NewsUpdate from '@/components/sections/home1/NewsUpdate'
 import Section9 from '@/components/sections/home1/section9'
 import { getHomePageData } from './home.data'
 import { hardcodedCommitteeListData } from './committee-list.data'
@@ -16,6 +16,10 @@ import { hardcodedSponsorsListData } from './sponsors-list.data'
 export default async function Home() {
 	// Load homepage data from Contentful
 	const homePageData = await getHomePageData()
+
+	// Fetch latest 3 news items (server component, cached with ISR)
+	const { getPostsPageData } = await import('@/lib/utils/posts')
+	const newsPage = await getPostsPageData(1, 3)
 	
 	return (
 		<>
@@ -39,7 +43,7 @@ export default async function Home() {
 				<Section5 />
 				<Section6 />
 				<ReferenceList data={homePageData.featuredClubs!} />
-				<Section8 />
+				<NewsUpdate items={newsPage.items} />
 				<Section9 />
 			</Layout>
 			

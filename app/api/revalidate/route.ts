@@ -120,6 +120,7 @@ export async function POST(request: NextRequest) {
 
       case 'post':
         // Revalidate news listing pages
+        revalidatePath('/');
         revalidatePath('/news');
         revalidatePath('/news/[page]');
         revalidateTag('posts');

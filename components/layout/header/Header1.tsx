@@ -189,17 +189,12 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 
-											{/* <li>
-												<Link href="/#">Blogs <i className="fa-solid fa-angle-down" /></Link>
-												<ul className="dropdown-padding">
-													<li><Link href="/blog">Our Blog</Link></li>
-													<li><Link href="/blog-single">Blog Details</Link></li>
-												</ul>
-											</li> */}
 											<li>
 												<Link href="/news">News & Update <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/faq">FAQ,s</Link></li>
+													<li><Link href="/news/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
+													<li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
+													<li><Link href="/news/category/victorian-championship-news/page-1">Victorian Champions News</Link></li>
 												</ul>
 											</li>
 										</ul>
