@@ -62,53 +62,13 @@ export default async function ChessClubsPage() {
           {/*===== HERO AREA ENDS =======*/}
           
           {/*===== PROMOTED CLUBS AREA STARTS =======*/}
-          {clubPageData?.promotedClubs && clubPageData.promotedClubs.length > 0 ? (
+          {clubPageData?.promotedClubs && clubPageData.promotedClubs.length > 0 && (
             <PromotedClubs clubs={clubPageData.promotedClubs} />
-          ) : (
-            <div className="choose-section-area sp2">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-4 m-auto">
-                    <div className="heading2 text-center space-margin60">
-                      <h2>Top Clubs</h2>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="text-center">
-                      <p>No promoted clubs configured yet. Please create a clubPage entry in Contentful.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           )}
           {/*===== PROMOTED CLUBS AREA ENDS =======*/}
           
           {/*===== ALL CLUBS TABLE AREA STARTS =======*/}
-          {clubPageData?.allClubs && clubPageData.allClubs.length > 0 ? (
-            <ClubsTable clubs={clubPageData.allClubs} />
-          ) : (
-            <div className="schedule-section-area sp10">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-11 m-auto">
-                    <div className="text-center">
-                      <h3>All Chess Clubs</h3>
-                      <p>No clubs configured yet. Please create a clubPage entry in Contentful with clubs data.</p>
-                      <p>You need to:</p>
-                      <ul className="list-unstyled">
-                        <li>1. Create a clubPage content type entry</li>
-                        <li>2. Add promotedClub references (featured clubs)</li>
-                        <li>3. Add clubs references (all clubs listing)</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {clubPageData?.allClubs && clubPageData.allClubs.length > 0  && <ClubsTable clubs={clubPageData.allClubs} />}
           {/*===== ALL CLUBS TABLE AREA ENDS =======*/}
           
           {/*===== CLUBS MAP AREA STARTS =======*/}

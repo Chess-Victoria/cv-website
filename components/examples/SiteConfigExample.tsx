@@ -1,28 +1,12 @@
-'use client'
-
-import { useSiteConfig } from '@/lib/hooks/useSiteConfig';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export default function SiteConfigExample() {
   const {
-    config,
-    loading,
-    error,
     siteName,
     contactEmail,
     contactPhone,
     address,
-    socialMedia,
-    headerLinks,
-    footerLinks,
-  } = useSiteConfig();
-
-  if (loading) {
-    return <div>Loading site configuration...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading site configuration: {error}</div>;
-  }
+  } = SITE_CONFIG;
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
@@ -36,49 +20,7 @@ export default function SiteConfigExample() {
         <p><strong>Address:</strong> {address || 'Not configured'}</p>
       </div>
 
-      <div style={{ marginBottom: '20px' }}>
-        <h3>Social Media</h3>
-        {socialMedia && typeof socialMedia === 'object' ? (
-          <ul>
-            {(socialMedia as any).facebook && <li>Facebook: {(socialMedia as any).facebook}</li>}
-            {(socialMedia as any).twitter && <li>Twitter: {(socialMedia as any).twitter}</li>}
-            {(socialMedia as any).instagram && <li>Instagram: {(socialMedia as any).instagram}</li>}
-            {(socialMedia as any).linkedin && <li>LinkedIn: {(socialMedia as any).linkedin}</li>}
-          </ul>
-        ) : (
-          <p>No social media configured</p>
-        )}
-      </div>
-
-      <div style={{ marginBottom: '20px' }}>
-        <h3>Header Links</h3>
-        {Array.isArray(headerLinks) && headerLinks.length > 0 ? (
-          <ul>
-            {(headerLinks as any[]).map((link, index) => (
-              <li key={index}>
-                <a href={link.url}>{link.title}</a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No header links configured</p>
-        )}
-      </div>
-
-      <div style={{ marginBottom: '20px' }}>
-        <h3>Footer Links</h3>
-        {Array.isArray(footerLinks) && footerLinks.length > 0 ? (
-          <ul>
-            {(footerLinks as any[]).map((link, index) => (
-              <li key={index}>
-                <a href={link.url}>{link.title}</a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No footer links configured</p>
-        )}
-      </div>
+      
 
       <div style={{ marginBottom: '20px' }}>
         <h3>Raw Configuration</h3>
@@ -89,7 +31,7 @@ export default function SiteConfigExample() {
           overflow: 'auto',
           fontSize: '12px'
         }}>
-          {JSON.stringify(config, null, 2)}
+          {JSON.stringify(SITE_CONFIG, null, 2)}
         </pre>
       </div>
     </div>

@@ -25,7 +25,13 @@ export async function getServerContactInfo() {
  */
 export async function getServerSocialMediaLinks() {
   const config = await getSiteConfiguration();
-  return config.socialMedia || {};
+  return {
+    facebook: (config as any).facebookUrl,
+    instagram: (config as any).instagramUrl,
+    linkedin: (config as any).linkedinUrl,
+    pinterest: (config as any).pinterestUrl,
+    youtube: (config as any).youtubeUrl,
+  };
 }
 
 /**
@@ -34,8 +40,8 @@ export async function getServerSocialMediaLinks() {
 export async function getServerNavigationLinks() {
   const config = await getSiteConfiguration();
   return {
-    headerLinks: config.headerLinks || [],
-    footerLinks: config.footerLinks || [],
+    headerLinks: (config as any).headerLinks || [],
+    footerLinks: (config as any).footerLinks || [],
   };
 }
 
@@ -44,5 +50,5 @@ export async function getServerNavigationLinks() {
  */
 export async function getServerLogoUrl(): Promise<string | undefined> {
   const config = await getSiteConfiguration();
-  return (config.logo as any)?.fields?.file?.url;
+  return (config as any).logo;
 }

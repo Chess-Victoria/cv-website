@@ -4,8 +4,15 @@ import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from 'react'
+import { SITE_CONFIG } from '@/lib/site-config'
 
 export default function Contact() {
+	const emailDisplay = SITE_CONFIG.contactEmail || 'Chess Victoria@gmail.com'
+	const emailHref = SITE_CONFIG.contactEmail ? `mailto:${SITE_CONFIG.contactEmail}` : 'mailto:Chess-Victoria@gmail.com'
+	const phoneDisplay = SITE_CONFIG.contactPhone || '+1 123 456 7890'
+	const phoneHref = SITE_CONFIG.contactPhone ? `tel:${SITE_CONFIG.contactPhone}` : 'tel:+11234567890'
+	const addressDisplay = SITE_CONFIG.address || 'Melbourne, Australia'
+
 	const [formData, setFormData] = useState({
 		name: '',
 		phone: '',
@@ -96,7 +103,7 @@ export default function Contact() {
 							<div className="row">
 								<div className="col-lg-6">
 									<div className="img1 image-anime">
-										<img src="/assets/img/all-images/contact/contact-img4.png" alt="" />
+										<img src="/assets/img/pages/contact-us-1.png" alt="" />
 									</div>
 								</div>
 								<div className="col-lg-6" data-aos="zoom-in" data-aos-duration={1000}>
@@ -194,7 +201,7 @@ export default function Contact() {
 					{/*===== CONTACT AREA STARTS =======*/}
 					<div className="contact2-bg-section">
 						<div className="img1">
-							<img src="/assets/img/all-images/contact/contact-img1.png" alt="" className="contact-img1" />
+							<img src="/assets/img/pages/contact-us-2.png" alt="" className="contact-img1" />
 						</div>
 						<div className="container">
 							<div className="row">
@@ -209,7 +216,7 @@ export default function Contact() {
 												<div className="text">
 													<h5>Our Email</h5>
 													<div className="space14" />
-													<Link href="/maito:Chess Victoria@gmail.com">Chess Victoria@gmail.com</Link>
+													<Link href={emailHref}>{emailDisplay}</Link>
 												</div>
 											</div>
 											<div className="space18" />
@@ -218,9 +225,9 @@ export default function Contact() {
 													<img src="/assets/img/icons/location1.svg" alt="" />
 												</div>
 												<div className="text">
-													<h5>our location</h5>
+													<h5>Our location</h5>
 													<div className="space14" />
-													<Link href="/#">1800 Abbot Kinney</Link>
+													<Link href="https://www.google.com/maps?q=Victoria%2C%20Australia">{addressDisplay}</Link>
 												</div>
 											</div>
 										</div>
@@ -233,7 +240,7 @@ export default function Contact() {
 												<div className="text">
 													<h5>Call/Message</h5>
 													<div className="space14" />
-													<Link href="/tel:+11234567890">+1 123 456 7890</Link>
+													<Link href={phoneHref}>{phoneDisplay}</Link>
 												</div>
 											</div>
 											<div className="space18" />
@@ -254,7 +261,7 @@ export default function Contact() {
 						</div>
 						<div className="mapouter">
 							<div className="gmap_canvas">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4506257.120552435!2d88.67021924228865!3d21.954385721237916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1704088968016!5m2!1sen!2sbd" width={600} height={450} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+								<iframe src="https://www.google.com/maps?q=Victoria%2C%20Australia&z=6&output=embed" width={600} height={450} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
 							</div>
 						</div>
 					</div>

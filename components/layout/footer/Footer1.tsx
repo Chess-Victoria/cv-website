@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SITE_CONFIG } from '@/lib/site-config'
 
 
 export default function Footer1() {
@@ -9,23 +10,31 @@ export default function Footer1() {
 					<div className="row">
 						<div className="col-lg-3 col-md-6">
 							<div className="footer-logo-area">
-								<img src="/assets/img/logo/cvlogo-black.png" alt="" width={100} />
+								<img src={SITE_CONFIG.logoBlack || '/assets/img/logo/cvlogo-black.png'} alt="" width={100} />
 								<div className="space16" />
-								<p>We strive to create an environment where the Victorian chess community can collaborate, compete, and celebrate the game of chess.</p>
+								<p>{SITE_CONFIG.footerText || ''}</p>
 								<div className="space24" />
 								<ul>
-									<li>
-										<Link href="/#"><i className="fa-brands fa-facebook-f" /></Link>
-									</li>
-									<li>
-										<Link href="/#"><i className="fa-brands fa-instagram" /></Link>
-									</li>
-									<li>
-										<Link href="/#"><i className="fa-brands fa-linkedin-in" /></Link>
-									</li>
-									<li>
-										<Link href="/#" className="m-0"><i className="fa-brands fa-pinterest-p" /></Link>
-									</li>
+									{SITE_CONFIG.facebookUrl && (
+										<li>
+											<Link href={SITE_CONFIG.facebookUrl} target="_blank"><i className="fa-brands fa-facebook-f" /></Link>
+										</li>
+									)}
+									{SITE_CONFIG.instagramUrl && (
+										<li>
+											<Link href={SITE_CONFIG.instagramUrl} target="_blank"><i className="fa-brands fa-instagram" /></Link>
+										</li>
+									)}
+									{SITE_CONFIG.linkedinUrl && (
+										<li>
+											<Link href={SITE_CONFIG.linkedinUrl} target="_blank"><i className="fa-brands fa-linkedin-in" /></Link>
+										</li>
+									)}
+									{SITE_CONFIG.pinterestUrl && (
+										<li>
+											<Link href={SITE_CONFIG.pinterestUrl} target="_blank" className="m-0"><i className="fa-brands fa-pinterest-p" /></Link>
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>
@@ -34,7 +43,7 @@ export default function Footer1() {
 								<h3>Quick Links</h3>
 								<ul>
 									<li><Link href="/about">About Us</Link></li>
-									<li><Link href="/posts">News & Updates</Link></li>
+									<li><Link href="/news">News & Updates</Link></li>
 									<li><Link href="/faq">Frequently Asked Questions</Link></li>
 									<li><Link href="/contact">Contact Us</Link></li>
 								</ul>
@@ -44,20 +53,26 @@ export default function Footer1() {
 							<div className="link-content2">
 								<h3>Contact Us</h3>
 								<ul>
-									<li>
-										<Link href="/tel:+11234567890"><img src="/assets/img/icons/phn1.svg" alt="" />+1 123 456
-											7890</Link>
-									</li>
-									<li>
-										<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The
-											UK</Link>
-									</li>
-									<li>
-										<Link href="/mailto:Chess Victoriaevent@gmail.com"><img src="/assets/img/icons/mail1.svg" alt="" />Chess Victoriaevent@gmail.com</Link>
-									</li>
-									<li>
-										<Link href="/#"> <img src="/assets/img/icons/world1.svg" alt="" />Chess Victoriaevent.com</Link>
-									</li>
+									{SITE_CONFIG.contactPhone && (
+										<li>
+											<Link href={`tel:${SITE_CONFIG.contactPhone}`}><img src="/assets/img/icons/phn1.svg" alt="" />{SITE_CONFIG.contactPhone}</Link>
+										</li>
+									)}
+									{SITE_CONFIG.address && (
+										<li>
+											<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />{SITE_CONFIG.address}</Link>
+										</li>
+									)}
+									{SITE_CONFIG.contactEmail && (
+										<li>
+											<Link href={`mailto:${SITE_CONFIG.contactEmail}`}><img src="/assets/img/icons/mail1.svg" alt="" />{SITE_CONFIG.contactEmail}</Link>
+										</li>
+									)}
+									{SITE_CONFIG.websiteUrl && (
+										<li>
+											<Link href={"//" + SITE_CONFIG.websiteUrl} target="_blank"> <img src="/assets/img/icons/world1.svg" alt="" />{SITE_CONFIG.websiteUrl}</Link>
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>
@@ -122,7 +137,7 @@ export default function Footer1() {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="copyright">
-								<p>© Copyright {new Date().getFullYear()} -Chess Victoria. All Right Reserved</p>
+								<p>© Copyright {new Date().getFullYear()} -{SITE_CONFIG.siteName || 'Chess Victoria'}. All Right Reserved</p>
 							</div>
 						</div>
 					</div>

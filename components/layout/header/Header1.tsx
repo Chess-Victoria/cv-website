@@ -1,12 +1,8 @@
-import { useSiteConfig } from '@/lib/hooks/useSiteConfig';
+import { SITE_CONFIG } from '@/lib/site-config';
 import Link from 'next/link'
 
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
-	const config = useSiteConfig()
-	if (!config || config.loading) {
-		return <div>...</div>; // Handle loading state
-	}
 	return (
 		<>
 			<header>
@@ -16,7 +12,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 							<div className="col-lg-12">
 								<div className="header-elements">
 									<div className="site-logo">
-										<Link href="/"><img src="/assets/img/logo/cvlogo1.png" alt="" /></Link>
+										<Link href="/"><img src={SITE_CONFIG.logo || '/assets/img/logo/cvlogo1.png'} alt="" /></Link>
 									</div>
 									<div className="main-menu">
 										<ul>
@@ -141,7 +137,6 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 															</div>
 														</div>
 													</div>
-												</div>
 											</li> */}
 											<li><Link href="/about">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
 
@@ -205,18 +200,26 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<a><img src="/assets/img/icons/search1.svg" alt="" /></a>
 										</div>
 										<ul>
-											<li>
-												<Link href={config.facebookUrl as string} target='_blank'><i className="fa-brands fa-facebook-f" /></Link>
-											</li>
-											<li>
-												<Link href="/#"><i className="fa-brands fa-instagram" /></Link>
-											</li>
-											<li>
-												<Link href="/#"><i className="fa-brands fa-linkedin-in" /></Link>
-											</li>
-											<li>
-												<Link href="/#" className="m-0"><i className="fa-brands fa-pinterest-p" /></Link>
-											</li>
+											{SITE_CONFIG.facebookUrl && (
+												<li>
+													<Link href={SITE_CONFIG.facebookUrl} target='_blank'><i className="fa-brands fa-facebook-f" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.instagramUrl && (
+												<li>
+													<Link href={SITE_CONFIG.instagramUrl} target='_blank'><i className="fa-brands fa-instagram" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.linkedinUrl && (
+												<li>
+													<Link href={SITE_CONFIG.linkedinUrl} target='_blank'><i className="fa-brands fa-linkedin-in" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.pinterestUrl && (
+												<li>
+													<Link href={SITE_CONFIG.pinterestUrl} target='_blank' className="m-0"><i className="fa-brands fa-pinterest-p" /></Link>
+												</li>
+											)}
 										</ul>
 									</div>
 									<div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
