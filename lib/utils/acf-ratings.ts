@@ -231,3 +231,51 @@ export const getPlayersByCategory = async (category: string): Promise<Player[]> 
     throw error; // Re-throw the error - no fallback data
   }
 };
+
+export const getPlayersByTitle = async (title: string): Promise<Player[]> => {
+  try {
+    const allPlayers = await getACFRatingData();
+    
+    // Filter players by title (case-insensitive, trim spaces)
+    const filteredPlayers = allPlayers.filter(player => 
+      player.title && player.title.trim().toUpperCase() === title.toUpperCase()
+    );
+
+    // Sort by national rating (descending)
+    return filteredPlayers.sort((a, b) => b.nationalRating - a.nationalRating);
+  } catch (error) {
+    console.error('Error getting players by title:', error);
+    return [];
+  }
+};
+
+export const getTitleStatistics = async () => {
+  try {
+    const allPlayers = await getACFRatingData();
+
+    // Open titles (CM, FM, IM, GM)
+    const openTitles = ['CM', 'FM', 'IM', 'GM'];
+    const openStats = openTitles.map(title => ({
+      title,
+      count: allPlayers.filter(player => player.title && player.title.trim() === title).length
+    }));
+
+    // Female titles (WCM, WFM, WIM, WGM)
+    const femaleTitles = ['WCM', 'WFM', 'WIM', 'WGM'];
+    const femaleStats = femaleTitles.map(title => ({
+      title,
+      count: allPlayers.filter(player => player.title && player.title.trim() === title).length
+    }));
+
+    return {
+      open: openStats,
+      female: femaleStats
+    };
+  } catch (error) {
+    console.error('Error getting title statistics:', error);
+    return {
+      open: [],
+      female: []
+    };
+  }
+};

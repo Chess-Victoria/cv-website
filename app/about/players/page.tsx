@@ -2,6 +2,7 @@ import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { getRevalidationTime } from '@/lib/config'
+import { getTitleStatistics } from '@/lib/utils/acf-ratings'
 
 // Available categories organized by type
 const OPEN_CATEGORIES = [
@@ -110,6 +111,9 @@ const FEMALE_CATEGORIES = [
 export const revalidate = getRevalidationTime('ACF_RATINGS') || 86400 * 30; // 30 days default
 
 export default async function PlayersPage() {
+  // Get title statistics
+  const titleStats = await getTitleStatistics();
+
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
@@ -262,6 +266,143 @@ export default async function PlayersPage() {
           </div>
         </div>
         {/*===== PLAYERS CATEGORIES AREA ENDS =======*/}
+
+        {/*===== TITLE STATISTICS AREA STARTS =======*/}
+        <div className="event-team-area sp1">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 m-auto">
+                <div className="heading2 text-center space-margin60">
+                  <h2>Title Statistics</h2>
+                  <p>Overview of chess titles held by Victorian players</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="row">
+              <div className="col-lg-12 m-auto">
+                <div className="event-widget-area">
+                  {/* Desktop Layout - Side by Side */}
+                  <div className="d-none d-lg-block">
+                    <div className="row">
+                      {/* Open Titles */}
+                      <div className="col-lg-6">
+                        <div className="schedule-section-area">
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-lg-12">
+                                <div className="schedule">
+                                  <h3 className="text-center mb-4">Open Titles</h3>
+                                  <table className="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>Title</th>
+                                        <th>Count</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {titleStats.open.map((stat) => (
+                                        <tr key={stat.title}>
+                                          <td>
+                                            <Link href={`/about/players/titles/${stat.title.toLowerCase()}`} className="text-decoration-none">
+                                              <strong className="text-success">{stat.title}</strong>
+                                            </Link>
+                                          </td>
+                                          <td>
+                                            <span className="badge bg-primary text-white">{stat.count}</span>
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Female Titles */}
+                      <div className="col-lg-6">
+                        <div className="schedule-section-area">
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-lg-12">
+                                <div className="schedule">
+                                  <h3 className="text-center mb-4">Female Titles</h3>
+                                  <table className="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>Title</th>
+                                        <th>Count</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {titleStats.female.map((stat) => (
+                                        <tr key={stat.title}>
+                                          <td>
+                                            <Link href={`/about/players/titles/${stat.title.toLowerCase()}`} className="text-decoration-none">
+                                              <strong className="text-success">{stat.title}</strong>
+                                            </Link>
+                                          </td>
+                                          <td>
+                                            <span className="badge bg-primary text-white">{stat.count}</span>
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Layout - Single Table */}
+                  <div className="d-lg-none">
+                    <div className="schedule-section-area">
+                      <div className="container">
+                        <div className="row">
+                          <div className="col-lg-11 m-auto">
+                            <div className="schedule">
+                              <h3 className="text-center mb-4">Title Statistics</h3>
+                              <table className="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th>Title</th>
+                                    <th>Count</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {[...titleStats.open, ...titleStats.female].map((stat) => (
+                                    <tr key={stat.title}>
+                                      <td>
+                                        <Link href={`/about/players/titles/${stat.title.toLowerCase()}`} className="text-decoration-none">
+                                          <strong className="text-success">{stat.title}</strong>
+                                        </Link>
+                                      </td>
+                                      <td>
+                                        <span className="badge bg-primary text-white">{stat.count}</span>
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/*===== TITLE STATISTICS AREA ENDS =======*/}
         
         {/*===== CTA AREA STARTS =======*/}
         <div className="cta1-section-area d-lg-block d-block">
