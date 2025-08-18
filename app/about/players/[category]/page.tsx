@@ -56,7 +56,7 @@ export default async function TopPlayersPage({ params }: { params: { category: s
         <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg8.png)' }}>
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 m-auto">
+              <div className="col-lg-10 m-auto">
                 <div className="heading1 text-center">
                   <h1>Top Players - {category.name}</h1>
                   <div className="space20" />
@@ -70,7 +70,7 @@ export default async function TopPlayersPage({ params }: { params: { category: s
         <div className="event-team-area sp1">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 m-auto">
+              <div className="col-lg-10 m-auto">
                 <div className="heading2 text-center space-margin60">
                   <h2>Top Victorian Players - {category.name}</h2>
                   <p>{category.description}</p>

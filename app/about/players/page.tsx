@@ -120,7 +120,7 @@ export default async function PlayersPage() {
         <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg8.png)' }}>
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 m-auto">
+              <div className="col-lg-9 m-auto">
                 <div className="heading1 text-center">
                   <h1>Top Players</h1>
                   <div className="space20" />
@@ -135,7 +135,7 @@ export default async function PlayersPage() {
         <div className="event-team-area sp1">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 m-auto">
+              <div className="col-lg-10 m-auto">
                 <div className="heading2 text-center space-margin60">
                   <h2>Top Victorian Players</h2>
                   <p>View top players by category based on ACF ratings</p>
