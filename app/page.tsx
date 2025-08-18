@@ -6,7 +6,7 @@ import EventList from '@/components/sections/home1/EventList'
 import CommitteeList from '@/components/sections/home1/CommitteeList'
 import ReferenceList from '@/components/sections/home1/ReferenceList'
 import Section5 from '@/components/sections/home1/section5'
-import Section6 from '@/components/sections/home1/section6'
+import GalleryImageCarousel from '@/components/sections/home1/GalleryImageCarousel'
 import NewsUpdate from '@/components/sections/home1/NewsUpdate'
 import Section9 from '@/components/sections/home1/section9'
 import { getHomePageData } from './home.data'
@@ -41,7 +41,14 @@ export default async function Home() {
 					<CommitteeList data={hardcodedCommitteeListData} />
 				)}
 				<Section5 />
-				<Section6 />
+				{homePageData.featuredGallery?.images?.length ? (
+					<GalleryImageCarousel
+						title={homePageData.featuredGallery.title}
+						subtitle="last year memory"
+						images={homePageData.featuredGallery.images}
+						link={homePageData.featuredGallery.referenceLink || '/memories'}
+					/>
+				) : null}
 				<ReferenceList data={homePageData.featuredClubs!} />
 				<NewsUpdate items={newsPage.items} />
 				<Section9 />

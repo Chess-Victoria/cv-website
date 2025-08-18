@@ -5,6 +5,8 @@ import { mapEventListToEventListData } from '@/lib/utils/event-list-mapper';
 import { mapCommitteeListToCommitteeListData } from '@/lib/utils/committee-list-mapper';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
+import { ImageGalleryData, ImageGalleryEntry } from '@/lib/types/image-gallery';
+import { mapImageGallery } from '@/lib/utils/image-gallery-mapper';
 
 import { PopupContent } from '@/lib/types/popup';
 import { Announcement } from '@/lib/types/announcement';
@@ -66,6 +68,14 @@ export interface HomePage {
     };
     fields: ReferenceList;
   };
+  featuredGallery?: {
+    sys: {
+      id: string;
+      type: string;
+      linkType: string;
+    };
+    fields: ImageGalleryEntry['fields'];
+  };
   metadata?: {
     sys: {
       id: string;
@@ -85,6 +95,7 @@ export interface HomePageData {
   eventList?: EventListData;
   committeeList?: CommitteeListData;
   featuredClubs?: ReferenceListData;
+  featuredGallery?: ImageGalleryData;
 }
 
 /**
@@ -147,6 +158,7 @@ export const getHomePageData = unstable_cache(
 
       // Get featuredClub from resolved fields
       let featuredClubs: ReferenceListData | undefined;
+      let featuredGallery: ImageGalleryData | undefined;
       
       
       if (homePageFields.featuredClub?.fields) {
@@ -171,6 +183,15 @@ export const getHomePageData = unstable_cache(
         };
       }
 
+      if (homePageFields.featuredGallery?.fields) {
+        try {
+          const galleryEntry = { sys: { id: homePageFields.featuredGallery.sys.id }, fields: homePageFields.featuredGallery.fields } as unknown as ImageGalleryEntry;
+          featuredGallery = mapImageGallery(galleryEntry);
+        } catch (e) {
+          console.error('Error mapping featuredGallery:', e);
+        }
+      }
+
       return {
         title: homePageFields.name,
         description: homePageFields.name, // Using name as description for now
@@ -179,6 +200,7 @@ export const getHomePageData = unstable_cache(
         eventList,
         committeeList,
         featuredClubs,
+        featuredGallery,
       };
     } catch (error) {
       console.error('Error loading homepage data:', error);
@@ -187,7 +209,7 @@ export const getHomePageData = unstable_cache(
   },
   ['homePage-data'],
   {
-    tags: ['homepage', 'announcement', 'promotionBanner', 'eventList', 'committeeList', 'referenceList'],
+    tags: ['homepage', 'announcement', 'promotionBanner', 'eventList', 'committeeList', 'referenceList', 'image-gallery'],
     revalidate: getRevalidationTime('HOMEPAGE')
   }
 );
