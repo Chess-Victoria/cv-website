@@ -112,6 +112,12 @@ export async function POST(request: NextRequest) {
         revalidateTag('homepage');
         break;
 
+      case 'imageGallery':
+        // Revalidate memories/gallery pages
+        revalidatePath('/memories');
+        revalidateTag('image-gallery');
+        break;
+
       default:
         // For unknown content types, revalidate all pages
         console.log(`Unknown content type: ${contentType}, revalidating all pages`);

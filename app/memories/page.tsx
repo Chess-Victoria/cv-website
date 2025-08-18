@@ -2,7 +2,15 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-export default function Memories() {
+import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
+import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
+import { getRevalidationTime } from '@/lib/config'
+
+export const revalidate = getRevalidationTime('IMAGE_GALLERY');
+
+export default async function Memories() {
+  const gallery = await getImageGalleryBySlugWithTags('chess-victoria-photo-gallery');
+  const images = gallery?.images || [];
 
 	return (
 		<>
@@ -27,141 +35,7 @@ export default function Memories() {
 					<div className="memory-inner-section-area sp1">
 						<div className="container">
 							<div className="row">
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img4.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img5.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img6.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img7.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img8.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img9.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img10.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img11.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="memory3-boxarea">
-										<div className="img1">
-											<img src="/assets/img/all-images/memory/memory-img12.png" alt="" />
-										</div>
-										<div className="content-area">
-											<p>Event 2024</p>
-											<div className="space12" />
-											<Link href="/event-single">Freelancer Meetup</Link>
-											<div className="plus">
-												<Link href="/event-single"><i className="fa-solid fa-plus" /></Link>
-											</div>
-										</div>
-									</div>
-								</div>
+								<GalleryGridWithViewer images={images} title={gallery?.title} referenceLink={gallery?.referenceLink} />
 								<div className="space30" />
 								<div className="pagination-area">
 									<nav aria-label="Page navigation example">

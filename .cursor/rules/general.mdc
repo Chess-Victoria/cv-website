@@ -1,0 +1,4 @@
+---
+alwaysApply: false
+---
+- when i said pull model mean run "make pull" from terminal and check for the file in contentful/exports folder

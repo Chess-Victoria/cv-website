@@ -2288,7 +2288,7 @@
         "id": "imageGallery",
         "type": "ContentType",
         "createdAt": "2025-08-17T22:23:01.547Z",
-        "updatedAt": "2025-08-17T23:39:21.961Z",
+        "updatedAt": "2025-08-18T07:17:14.718Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2296,8 +2296,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 13,
-        "publishedAt": "2025-08-17T23:39:21.961Z",
+        "publishedVersion": 17,
+        "publishedAt": "2025-08-18T07:17:14.718Z",
         "firstPublishedAt": "2025-08-17T22:23:02.256Z",
         "createdBy": {
           "sys": {
@@ -2313,8 +2313,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 7,
-        "version": 14,
+        "publishedCounter": 9,
+        "version": 18,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2401,6 +2401,39 @@
             ],
             "linkType": "Asset"
           }
+        },
+        {
+          "id": "imageUrls",
+          "name": "Image Urls",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "documentLink"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "photos",
+          "name": "Photos",
+          "type": "Object",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -3833,7 +3866,7 @@
             "linkType": "Space"
           }
         },
-        "version": 14,
+        "version": 18,
         "createdAt": "2025-08-17T22:23:02.334Z",
         "createdBy": {
           "sys": {
@@ -3842,7 +3875,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-17T23:39:22.919Z",
+        "updatedAt": "2025-08-18T07:17:15.567Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3894,6 +3927,16 @@
         {
           "fieldId": "images",
           "widgetId": "assetLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "imageUrls",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "photos",
+          "widgetId": "objectEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -12609,7 +12652,7 @@
         "id": "3Gn8Pfkn9WxeswGk8EpYUZ",
         "type": "Entry",
         "createdAt": "2025-08-17T23:32:47.914Z",
-        "updatedAt": "2025-08-17T23:38:20.911Z",
+        "updatedAt": "2025-08-18T07:18:41.191Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -12617,8 +12660,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 5,
-        "publishedAt": "2025-08-17T23:33:27.272Z",
+        "publishedVersion": 19,
+        "publishedAt": "2025-08-18T07:18:41.191Z",
         "firstPublishedAt": "2025-08-17T23:33:27.272Z",
         "createdBy": {
           "sys": {
@@ -12634,8 +12677,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 8,
+        "publishedCounter": 4,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -12645,7 +12688,7 @@
         },
         "fieldStatus": {
           "*": {
-            "en-US": "changed"
+            "en-US": "published"
           }
         },
         "automationTags": [
@@ -12665,6 +12708,31 @@
         },
         "slug": {
           "en-US": "chess-victoria-photo-gallery"
+        },
+        "images": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "hC2dQeSTMfwPhF1Wot86I"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "eGOxo8Ag0hggz47UBQEXI"
+              }
+            }
+          ]
+        },
+        "photos": {
+          "en-US": [
+            "https://lh3.googleusercontent.com/pw/AP1GczOpGhiCT2b-bh4B6NkglRj3-3xgfNFqaeucn78VyKIPiqpZ1fE5NbiPpHCfg_DpnoiuQIB1AROgFAqHdew5jnqPCudf2GENKgb7Jc_CKgxm59fA0aY8pSg5nag6-SAIobfQ6Womi94fjNo4QDh7vL3D=w2050-h1538-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/AP1GczMdb9vPXtl7_SQNl0I_t0OoInWYnplitSMMH0MuFd5Ykf0sxxxrg_WX378DxaEC0JSgsXerE10wZJIEyETGh9zeAGWXrA5ftedl8iuJ8YIhA_V54MkO0J6nJE4dDXVpWgMcq4IgB1P7B0hCEazZ8URe=w2050-h1538-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/AP1GczOZKJ9P_LHunXywWOP6SaGjFJ1wcdu3CVoTreFZoKVEIXR5tdzsuCpRw5PZArO5VbCibyxBg3Dtqe_HV0A0eOaD_cJTNEbgw2q9_Odo2IGtc7b2A5hzA7VgFBTaLiKYO93swB1MVa_Xz6BQID56S5em=w2050-h1538-s-no-gm?authuser=0"
+          ]
         }
       }
     }
@@ -12827,6 +12895,170 @@
             },
             "fileName": "Gemini_Generated_Image_u6kbsgu6kbsgu6kb__1_-removebg-preview.png",
             "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "hC2dQeSTMfwPhF1Wot86I",
+        "type": "Asset",
+        "createdAt": "2025-08-18T06:29:40.135Z",
+        "updatedAt": "2025-08-18T06:30:11.682Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T06:30:11.682Z",
+        "firstPublishedAt": "2025-08-18T06:30:11.682Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/assets/hC2dQeSTMfwPhF1Wot86I"
+      },
+      "fields": {
+        "title": {
+          "en-US": "DSCN2969"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/j5mfd0rflg30/hC2dQeSTMfwPhF1Wot86I/e162c19f1fd79c22538d3fc323a86bac/DSCN2969.JPG",
+            "details": {
+              "size": 657743,
+              "image": {
+                "width": 4608,
+                "height": 3456
+              }
+            },
+            "fileName": "DSCN2969.JPG",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "eGOxo8Ag0hggz47UBQEXI",
+        "type": "Asset",
+        "createdAt": "2025-08-18T06:30:20.437Z",
+        "updatedAt": "2025-08-18T06:31:15.804Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-18T06:31:15.804Z",
+        "firstPublishedAt": "2025-08-18T06:31:15.804Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/assets/eGOxo8Ag0hggz47UBQEXI"
+      },
+      "fields": {
+        "title": {
+          "en-US": "DSCN2951"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/j5mfd0rflg30/eGOxo8Ag0hggz47UBQEXI/38bf588c4327e71c53fe95c6c70778d0/DSCN2951.JPG",
+            "details": {
+              "size": 779896,
+              "image": {
+                "width": 4608,
+                "height": 3456
+              }
+            },
+            "fileName": "DSCN2951.JPG",
+            "contentType": "image/jpeg"
           }
         }
       }

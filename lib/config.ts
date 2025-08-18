@@ -18,6 +18,7 @@ export const REVALIDATION_CONFIG = {
   CHAMPION: parseInt(process.env.REVALIDATE_CHAMPION || '3600'),
   CLUB_PAGE: parseInt(process.env.REVALIDATE_CLUB_PAGE || '3600'),
   EVENT: parseInt(process.env.REVALIDATE_EVENT || '3600'),
+  IMAGE_GALLERY: parseInt(process.env.REVALIDATE_IMAGE_GALLERY || '3600'),
   ACF_RATINGS: parseInt(process.env.REVALIDATE_ACF_RATINGS || '2592000'), // 30 days default
 } as const;
 
