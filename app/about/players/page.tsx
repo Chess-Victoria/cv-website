@@ -151,7 +151,7 @@ export default async function PlayersPage() {
                     <div className="row">
                       {/* Open/Male Categories */}
                       <div className="col-lg-6">
-                        <div className="schedule-section-area">
+                        <div className="schedule-section-area mobile-table">
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12">
@@ -188,7 +188,7 @@ export default async function PlayersPage() {
                       
                       {/* Female Categories */}
                       <div className="col-lg-6">
-                        <div className="schedule-section-area">
+                        <div className="schedule-section-area mobile-table">
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12">
@@ -227,7 +227,7 @@ export default async function PlayersPage() {
                   
                   {/* Mobile Layout - Single Table */}
                   <div className="d-lg-none">
-                    <div className="schedule-section-area">
+                    <div className="schedule-section-area mobile-table">
                       <div className="container">
                         <div className="row">
                           <div className="col-lg-11 m-auto">
@@ -287,7 +287,7 @@ export default async function PlayersPage() {
                     <div className="row">
                       {/* Open Titles */}
                       <div className="col-lg-6">
-                        <div className="schedule-section-area">
+                        <div className="schedule-section-area mobile-table">
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12">
@@ -324,7 +324,7 @@ export default async function PlayersPage() {
                       
                       {/* Female Titles */}
                       <div className="col-lg-6">
-                        <div className="schedule-section-area">
+                        <div className="schedule-section-area mobile-table">
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12">
@@ -363,7 +363,7 @@ export default async function PlayersPage() {
                   
                   {/* Mobile Layout - Single Table */}
                   <div className="d-lg-none">
-                    <div className="schedule-section-area">
+                    <div className="schedule-section-area mobile-table">
                       <div className="container">
                         <div className="row">
                           <div className="col-lg-11 m-auto">

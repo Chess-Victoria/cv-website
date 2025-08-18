@@ -21951,6 +21951,80 @@ html {
     width: 100%;
     text-align: center;
   }
+
+}
+
+/* Mobile table override styles for schedule section */
+@media screen and (max-width: 768px) {
+  .schedule-section-area.mobile-table .schedule {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .schedule-section-area.mobile-table table {
+    width: 100%;
+    border-collapse: collapse;
+    display: table;
+  }
+  
+  .schedule-section-area.mobile-table thead,
+  .schedule-section-area.mobile-table tbody {
+    display: table-row-group;
+  }
+  
+  .schedule-section-area.mobile-table tr {
+    display: table-row;
+  }
+  
+  .schedule-section-area.mobile-table th,
+  .schedule-section-area.mobile-table td {
+    display: table-cell;
+    border: 1px solid rgba(26, 23, 25, 0.1);
+    background: #FFF;
+    padding: 12px 8px;
+    text-align: center;
+    vertical-align: middle;
+    width: auto;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  
+  .schedule-section-area.mobile-table th {
+    background-color: #f8b500;
+    color: var(--ztc-text-text-2);
+    text-align: center;
+    font-family: var(--grotesk);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: var(--ztc-weight-bold);
+    line-height: 1.2;
+    letter-spacing: -0.32px;
+    padding: 12px 8px;
+  }
+  
+  .schedule-section-area.mobile-table td {
+    color: var(--ztc-text-text-2);
+    text-align: center;
+    font-family: var(--grotesk);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: var(--ztc-weight-medium);
+    line-height: 1.2;
+    letter-spacing: -0.28px;
+  }
+  
+  .schedule-section-area.mobile-table td span {
+    color: var(--ztc-text-text-3);
+    text-align: center;
+    font-family: var(--figtree);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: var(--ztc-weight-medium);
+    line-height: 1.2;
+    letter-spacing: -0.24px;
+    display: inline-block;
+    padding-top: 5px;
+  }
 }
 
 .event5-section-area {

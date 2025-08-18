@@ -98,69 +98,122 @@ export default async function TopPlayersPage({ params }: { params: { category: s
                       </div>
                     </div>
                   ) : filteredPlayers.length > 0 ? (
-                    <div className="schedule-section-area">
+                    <div className="schedule-section-area mobile-table">
                       <div className="container">
                         <div className="row">
                           <div className="col-lg-11 m-auto">
                             <div className="schedule">
-                              <table className="table table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Age</th>
-                                    <th>National Rating</th>
-                                    <th>ACF ID</th>
-                                    <th>FIDE ID</th>
-                                    <th>State</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {filteredPlayers.map((player, index) => (
-                                    <tr key={player.nationalId}>
-                                      <td>
-                                        <strong>{index + 1}</strong>
-                                      </td>
-                                      <td>
-                                        <strong>{player.name}</strong>
-                                      </td>
-                                      <td>
-                                        {player.title && player.title.trim() ? (
-                                          <span className="badge bg-success text-white">{player.title}</span>
-                                        ) : null}
-                                      </td>
-                                      <td>
-                                        {player.age}
-                                      </td>
-                                      <td>
-                                        <span className="badge bg-primary text-white">{player.nationalRating}</span>
-                                      </td>
-                                      <td>
-                                        <code className="text-dark">{player.nationalId}</code>
-                                      </td>
-                                      <td>
-                                        {player.fideId && player.fideId !== '0' ? (
-                                          <a 
-                                            href={`https://ratings.fide.com/profile/${player.fideId}`} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="text-primary text-decoration-none"
-                                          >
-                                            <code className="text-primary">{player.fideId}</code>
-                                            <i className="fa-solid fa-external-link-alt ms-1" style={{fontSize: '0.8em'}}></i>
-                                          </a>
-                                        ) : (
-                                          <span className="text-muted">-</span>
-                                        )}
-                                      </td>
-                                      <td>
-                                        <span className="text-dark">{player.state}</span>
-                                      </td>
+                              {/* Desktop Table */}
+                              <div className="table-responsive d-none d-lg-block">
+                                <table className="table table-bordered table-sm simple-table">
+                                  <thead>
+                                    <tr>
+                                      <th className="text-center">Rank</th>
+                                      <th>Name</th>
+                                      <th className="text-center">Title</th>
+                                      <th className="text-center">Age</th>
+                                      <th className="text-center">Rating</th>
+                                      <th className="text-center">ACF ID</th>
+                                      <th className="text-center">FIDE ID</th>
+                                      <th className="text-center">State</th>
                                     </tr>
-                                  ))}
-                                </tbody>
-                              </table>
+                                  </thead>
+                                  <tbody>
+                                    {filteredPlayers.map((player, index) => (
+                                      <tr key={player.nationalId}>
+                                        <td className="text-center">
+                                          <strong>{index + 1}</strong>
+                                        </td>
+                                        <td>
+                                          <strong className="text-break">{player.name}</strong>
+                                        </td>
+                                        <td className="text-center">
+                                          {player.title && player.title.trim() ? (
+                                            <span className="badge bg-success text-white">{player.title}</span>
+                                          ) : null}
+                                        </td>
+                                        <td className="text-center">
+                                          {player.age}
+                                        </td>
+                                        <td className="text-center">
+                                          <span className="badge bg-primary text-white">{player.nationalRating}</span>
+                                        </td>
+                                        <td className="text-center">
+                                          <code className="text-dark small">{player.nationalId}</code>
+                                        </td>
+                                        <td className="text-center">
+                                          {player.fideId && player.fideId !== '0' ? (
+                                            <a 
+                                              href={`https://ratings.fide.com/profile/${player.fideId}`} 
+                                              target="_blank" 
+                                              rel="noopener noreferrer"
+                                              className="text-primary text-decoration-none"
+                                            >
+                                              <code className="text-primary small">{player.fideId}</code>
+                                              <i className="fa-solid fa-external-link-alt ms-1" style={{fontSize: '0.7em'}}></i>
+                                            </a>
+                                          ) : (
+                                            <span className="text-muted">-</span>
+                                          )}
+                                        </td>
+                                        <td className="text-center">
+                                          <span className="text-dark">{player.state}</span>
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+
+                              {/* Mobile Table */}
+                              <div className="d-lg-none">
+                                <table className="table table-bordered table-sm" style={{
+                                  width: '100%',
+                                  borderCollapse: 'collapse'
+                                }}>
+                                  <thead>
+                                    <tr style={{display: 'table-row'}}>
+                                      <th style={{width: '15%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rank</th>
+                                      <th style={{width: '65%', textAlign: 'left', padding: '8px 4px', border: '1px solid #dee2e6'}}>Name</th>
+                                      <th style={{width: '20%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rating</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {filteredPlayers.map((player, index) => (
+                                      <tr key={player.nationalId}>
+                                        <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
+                                          <strong>{index + 1}</strong>
+                                        </td>
+                                        <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'left', paddingLeft: '8px'}}>
+                                          {player.fideId && player.fideId !== '0' ? (
+                                            <a
+                                              href={`https://ratings.fide.com/profile/${player.fideId}`}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="text-decoration-none"
+                                            >
+                                              {player.title && player.title.trim() ? (
+                                                <span className="badge bg-success text-white" style={{fontSize: '0.7em', marginRight: '4px'}}>{player.title}</span>
+                                              ) : null}
+                                              <strong className="text-primary">{player.name}</strong>
+                                            </a>
+                                          ) : (
+                                            <>
+                                              {player.title && player.title.trim() ? (
+                                                <span className="badge bg-success text-white" style={{fontSize: '0.7em', marginRight: '4px'}}>{player.title}</span>
+                                              ) : null}
+                                              <strong>{player.name}</strong>
+                                            </>
+                                          )}
+                                        </td>
+                                        <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
+                                          <span className="badge bg-primary text-white">{player.nationalRating}</span>
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
                             </div>
                           </div>
                         </div>
