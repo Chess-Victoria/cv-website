@@ -44,7 +44,7 @@ export default async function Home() {
 				{homePageData.featuredGallery?.images?.length ? (
 					<GalleryImageCarousel
 						title={homePageData.featuredGallery.title}
-						subtitle="last year memory"
+						subtitle="Our memories"
 						images={homePageData.featuredGallery.images}
 						link={homePageData.featuredGallery.referenceLink || '/memories'}
 					/>
