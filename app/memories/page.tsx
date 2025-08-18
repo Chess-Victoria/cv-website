@@ -8,13 +8,22 @@ import { getRevalidationTime } from '@/lib/config'
 
 export const revalidate = getRevalidationTime('IMAGE_GALLERY');
 
-export default async function Memories() {
+export default async function Memories({ searchParams }: { searchParams?: { page?: string; per?: string } }) {
   const gallery = await getImageGalleryBySlugWithTags('chess-victoria-photo-gallery');
-  const images = gallery?.images || [];
+  const allImages = gallery?.images || [];
+
+  const perPage = Math.max(1, parseInt(searchParams?.per || '15', 10) || 3);
+  const currentPage = Math.max(1, parseInt(searchParams?.page || '1', 10) || 1);
+  const totalItems = allImages.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / perPage));
+  const page = Math.min(currentPage, totalPages);
+  const startIndex = (page - 1) * perPage;
+  const pageImages = allImages.slice(startIndex, startIndex + perPage);
+
+  const makeHref = (p: number) => `/memories?page=${p}&per=${perPage}`;
 
 	return (
 		<>
-
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
 					<div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg11.png)' }}>
@@ -35,22 +44,23 @@ export default async function Memories() {
 					<div className="memory-inner-section-area sp1">
 						<div className="container">
 							<div className="row">
-								<GalleryGridWithViewer images={images} title={gallery?.title} referenceLink={gallery?.referenceLink} />
+								<GalleryGridWithViewer images={pageImages} title={gallery?.title} referenceLink={gallery?.referenceLink} />
 								<div className="space30" />
 								<div className="pagination-area">
 									<nav aria-label="Page navigation example">
 										<ul className="pagination">
 											<li className="page-item">
-												<Link className="page-link" href="/#" aria-label="Previous">
+												<Link className="page-link" href={makeHref(Math.max(1, page - 1))} aria-label="Previous">
 													<i className="fa-solid fa-angle-left" />
 												</Link>
 											</li>
-											<li className="page-item"><Link className="page-link active" href="/#">1</Link></li>
-											<li className="page-item"><Link className="page-link" href="/#">2</Link></li>
-											<li className="page-item"><Link className="page-link" href="/#">...</Link></li>
-											<li className="page-item"><Link className="page-link" href="/#">12</Link></li>
+											{Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+												<li key={p} className="page-item">
+													<Link className={`page-link${p === page ? ' active' : ''}`} href={makeHref(p)}>{p}</Link>
+												</li>
+											))}
 											<li className="page-item">
-												<Link className="page-link" href="/#" aria-label="Next">
+												<Link className="page-link" href={makeHref(Math.min(totalPages, page + 1))} aria-label="Next">
 													<i className="fa-solid fa-angle-right" />
 												</Link>
 											</li>
