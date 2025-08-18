@@ -118,6 +118,13 @@ export async function POST(request: NextRequest) {
         revalidateTag('image-gallery');
         break;
 
+      case 'post':
+        // Revalidate news listing pages
+        revalidatePath('/news');
+        revalidatePath('/news/[page]');
+        revalidateTag('posts');
+        break;
+
       default:
         // For unknown content types, revalidate all pages
         console.log(`Unknown content type: ${contentType}, revalidating all pages`);

@@ -23,11 +23,12 @@ export const getImageGalleryBySlug = unstable_cache(
 
 export async function getImageGalleryBySlugWithTags(slug: string): Promise<ImageGalleryData | null> {
   // Ensure a slug-specific tag is associated with the cache entry
-  const data = await unstable_cache(
+  const dataFn = unstable_cache(
     async () => fetchImageGalleryUncached(slug),
     [`image-gallery:${slug}`],
     { revalidate: getRevalidationTime('IMAGE_GALLERY'), tags: ['image-gallery', `image-gallery:${slug}`] }
-  )(slug);
+  );
+  const data = await dataFn();
   return data;
 }
 

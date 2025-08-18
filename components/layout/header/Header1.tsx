@@ -147,8 +147,10 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 
 												<ul className="dropdown-padding">
 													<li><Link href="/about/players">Players</Link></li>
-													<li><Link href="/memories">Galerry</Link></li>
+													<li><Link href="/memories">Our Memories</Link></li>
 													<li><Link href="/notice-board">Notice Board</Link></li>
+													<li><Link href="/contact">Contact Us</Link></li>
+
 												</ul>
 											</li>
 											<li>
@@ -195,12 +197,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li> */}
 											<li>
-												<Link href="/#">Pages <i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/news">News & Update <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/memories">Our Memories</Link></li>
-													<li><Link href="/pricing-plan">Pricing Plan</Link></li>
 													<li><Link href="/faq">FAQ,s</Link></li>
-													<li><Link href="/contact">Contact Us</Link></li>
 												</ul>
 											</li>
 										</ul>

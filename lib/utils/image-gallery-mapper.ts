@@ -15,7 +15,7 @@ function mapAssetToImageData(asset: any): ImageGalleryImageData | undefined {
 export function mapImageGallery(entry: ImageGalleryEntry): ImageGalleryData {
   const slug = entry.fields.slug;
   const title = entry.fields.title || entry.fields.name || 'Image Gallery';
-  const descriptionHtml = entry.fields.description ? renderRichText(entry.fields.description) : undefined;
+  const descriptionHtml = entry.fields.description ? (renderRichText as any)(entry.fields.description as any) : undefined;
 
   // Build reference link if referenceItem exists (prefer DocumentLink.url)
   let referenceLink: string | undefined;
