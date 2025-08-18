@@ -112,6 +112,12 @@ export async function POST(request: NextRequest) {
         revalidateTag('homepage');
         break;
 
+      case 'referenceList':
+        // Revalidate homepage where ReferenceList is rendered
+        revalidatePath('/');
+        revalidateTag('referenceList');
+        break;
+
       case 'imageGallery':
         // Revalidate memories/gallery pages
         revalidatePath('/memories');

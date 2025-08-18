@@ -46,7 +46,7 @@ export default function NewsUpdate({ items }: { items: NewsItem[] }) {
               <div className="blog-header text-center heading2 space-margin60">
                 <h5 data-aos="fade-left" data-aos-duration={900}>News &amp; updates</h5>
                 <div className="space16" />
-                <h2 className="text-anime-style-3">Balancing Profit &amp; Purpose</h2>
+                <h2 className="text-anime-style-3">Latest updates in Chess Victoria</h2>
               </div>
             </div>
           </div>

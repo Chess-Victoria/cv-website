@@ -3,6 +3,7 @@ import { mapAnnouncementToPopupContent } from '@/lib/utils/announcement-mapper';
 import { mapPromotionBannerToHeroBannerData, fallbackHeroBannerData } from '@/lib/utils/hero-banner-mapper';
 import { mapEventListToEventListData } from '@/lib/utils/event-list-mapper';
 import { mapCommitteeListToCommitteeListData } from '@/lib/utils/committee-list-mapper';
+import { mapReferenceListToData } from '@/lib/utils/reference-list-mapper';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
 import { ImageGalleryData, ImageGalleryEntry } from '@/lib/types/image-gallery';
@@ -162,25 +163,7 @@ export const getHomePageData = unstable_cache(
       
       
       if (homePageFields.featuredClub?.fields) {
-        // For now, use fallback data until we implement proper mapping
-        featuredClubs = {
-          title: "Featured Chess Clubs",
-          subtitle: "The most popular chess clubs in Victoria",
-          items: [
-            {
-              id: "club-1",
-              name: "Melbourne Chess Club",
-              shortName: "MCC",
-              image: {
-                src: "/assets/img/all-images/team/team-img1.png",
-                alt: "Melbourne Chess Club"
-              },
-              title: "Historic Club",
-              description: "Established 1866",
-              url: "/clubs/mcc"
-            }
-          ]
-        };
+        featuredClubs = mapReferenceListToData(homePageFields.featuredClub.fields as unknown as ReferenceList);
       }
 
       if (homePageFields.featuredGallery?.fields) {
