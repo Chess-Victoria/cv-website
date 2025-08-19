@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
 import { getRevalidationTime } from "@/lib/config";
 import type { Metadata } from 'next';
+import PageHeadContent from '@/components/elements/PageHeadContent';
 
 export const revalidate = getRevalidationTime('POST');
 
@@ -52,19 +53,15 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg14.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 m-auto">
-                <div className="heading1 text-center">
-                  <h1>News & Update</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/news">News & Updates</Link> <i className="fa-solid fa-angle-right" /> <span>{post.title}</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title="News & Update"
+          backgroundImage="/assets/img/bg/header-bg14.png"
+          breadcrumbs={[
+            { name: "Home", link: "/" },
+            { name: "News & Updates", link: "/news" },
+            { name: post.title, link: `/news/read/${post.slug}` }
+          ]}
+        />
 
         <div className="blog-details-section sp8">
           <div className="container">

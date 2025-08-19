@@ -5,6 +5,7 @@ import Link from "next/link"
 import { getEventListData } from "@/lib/utils/event"
 import EventCard from "@/components/sections/events/EventCard"
 import { notFound } from "next/navigation"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface EventPageProps {
   params: {
@@ -25,19 +26,11 @@ export default async function EventPage({ params }: EventPageProps) {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg8.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>{eventListData.name}</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/events">Events</Link> <i className="fa-solid fa-angle-right" /> <span>{eventListData.name}</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title={eventListData.name}
+          backgroundImage="/assets/img/bg/header-bg8.png"
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'Events', link: '/events' }, { name: eventListData.name, link: `/events/${slug}` }]}
+        />
         
         {/*===== HERO AREA ENDS =======*/}
         {/*===== EVENT AREA STARTS =======*/}

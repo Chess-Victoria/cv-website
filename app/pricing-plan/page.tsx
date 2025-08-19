@@ -2,6 +2,7 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 export default function PricingPlan() {
 
 	return (
@@ -9,19 +10,14 @@ export default function PricingPlan() {
 
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
-					<div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg16.png)' }}>
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-9 m-auto">
-									<div className="heading1 text-center">
-										<h1>Pricing Plan</h1>
-										<div className="space20" />
-										<Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Pricing Plan</span></Link>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<PageHeadContent
+						title="Pricing Plan"
+						backgroundImage="/assets/img/bg/header-bg16.png"
+						breadcrumbs={[
+							{ name: "Home", link: "/" },
+							{ name: "Pricing Plan", link: "/pricing-plan" }
+						]}
+					/>
 					{/*===== HERO AREA ENDS =======*/}
 					{/*===== PRICING AREA STARTS =======*/}
 					<div className="pricing-lan-section-area sp1">

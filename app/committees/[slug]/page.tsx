@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { getCommitteeMemberBySlug } from "@/lib/utils/committee"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { getContactImage } from "@/lib/constants"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 export default async function CommitteeMemberPage({ params }: { params: { slug: string } }) {
   const member = await getCommitteeMemberBySlug(params.slug);
@@ -21,19 +22,11 @@ export default async function CommitteeMemberPage({ params }: { params: { slug: 
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg7.png)' }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Committee Member Details</h1>
-                    <div className="space20" />
-                    <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/committees">Committees</Link> <i className="fa-solid fa-angle-right" /> <span>{member.person.name}</span></Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PageHeadContent
+            title="Committee Member Details"
+            backgroundImage="/assets/img/bg/header-bg7.png"
+            breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'Committees', link: '/committees' }, { name: member.person.name, link: `/committees/${member.slug}` }]}
+          />
           {/*===== HERO AREA ENDS =======*/}
           {/*===== TEAM AREA STARTS =======*/}
           <div className="team-details-section-area sp1">

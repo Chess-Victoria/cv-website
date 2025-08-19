@@ -4,7 +4,7 @@ import AOS from 'aos'
 import { useEffect, useState } from "react"
 import AddClassBody from '../elements/AddClassBody'
 import BackToTop from '../elements/BackToTop'
-import Footer1 from './footer/Footer1'
+import SiteFooter from './footer/SiteFooter'
 import Footer10 from './footer/Footer10'
 import Footer2 from './footer/Footer2'
 import Footer3 from './footer/Footer3'
@@ -14,7 +14,7 @@ import Footer6 from './footer/Footer6'
 import Footer7 from './footer/Footer7'
 import Footer8 from './footer/Footer8'
 import Footer9 from './footer/Footer9'
-import Header1 from "./header/Header1"
+import MainSiteHeader from "./header/MainSiteHeader"
 import Header10 from './header/Header10'
 import Header2 from './header/Header2'
 import Header3 from './header/Header3'
@@ -64,8 +64,8 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 			<div id="top" />
 			<AddClassBody />
 			{/* <AnimatedText /> */}
-			{!headerStyle && <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />}
-			{headerStyle == 1 ? <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
+			{!headerStyle && <MainSiteHeader scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />}
+			{headerStyle == 1 ? <MainSiteHeader scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
 			{headerStyle == 2 ? <Header2 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
 			{headerStyle == 3 ? <Header3 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
 			{headerStyle == 4 ? <Header4 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
@@ -80,8 +80,8 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 
 			{children}
 
-			{!footerStyle && <Footer1 />}
-			{footerStyle == 1 ? <Footer1 /> : null}
+			{!footerStyle && <SiteFooter />}
+			{footerStyle == 1 ? <SiteFooter /> : null}
 			{footerStyle == 2 ? <Footer2 /> : null}
 			{footerStyle == 3 ? <Footer3 /> : null}
 			{footerStyle == 4 ? <Footer4 /> : null}

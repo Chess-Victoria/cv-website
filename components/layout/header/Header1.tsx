@@ -141,29 +141,25 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li><Link href="/about">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
 
 												<ul className="dropdown-padding">
-													<li><Link href="/about/players">Victorian Players</Link></li>
+													<li>
+														<Link href="/committees">Our Committees</Link>
+													</li>
+													<li><Link href="/about/players">Our Players</Link></li>
 													<li><Link href="/mission">Our Missions</Link></li>
 													<li><Link href="/vision">Our Vision</Link></li>
 													<li><Link href="/memories">Our Memories</Link></li>
-													<li><Link href="/contact">Contact Us</Link></li>
-
 												</ul>
 											</li>
+											
 											<li>
-												<Link href="/committees">Commitees<i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/committees/archived">Past Committees</Link></li>
-												</ul>
-											</li>
-											<li>
-												<Link href="/history">History <i className="fa-solid fa-angle-down" /></Link>
-												<ul className="dropdown-padding">
-													<li><Link href="/champions/junior-champions">Junor Champions</Link></li>
-													<li><Link href="/champions/australian-master">Australian Masters</Link></li>
-													<li><Link href="/champions/victorian-champions">Victorian Champions</Link></li>
-													<li><Link href="/champions/victorian-country-champions">Victorian Country Champions</Link></li>
-													<li><Link href="/champions/victorian-open">Victorian Open</Link></li>
-													<li><Link href="/victorian-women">Victorian Women</Link></li>
+													<li><Link href="/victorian-champions/junior-champions">Junor Champions</Link></li>
+													<li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
+													<li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
+													<li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>
+													<li><Link href="/victorian-champions/victorian-open">Victorian Open</Link></li>
+													<li><Link href="/victorian-champions/victorian-women">Victorian Women</Link></li>
 												</ul>
 											</li>
 											<li>
@@ -191,6 +187,14 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 													<li><Link href="/news/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
 													<li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
 													<li><Link href="/news/category/victorian-championship-news/page-1">Victorian Champions News</Link></li>
+												</ul>
+											</li>
+											<li>
+												<Link href="/news">Others<i className="fa-solid fa-angle-down" /></Link>
+												<ul className="dropdown-padding">
+												<li><Link href="/Galleries">Galleries</Link></li>
+													<li><Link href="/faq">FAQ</Link></li>
+													<li><Link href="/contact">Contact Us</Link></li>
 												</ul>
 											</li>
 										</ul>

@@ -2,6 +2,7 @@ import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { getEventListsForNavigation } from "@/lib/utils/event"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 export default async function EventsPage() {
   // Fetch all event lists for the table (only those with events)
@@ -10,19 +11,14 @@ export default async function EventsPage() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg8.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>Events & Tournaments</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Events</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title="Events & Tournaments"
+          backgroundImage="/assets/img/bg/header-bg8.png"
+          breadcrumbs={[
+            { name: "Home", link: "/" },
+            { name: "Events", link: "/events" }
+          ]}
+        />
         
         {/*===== HERO AREA ENDS =======*/}
         {/*===== EVENT AREA STARTS =======*/}

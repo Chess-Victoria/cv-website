@@ -1,24 +1,16 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 export default function NotFound() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        {/* Header Section */}
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg9.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>Chess Club Not Found</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Chess Club Not Found</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title="Chess Club Not Found"
+          backgroundImage="/assets/img/bg/header-bg9.png"
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'Chess Clubs', link: '/chess-clubs' }, { name: 'Not Found', link: '/chess-clubs' }]}
+        />
 
         {/* Content Section */}
         <div className="event-sidepage-section-area sp8">

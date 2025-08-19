@@ -29,7 +29,7 @@ export const SITE_CONFIG: SiteConfiguration = {
   contactEmail: 'admin@chessvictoria.com.au',
   contactPhone: '???? ??? ????)',
   address: 'Melbourne, Australia',
-  websiteUrl: 'Chess Victoriaevent.com',
+  websiteUrl: 'https://www.chessvictoria.org.au/',
 
   facebookUrl: 'https://www.facebook.com/ChessVictoria/',
   instagramUrl: '',

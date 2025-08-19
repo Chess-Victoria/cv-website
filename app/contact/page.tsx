@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from 'react'
 import { SITE_CONFIG } from '@/lib/site-config'
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 export default function Contact() {
 	const emailDisplay = SITE_CONFIG.contactEmail || 'Chess Victoria@gmail.com'
@@ -83,19 +84,14 @@ export default function Contact() {
 		<>
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
-					<div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg12.png)' }}>
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-6 m-auto">
-									<div className="heading1 text-center">
-										<h1>Contact Us</h1>
-										<div className="space20" />
-										<Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Contact Us</span></Link>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<PageHeadContent
+						title="Contact Us"
+						backgroundImage="/assets/img/bg/header-bg12.png"
+						breadcrumbs={[
+							{ name: "Home", link: "/" },
+							{ name: "Contact Us", link: "/contact" }
+						]}
+					/>
 					{/*===== HERO AREA ENDS =======*/}
 					{/*===== CONTACT AREA STARTS =======*/}
 					<div className="contact-inner-section sp1">

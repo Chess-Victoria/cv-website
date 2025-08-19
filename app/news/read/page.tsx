@@ -5,6 +5,7 @@ import "@/node_modules/react-modal-video/css/modal-video.css"
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 export default function BlogSingle() {
 
 	const [isOpen, setOpen] = useState(false)
@@ -13,19 +14,14 @@ export default function BlogSingle() {
 
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
-					<div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg14.png)' }}>
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-6 m-auto">
-									<div className="heading1 text-center">
-										<h1>Blog Details</h1>
-										<div className="space20" />
-										<Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Blog Details</span></Link>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<PageHeadContent
+						title="Blog Details"
+						backgroundImage="/assets/img/bg/header-bg14.png"
+						breadcrumbs={[
+							{ name: "Home", link: "/" },
+							{ name: "Blog Details", link: "/news/read" }
+						]}
+					/>
 					{/*===== HERO AREA ENDS =======*/}
 					{/*===== BLOG AREA STARTS =======*/}
 					<div className="blog-details-section sp8">

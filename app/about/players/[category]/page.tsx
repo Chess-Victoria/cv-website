@@ -4,6 +4,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getPlayersByCategory, Player } from "@/lib/utils/acf-ratings" // Import Player and getPlayersByCategory
 import { getRevalidationTime } from '@/lib/config'
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface Category {
   id: string;
@@ -53,19 +54,11 @@ export default async function TopPlayersPage({ params }: { params: { category: s
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg8.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="heading1 text-center">
-                  <h1>Top Players - {category.name}</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/about">About</Link> <i className="fa-solid fa-angle-right" /> <Link href="/about/players">Players</Link> <i className="fa-solid fa-angle-right" /> <span>{category.name}</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title={`Top Players - ${category.name}`}
+          backgroundImage="/assets/img/bg/header-bg8.png"
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: category.name, link: `/about/players/${params.category}` }]}
+        />
 
         <div className="event-team-area sp1">
           <div className="container">

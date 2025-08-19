@@ -39,55 +39,50 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 1 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(1)}><em /></span>
 							<Link href="/about" className="hash-nav">About Chess Victoria</Link>
 							<ul className={`sub-menu ${isAccordion == 1 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 1 ? 'block' : 'none'}` }}>
-								<li><Link href="/memories">Galerry</Link></li>
-								<li><Link href="/notice-board">Notice Board</Link></li>
+								<li><Link href="/committees">Our Committees</Link></li>
+								<li><Link href="/about/players">Our Players</Link></li>
+								<li><Link href="/mission">Our Missions</Link></li>
+								<li><Link href="/vision">Our Vision</Link></li>
+								<li><Link href="/memories">Our Memories</Link></li>
 							</ul>
 						</li>
-						{/* Committees */}
+						{/* Victorian Champions */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 2 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(2)}><em /></span>
-							<Link href="/#" className="hash-nav">Committees</Link>
+							<Link href="/victorian-champions" className="hash-nav">Victorian Champions</Link>
 							<ul className={`sub-menu ${isAccordion == 2 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 2 ? 'block' : 'none'}` }}>
-								<li><Link href="/members">Members</Link></li>
-								<li><Link href="/speakers-single">Speakers Details</Link></li>
-							</ul>
-						</li>
-						{/* History */}
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 3 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(3)}><em /></span>
-							<Link href="/history" className="hash-nav">History</Link>
-							<ul className={`sub-menu ${isAccordion == 3 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 3 ? 'block' : 'none'}` }}>
-								<li><Link href="/junior-champions">Junor Champions</Link></li>
-								<li><Link href="/autralian-master">Australian Masters</Link></li>
-								<li><Link href="/victorian-champions">Victorian Champions</Link></li>
-								<li><Link href="/victorian-country-champions">Victorian Country Champions</Link></li>
-								<li><Link href="/victorian-open">Victorian Open</Link></li>
-								<li><Link href="/victorian-women">Victorian Women</Link></li>
+								<li><Link href="/victorian-champions/junior-champions">Junor Champions</Link></li>
+								<li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
+								<li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
+								<li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>
+								<li><Link href="/victorian-champions/victorian-open">Victorian Open</Link></li>
+								<li><Link href="/victorian-champions/victorian-women">Victorian Women</Link></li>
 							</ul>
 						</li>
 						{/* Events */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 4 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(4)}><em /></span>
-							<Link href="/#" className="hash-nav">Events</Link>
+							<Link href="/events" className="hash-nav">Events</Link>
 							<ul className={`sub-menu ${isAccordion == 4 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 4 ? 'block' : 'none'}` }}>
-								<li><Link href="/event">Our Event</Link></li>
-								<li><Link href="/event-schedule">Event Schedule</Link></li>
-								<li><Link href="/event-single">Event Details</Link></li>
+								<li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
+								<li><Link href="/events/2025-state-tournaments">State level Tournaments</Link></li>
+								<li><Link href="/events/2025-clubs-tournaments">Clubs Level Tournaments</Link></li>
+								<li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
 							</ul>
 						</li>
 						{/* Victoria Club */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(5)}><em /></span>
 							<Link href="/chess-clubs" className="hash-nav">Victoria Club</Link>
 							<ul className={`sub-menu ${isAccordion == 5 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 5 ? 'block' : 'none'}` }}>
-								<li><Link href="/event">Melbourne Chess Club</Link></li>
-								<li><Link href="/event-schedule">Boxhill Chess Club</Link></li>
-								<li><Link href="/event-single">Hobsons Bay Chess Club</Link></li>
+								<li><Link href="/chess-clubs/mcc">Melbourne Chess Club</Link></li>
+								<li><Link href="/chess-clubs/bhcc">Boxhill Chess Club</Link></li>
+								<li><Link href="/chess-clubs/hbcc">Hobsons Bay Chess Club</Link></li>
 							</ul>
 						</li>
 						{/* Pages */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 6 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(6)}><em /></span>
-							<Link href="/#" className="hash-nav">Pages</Link>
+							<Link href="/news" className="hash-nav">Others</Link>
 							<ul className={`sub-menu ${isAccordion == 6 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 6 ? 'block' : 'none'}` }}>
-								<li><Link href="/memories">Our Memories</Link></li>
-								<li><Link href="/pricing-plan">Pricing Plan</Link></li>
-								<li><Link href="/faq">FAQ,s</Link></li>
+								<li><Link href="/Galleries">Galleries</Link></li>
+								<li><Link href="/faq">FAQ</Link></li>
 								<li><Link href="/contact">Contact Us</Link></li>
 							</ul>
 						</li>

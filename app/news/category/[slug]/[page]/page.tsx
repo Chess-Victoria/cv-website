@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getPostsByCategoryPageData } from "@/lib/utils/posts";
 import { getRevalidationTime } from "@/lib/config";
+import PageHeadContent from '@/components/elements/PageHeadContent';
 
 export const revalidate = getRevalidationTime('POST');
 
@@ -22,19 +23,15 @@ export default async function NewsCategoryPage({ params }: CategoryPageProps) {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg13.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>News & Updates</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <Link href="/news">News & Updates</Link> <i className="fa-solid fa-angle-right" /> <span>{data.category?.name || 'Category'}</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title="News & Updates"
+          backgroundImage="/assets/img/bg/header-bg13.png"
+          breadcrumbs={[
+            { name: "Home", link: "/" },
+            { name: "News & Updates", link: "/news" },
+            { name: data.category?.name || 'Category', link: `/news/category/${slug}` }
+          ]}
+        />
 
         <div className="bloginner-section-area sp1">
           <div className="container">

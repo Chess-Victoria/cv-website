@@ -7,6 +7,7 @@ import { getContactImage, getClubImage, getEventImage } from "@/lib/constants"
 import RichTextRenderer from "@/components/elements/RichTextRenderer"
 import { unstable_cache } from 'next/cache'
 import { getRevalidationTime } from '@/lib/config'
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 // Cache the data fetching with tags for revalidation
 const getCachedChessClub = unstable_cache(
@@ -53,19 +54,11 @@ export default async function ClubPage({ params }: ClubPageProps) {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg9.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>{clubData.name}</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>{clubData.name}</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title={clubData.name}
+          backgroundImage="/assets/img/bg/header-bg9.png"
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'Chess Clubs', link: '/chess-clubs' }, { name: clubData.name, link: `/chess-clubs/${slug}` }] as any}
+        />
 
         {/*===== EVENT AREA STARTS =======*/}
         <div className="event-sidepage-section-area sp8">

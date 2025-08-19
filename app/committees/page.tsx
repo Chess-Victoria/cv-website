@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import CommitteeList from "@/components/sections/committee/CommitteeList"
 import { getCommitteePageData } from "@/lib/utils/committee"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 export default async function CommitteesPage() {
   // Fetch committee data from Contentful
@@ -11,19 +12,14 @@ export default async function CommitteesPage() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg10.png)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 m-auto">
-                <div className="heading1 text-center">
-                  <h1>Committee Members</h1>
-                  <div className="space20" />
-                  <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Committees</span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeadContent
+          title="Committee Members"
+          backgroundImage="/assets/img/bg/header-bg10.png"
+          breadcrumbs={[
+            { name: "Home", link: "/" },
+            { name: "Committees", link: "/committees" }
+          ]}
+        />
 
         {/* Committee Lists */}
         <div className="committee-section-area sp10">
