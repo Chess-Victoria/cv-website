@@ -106,7 +106,7 @@ export default function Contact() {
 									<div className="contact4-boxarea">
 										<h3 className="text-anime-style-3">Get In Touch Now</h3>
 										<div className="space8" />
-										
+
 										{/* Status Messages */}
 										{submitStatus.type && (
 											<div className={`alert ${submitStatus.type === 'success' ? 'alert-success' : 'alert-danger'}`} style={{ marginBottom: '20px' }}>
@@ -118,9 +118,9 @@ export default function Contact() {
 											<div className="row">
 												<div className="col-lg-6 col-md-6">
 													<div className="input-area">
-														<input 
-															type="text" 
-															placeholder="Name" 
+														<input
+															type="text"
+															placeholder="Name"
 															name="name"
 															value={formData.name}
 															onChange={handleInputChange}
@@ -130,9 +130,9 @@ export default function Contact() {
 												</div>
 												<div className="col-lg-6 col-md-6">
 													<div className="input-area">
-														<input 
-															type="text" 
-															placeholder="Phone" 
+														<input
+															type="text"
+															placeholder="Phone"
 															name="phone"
 															value={formData.phone}
 															onChange={handleInputChange}
@@ -141,9 +141,9 @@ export default function Contact() {
 												</div>
 												<div className="col-lg-12 col-md-6">
 													<div className="input-area">
-														<input 
-															type="email" 
-															placeholder="Email" 
+														<input
+															type="email"
+															placeholder="Email"
 															name="email"
 															value={formData.email}
 															onChange={handleInputChange}
@@ -153,9 +153,9 @@ export default function Contact() {
 												</div>
 												<div className="col-lg-12 col-md-6">
 													<div className="input-area">
-														<input 
-															type="text" 
-															placeholder="Subjects" 
+														<input
+															type="text"
+															placeholder="Subjects"
 															name="subject"
 															value={formData.subject}
 															onChange={handleInputChange}
@@ -164,8 +164,8 @@ export default function Contact() {
 												</div>
 												<div className="col-lg-12">
 													<div className="input-area">
-														<textarea 
-															placeholder="Message" 
+														<textarea
+															placeholder="Message"
 															name="message"
 															value={formData.message}
 															onChange={handleInputChange}
@@ -177,8 +177,8 @@ export default function Contact() {
 												<div className="col-lg-12">
 													<div className="space24" />
 													<div className="input-area text-end">
-														<button 
-															type="submit" 
+														<button
+															type="submit"
 															className="vl-btn1"
 															disabled={isSubmitting}
 														>
@@ -264,7 +264,7 @@ export default function Contact() {
 								<div className="col-lg-10 m-auto">
 									<div className="cta1-main-boxarea">
 										<div className="timer-btn-area">
-										<Countdown />
+											<Countdown />
 											<div className="btn-area1">
 												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
 											</div>
@@ -290,7 +290,7 @@ export default function Contact() {
 								<div className="col-lg-10 m-auto">
 									<div className="cta1-main-boxarea">
 										<div className="timer-btn-area">
-										<Countdown />
+											<Countdown />
 											<div className="btn-area1">
 												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
 											</div>
