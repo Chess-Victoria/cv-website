@@ -13,6 +13,8 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
     const { slug } = await params;
     const champion = await getEntryBySlug('championPage', slug);
     const { title = 'Champion', introduction } = champion?.fields || {};
+    const championsList = (champion as any)?.fields?.champions as any[] | undefined;
+    const hasDivision = Array.isArray(championsList) && championsList.some((item: any) => !!item?.fields?.division);
 
     // Type guard for Contentful rich text Document
     const isRichTextDocument = (doc: any): doc is import('@contentful/rich-text-types').Document => {
@@ -58,12 +60,12 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                                                 <div className="row">
                                                     <div className="col-lg-11 m-auto">
                                                         <div className="schedule">
-                                                            <table className="table table-bordered">
+                                                            <table>
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Year</th>
                                                                         <th>Name</th>
-                                                                        <th>Division</th>
+                                                                        {hasDivision && <th>Division</th>}
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -71,7 +73,7 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                                                                         <tr key={item.sys?.id || idx}>
                                                                             <td>{item.fields?.year || ''}</td>
                                                                             <td>{item.fields?.name || ''}</td>
-                                                                            <td>{item.fields?.division || ''}</td>
+                                                                            {hasDivision && <td>{item.fields?.division || ''}</td>}
                                                                         </tr>
                                                                     ))}
                                                                 </tbody>
