@@ -81,7 +81,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 6 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(6)}><em /></span>
 							<Link href="/news" className="hash-nav">Others</Link>
 							<ul className={`sub-menu ${isAccordion == 6 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 6 ? 'block' : 'none'}` }}>
-								<li><Link href="/Galleries">Galleries</Link></li>
+								<li><Link href="/galleries">Galleries</Link></li>
 								<li><Link href="/faq">FAQ</Link></li>
 								<li><Link href="/contact">Contact Us</Link></li>
 							</ul>

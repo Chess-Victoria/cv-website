@@ -192,7 +192,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/news">Others<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-												<li><Link href="/Galleries">Galleries</Link></li>
+												<li><Link href="/galleries">Galleries</Link></li>
 													<li><Link href="/faq">FAQ</Link></li>
 													<li><Link href="/contact">Contact Us</Link></li>
 												</ul>

@@ -45,7 +45,6 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
                                                     <li><Link href="/events/2025-state-tournaments">State level Tournaments</Link></li>
-                                                    <li><Link href="/events/2025-clubs-tournaments">Clubs Level Tournaments</Link></li>
                                                     <li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
                                                 </ul>
                                             </li>
@@ -53,9 +52,8 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             <li>
                                                 <Link href="/chess-clubs">Victoria Club <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
-                                                    <li><Link href="/chess-clubs/mcc">Melbourne Chess Club</Link></li>
-                                                    <li><Link href="/chess-clubs/bhcc">Boxhill Chess Club</Link></li>
-                                                    <li><Link href="/chess-clubs/hbcc">Hobsons Bay Chess Club</Link></li>
+                                                    <li><Link href="/chess-clubs/other-chess-associations">Other Chess Associations</Link></li>
+                                                   
                                                 </ul>
                                             </li>
 
@@ -70,7 +68,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             <li>
                                                 <Link href="/news">Others<i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
-                                                <li><Link href="/Galleries">Galleries</Link></li>
+                                                <li><Link href="/galleries">Galleries</Link></li>
                                                     <li><Link href="/faq">FAQ</Link></li>
                                                     <li><Link href="/contact">Contact Us</Link></li>
                                                 </ul>

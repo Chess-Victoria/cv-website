@@ -121,7 +121,10 @@ export async function POST(request: NextRequest) {
       case 'imageGallery':
         // Revalidate memories/gallery pages
         revalidatePath('/memories');
+        revalidatePath('/galleries');
+        revalidatePath('/galleries/[slug]');
         revalidateTag('image-gallery');
+        revalidateTag('all-galleries');
         break;
 
       case 'post':

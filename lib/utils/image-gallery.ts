@@ -1,6 +1,6 @@
 import { unstable_cache, revalidateTag } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
-import { getEntryBySlug } from '@/lib/contentful';
+import { getEntryBySlug, getEntries } from '@/lib/contentful';
 import { ImageGalleryData, ImageGalleryEntry } from '@/lib/types/image-gallery';
 import { mapImageGallery } from '@/lib/utils/image-gallery-mapper';
 
@@ -31,5 +31,21 @@ export async function getImageGalleryBySlugWithTags(slug: string): Promise<Image
   const data = await dataFn();
   return data;
 }
+
+async function fetchAllImageGalleriesUncached(): Promise<ImageGalleryData[]> {
+  const entries = (await getEntries('imageGallery', 3)) as unknown as ImageGalleryEntry[];
+  return entries.map(entry => mapImageGallery(entry));
+}
+
+export const getAllImageGalleries = unstable_cache(
+  async (): Promise<ImageGalleryData[]> => {
+    return await fetchAllImageGalleriesUncached();
+  },
+  ['all-image-galleries'],
+  {
+    revalidate: getRevalidationTime('IMAGE_GALLERY'),
+    tags: ['image-gallery', 'all-galleries'],
+  }
+);
 
 
