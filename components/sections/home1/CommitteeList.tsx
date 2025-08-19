@@ -73,66 +73,68 @@ export default function CommitteeList({ data }: CommitteeListProps) {
         </div>
         <div className="row">
           <div className="col-lg-12 position-relative">
-            <Swiper {...swiperOptions} className="team-slider-area ">
-              {data.members.map((member) => (
-                <SwiperSlide key={member.id} className="team-widget-boxarea">
-                  <div className="img1 image-anime">
-                    <img src={member.image.src} alt={member.image.alt} />
-                    <ul>
-                      {member.socialLinks.facebook && (
-                        <li>
-                          <Link href={member.socialLinks.facebook} target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                      )}
-                      {member.socialLinks.linkedin && (
-                        <li>
-                          <Link href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                      )}
-                      {member.socialLinks.instagram && (
-                        <li>
-                          <Link href={member.socialLinks.instagram} target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                      )}
-                      {member.socialLinks.youtube && (
-                        <li>
-                          <Link href={member.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="m-0">
-                            <i className="fa-brands fa-youtube" />
-                          </Link>
-                        </li>
-                      )}
-                      {member.socialLinks.email && (
-                        <li>
-                          <Link href={`mailto:${member.socialLinks.email}`} className="m-0">
-                            <i className="fa-solid fa-envelope" />
-                          </Link>
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                  <div className="space20" />
-                  <div className="text-area">
-                    <Link href={member.profileUrl || "/committee"}>{member.name}</Link>
-                    <div className="space16" />
-                    <p>{member.title}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <div className="team-slider-area">
+              <Swiper {...swiperOptions} className="team-slider-area ">
+                {data.members.map((member) => (
+                  <SwiperSlide key={member.id} className="team-widget-boxarea">
+                    <div className="img1 image-anime">
+                      <img src={member.image.src} alt={member.image.alt} />
+                      <ul>
+                        {member.socialLinks.facebook && (
+                          <li>
+                            <Link href={member.socialLinks.facebook} target="_blank" rel="noopener noreferrer">
+                              <i className="fa-brands fa-facebook-f" />
+                            </Link>
+                          </li>
+                        )}
+                        {member.socialLinks.linkedin && (
+                          <li>
+                            <Link href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                              <i className="fa-brands fa-linkedin-in" />
+                            </Link>
+                          </li>
+                        )}
+                        {member.socialLinks.instagram && (
+                          <li>
+                            <Link href={member.socialLinks.instagram} target="_blank" rel="noopener noreferrer">
+                              <i className="fa-brands fa-instagram" />
+                            </Link>
+                          </li>
+                        )}
+                        {member.socialLinks.youtube && (
+                          <li>
+                            <Link href={member.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="m-0">
+                              <i className="fa-brands fa-youtube" />
+                            </Link>
+                          </li>
+                        )}
+                        {member.socialLinks.email && (
+                          <li>
+                            <Link href={`mailto:${member.socialLinks.email}`} className="m-0">
+                              <i className="fa-solid fa-envelope" />
+                            </Link>
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                    <div className="space20" />
+                    <div className="text-area">
+                      <Link href={member.profileUrl || "/committee"}>{member.name}</Link>
+                      <div className="space16" />
+                      <p>{member.title}</p>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
 
-            <div className="owl-nav">
-              <button type="button" role="presentation" className="owl-prev h1p">
-                <i className="fa-solid fa-angle-left" />
-              </button>
-              <button type="button" role="presentation" className="owl-next h1n">
-                <i className="fa-solid fa-angle-right" />
-              </button>
+              <div className="owl-nav">
+                <button type="button" role="presentation" className="owl-prev h1p">
+                  <i className="fa-solid fa-angle-left" />
+                </button>
+                <button type="button" role="presentation" className="owl-next h1n">
+                  <i className="fa-solid fa-angle-right" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
