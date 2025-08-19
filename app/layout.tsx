@@ -32,6 +32,70 @@ const grotesk = Space_Grotesk({
 export const metadata: Metadata = {
 	title: "Chess Victoria | Promoting Chess Growth, Inclusion & Excellence",
 	description: "Discover Chess Victoria, the leading body promoting chess across Victoria. We support players of all ages and abilities, host tournaments, foster community, and inspire excellence through the game of chess.",
+	keywords: "chess, Victoria, chess club, chess tournament, chess Victoria, Australian chess, chess community, chess events, chess competitions",
+	authors: [{ name: "Chess Victoria" }],
+	creator: "Chess Victoria",
+	publisher: "Chess Victoria",
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
+	openGraph: {
+		type: 'website',
+		locale: 'en_AU',
+		url: 'https://chessvictoria.org.au',
+		title: 'Chess Victoria | Promoting Chess Growth, Inclusion & Excellence',
+		description: 'Discover Chess Victoria, the leading body promoting chess across Victoria. We support players of all ages and abilities, host tournaments, foster community, and inspire excellence through the game of chess.',
+		siteName: 'Chess Victoria',
+		images: [
+			{
+				url: '/assets/img/logo/cvlogo.png',
+				width: 1200,
+				height: 630,
+				alt: 'Chess Victoria Logo',
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Chess Victoria | Promoting Chess Growth, Inclusion & Excellence',
+		description: 'Discover Chess Victoria, the leading body promoting chess across Victoria. We support players of all ages and abilities, host tournaments, foster community, and inspire excellence through the game of chess.',
+		images: ['/assets/img/logo/cvlogo.png'],
+		creator: '@chessvictoria',
+	},
+	icons: {
+		icon: [
+			{ url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+			{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			{ url: '/favicon.ico', sizes: 'any' },
+		],
+		apple: [
+			{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+		],
+		other: [
+			{ rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#1a365d' },
+		],
+	},
+	manifest: '/site.webmanifest',
+	themeColor: '#1a365d',
+	viewport: {
+		width: 'device-width',
+		initialScale: 1,
+		maximumScale: 1,
+	},
+	verification: {
+		google: 'your-google-verification-code', // Replace with actual verification code
+	},
+	alternates: {
+		canonical: 'https://chessvictoria.org.au',
+	},
 }
 
 export default function RootLayout({
@@ -41,6 +105,14 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+				<link rel="manifest" href="/site.webmanifest" />
+				<meta name="msapplication-TileColor" content="#1a365d" />
+				<meta name="theme-color" content="#1a365d" />
+			</head>
 			<body className={`${figtree.variable} ${grotesk.variable}`}>{children}</body>
 		</html>
 	)
