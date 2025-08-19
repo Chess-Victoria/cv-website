@@ -75,7 +75,7 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                                     )}
                                     {/* Champions Table */}
                                     {Array.isArray(champion?.fields?.champions) && champion.fields.champions.length > 0 && (
-                                        <div className="schedule-section-area">
+                                        <div className="schedule-section-area champions-table-purple">
                                             <div className="container">
                                                 <div className="row">
                                                     <div className="col-lg-11 m-auto">

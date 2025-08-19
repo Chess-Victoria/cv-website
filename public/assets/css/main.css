@@ -17493,6 +17493,18 @@ html {
 .cta1-section-area .cta1-main-boxarea .timer-btn-area .btn-area1 .vl-btn1::after {
   background: #312E30;
 }
+/* Champions table custom theme */
+.champions-table-purple .schedule table thead tr,
+.champions-table-purple .schedule table thead th {
+  background: var(--ztc-bg-bg-2) !important;
+  color: var(--ztc-text-text-1) !important;
+}
+.champions-table-purple .schedule table tbody tr {
+  background: var(--ztc-bg-bg-2) !important;
+}
+.champions-table-purple .schedule table tbody tr td {
+  color: var(--ztc-text-text-1) !important;
+}
 .cta1-section-area .cta1-main-boxarea ul li {
   display: inline-block;
   margin: 0 24px 0 0;
