@@ -1,6 +1,8 @@
+'use client'
 import { SITE_CONFIG } from '@/lib/site-config';
 import Link from 'next/link'
-
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
     return (
@@ -50,7 +52,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             </li>
 
                                             <li>
-                                                <Link href="/chess-clubs">Victoria Club <i className="fa-solid fa-angle-down" /></Link>
+                                                <Link href="/chess-clubs">Chess Club in Victoria <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="/chess-clubs/other-chess-associations">Other Chess Associations</Link></li>
                                                    
@@ -106,9 +108,30 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                     <div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
                                         <div className="tx-search-close tx-close" onClick={handleSearch}><i className="fa-solid fa-xmark" /></div>
                                         <div className="header-search-container">
-                                            <form role="search" className="search-form">
-                                                <input type="search" className="search-field" placeholder="Search …" name="s" />
-                                                <button type="submit" className="search-submit"><img src="/assets/img/icons/search1.svg" alt="" /></button>
+                                            <form 
+                                                role="search" 
+                                                className="search-form"
+                                                onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    const formData = new FormData(e.currentTarget);
+                                                    const query = formData.get('s') as string;
+                                                    if (query && query.trim()) {
+                                                        window.location.href = `/search?q=${encodeURIComponent(query.trim())}`;
+                                                        handleSearch();
+                                                    }
+                                                }}
+                                            >
+                                                <input 
+                                                    type="search" 
+                                                    className="search-field" 
+                                                    placeholder="Search news, events, clubs..." 
+                                                    name="s" 
+                                                    required
+                                                    minLength={2}
+                                                />
+                                                <button type="submit" className="search-submit">
+                                                    <img src="/assets/img/icons/search1.svg" alt="" />
+                                                </button>
                                             </form>
                                         </div>
                                     </div>

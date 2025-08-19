@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link'
+import { SITE_CONFIG } from '@/lib/site-config'
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	const [isAccordion, setIsAccordion] = useState(1)
@@ -15,7 +16,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					<div className="col-12">
 						<div className="mobile-header-elements">
 							<div className="mobile-logo">
-								<Link href="//"><img src="/assets/img/logo/cvlogo1.png" alt="" /></Link>
+								<Link href="/"><img src={SITE_CONFIG.logo || "/assets/img/logo/cvlogo1.png"} alt="" /></Link>
 							</div>
 							<div className="mobile-nav-icon dots-menu" onClick={handleMobileMenu}>
 								<i className="fa-solid fa-bars-staggered" />
@@ -27,7 +28,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? 'mobile-menu-active' : ''}`}>
 				<div className="logosicon-area">
 					<div className="logos">
-						<img src="/assets/img/logo/cvlogo1.png" alt="" />
+						<img src={SITE_CONFIG.logoBlack || "/assets/img/logo/cvlogo-black.png"} alt="" width={100} height={100} />
 					</div>
 					<div className="menu-close" onClick={handleMobileMenu}>
 						<i className="fa-solid fa-xmark" />
@@ -70,11 +71,9 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						</li>
 						{/* Victoria Club */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(5)}><em /></span>
-							<Link href="/chess-clubs" className="hash-nav">Victoria Club</Link>
+							<Link href="/chess-clubs" className="hash-nav">Chess Club in Victoria</Link>
 							<ul className={`sub-menu ${isAccordion == 5 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 5 ? 'block' : 'none'}` }}>
-								<li><Link href="/chess-clubs/mcc">Melbourne Chess Club</Link></li>
-								<li><Link href="/chess-clubs/bhcc">Boxhill Chess Club</Link></li>
-								<li><Link href="/chess-clubs/hbcc">Hobsons Bay Chess Club</Link></li>
+								<li><Link href="/chess-clubs/other-chess-associations">Other Chess Associations</Link></li>
 							</ul>
 						</li>
 						{/* Pages */}
@@ -89,55 +88,99 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						</li>
 					</ul>
 
+					{/* Mobile Search Form */}
+					<div className="mobile-search-form mb-4">
+						<form 
+							role="search" 
+							className="search-form"
+							onSubmit={(e) => {
+								e.preventDefault();
+								const formData = new FormData(e.currentTarget);
+								const query = formData.get('s') as string;
+								if (query && query.trim()) {
+									window.location.href = `/search?q=${encodeURIComponent(query.trim())}`;
+									handleMobileMenu();
+								}
+							}}
+						>
+							<div className="input-group">
+								<input 
+									type="search" 
+									className="form-control" 
+									placeholder="Search news, events, clubs..." 
+									name="s" 
+									required
+									minLength={2}
+								/>
+								<button type="submit" className="btn btn-primary">
+									<i className="fa-solid fa-search"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+
 					<div className="allmobilesection">
-						<Link href="//contact" className="vl-btn1">Contact Now</Link>
+						<Link href="/contact" className="vl-btn1">Contact Now</Link>
 						<div className="single-footer">
 							<h3>Contact Info</h3>
 							<div className="footer1-contact-info">
-								<div className="contact-info-single">
-									<div className="contact-info-icon">
-										<span><i className="fa-solid fa-phone-volume" /></span>
-									</div>
-									<div className="contact-info-text">
-										<Link href="//tel:+3(924)4596512">+3(924)4596512</Link>
-									</div>
-								</div>
-								<div className="contact-info-single">
-									<div className="contact-info-icon">
-										<span><i className="fa-solid fa-envelope" /></span>
-									</div>
-									<div className="contact-info-text">
-										<Link href="//mailto:info@example.com">info@example.com</Link>
-									</div>
-								</div>
-								<div className="single-footer">
-									<h3>Our Location</h3>
+								{SITE_CONFIG.contactPhone && (
 									<div className="contact-info-single">
 										<div className="contact-info-icon">
-											<span><i className="fa-solid fa-location-dot" /></span>
+											<span><i className="fa-solid fa-phone-volume" /></span>
 										</div>
 										<div className="contact-info-text">
-											<Link href="//mailto:info@example.com">55 East Birchwood Ave.Brooklyn, <br />
-												New York 11201,United States</Link>
+											<Link href={`tel:${SITE_CONFIG.contactPhone}`}>{SITE_CONFIG.contactPhone}</Link>
 										</div>
 									</div>
-								</div>
+								)}
+								{SITE_CONFIG.contactEmail && (
+									<div className="contact-info-single">
+										<div className="contact-info-icon">
+											<span><i className="fa-solid fa-envelope" /></span>
+										</div>
+										<div className="contact-info-text">
+											<Link href={`mailto:${SITE_CONFIG.contactEmail}`}>{SITE_CONFIG.contactEmail}</Link>
+										</div>
+									</div>
+								)}
+								{SITE_CONFIG.address && (
+									<div className="single-footer">
+										<h3>Our Location</h3>
+										<div className="contact-info-single">
+											<div className="contact-info-icon">
+												<span><i className="fa-solid fa-location-dot" /></span>
+											</div>
+											<div className="contact-info-text">
+												<Link href="/#">{SITE_CONFIG.address}</Link>
+											</div>
+										</div>
+									</div>
+								)}
 								<div className="single-footer">
 									<h3>Social Links</h3>
 									<div className="social-links-mobile-menu">
 										<ul>
-											<li>
-												<Link href="//#"><i className="fa-brands fa-facebook-f" /></Link>
-											</li>
-											<li>
-												<Link href="//#"><i className="fa-brands fa-instagram" /></Link>
-											</li>
-											<li>
-												<Link href="//#"><i className="fa-brands fa-linkedin-in" /></Link>
-											</li>
-											<li>
-												<Link href="//#"><i className="fa-brands fa-youtube" /></Link>
-											</li>
+											{SITE_CONFIG.facebookUrl && (
+												<li>
+													<Link href={SITE_CONFIG.facebookUrl} target="_blank"><i className="fa-brands fa-facebook-f" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.instagramUrl && (
+												<li>
+													<Link href={SITE_CONFIG.instagramUrl} target="_blank"><i className="fa-brands fa-instagram" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.linkedinUrl && (
+												<li>
+													<Link href={SITE_CONFIG.linkedinUrl} target="_blank"><i className="fa-brands fa-linkedin-in" /></Link>
+												</li>
+											)}
+											{SITE_CONFIG.youtubeUrl && (
+												<li>
+													<Link href={SITE_CONFIG.youtubeUrl} target="_blank"><i className="fa-brands fa-youtube" /></Link>
+												</li>
+											)}
 										</ul>
 									</div>
 								</div>
