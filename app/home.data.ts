@@ -19,6 +19,8 @@ import { CommitteeListData } from '@/lib/types/committee-list';
 import { ReferenceList } from '@/lib/types/reference-list';
 import { ReferenceListData } from '@/lib/types/reference-list';
 import { HeroBannerData } from '@/components/sections/home1/HeroBanner';
+import { WelcomeBlockData } from '@/components/sections/home1/WelcomeBlock';
+import { mapWelcomeBlock } from '@/lib/utils/welcome-block-mapper';
 
 // Interface for the homepage content type from Contentful
 export interface HomePage {
@@ -93,6 +95,7 @@ export interface HomePageData {
   description?: string;
   popupContent?: PopupContent;
   heroBanner?: HeroBannerData;
+  welcomeBlock?: WelcomeBlockData;
   eventList?: EventListData;
   committeeList?: CommitteeListData;
   featuredClubs?: ReferenceListData;
@@ -113,6 +116,7 @@ export const getHomePageData = unstable_cache(
       }
       
       const homePageFields = homePage.fields as HomePage;
+      console.log('🏠 HomePage raw fields keys:', Object.keys(homePageFields || {}));
 
       // Get announcement from resolved fields
       let popupContent: PopupContent | undefined;
@@ -139,6 +143,17 @@ export const getHomePageData = unstable_cache(
       // If no hero banner data, use fallback
       if (!heroBanner) {
         heroBanner = fallbackHeroBannerData;
+      }
+
+      // WelcomeBlock reference (new content type)
+      let welcomeBlock: WelcomeBlockData | undefined;
+      const anyFields: any = homePageFields as any;
+      if (anyFields.welcomeBlock?.fields) {
+        console.log('🧩 welcomeBlock raw fields:', anyFields.welcomeBlock.fields);
+        welcomeBlock = mapWelcomeBlock(anyFields.welcomeBlock.fields);
+        console.log('🧩 welcomeBlock mapped:', welcomeBlock);
+        console.log('🧩 welcomeBlock images count:', welcomeBlock?.images?.length || 0);
+        console.log('🧩 welcomeBlock cta:', welcomeBlock?.ctaLabel, welcomeBlock?.ctaHref);
       }
 
       // Get scheduledEvents from resolved fields
@@ -180,6 +195,7 @@ export const getHomePageData = unstable_cache(
         description: homePageFields.name, // Using name as description for now
         popupContent,
         heroBanner,
+        welcomeBlock,
         eventList,
         committeeList,
         featuredClubs,
