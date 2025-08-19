@@ -13,7 +13,7 @@ import "/public/assets/css/vendor/nice-select.css"
 import "/public/assets/css/vendor/odometer.css"
 import "/public/assets/css/main.css"
 
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Figtree, Space_Grotesk } from "next/font/google"
 
 const figtree = Figtree({
@@ -84,18 +84,19 @@ export const metadata: Metadata = {
 		],
 	},
 	manifest: '/site.webmanifest',
-	themeColor: '#1a365d',
-	viewport: {
-		width: 'device-width',
-		initialScale: 1,
-		maximumScale: 1,
-	},
 	verification: {
 		google: 'your-google-verification-code', // Replace with actual verification code
 	},
 	alternates: {
 		canonical: 'https://chessvictoria.org.au',
 	},
+}
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	maximumScale: 1,
+	themeColor: '#1a365d',
 }
 
 export default function RootLayout({
