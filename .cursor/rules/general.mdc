@@ -1,5 +1,5 @@
 ---
-alwaysApply: false
+alwaysApply: true
 ---
 - when i said pull model mean run "make pull" from terminal and check for the file in contentful/exports folder
 - do not run build by tsc or lint , if you want verify build just run npm run build

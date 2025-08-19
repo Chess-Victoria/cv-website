@@ -1,13 +1,13 @@
 import Layout from "@/components/layout/Layout";
-import Countdown from '@/components/elements/Countdown'
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import PageHeadContent from '@/components/elements/PageHeadContent'
+import { getRevalidationTime } from '@/lib/config'
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
 import type { Metadata } from 'next';
-import PageHeadContent from '@/components/elements/PageHeadContent';
-
-// Static revalidation for Next.js 15
-export const revalidate = 3600; // 1 hour
+// ISR
+export const revalidate = getRevalidationTime('POST');
 
 interface NewsReadPageProps {
   params: Promise<{ slug: string }>;
@@ -50,6 +50,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
   const related = post.category?.id ? await getRelatedPostsByCategory(post.category.id, post.id, 3) : [];
   const popularTags = await getPopularHashtags(8);
   const popularAuthors = await getPopularAuthors(8);
+  const targetDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString();
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -58,9 +59,9 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
           title="News & Update"
           backgroundImage="/assets/img/bg/header-bg14.png"
           breadcrumbs={[
-            { name: "Home", link: "/" },
-            { name: "News & Updates", link: "/news" },
-            { name: post.title, link: `/news/read/${post.slug}` }
+            { name: 'Home', link: '/' },
+            { name: 'News & Updates', link: '/news' },
+            { name: post.title, link: `/news/read/${post.slug}` },
           ]}
         />
 
@@ -102,182 +103,157 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                       </div>
                     </>
                   ) : null}
-                  
-                  <div className="space48" />
-                  
-                  {/* Social Share */}
-                  <div className="social-share">
-                    <h4>Share this article:</h4>
-                    <div className="space16" />
-                    <div className="share-buttons">
-                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary me-2">
-                        <i className="fa-brands fa-facebook-f"></i> Facebook
-                      </a>
-                      <a href={`https://twitter.com/intent/tweet?url=${shareUrlEnc}&text=${shareTitle}`} target="_blank" rel="noopener noreferrer" className="btn btn-info me-2">
-                        <i className="fa-brands fa-twitter"></i> Twitter
-                      </a>
-                      <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}`} target="_blank" rel="noopener noreferrer" className="btn btn-secondary me-2">
-                        <i className="fa-brands fa-linkedin-in"></i> LinkedIn
-                      </a>
-                      <a href={`mailto:?subject=${shareTitle}&body=${shareUrl}`} className="btn btn-success">
-                        <i className="fa-solid fa-envelope"></i> Email
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="space48" />
-                  
-                  {/* Related Posts */}
-                  {related.length > 0 && (
-                    <>
-                      <h4>Related Articles:</h4>
-                      <div className="space16" />
-                      <div className="row">
-                        {related.map((relatedPost, idx) => (
-                          <div key={relatedPost.id || idx} className="col-lg-4 col-md-6">
-                            <div className="related-post">
-                              <div className="img1">
-                                <img src={relatedPost.imageUrl || "/assets/img/all-images/blog/blog-img4.png"} alt="" />
-                              </div>
-                              <div className="content">
-                                <h5>
-                                  <Link href={`/news/read/${relatedPost.slug}`}>{relatedPost.title}</Link>
-                                </h5>
-                                <p>{new Date(relatedPost.date || '').toLocaleDateString('en-AU')}</p>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-              
-              <div className="col-lg-4">
-                <div className="sidebar">
-                  {/* Categories */}
-                  {categories.length > 0 && (
-                    <div className="widget">
-                      <h4>Categories</h4>
-                      <div className="space16" />
-                      <ul className="category-list">
-                        {categories.map((category) => (
-                          <li key={category.id}>
-                            <Link href={`/news/category/${category.slug}`}>
-                              {category.name}
-                            </Link>
-                          </li>
-                        ))}
+                  <div className="space32" />
+                  <div className="tags-social-area">
+                    <div className="tags">
+                      <h4>Tags:</h4>
+                      <ul>
+                        {post.hashtags && post.hashtags.length > 0 ? (
+                          post.hashtags.map((tag, i) => {
+                            const label = tag?.startsWith('#') ? tag : `#${tag}`;
+                            const linkTag = encodeURIComponent(tag);
+                            return (
+                              <li key={i}><Link href={`/news/hashtags/${linkTag}/page-1`}>{label}</Link></li>
+                            );
+                          })
+                        ) : (
+                          <li><Link href="/#">#news</Link></li>
+                        )}
                       </ul>
                     </div>
-                  )}
-                  
-                  <div className="space32" />
-                  
-                  {/* Popular Tags */}
-                  {popularTags.length > 0 && (
-                    <div className="widget">
-                      <h4>Popular Tags</h4>
-                      <div className="space16" />
-                      <div className="tag-cloud">
-                        {popularTags.map((tag, index) => (
-                          <Link key={index} href={`/news/hashtags/${encodeURIComponent(tag.tag)}/page-1`} className="tag">
-                            #{tag.tag}
+                    <div className="social">
+                      <h4>Share:</h4>
+                      <ul>
+                        <li>
+                          <Link href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}`} target="_blank" rel="noopener noreferrer">
+                            <i className="fa-brands fa-facebook-f" />
                           </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="space32" />
-                  
-                  {/* Popular Authors */}
-                  {popularAuthors.length > 0 && (
-                    <div className="widget">
-                      <h4>Popular Authors</h4>
-                      <div className="space16" />
-                      <ul className="author-list">
-                        {popularAuthors.map((author, index) => (
-                          <li key={index}>
-                            <Link href={`#`}>
-                              {author.name}
-                            </Link>
-                          </li>
-                        ))}
+                        </li>
+                        <li>
+                          <Link href={`https://twitter.com/intent/tweet?url=${shareUrlEnc}&text=${shareTitle}`} target="_blank" rel="noopener noreferrer">
+                            <i className="fa-brands fa-x-twitter" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrlEnc}&title=${shareTitle}`} target="_blank" rel="noopener noreferrer">
+                            <i className="fa-brands fa-linkedin-in" />
+                          </Link>
+                        </li>
+                        <li className="m-0">
+                          <Link href={`mailto:?subject=${shareTitle}&body=${shareUrlEnc}`} target="_blank" rel="noopener noreferrer">
+                            <i className="fa-solid fa-envelope" />
+                          </Link>
+                        </li>
                       </ul>
                     </div>
-                  )}
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="space30 d-lg-none d-block" />
+                <div className="blog-auhtor-details">
+                  <div className="search-area">
+                    <h3>Search</h3>
+                    <div className="space24" />
+                    <form>
+                      <input type="text" placeholder="Search..." />
+                      <button type="submit"><i className="fa-solid fa-magnifying-glass" /></button>
+                    </form>
+                  </div>
+                  <div className="space32" />
+                  <div className="blog-categories">
+                    <h3>News Category</h3>
+                    <div className="space12" />
+                    <ul>
+                      {categories && categories.length > 0 ? (
+                        categories.map((cat) => (
+                          <li key={cat.id}>
+                            <Link href={`/news/category/${cat.slug}/page-1`}>{cat.name} <span><i className="fa-solid fa-angle-right" /></span></Link>
+                          </li>
+                        ))
+                      ) : (
+                        <li>
+                          <Link href="#">No categories available</Link>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                  <div className="space32" />
+                  <div className="tags-area">
+                    <h3>Popular Hashtags</h3>
+                    <div className="space12" />
+                    <ul>
+                      {(popularTags.slice(0, 4)).map(({ tag }, i) => (
+                        <li key={i}><Link href={`/news/hashtags/${encodeURIComponent(tag)}/page-1`}>{tag.startsWith('#') ? tag : `#${tag}`}</Link></li>
+                      ))}
+                    </ul>
+                    <ul>
+                      {(popularTags.slice(4, 8)).map(({ tag }, i) => (
+                        <li key={i}><Link href={`/news/hashtags/${encodeURIComponent(tag)}/page-1`}>{tag.startsWith('#') ? tag : `#${tag}`}</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="space32" />
+                  <div className="author-images-area">
+                    <h3>Popular Authors</h3>
+                    <div className="space12" />
+                    <ul>
+                      {popularAuthors.slice(0, 4).map((a, i) => (
+                        <li key={i}><img src={a.imageUrl || '/assets/img/all-images/blog/blog-img11.png'} alt={a.name || ''} title={a.name} /></li>
+                      ))}
+                    </ul>
+                    <ul>
+                      {popularAuthors.slice(4, 8).map((a, i) => (
+                        <li key={i}><img src={a.imageUrl || '/assets/img/all-images/blog/blog-img11.png'} alt={a.name || ''} title={a.name} /></li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-        {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-block d-block">
+        <div className="bloginner-section-area sp1">
           <div className="container">
             <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Join Chess Victoria
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
+              <div className="col-lg-5 m-auto">
+                <div className="heading2 text-center space-margin60">
+                  <h2>Read More Relevant News</h2>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        {/*===== CTA AREA ENDS =======*/}
-        
-        {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-none d-block">
-          <div className="container">
             <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
+              {related && related.length > 0 ? related.map((r, idx) => (
+                <div key={r.id || idx} className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (idx % 3) * 200}>
+                  <div className="blog4-boxarea">
+                    <div className="img1"><img src={r.imageUrl || '/assets/img/all-images/blog/blog-img4.png'} alt="" /></div>
+                    <div className="content-area">
+                      <ul>
+                        <li><Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(r.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })}</Link></li>
+                        {r.authorName ? (<li><Link href="/#"><img src="/assets/img/icons/user1.svg" alt="" />{r.authorName}</Link></li>) : null}
+                      </ul>
+                      <div className="space20" />
+                      <Link href={`/news/read/${r.slug}`}>{r.title}</Link>
+                      <div className="space24" />
+                      <Link href={`/news/read/${r.slug}`} className="readmore">read more <i className="fa-solid fa-arrow-right" /></Link>
+                      <div className="arrow"><Link href={`/news/read/${r.slug}`}><i className="fa-solid fa-arrow-right" /></Link></div>
                     </div>
                   </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Join Chess Victoria
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
                 </div>
-              </div>
+              )) : null}
             </div>
           </div>
         </div>
+        {/*===== CTA AREA =======*/}
+        <CTAWithCountdown
+          buttonLabel="Buy Ticket"
+          buttonHref="/pricing-plan"
+          links={[
+            { name: '30 January 2025 - 6pm to 11:30pm', href: '/#', icon: '/assets/img/icons/calender1.svg' },
+            { name: 'Secret Location In The UK', href: '/#', icon: '/assets/img/icons/location1.svg' },
+          ]}
+          targetDate={targetDate}
+        />
       </div>
     </Layout>
   );
