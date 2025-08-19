@@ -7,6 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
+import { notFound } from 'next/navigation';
 
 // Cache the champion data fetching
 const getCachedChampion = unstable_cache(
@@ -27,6 +28,12 @@ interface ChampionPageProps {
 
 export default async function ChampionPage({ params }: ChampionPageProps) {
     const champion = await getCachedChampion(params.slug);
+    
+    // If no champion found, show 404
+    if (!champion) {
+        notFound();
+    }
+    
     const { title = 'Champion', introduction } = champion?.fields || {};
 
     // Type guard for Contentful rich text Document
@@ -46,7 +53,8 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                     backgroundImage="/assets/img/bg/header-bg12.png"
                     breadcrumbs={[
                         { name: 'Home', link: '/' },
-                        { name: 'Champion', link: '/champions' }
+                        { name: 'Victorian Champions', link: '/victorian-champions' },
+                        { name: typeof title === 'string' ? title : 'Champion', link: `/victorian-champions/${params.slug}` }
                     ]}
                 />
                 {/*===== HERO AREA ENDS =======*/}
@@ -98,9 +106,57 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                 </div>
                 {/*===== MAIN CONTENT AREA ENDS =======*/}
                 {/*===== CTA AREA STARTS =======*/}
+                <div className="cta1-section-area d-lg-block d-block">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-10 m-auto">
+                                <div className="cta1-main-boxarea">
+                                    <div className="timer-btn-area">
+                                        <div className="btn-area1">
+                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
+                                        </li>
+                                        <li className="m-0">
+                                            <Link href="/chess-clubs"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*===== CTA AREA ENDS =======*/}
+                {/*===== CTA AREA STARTS =======*/}
+                <div className="cta1-section-area d-lg-none d-block">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-10 m-auto">
+                                <div className="cta1-main-boxarea">
+                                    <div className="timer-btn-area">
+                                        <div className="btn-area1">
+                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
+                                        </li>
+                                        <li className="m-0">
+                                            <Link href="/contact"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </Layout>
-    );
+    )
 }
 
 export async function generateStaticParams() {

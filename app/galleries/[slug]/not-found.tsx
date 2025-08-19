@@ -1,26 +1,25 @@
-import Layout from "@/components/layout/Layout"
-import Link from "next/link"
+import NotFoundPage from '@/components/elements/NotFoundPage'
 
 export default function NotFound() {
   return (
-    <Layout headerStyle={1} footerStyle={1}>
-      <div className="schedule-section-area sp10">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-11 m-auto">
-              <div className="text-center">
-                <h2>Gallery Not Found</h2>
-                <p>The gallery you're looking for doesn't exist or may have been removed.</p>
-                <div className="mt-4">
-                  <Link href="/galleries" className="vl-btn1">
-                    Back to All Galleries
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+    <NotFoundPage
+      title="Gallery Not Found"
+      subtitle="404 - Gallery Not Found"
+      description="The gallery you're looking for doesn't exist or may have been removed."
+      primaryAction={{
+        text: "Back to All Galleries",
+        href: "/galleries"
+      }}
+      secondaryAction={{
+        text: "Return to Homepage",
+        href: "/"
+      }}
+      breadcrumbs={[
+        { name: 'Home', link: '/' },
+        { name: 'Galleries', link: '/galleries' },
+        { name: 'Not Found', link: '/galleries' }
+      ]}
+      backgroundImage="/assets/img/bg/header-bg9.png"
+    />
   )
 }
