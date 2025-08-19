@@ -99,8 +99,21 @@ const searchContentful = unstable_cache(
         };
       });
 
+      // Search in pages
+      const pageResults = await searchContentType('page', (entry: any) => {
+        return {
+          id: entry.sys.id,
+          title: entry.fields.title || 'Untitled Page',
+          description: entry.fields.summary || '',
+          type: 'page' as const,
+          slug: entry.fields.slug || '',
+          url: entry.fields.slug ? `/pages/${entry.fields.slug}` : '#',
+          date: entry.sys.createdAt
+        };
+      });
+
       // Combine all results and sort by date (newest first)
-      const allResults = [...newsResults, ...clubResults, ...committeeResults, ...eventResults];
+      const allResults = [...newsResults, ...clubResults, ...committeeResults, ...eventResults, ...pageResults];
       allResults.sort((a, b) => new Date(b.date || '').getTime() - new Date(a.date || '').getTime());
 
       return allResults;

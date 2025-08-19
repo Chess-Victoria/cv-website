@@ -7,7 +7,7 @@ interface SearchResult {
   id: string;
   title: string;
   description?: string;
-  type: 'news' | 'chess-club' | 'committee-member' | 'event';
+  type: 'news' | 'chess-club' | 'committee-member' | 'event' | 'page';
   slug: string;
   url: string;
   date?: string;
@@ -33,6 +33,8 @@ const getTypeIcon = (type: string) => {
       return 'fa-user-tie';
     case 'event':
       return 'fa-calendar';
+    case 'page':
+      return 'fa-file-alt';
     default:
       return 'fa-file';
   }
@@ -48,6 +50,8 @@ const getTypeLabel = (type: string) => {
       return 'Committee Member';
     case 'event':
       return 'Event';
+    case 'page':
+      return 'Page';
     default:
       return 'Content';
   }

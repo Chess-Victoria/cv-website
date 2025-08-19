@@ -1485,7 +1485,7 @@
         "id": "homePage",
         "type": "ContentType",
         "createdAt": "2025-08-16T03:49:02.701Z",
-        "updatedAt": "2025-08-16T13:06:40.180Z",
+        "updatedAt": "2025-08-18T12:06:57.739Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1493,8 +1493,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 23,
-        "publishedAt": "2025-08-16T13:06:40.180Z",
+        "publishedVersion": 25,
+        "publishedAt": "2025-08-18T12:06:57.739Z",
         "firstPublishedAt": "2025-08-16T03:49:08.917Z",
         "createdBy": {
           "sys": {
@@ -1510,8 +1510,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 12,
-        "version": 24,
+        "publishedCounter": 13,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1631,6 +1631,23 @@
             {
               "linkContentType": [
                 "referenceList"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "featuredGallery",
+          "name": "featuredGallery",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "imageGallery"
               ]
             }
           ],
@@ -2815,6 +2832,159 @@
           "omitted": false
         }
       ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "page",
+        "type": "ContentType",
+        "createdAt": "2025-08-19T03:30:51.711Z",
+        "updatedAt": "2025-08-19T03:51:58.416Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-19T03:51:58.416Z",
+        "firstPublishedAt": "2025-08-19T03:30:52.110Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 5,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/page"
+      },
+      "displayField": "title",
+      "name": "Page",
+      "description": "A content page for website",
+      "fields": [
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "summary",
+          "name": "Summary",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metadata",
+          "name": "metadata",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "pageMetadata"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "entry-hyperlink",
+                "hyperlink"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
     }
   ],
   "tags": [
@@ -3742,7 +3912,7 @@
             "linkType": "Space"
           }
         },
-        "version": 24,
+        "version": 26,
         "createdAt": "2025-08-16T03:49:08.997Z",
         "createdBy": {
           "sys": {
@@ -3751,7 +3921,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-16T13:06:41.023Z",
+        "updatedAt": "2025-08-18T12:06:58.854Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3807,6 +3977,11 @@
         },
         {
           "fieldId": "featuredClub",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "featuredGallery",
           "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
         }
@@ -4452,6 +4627,77 @@
         {
           "fieldId": "description",
           "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 10,
+        "createdAt": "2025-08-19T03:30:52.285Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-19T03:51:59.252Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "page",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "summary",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metadata",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "content",
+          "widgetId": "richTextEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -5277,7 +5523,7 @@
         "id": "60nw3IDwza8hO2tS1IAcP9",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:05.579Z",
-        "updatedAt": "2025-08-17T11:08:32.307Z",
+        "updatedAt": "2025-08-19T01:16:58.052Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5285,8 +5531,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 23,
-        "publishedAt": "2025-08-17T11:08:32.307Z",
+        "publishedVersion": 31,
+        "publishedAt": "2025-08-19T01:16:58.052Z",
         "firstPublishedAt": "2025-08-17T04:21:56.568Z",
         "createdBy": {
           "sys": {
@@ -5302,8 +5548,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 9,
-        "version": 24,
+        "publishedCounter": 11,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -5330,31 +5576,6 @@
       "fields": {
         "title": {
           "en-US": "Chess Club In Victoria"
-        },
-        "promotedClub": {
-          "en-US": [
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "2Hz3X2W42ow7sF8UCYYJct"
-              }
-            },
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "4PI5rsdcnC2nXLXfsMv338"
-              }
-            },
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7qCwNNziuEEG8Neip8gTpN"
-              }
-            }
-          ]
         },
         "clubs": {
           "en-US": [
@@ -5433,6 +5654,48 @@
                 "type": "Link",
                 "linkType": "Entry",
                 "id": "4Fc0D8n9H3SxzpBsfkxmwZ"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "783a8LpKYYXTbVuHCoszWd"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "48xkuMlzpa5kuPcX8CZYYh"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7nzQaknUcofIobWFcIY8fR"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6XbUKF4w2QLEYgbSOreupD"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4N3pt1IYp2uwvEX9vxpp9u"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5QlHIrvinCpDy6b1YisAvk"
               }
             }
           ]
@@ -6147,7 +6410,7 @@
         "id": "7qCwNNziuEEG8Neip8gTpN",
         "type": "Entry",
         "createdAt": "2025-08-15T13:45:33.793Z",
-        "updatedAt": "2025-08-18T09:17:11.656Z",
+        "updatedAt": "2025-08-19T03:28:59.854Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6155,8 +6418,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 18,
-        "publishedAt": "2025-08-18T09:17:11.656Z",
+        "publishedVersion": 20,
+        "publishedAt": "2025-08-19T03:28:59.854Z",
         "firstPublishedAt": "2025-08-15T13:45:42.777Z",
         "createdBy": {
           "sys": {
@@ -6172,8 +6435,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 6,
-        "version": 19,
+        "publishedCounter": 7,
+        "version": 21,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6267,291 +6530,671 @@
         },
         "content": {
           "en-US": {
+            "nodeType": "document",
             "data": {
             },
             "content": [
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "Why Hobsons Bay Chess Club is the Right Choice Now\n1. Proven Capability – Recent Success",
                     "marks": [
                     ],
-                    "value": "Nestled in the heart of Altona in Melbourne’s west, ",
-                    "nodeType": "text"
-                  },
-                  {
                     "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Hobsons Bay Chess Club",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " has been a hub for chess lovers since 1974. More than just a place to play, it is a ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "multicultural meeting ground",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", welcoming players of all ages and backgrounds—from eight-year-old juniors making their first moves to veterans in their 70s with decades of experience. Members represent a tapestry of cultures including Australian, Greek, Italian, German, Chinese, Filipino, Ukrainian, Macedonian, Chilean, and more. This diversity gives the club a truly international flavor while maintaining a distinctly local, friendly feel.",
-                    "nodeType": "text"
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               },
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "Hobsons Bay Chess Club (HBCC) successfully hosted the 2025 Victorian Junior Chess Championship, demonstrating our organisational strength, volunteer base, and technical expertise to deliver a high-profile statewide junior event at a professional standard.",
                     "marks": [
                     ],
-                    "value": "Every ",
-                    "nodeType": "text"
-                  },
-                  {
                     "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Tuesday night at the Salvation Army Hall in Queen Street, Altona",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", the club comes alive. The evening begins with juniors at 6:30 PM, where young players enjoy coaching and practice, before the main open session at 7:30 PM, where adults and seasoned players face off in rated games. The atmosphere is competitive but never intimidating—newcomers are encouraged, learning is celebrated, and laughter often accompanies the clicking of chess clocks.",
-                    "nodeType": "text"
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               },
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "The championship attracted a record number of participants, showcasing both the growth of junior chess in Victoria and HBCC’s ability to manage large-scale events. For the first time in Victorian Junior history, demand was so high that juniors had to be placed on a waitlist. This is clear evidence of the unprecedented growth of chess in the west, and HBCC’s unique role in driving that expansion.",
                     "marks": [
                     ],
-                    "value": "The club’s calendar is impressively full, offering ",
-                    "nodeType": "text"
-                  },
-                  {
                     "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "ACF- and FIDE-rated tournaments",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " that provide opportunities for official ratings. From classical games with 90+30 time controls to rapid and blitz events, there’s something for every style of play. Annual highlights include the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Best in the West Festival",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", one of Melbourne’s most exciting weekend chess events, alongside the ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Purdy Cup, Koshnitsky Cup, Western Masters, Blitz Championships, and Junior Championships",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ". Beyond the tournaments, monthly ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "Social Chess & Coaching nights",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " create a relaxed, café-like setting where players can explore ideas, ask questions, or just enjoy a friendly game without the pressure of competition.",
-                    "nodeType": "text"
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               },
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "Our tournaments also secured sponsorship from Bacchus Marsh Grammar, introduced event merchandise such as t-shirts, and engaged local politicians to officiate. This demonstrates our capacity to deliver events that not only serve the chess community but also attract broader community and institutional support.",
                     "marks": [
                     ],
-                    "value": "One of the club’s unique strengths lies in its commitment to accessibility and community engagement. Games are often ",
-                    "nodeType": "text"
-                  },
-                  {
                     "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "broadcast live online",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": ", allowing players, families, and enthusiasts to follow along from anywhere. Past games are archived for study, giving both juniors and experienced players a chance to learn from real matches played within their own club.",
-                    "nodeType": "text"
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               },
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "2. Run by Professional Event Organisers",
                     "marks": [
                     ],
-                    "value": "What makes Hobsons Bay Chess Club stand out is its balance: it is both a ",
-                    "nodeType": "text"
-                  },
-                  {
                     "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "serious chess institution",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " that nurtures competitive excellence and a ",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                      {
-                        "type": "bold"
-                      }
-                    ],
-                    "value": "social community hub",
-                    "nodeType": "text"
-                  },
-                  {
-                    "data": {
-                    },
-                    "marks": [
-                    ],
-                    "value": " where friendships are formed around the board. For over 50 years, it has been proof that chess is more than a game—it is a bridge across cultures, generations, and personal journeys.",
-                    "nodeType": "text"
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
               },
               {
+                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "data": {
-                    },
+                    "nodeType": "text",
+                    "value": "HBCC benefits from a diverse team of professionals with experience across multiple industries:",
                     "marks": [
                     ],
-                    "value": "Whether you are a parent looking for a safe, structured activity for your child, a casual player seeking friendly matches, or a seasoned competitor chasing titles and ratings, Hobsons Bay Chess Club offers a place to grow, connect, and belong.",
-                    "nodeType": "text"
+                    "data": {
+                    }
                   }
-                ],
-                "nodeType": "paragraph"
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Experienced Arbiters providing authoritative event oversight,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Senior IT professionals from federal and multinational companies applying Agile and PMBOK methodologies to planning and delivery.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "This mix of skills ensures our tournaments are organised with the discipline, structure, and professionalism of major corporate projects — an approach rarely matched at the club level.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "3. Geographic Expansion and Accessibility",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "For decades, junior chess has been concentrated in Melbourne’s eastern suburbs. Awarding the Junior Championship to HBCC ensures fairer statewide access, particularly for families and schools in the west who have historically been under-served.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "The western corridor is one of Victoria’s fastest-growing regions, with a significant South Asian demographic where chess is culturally embedded and increasingly popular — amplified by Gukesh’s recent World Championship victory.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "This is not merely a trend but a demographic reality. The most common surname in Australia is Singh, reflecting the South Asian community’s prominence. In South Asia, chess is a national pastime second only to cricket.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "HBCC is ideally positioned to harness this momentum, bringing new families and communities into Victorian chess. The west of Melbourne is the largest untapped market — as proven by Northern Star events in Sydney attracting 600+ players.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "4. Strong Junior Development Pipeline",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "HBCC delivers a year-round junior program that supports players at every stage:",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Rookies & Mini Tournaments – stepping stones for beginners,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Weekly classical events – competitive pathways for developing players,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "ACF and FIDE rated events – recognition at state, national, and international levels.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "From the 2025 Victorian Juniors, HBCC players dominated the event, securing top 3 places in all age categories. This holistic program nurtures both grassroots participation and elite performance, ensuring sustainability in junior chess growth.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "5. Preventing a Monopoly on Junior Tournaments",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "For the past 12 years, the Victorian Juniors have been organised solely by Box Hill Chess Club. While their contribution is acknowledged, continuing this arrangement risks creating a monopoly of major junior events.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Awarding the Juniors to HBCC introduces balance, fairness, and shared opportunity, ensuring a healthier and more diverse chess ecosystem across Victoria.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "6. Innovation and Modernisation",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "HBCC is at the forefront of digital innovation in tournament management, employing online pairings, live results, and integrated platforms for families and participants. This creates transparency, global visibility, and a professional event experience. (See our website for examples.)",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "7. Diversity and Community Impact",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "HBCC is proud to serve one of Victoria’s most culturally diverse communities. By engaging with schools and multicultural groups, we create opportunities for families who may not otherwise access organised chess.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Awarding the Junior Championship to HBCC would highlight Chess Victoria’s commitment to equity, inclusion, and statewide development.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "8. Volunteer and Arbiter Development",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Major tournaments are essential for training the next generation of organisers and arbiters. To date, these opportunities have been concentrated at a single club.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "By awarding the Juniors to HBCC, volunteers and arbiters in the west will gain vital experience, building a broader and more sustainable administrative base for Victorian chess.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "9. A Stepping Stone to Larger Events",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Delivering the Victorian Juniors with excellence positions HBCC to host larger tournaments in future, including subcontinental or international junior events. This would raise Victoria’s profile on the global chess stage and open new opportunities for Chess Victoria to showcase its leadership.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "10. Commitment by Sponsor",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Bacchus Marsh Grammar (BMG) has committed to providing a larger venue to cater for the continued expansion in player numbers.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Conclusion",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "While Box Hill Chess Club’s junior program is unmatched in its legacy, Hobsons Bay Chess Club represents the future of junior chess in Victoria.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "We bring:",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "A proven record with the most recent Victorian Juniors,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "A professional organising team with cross-industry expertise,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "A dedicated junior pipeline producing results at every level,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "A strategic location expanding opportunities in Melbourne’s west,",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "And a commitment to diversity, innovation, volunteer growth, and international ambition.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Awarding the Victorian Junior Championship to Hobsons Bay Chess Club will not only maintain Victoria’s tradition of excellence but also expand access, strengthen inclusion, and secure the long-term future of junior chess across the state.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
               }
-            ],
-            "nodeType": "document"
+            ]
           }
         },
         "currentEvents": {
@@ -6872,7 +7515,7 @@
         "id": "17nf1Sgooqnn1Zkzdsem12",
         "type": "Entry",
         "createdAt": "2025-08-16T03:51:04.242Z",
-        "updatedAt": "2025-08-16T13:00:49.509Z",
+        "updatedAt": "2025-08-18T13:50:35.988Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -6880,8 +7523,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 17,
-        "publishedAt": "2025-08-16T13:00:49.509Z",
+        "publishedVersion": 19,
+        "publishedAt": "2025-08-18T12:09:52.172Z",
         "firstPublishedAt": "2025-08-16T03:51:38.637Z",
         "createdBy": {
           "sys": {
@@ -6897,8 +7540,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 6,
-        "version": 18,
+        "publishedCounter": 7,
+        "version": 23,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -6908,7 +7551,7 @@
         },
         "fieldStatus": {
           "*": {
-            "en-US": "published"
+            "en-US": "changed"
           }
         },
         "automationTags": [
@@ -6977,6 +7620,15 @@
               "type": "Link",
               "linkType": "Entry",
               "id": "4XsPpRmLhD6ELouMLSi0v4"
+            }
+          }
+        },
+        "featuredGallery": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3Gn8Pfkn9WxeswGk8EpYUZ"
             }
           }
         }
@@ -8461,7 +9113,7 @@
         "id": "4XsPpRmLhD6ELouMLSi0v4",
         "type": "Entry",
         "createdAt": "2025-08-16T12:54:25.982Z",
-        "updatedAt": "2025-08-16T12:55:23.343Z",
+        "updatedAt": "2025-08-18T13:51:15.838Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8469,8 +9121,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 6,
-        "publishedAt": "2025-08-16T12:55:23.343Z",
+        "publishedVersion": 8,
+        "publishedAt": "2025-08-18T13:51:15.838Z",
         "firstPublishedAt": "2025-08-16T12:55:23.343Z",
         "createdBy": {
           "sys": {
@@ -8486,8 +9138,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 7,
+        "publishedCounter": 2,
+        "version": 9,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8546,6 +9198,20 @@
                 "type": "Link",
                 "linkType": "Entry",
                 "id": "2cVkvkcxZ1xWVtIvUDT07H"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6ldILlcdxTOWOd0g07Shyx"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4PI5rsdcnC2nXLXfsMv338"
               }
             }
           ]
@@ -13473,6 +14139,3653 @@
           "en-US": "All the post related to victorian junior"
         }
       }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5vAU1rlzpCrHIaF4fPgEra",
+        "type": "Entry",
+        "createdAt": "2025-08-18T11:01:35.656Z",
+        "updatedAt": "2025-08-18T11:09:16.697Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2025-08-18T11:09:16.697Z",
+        "firstPublishedAt": "2025-08-18T11:09:16.697Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5vAU1rlzpCrHIaF4fPgEra"
+      },
+      "fields": {
+        "title": {
+          "en-US": "2025 Victorian Junior Rapid Chess Championship"
+        },
+        "slug": {
+          "en-US": "2025vjcc-rapid"
+        },
+        "summary": {
+          "en-US": "Chess parents and aspiring young players, it’s time to mark your calendars! The much-anticipated 2025 Victorian Junior Rapid Chess Championship is fast approaching"
+        },
+        "content": {
+          "en-US": "Chess parents and aspiring young players, it’s time to mark your calendars! The much-anticipated 2025 Victorian Junior Rapid Chess Championship is fast approaching — and this is your chance to ignite a passion for chess, develop critical skills, and be part of an exciting, competitive community.\n\nEvent Details at a Glance\n\nDate: Sunday, 21 September 2025\n\nRegistration: Opens at 11:00 AM; gameplay starts at 12:00 PM\n\nVenue: Glen Waverley Secondary College (O’Sullivan Road, Glen Waverley, VIC)\n\nFormat: 7-round Swiss\n\nTime control: 13 minutes per player, with a 2-second increment per move from move one\n\nDivisions: Open and Girls categories\n\nWhy Junior Chess Matters — and Why You Should Join\nFor Parents\n\nBuilds confidence and focus: Rapid chess fosters thoughtful decision-making under pressure.\n\nEncourages healthy competition: Kids meet peers who share their interests, building friendships and sportsmanship.\n\nSupports learning: Wins or losses, every game is a chance to reflect and grow.\n\nFor Young Players\n\nFast-paced excitement: 13+2 time controls keep adrenaline high — every move matters!\n\nA stepping stone to bigger titles: Shine here and aim for state and national events.\n\nTrophies, medals, and bragging rights: Represent your school and show off your skills.\n\nWhat You Can Do Next\n\nRegister early — spots fill fast!\n\nParents: pack snacks, water, and encourage rest before games.\n\nKids: warm up with a few rapid games to get in the groove.\n\nStay connected: Many players join friends or clubs afterward for more chess fun.\n\nFinal Word\n\nWhether your child is new to chess or already sharpening their tactical game, the 2025 Victorian Junior Rapid Chess Championship is the perfect stage to play, learn, and enjoy the thrill of competition.\n\nReady, set… checkmate! See you at the boards on Sunday, 21 September."
+        },
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4mB0Ua8nhecATpnagffuGK"
+            }
+          }
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5PotqytFu06xix2MMgehDf"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2025-08-18T00:00+10:00"
+        },
+        "category": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "6EUh8Zao7aopvXmO9FhYT9"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "veTC1UDkjMKxFnwbsHrlb",
+        "type": "Entry",
+        "createdAt": "2025-08-18T11:19:39.186Z",
+        "updatedAt": "2025-08-18T11:20:18.774Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-18T11:20:18.774Z",
+        "firstPublishedAt": "2025-08-18T11:20:18.774Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "postCategory"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/veTC1UDkjMKxFnwbsHrlb"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Victorian Championship News"
+        },
+        "slug": {
+          "en-US": "victorian-championship-news"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6S85Sx4Z9Y8uMwAeuQIZF2",
+        "type": "Entry",
+        "createdAt": "2025-08-18T11:20:50.831Z",
+        "updatedAt": "2025-08-18T11:21:29.630Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-18T11:21:29.630Z",
+        "firstPublishedAt": "2025-08-18T11:21:29.630Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "postCategory"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6S85Sx4Z9Y8uMwAeuQIZF2"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Chess Victoria News"
+        },
+        "slug": {
+          "en-US": "chess-victoria-news"
+        },
+        "description": {
+          "en-US": "A category to provide public update about chess Victoria operational"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4N3pt1IYp2uwvEX9vxpp9u",
+        "type": "Entry",
+        "createdAt": "2025-08-18T11:34:50.373Z",
+        "updatedAt": "2025-08-18T12:16:33.624Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-18T12:16:33.624Z",
+        "firstPublishedAt": "2025-08-18T12:16:33.624Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/4N3pt1IYp2uwvEX9vxpp9u"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "cragieburn-chess-club"
+        },
+        "name": {
+          "en-US": "Cragieburn Library Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3OpQnhclprnfanlNa1d2l"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5QlHIrvinCpDy6b1YisAvk",
+        "type": "Entry",
+        "createdAt": "2025-08-18T11:44:51.139Z",
+        "updatedAt": "2025-08-18T11:58:34.590Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-18T11:58:34.590Z",
+        "firstPublishedAt": "2025-08-18T11:58:34.590Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5QlHIrvinCpDy6b1YisAvk"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "canterbury"
+        },
+        "name": {
+          "en-US": "Canterbury Junior Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3HrVSWsDw0vEyfTH6DnkGq"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 145.1091,
+            "lat": -37.8696
+          }
+        },
+        "website": {
+          "en-US": "https://www.boxhillchess.org.au/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3OpQnhclprnfanlNa1d2l",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:15:38.793Z",
+        "updatedAt": "2025-08-18T12:16:06.434Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T12:16:06.434Z",
+        "firstPublishedAt": "2025-08-18T12:16:06.434Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3OpQnhclprnfanlNa1d2l"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Danny Basobas"
+        },
+        "email": {
+          "en-US": "danbas888@gmail.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6XbUKF4w2QLEYgbSOreupD",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:28:18.001Z",
+        "updatedAt": "2025-08-18T12:29:42.647Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T12:29:42.647Z",
+        "firstPublishedAt": "2025-08-18T12:29:42.647Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6XbUKF4w2QLEYgbSOreupD"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "hume-chess-club"
+        },
+        "name": {
+          "en-US": "Hume Libraries Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7nzQaknUcofIobWFcIY8fR",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:30:33.617Z",
+        "updatedAt": "2025-08-18T12:31:15.902Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T12:31:15.902Z",
+        "firstPublishedAt": "2025-08-18T12:31:15.902Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7nzQaknUcofIobWFcIY8fR"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "noble-park-chess-club"
+        },
+        "name": {
+          "en-US": "Noble Park Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "48xkuMlzpa5kuPcX8CZYYh",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:33:04.725Z",
+        "updatedAt": "2025-08-18T12:34:24.593Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T12:34:24.593Z",
+        "firstPublishedAt": "2025-08-18T12:34:24.593Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/48xkuMlzpa5kuPcX8CZYYh"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "ranges-chess-club"
+        },
+        "name": {
+          "en-US": "Ranges Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "783a8LpKYYXTbVuHCoszWd",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:35:39.839Z",
+        "updatedAt": "2025-08-18T12:41:19.233Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-18T12:41:19.233Z",
+        "firstPublishedAt": "2025-08-18T12:41:19.233Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/783a8LpKYYXTbVuHCoszWd"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "serbian-chess-club"
+        },
+        "name": {
+          "en-US": "Serbian Chess Club"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "2MLkzUggyxtz8BrCOk3NQ0"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.9828,
+            "lat": -37.7847
+          }
+        },
+        "website": {
+          "en-US": "www.serbianchessclub.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2MLkzUggyxtz8BrCOk3NQ0",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:39:43.657Z",
+        "updatedAt": "2025-08-18T12:40:09.754Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2025-08-18T12:40:09.754Z",
+        "firstPublishedAt": "2025-08-18T12:40:09.754Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2MLkzUggyxtz8BrCOk3NQ0"
+      },
+      "fields": {
+        "email": {
+          "en-US": "serbianchessclub@gmail.com"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2METHZTYQeDAmm3glGOSLe",
+        "type": "Entry",
+        "createdAt": "2025-08-18T12:43:53.487Z",
+        "updatedAt": "2025-08-18T12:44:29.073Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-18T12:44:29.073Z",
+        "firstPublishedAt": "2025-08-18T12:44:29.073Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2METHZTYQeDAmm3glGOSLe"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "warrnambool-chess-club"
+        },
+        "name": {
+          "en-US": "Warrnambool Chess Club"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "6ldILlcdxTOWOd0g07Shyx",
+        "type": "Entry",
+        "createdAt": "2025-08-18T13:41:55.958Z",
+        "updatedAt": "2025-08-18T13:43:52.828Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-18T13:43:52.828Z",
+        "firstPublishedAt": "2025-08-18T13:43:52.828Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/6ldILlcdxTOWOd0g07Shyx"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "warrnambool-chess-club "
+        },
+        "name": {
+          "en-US": "Warrnambool Chess Club "
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "WRac13mboswHOX8hC0kFD"
+            }
+          }
+        },
+        "location": {
+          "en-US": {
+            "lon": 142.4777,
+            "lat": -38.372
+          }
+        },
+        "website": {
+          "en-US": "https://www.facebook.com/WarrnamboolChess/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "WRac13mboswHOX8hC0kFD",
+        "type": "Entry",
+        "createdAt": "2025-08-18T13:43:31.766Z",
+        "updatedAt": "2025-08-18T13:43:45.165Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-18T13:43:45.165Z",
+        "firstPublishedAt": "2025-08-18T13:43:45.165Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/WRac13mboswHOX8hC0kFD"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Grant Brissett"
+        },
+        "phone": {
+          "en-US": "0492 906 827"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "76v2eNTDm1FeJ7SnicH0RE",
+        "type": "Entry",
+        "createdAt": "2025-08-19T00:50:52.957Z",
+        "updatedAt": "2025-08-19T01:35:37.129Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2025-08-19T01:35:37.129Z",
+        "firstPublishedAt": "2025-08-19T00:53:30.047Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "referenceList"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/76v2eNTDm1FeJ7SnicH0RE"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Document List"
+        },
+        "subTitle": {
+          "en-US": "List of all documents publicity available"
+        },
+        "items": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "59IN4M5fwXANO1bocdcWDc"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7nuhdjBGhrwKKVnTgdGJQr"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3NH0hDxR7vg21B3AQ7Ss7Z"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2dghLncK5059ym8b5rRIIT"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3fX5rHvYfQ7XynsEXR3ZR4"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7fh6eiwbNXRaojhjpMq3qP"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "59IN4M5fwXANO1bocdcWDc",
+        "type": "Entry",
+        "createdAt": "2025-08-19T00:51:24.465Z",
+        "updatedAt": "2025-08-19T00:52:21.307Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-19T00:52:21.307Z",
+        "firstPublishedAt": "2025-08-19T00:52:21.307Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/59IN4M5fwXANO1bocdcWDc"
+      },
+      "fields": {
+        "name": {
+          "en-US": "CV Constitution"
+        },
+        "url": {
+          "en-US": "https://docs.google.com/document/d/1IMEqvSCwOS5GkxCrAdVgv3BNvGy9wfuNDGG9iNcrnW4/edit?tab=t.0"
+        },
+        "type": {
+          "en-US": "Information"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7nuhdjBGhrwKKVnTgdGJQr",
+        "type": "Entry",
+        "createdAt": "2025-08-19T00:53:03.855Z",
+        "updatedAt": "2025-08-19T00:53:25.611Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-19T00:53:25.611Z",
+        "firstPublishedAt": "2025-08-19T00:53:25.611Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7nuhdjBGhrwKKVnTgdGJQr"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Chess Victoria Code of Conduct"
+        },
+        "url": {
+          "en-US": "https://docs.google.com/document/d/1VeDRZid5PVU0nJz_OQ4MJG02_zUnLvEC3zMTvU4HAIg/edit?tab=t.0"
+        },
+        "type": {
+          "en-US": "Information"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3NH0hDxR7vg21B3AQ7Ss7Z",
+        "type": "Entry",
+        "createdAt": "2025-08-19T00:57:32.352Z",
+        "updatedAt": "2025-08-19T00:58:03.786Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-19T00:58:03.786Z",
+        "firstPublishedAt": "2025-08-19T00:58:03.786Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3NH0hDxR7vg21B3AQ7Ss7Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "FIDE Arbiters Courses in held in Victoria\t\t\t\t"
+        },
+        "url": {
+          "en-US": "https://docs.google.com/spreadsheets/d/1KFuppYym27nUJdcSyiH8DxEgsSktVkQ5y3Bt54yhcIE/edit?gid=0#gid=0"
+        },
+        "type": {
+          "en-US": "Information"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2dghLncK5059ym8b5rRIIT",
+        "type": "Entry",
+        "createdAt": "2025-08-19T01:05:42.138Z",
+        "updatedAt": "2025-08-19T01:08:56.912Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-08-19T01:08:56.912Z",
+        "firstPublishedAt": "2025-08-19T01:06:20.723Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2dghLncK5059ym8b5rRIIT"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Chess Victoria AGM 2020/2021 - Meeting Minutes"
+        },
+        "url": {
+          "en-US": "https://docs.google.com/document/d/13553Evkax8TzIVaG5DzPqhfrrCDPq5AXny169fCPOHU/edit?tab=t.0"
+        },
+        "type": {
+          "en-US": "AGM Meeting"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3fX5rHvYfQ7XynsEXR3ZR4",
+        "type": "Entry",
+        "createdAt": "2025-08-19T01:07:01.499Z",
+        "updatedAt": "2025-08-19T01:08:00.218Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2025-08-19T01:08:00.218Z",
+        "firstPublishedAt": "2025-08-19T01:08:00.218Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3fX5rHvYfQ7XynsEXR3ZR4"
+      },
+      "fields": {
+        "name": {
+          "en-US": "2020_2022 CV AGM Agenda"
+        },
+        "url": {
+          "en-US": "https://docs.google.com/document/d/1SW2YXZj5yI6EW9n0bp0phg75SyGuJikfurKnUDqDuuY/edit?tab=t.0#heading=h.l95avohwzlch"
+        },
+        "type": {
+          "en-US": "AGM Meeting"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "7fh6eiwbNXRaojhjpMq3qP",
+        "type": "Entry",
+        "createdAt": "2025-08-19T01:35:07.917Z",
+        "updatedAt": "2025-08-19T01:35:30.457Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-19T01:35:30.457Z",
+        "firstPublishedAt": "2025-08-19T01:35:30.457Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "documentLink"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/7fh6eiwbNXRaojhjpMq3qP"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Public Archived"
+        },
+        "url": {
+          "en-US": "https://drive.google.com/drive/folders/17Z7Y23GTqIMR-XnQahxnzml9NJk3Qag4"
+        },
+        "type": {
+          "en-US": "Archived Documents"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5LLJCGHk5gfpbr909eZVLn",
+        "type": "Entry",
+        "createdAt": "2025-08-19T03:31:17.624Z",
+        "updatedAt": "2025-08-19T03:52:54.680Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 19,
+        "publishedAt": "2025-08-19T03:52:54.680Z",
+        "firstPublishedAt": "2025-08-19T03:33:58.387Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 20,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "page"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5LLJCGHk5gfpbr909eZVLn"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "chess-victoria-mission"
+        },
+        "title": {
+          "en-US": "Chess Victoria Mission"
+        },
+        "summary": {
+          "en-US": "TBD"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess is more than just a game of strategy; it is a discipline that cultivates patience, foresight, creativity, and resilience. At Chess Victoria, our mission is to harness the transformative power of chess to inspire individuals, connect communities, and build a culture of learning and achievement that extends far beyond the 64 squares of the board. We believe chess is not only a sport but also an educational tool, a social bridge, and a lifelong pursuit that strengthens both the mind and character.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria was founded on the conviction that everyone, regardless of age, background, or ability, should have the opportunity to explore the joys and challenges of chess. Through our programs, tournaments, workshops, and community initiatives, we aim to cultivate a thriving ecosystem where chess becomes an instrument of empowerment and excellence.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our Core Mission",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The central mission of Chess Victoria is to ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "promote chess as a sport, educational resource, and cultural activity",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " throughout our communities. This mission rests on three interwoven pillars: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "inclusivity, development, and excellence.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Inclusivity",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – We are committed to ensuring that chess is accessible to all people, regardless of gender, age, ability, or socio-economic background. By breaking down barriers to participation, we create pathways for anyone who wishes to engage with the game.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Development",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – We seek to nurture players at every stage of their chess journey. From beginners learning the basics to advanced competitors aspiring for international titles, we provide the resources, mentorship, and opportunities needed for growth.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Excellence",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – While inclusivity and development are essential, we also champion the pursuit of excellence. We believe that fostering a culture of achievement helps inspire the next generation of players and strengthens our reputation on the global chess stage.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess as Education",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "At the heart of our mission is the recognition of chess as an educational powerhouse. Studies consistently show that learning chess improves problem-solving skills, memory, concentration, and creativity. Chess also teaches discipline, patience, and sportsmanship—qualities that extend far beyond the board.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Through our school outreach programs, Chess Victoria partners with educators to integrate chess into curricula and after-school activities. By training teachers, hosting interschool tournaments, and providing digital resources, we bring chess to classrooms across the region. Our goal is not only to create stronger chess players but to foster sharper thinkers and lifelong learners.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Building a Chess Community",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess thrives when it is shared. Chess Victoria envisions a community where players, coaches, parents, and supporters come together to celebrate the game. We organize local clubs, social meet-ups, and inclusive events where newcomers and veterans alike can enjoy chess in a welcoming environment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our tournaments range from friendly competitions to state championships, ensuring that every player—whether casual or competitive—has a place to shine. Beyond the board, our community is built on values of respect, camaraderie, and mutual growth. We see chess as a vehicle for forming friendships, bridging cultural differences, and fostering a sense of belonging.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Supporting Competitive Chess",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "While accessibility and community are at the core of our mission, we also recognize the importance of developing elite talent. Chess Victoria provides pathways for players to advance from grassroots levels to state, national, and even international competition. We support promising players with mentorship, training opportunities, and resources to pursue professional chess careers.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "By hosting official tournaments, ranking players, and partnering with national and international federations, Chess Victoria contributes to the competitive structure that allows our players to thrive. We take pride in preparing athletes who represent our community with distinction on the global stage.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Empowering Coaches and Volunteers",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "A strong chess culture depends not only on players but also on dedicated mentors, coaches, and volunteers. Chess Victoria invests in training programs that equip coaches with modern teaching methods, ensuring that players of all levels receive quality instruction.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our volunteers, too, are at the heart of our mission. From organizing events to mentoring young players, their contributions embody the spirit of service that sustains our community. We are committed to providing recognition, support, and development opportunities to all those who give their time and expertise to advance chess.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Promoting Inclusivity and Diversity",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria is committed to breaking down barriers and championing diversity in all its forms. Historically, chess has been male-dominated, and certain communities have had limited access to the game. Our mission is to change this narrative by actively supporting programs that empower women, girls, and underrepresented groups to engage with chess.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Through scholarships, targeted outreach, and mentorship initiatives, we aim to create a chess environment where everyone feels welcome and valued. We envision a future where chess is a truly universal language, open to all voices and perspectives.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess and Technology",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "In today’s digital age, chess is undergoing a renaissance. Online platforms, interactive learning tools, and digital tournaments have expanded the reach of the game beyond physical boundaries. Chess Victoria embraces technology as a means to connect with broader audiences and innovate the way chess is taught and played.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We are committed to leveraging online platforms to provide accessible lessons, virtual competitions, and digital resources. By embracing both traditional and modern methods, we ensure that chess remains relevant, engaging, and inclusive for the next generation.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Long-Term Vision",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria’s mission is not confined to the present—it is also deeply invested in the future. We envision a society where chess is integrated into schools, celebrated in public spaces, and recognized as a powerful force for intellectual and social development.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our long-term vision includes:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Establishing a ",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Chess Academy",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " that serves as a hub for training, research, and innovation.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Expanding ",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "statewide school programs",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " to reach every district.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Building partnerships with governments, corporations, and cultural organizations to enhance the visibility of chess.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Elevating local players to international recognition, creating role models for future generations.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Conclusion",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The mission of Chess Victoria is clear: to promote, develop, and celebrate chess as a sport, an educational tool, and a unifying cultural activity. We strive to make chess accessible to all, nurture talent at every level, and foster a thriving community built on values of respect, inclusion, and excellence.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria believes that when we empower individuals through chess, we empower communities. When we encourage strategic thinking, resilience, and creativity, we prepare people for success not only in the game but in life itself.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Through every move, every tournament, and every new initiative, we carry forward the vision of a vibrant, inclusive, and enduring chess culture. That is our mission—and our promise.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2H8O72lNITjJBLmvojLlWF",
+        "type": "Entry",
+        "createdAt": "2025-08-19T03:40:02.952Z",
+        "updatedAt": "2025-08-19T03:53:33.790Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 16,
+        "publishedAt": "2025-08-19T03:53:33.790Z",
+        "firstPublishedAt": "2025-08-19T03:41:53.189Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 17,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "page"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2H8O72lNITjJBLmvojLlWF"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "chess-victoria-vision"
+        },
+        "title": {
+          "en-US": "Chess Victoria Vision"
+        },
+        "summary": {
+          "en-US": "Chess Victoria’s vision is to establish chess as a cornerstone of intellectual growth, social connection, and cultural enrichment in every community we touch."
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "A vision is more than a statement of ambition; it is a compass that guides every initiative, decision, and action. At Chess Victoria, our vision extends beyond the immediate goals of tournaments and training. We imagine a future where chess is not just a pastime or a competitive pursuit, but a vital cultural and educational force woven into the fabric of society.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision provides a horizon to work toward: a world where chess is celebrated for its intellectual beauty, embraced for its inclusivity, and recognized as a pathway to personal and communal excellence. It is about creating an enduring legacy that transcends the game itself.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The Essence of Our Vision",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria’s vision is ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "to establish chess as a cornerstone of intellectual growth, social connection, and cultural enrichment in every community we touch.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "This vision encompasses three fundamental aspirations:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "A Culture of Chess",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – We aspire to create a society where chess is as common and celebrated as other sports and arts. Chess will be visible in schools, workplaces, libraries, community centers, and online platforms—an integral part of daily life.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Global Recognition and Excellence",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – We envision local players rising to prominence on the international stage, becoming role models who inspire future generations and showcase the strength of our chess culture to the world.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "Chess for All Generations",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": " – Our vision is inclusive and lifelong. From young children discovering the game for the first time, to seniors sharpening their minds and enjoying social connections, chess will be a companion through every stage of life.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "ordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess as a Universal Language",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "One of the core elements of our vision is the recognition of chess as a universal language. It transcends age, culture, gender, and geography. In a world often divided by differences, chess provides a common ground where individuals can connect, compete, and collaborate.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We see a future where Chess Victoria contributes to building bridges between diverse communities. Through cultural exchanges, international collaborations, and cross-generational programs, chess will become a medium of unity and understanding.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess in Education",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision places a strong emphasis on the role of chess in education. We imagine a future where chess is not an optional extracurricular, but a widely integrated educational tool used to develop critical skills.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "In schools",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", chess will be part of the curriculum, enhancing problem-solving, critical thinking, and emotional intelligence.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "For educators",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", chess will serve as a versatile resource for teaching patience, planning, and resilience.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "For students",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", it will provide a fun yet challenging way to strengthen their minds, preparing them for academic and personal success.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "In this vision, every child will have the opportunity to learn chess, regardless of their background or circumstances.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "A Thriving Chess Community",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision extends to building a chess culture that is vibrant, inclusive, and self-sustaining. We see thriving local clubs in every district, bustling with activity, and accessible to players of all levels.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Casual players will find social spaces to enjoy the game with friends.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Competitive players will find structured pathways to develop and test their skills.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Families will find chess to be a shared activity that strengthens bonds.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "In this community, every member—players, coaches, organizers, volunteers, and supporters—will feel valued and connected. Chess will no longer be a solitary pursuit but a collective celebration.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Excellence on the Global Stage",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision is not limited to grassroots development; it extends to the international chess arena. We imagine a future where Chess Victoria is recognized as a hub of talent and innovation, producing world-class players who compete at the highest levels.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "These players will not only represent our region with pride but also inspire future generations to believe in their own potential. Our vision includes creating training academies, mentorship networks, and financial support systems that empower ambitious players to pursue professional chess careers.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Empowering Diversity",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "A central element of our vision is inclusivity. We aspire to create a chess culture that actively supports and uplifts underrepresented groups.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "For women and girls",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", our vision includes a thriving pipeline of participation, leadership, and representation at every level of the game.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "For marginalized communities",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", we envision targeted outreach programs that ensure chess is accessible as a tool of empowerment.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "value": "For people of all abilities",
+                            "nodeType": "text"
+                          },
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": ", we see chess as a universally adaptable activity that welcomes everyone, regardless of physical or cognitive differences.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision is a world where the phrase “chess is for everyone” is not aspirational but a lived reality.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess and Technology",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The digital era presents unprecedented opportunities for chess. In our vision, Chess Victoria embraces technology not as a replacement for traditional play but as a complementary force.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We see a future where:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Players can seamlessly compete in both in-person and online tournaments.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Learning resources are available digitally, making high-quality chess education accessible to anyone with an internet connection.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Online platforms allow players from remote areas to connect with broader chess communities.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "This vision positions Chess Victoria at the forefront of innovation, ensuring chess remains relevant and engaging for generations to come.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Building Institutions and Legacy",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Our vision includes the establishment of lasting institutions that secure the future of chess. A Chess Victoria Academy, research initiatives on chess and cognitive science, partnerships with universities, and permanent community chess centers are all part of this long-term dream.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "By investing in institutions, we create a legacy that continues to serve players, educators, and communities long after the present generation. These institutions will stand as symbols of our commitment to excellence and longevity.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "A Global Model",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Finally, our vision extends beyond regional boundaries. We aspire to make Chess Victoria a model for other chess organizations around the world. Through best practices in inclusivity, education, and community building, we hope to inspire and collaborate with international partners.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "In this future, Chess Victoria will not only serve its immediate community but also contribute to the global growth of chess as a force for good.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Conclusion",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chess Victoria’s vision is bold, ambitious, and deeply human. It is a vision of chess not as a niche hobby but as a powerful tool for education, connection, and cultural enrichment. It is a vision of thriving communities, inspired players, and enduring institutions.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We see a world where chess is woven into the daily lives of people from all walks of life. A world where local talent shines globally. A world where diversity is celebrated, technology is embraced, and education is enriched through the game.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Most importantly, we see a future where chess is more than a game—it is a way of thinking, a way of connecting, and a way of living. That is the vision of Chess Victoria.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        }
+      }
     }
   ],
   "assets": [
@@ -13879,6 +18192,88 @@
             },
             "fileName": "520512666_1280170047248410_7118928552788282192_n.jpg",
             "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "4mB0Ua8nhecATpnagffuGK",
+        "type": "Asset",
+        "createdAt": "2025-08-18T11:08:33.035Z",
+        "updatedAt": "2025-08-18T11:09:11.711Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2025-08-18T11:09:11.711Z",
+        "firstPublishedAt": "2025-08-18T11:09:11.711Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/assets/4mB0Ua8nhecATpnagffuGK"
+      },
+      "fields": {
+        "title": {
+          "en-US": "rapid-vjcc-poster"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/j5mfd0rflg30/4mB0Ua8nhecATpnagffuGK/c3d21fc78f5474f77d73c5fb6ffb11dd/Screenshot_2025-08-18_at_9.08.12â__pm.png",
+            "details": {
+              "size": 2213171,
+              "image": {
+                "width": 1036,
+                "height": 1072
+              }
+            },
+            "fileName": "Screenshot 2025-08-18 at 9.08.12 pm.png",
+            "contentType": "image/png"
           }
         }
       }

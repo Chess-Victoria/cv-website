@@ -24297,3 +24297,8 @@ html {
   line-height: 28px;
   display: inline-block;
 }
+
+.page-content-section-area  h2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
