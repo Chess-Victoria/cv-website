@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
         'Accept': '*/*',
       },
       // Cache per Next runtime; browsers will also cache via headers below
-      next: { revalidate: 86400 },
+      next: { revalidate: parseInt(process.env.REVALIDATE_IMAGE_GALLERY || (process.env.NODE_ENV === 'development' ? '10' : '86400')) },
     });
 
     if (!upstream.ok || !upstream.body) {
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
         'Content-Type': contentType,
         ...(contentLength ? { 'Content-Length': contentLength } : {}),
         // Cache on CDN/browser; adjust as needed
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800',
+        'Cache-Control': `public, max-age=${process.env.NODE_ENV === 'development' ? '10' : '86400'}, s-maxage=${process.env.NODE_ENV === 'development' ? '10' : '86400'}, stale-while-revalidate=${process.env.NODE_ENV === 'development' ? '60' : '604800'}`,
       },
     });
     return res;

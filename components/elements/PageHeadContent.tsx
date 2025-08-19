@@ -17,7 +17,7 @@ export default function PageHeadContent({ title, backgroundImage, breadcrumbs, s
     <div className="inner-page-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 m-auto">
+          <div className="col-lg-10 m-auto">
             <div className="heading1 text-center">
               <h1>{title}</h1>
               <div className="space20" />

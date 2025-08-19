@@ -18,7 +18,7 @@ async function getFideTournaments(): Promise<FideTournament[]> {
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
       },
-      next: { revalidate: 3600 } // Cache for 1 hour
+      next: { revalidate: parseInt(process.env.REVALIDATE_EVENT || (process.env.NODE_ENV === 'development' ? '10' : '3600')) }
     });
 
     if (!response.ok) {

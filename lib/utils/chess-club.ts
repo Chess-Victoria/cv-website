@@ -16,7 +16,7 @@ export const getAllChessClubs = unstable_cache(
   ['all-chess-clubs'],
   {
     tags: ['chess-club', 'clubDetail'],
-    revalidate: 3600 // 1 hour fallback
+    revalidate: getRevalidationTime('CHESS_CLUB')
   }
 );
 
@@ -42,6 +42,11 @@ export const getChessClubData = unstable_cache(
     console.log(`🗺️ Mapped chess club data:`, mappedData);
     console.log(`🗺️ Content field:`, mappedData?.content);
     console.log(`🗺️ QuickIntro field:`, mappedData?.quickIntro);
+    console.log(`🧭 currentEvents title:`, mappedData?.currentEvents?.title);
+    console.log(`🧭 currentEvents events length:`, mappedData?.currentEvents?.events?.length ?? 0);
+    if (mappedData?.currentEvents?.events) {
+      console.log(`🧭 currentEvents event names:`, mappedData.currentEvents.events.map(e => e?.name));
+    }
     
     return mappedData;
   },
@@ -61,6 +66,7 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
   console.log(`🗺️ Raw content type:`, typeof club.fields.content);
   console.log(`🗺️ Raw quickIntro field:`, club.fields.quickIntro);
   console.log(`🗺️ Raw quickIntro type:`, typeof club.fields.quickIntro);
+  console.log(`🧭 Raw currentEvents:`, (club as any)?.fields?.currentEvents);
   
   const clubData: ChessClubData = {
     id: club.sys.id,
@@ -101,6 +107,14 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
   if (club.fields.currentEvents && typeof club.fields.currentEvents === 'object' && 'fields' in club.fields.currentEvents) {
     const eventsList = club.fields.currentEvents as any;
     const events = eventsList.fields.events || [];
+    console.log(`🧭 Raw currentEvents name:`, eventsList.fields?.name, `slug:`, eventsList.fields?.slug);
+    console.log(`🧭 Raw events array length:`, Array.isArray(events) ? events.length : 0);
+    if (Array.isArray(events)) {
+      events.forEach((evt: any, idx: number) => {
+        const hasFields = evt && typeof evt === 'object' && 'fields' in evt;
+        console.log(`🧭 Event[${idx}] has fields:`, hasFields, hasFields ? evt.fields?.name : evt?.sys);
+      });
+    }
     
     clubData.currentEvents = {
       title: eventsList.fields.name || '',

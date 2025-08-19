@@ -8,19 +8,9 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { unstable_cache } from 'next/cache';
 // Static revalidation for Next.js 15
 import { notFound } from 'next/navigation';
+import { getRevalidationTime } from '@/lib/config'
 
-// Cache the champion data fetching
-const getCachedChampion = unstable_cache(
-  async (slug: string) => {
-    const champion = await getEntryBySlug('championPage', slug);
-    return champion;
-  },
-  ['champion-data'],
-  {
-    tags: ['champions'],
-    revalidate: 86400 // 24 hours
-  }
-);
+// Note: define per-slug cache inside the page to avoid cross-slug staleness
 
 interface ChampionPageProps {
     params: Promise<{ slug: string }>
@@ -28,7 +18,19 @@ interface ChampionPageProps {
 
 export default async function ChampionPage({ params }: ChampionPageProps) {
     const { slug } = await params;
-    const champion = await getCachedChampion(slug);
+    const getCachedChampion = unstable_cache(
+      async () => {
+        const champion = await getEntryBySlug('championPage', slug)
+        return champion
+      },
+      ['champion-data', slug],
+      {
+        tags: ['champions', `champion:${slug}`],
+        revalidate: getRevalidationTime('CHAMPION')
+      }
+    )
+
+    const champion = await getCachedChampion();
     
     // If no champion found, show 404
     if (!champion) {
@@ -36,6 +38,8 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
     }
     
     const { title = 'Champion', introduction } = champion?.fields || {};
+    const championsList = (champion as any)?.fields?.champions as any[] | undefined;
+    const hasDivision = Array.isArray(championsList) && championsList.some((item: any) => !!item?.fields?.division);
 
     // Type guard for Contentful rich text Document
     const isRichTextDocument = (doc: any): doc is import('@contentful/rich-text-types').Document => {
@@ -81,7 +85,7 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                                                                     <tr>
                                                                         <th>Year</th>
                                                                         <th>Name</th>
-                                                                        <th>Division</th>
+                                                                        {hasDivision && <th>Division</th>}
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -89,7 +93,7 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                                                                         <tr key={item.sys?.id || idx}>
                                                                             <td>{item.fields?.year || ''}</td>
                                                                             <td>{item.fields?.name || ''}</td>
-                                                                            <td>{item.fields?.division || ''}</td>
+                                                                            {hasDivision && <td>{item.fields?.division || ''}</td>}
                                                                         </tr>
                                                                     ))}
                                                                 </tbody>

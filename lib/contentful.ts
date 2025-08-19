@@ -29,6 +29,7 @@ export async function getEntryBySlug(contentType: string, slug: string) {
   const entries = await client.getEntries({
     content_type: contentType,
     'fields.slug': slug,
+    include: 3,
   });
   return entries.items[0] || null;
 }

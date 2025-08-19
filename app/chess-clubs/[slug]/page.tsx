@@ -7,18 +7,9 @@ import { getContactImage, getClubImage, getEventImage } from "@/lib/constants"
 import RichTextRenderer from "@/components/elements/RichTextRenderer"
 import { unstable_cache } from 'next/cache'
 import PageHeadContent from '@/components/elements/PageHeadContent'
+import { getRevalidationTime } from '@/lib/config'
 
-// Cache the data fetching with tags for revalidation
-const getCachedChessClub = unstable_cache(
-  async (slug: string) => {
-    return await getChessClubData(slug);
-  },
-  ['chess-club-data'],
-  {
-    tags: ['chess-club', 'clubDetail'],
-    revalidate: 3600 // 1 hour
-  }
-);
+// Note: caching created per-slug inside the page to avoid stale cross-slug cache
 
 interface ClubPageProps {
   params: Promise<{
@@ -29,26 +20,35 @@ interface ClubPageProps {
 export default async function ClubPage({ params }: ClubPageProps) {
   const { slug } = await params
   
-  console.log(`🏠 Chess club page rendering for slug: ${slug}`);
-  
-  // Fetch chess club data from Contentful
-  const clubData = await getCachedChessClub(slug)
-  
-  console.log(`📊 Club data received:`, clubData);
-  console.log(`📊 Club content:`, clubData?.content);
-  console.log(`📊 Club quickIntro:`, clubData?.quickIntro);
-  console.log(`📊 Club name:`, clubData?.name);
+  // Per-slug ISR cache (tags allow revalidation; include slug in key)
+  const getCachedChessClub = unstable_cache(
+    async () => {
+      return await getChessClubData(slug)
+    },
+    ['chess-club-data', slug],
+    {
+      tags: ['chess-club', 'clubDetail', `chess-club:${slug}`],
+      revalidate: getRevalidationTime('CHESS_CLUB')
+    }
+  )
+
+  const clubData = await getCachedChessClub()
   
   // If no club found, show 404
   if (!clubData) {
-    console.log(`❌ No club data found, showing 404`);
     notFound()
   }
 
   // Get featured event (first event or null)
   const featuredEvent = clubData.currentEvents?.events?.[0] || null
   
-  console.log(`🎯 Featured event:`, featuredEvent);
+  // Diagnostics: Log currentEvents shape for debugging missing events
+  console.log('🧭 currentEvents exists:', Boolean(clubData.currentEvents))
+  console.log('🧭 currentEvents title:', clubData.currentEvents?.title)
+  console.log('🧭 currentEvents events length:', clubData.currentEvents?.events?.length ?? 0)
+  if (clubData.currentEvents?.events) {
+    console.log('🧭 currentEvents event names:', clubData.currentEvents.events.map(e => e?.name))
+  }
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -75,128 +75,153 @@ export default async function ClubPage({ params }: ClubPageProps) {
                   <div className="space32" />
                   <h3>{clubData.name}</h3>
                   <div className="space16" />
-                  {clubData.content ? (
+                  {clubData.content && (
                     <div className="club-content">
                       <RichTextRenderer content={clubData.content} />
                     </div>
-                  ) : clubData.quickIntro ? (
+                  )}
+                  {!clubData.content && clubData.quickIntro && (
                     <div className="club-content">
                       <RichTextRenderer content={clubData.quickIntro} />
                     </div>
-                  ) : (
-                    <div>
-                      <p>Welcome to {clubData.name}. Join us for exciting chess activities and events.</p>
-                      
-                      {/* Debug section - remove this after debugging */}
-                      <div style={{ 
-                        marginTop: '20px', 
-                        padding: '15px', 
-                        backgroundColor: '#f0f0f0', 
-                        border: '1px solid #ccc',
-                        borderRadius: '5px'
-                      }}>
-                        <h4>🔍 Debug Info:</h4>
-                        <p><strong>Club Name:</strong> {clubData.name}</p>
-                        <p><strong>Club Slug:</strong> {slug}</p>
-                        <p><strong>Has Content:</strong> {clubData.content ? 'Yes' : 'No'}</p>
-                        <p><strong>Has Quick Intro:</strong> {clubData.quickIntro ? 'Yes' : 'No'}</p>
-                        <p><strong>Content Type:</strong> {typeof clubData.content}</p>
-                        <p><strong>Quick Intro Type:</strong> {typeof clubData.quickIntro}</p>
-                      </div>
-                    </div>
                   )}
                   
-                  <div className="space32" />
+                  <div className="space40" />
                   
-                  {/* Contact Information */}
+                  {/* Event Speakers/Contact Information */}
                   {clubData.contact && (
-                    <div className="contact-info">
-                      <h4>Contact Information</h4>
-                      <div className="space16" />
-                      {clubData.contact.name && (
-                        <div className="contact-item">
-                          <i className="fa-solid fa-user"></i>
-                          <span>{clubData.contact.name}</span>
-                        </div>
-                      )}
-                      {clubData.contact.email && (
-                        <div className="contact-item">
-                          <i className="fa-solid fa-envelope"></i>
-                          <span>{clubData.contact.email}</span>
-                        </div>
-                      )}
-                      {clubData.website && (
-                        <div className="contact-item">
-                          <i className="fa-solid fa-globe"></i>
-                          <a href={clubData.website} target="_blank" rel="noopener noreferrer">
-                            {clubData.website}
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  
-                  <div className="space32" />
-                  
-                  {/* Events Section */}
-                  {featuredEvent && (
-                    <div className="featured-event">
-                      <h4>Featured Event</h4>
-                      <div className="space16" />
-                      <div className="event-card">
-                        <h5>{featuredEvent.name}</h5>
-                        <p>{featuredEvent.summary}</p>
-                        {featuredEvent.datetime && (
-                          <div className="event-date">
-                            <i className="fa-solid fa-calendar"></i>
-                            <span>{new Date(featuredEvent.datetime).toLocaleDateString()}</span>
+                    <>
+                      <h4>Club Contact</h4>
+                      <div className="row">
+                        <div className="col-lg-4 col-md-6">
+                          <div className="our-team-boxarea">
+                            <div className="team-widget-area">
+                              <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
+                              <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
+                              <div className="img1">
+                                <img 
+                                  src={getContactImage(clubData.contact?.image?.url)} 
+                                  alt={clubData.contact?.image?.alt || clubData.contact?.name || ""} 
+                                  className="team-img4" 
+                                />
+                                <div className="share">
+                                  <Link href={`mailto:${clubData.contact.email}`}>
+                                    <img src="/assets/img/icons/share1.svg" alt="" />
+                                  </Link>
+                                </div>
+                                <ul>
+                                  <li>
+                                    <Link href={`mailto:${clubData.contact.email}`} className="icon1">
+                                      <i className="fa-solid fa-envelope" />
+                                    </Link>
+                                  </li>
+                                  {clubData.website && (
+                                    <li>
+                                      <Link href={clubData.website} target="_blank" rel="noopener noreferrer" className="icon2">
+                                        <i className="fa-solid fa-globe" />
+                                      </Link>
+                                    </li>
+                                  )}
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="space28" />
+                            <div className="content-area">
+                              <Link href={`mailto:${clubData.contact.email}`}>{clubData.contact.name}</Link>
+                              <div className="space16" />
+                              <p>{clubData.contact.title || 'Club Contact'}</p>
+                            </div>
                           </div>
-                        )}
+                        </div>
                       </div>
-                    </div>
+                    </>
                   )}
                 </div>
               </div>
               
               <div className="col-lg-5">
-                <div className="event-side-content">
-                  <div className="event-side-widget">
-                    <h4>Club Details</h4>
-                    <div className="space16" />
+                <div className="shedule-listarea">
+                  <div className="content-area">
                     <ul>
-                      <li>
-                        <i className="fa-solid fa-chess-board"></i>
-                        <span><strong>Club Name:</strong> {clubData.name}</span>
-                      </li>
-                      {clubData.location && (
-                        <li>
-                          <i className="fa-solid fa-map-marker-alt"></i>
-                          <span><strong>Location:</strong> Latitude: {clubData.location.lat}, Longitude: {clubData.location.lon}</span>
-                        </li>
-                      )}
-                      {clubData.website && (
-                        <li>
-                          <i className="fa-solid fa-globe"></i>
-                          <span><strong>Website:</strong> <a href={clubData.website} target="_blank" rel="noopener noreferrer">{clubData.website}</a></span>
-                        </li>
+                      {featuredEvent && (
+                        <>
+                          <li>
+                            <Link href={featuredEvent.url || '#'}>
+                              <img src="/assets/img/icons/clock1.svg" alt="" />
+                              {new Date(featuredEvent.datetime).toLocaleDateString()} - {new Date(featuredEvent.datetime).toLocaleTimeString()}
+                              <span> | </span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href={featuredEvent.url || '#'}>
+                              <img src="/assets/img/icons/location1.svg" alt="" />
+                              {featuredEvent.location}
+                            </Link>
+                          </li>
+                        </>
                       )}
                     </ul>
+                    <div className="space20" />
+                    {featuredEvent ? (
+                      <Link href={featuredEvent.url || '#'} className="head">{featuredEvent.name}</Link>
+                    ) : (
+                      <div className="head">No upcoming events</div>
+                    )}
+                    <div className="space24" />
+                    
+                    {/* Event Contact Information */}
+                    {featuredEvent?.contact && featuredEvent.contact.length > 0 && (
+                      <div className="author-area">
+                        {featuredEvent.contact.map((contact, index) => (
+                          <div key={index} className="autho-name-area" style={index > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
+                            <div className="img1">
+                              <img 
+                                src={getContactImage(contact.image?.url)} 
+                                alt={contact.image?.alt || contact.name || ""} 
+                              />
+                            </div>
+                            <div className="text">
+                              <Link href={`mailto:${contact.email}`}>{contact.name}</Link>
+                              <div className="space8" />
+                              <p>{contact.title || 'Event Contact'}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <div className="space24" />
+                    <div className="btn-area1">
+                      {featuredEvent?.url ? (
+                        <Link href={featuredEvent.url} className="vl-btn1">
+                          <span className="demo">Register for Event</span>
+                        </Link>
+                      ) : (
+                        <Link href="/contact" className="vl-btn1">
+                          <span className="demo">Contact Club</span>
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                  
-                  <div className="space32" />
-                  
-                  {/* Events Tabs */}
-                  {clubData.currentEvents && clubData.currentEvents.events && clubData.currentEvents.events.length > 0 && (
-                    <EventTabs events={clubData.currentEvents.events} />
-                  )}
-                  
-                  <div className="space32" />
-                  
-                  {/* Contact Button */}
-                  <div className="contact-button">
-                    <Link href="/contact" className="btn btn-primary">
-                      Contact This Club
-                    </Link>
+                  <div className="space30" />
+                  <div className="mapouter">
+                    <div className="gmap_canvas">
+                      {clubData.location ? (
+                        <iframe 
+                          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${clubData.location.lat},${clubData.location.lon}`}
+                          width={600} 
+                          height={450} 
+                          style={{ border: 0 }} 
+                          allowFullScreen 
+                          loading="lazy" 
+                          referrerPolicy="no-referrer-when-downgrade" 
+                        />
+                      ) : (
+                        <div style={{ width: 600, height: 450, backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <p>Location map not available</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -204,6 +229,44 @@ export default async function ClubPage({ params }: ClubPageProps) {
           </div>
         </div>
         {/*===== EVENT AREA ENDS =======*/}
+        
+        {/*===== EVENT TABS AREA STARTS =======*/}
+        {clubData.currentEvents && clubData.currentEvents.events.length > 0 && (
+          <EventTabs events={clubData.currentEvents.events} />
+        )}
+        {/*===== EVENT TABS AREA ENDS =======*/}
+        
+        {/*===== CTA AREA STARTS =======*/}
+        <div className="cta1-section-area d-lg-block d-block">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-10 m-auto">
+                <div className="cta1-main-boxarea">
+                  <div className="timer-btn-area">
+                    <div className="btn-area1">
+                      <Link href="/chess-clubs" className="vl-btn1">Find More Clubs</Link>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <Link href="/events">
+                        <img src="/assets/img/icons/calender1.svg" alt="" />
+                        Check our upcoming events
+                      </Link>
+                    </li>
+                    <li className="m-0">
+                      <Link href="/contact">
+                        <img src="/assets/img/icons/location1.svg" alt="" />
+                        Contact Chess Victoria
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/*===== CTA AREA ENDS =======*/}
       </div>
     </Layout>
   )
