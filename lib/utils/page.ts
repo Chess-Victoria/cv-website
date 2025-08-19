@@ -2,7 +2,24 @@ import { getEntries, getEntryBySlug } from '@/lib/contentful';
 import { Page, PageData, OpenGraphMetadata } from '@/lib/types/page';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
-import { extractTextFromRichText } from './rich-text';
+
+/**
+ * Extract plain text from rich text content
+ */
+function extractTextFromRichText(content: any): string {
+  if (!content || !content.content) return '';
+  
+  const extractText = (items: any[]): string => {
+    return items.map(item => {
+      if (item.content) {
+        return extractText(item.content);
+      }
+      return item.value || '';
+    }).join(' ');
+  };
+  
+  return extractText(content.content);
+}
 
 /**
  * Fetch all pages from Contentful with caching
@@ -21,7 +38,7 @@ export const getAllPages = unstable_cache(
   ['all-pages'],
   {
     tags: ['pages'],
-    revalidate: getRevalidationTime('PAGE')
+    revalidate: getRevalidationTime('DEFAULT')
   }
 );
 
@@ -42,7 +59,7 @@ export const getPageBySlug = unstable_cache(
   ['page-by-slug'],
   {
     tags: ['pages'],
-    revalidate: getRevalidationTime('PAGE')
+    revalidate: getRevalidationTime('DEFAULT')
   }
 );
 

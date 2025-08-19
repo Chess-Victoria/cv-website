@@ -7,7 +7,7 @@ interface SearchResult {
   id: string;
   title: string;
   description?: string;
-  type: 'news' | 'chess-club' | 'committee-member' | 'event';
+  type: 'news' | 'chess-club' | 'committee-member' | 'event' | 'page';
   slug: string;
   url: string;
   date?: string;
@@ -19,7 +19,7 @@ const searchContentful = unstable_cache(
     const searchTerm = query.toLowerCase();
 
     // Helper function to safely search content type
-    const searchContentType = async (contentType: string, mapper: (entry: any) => SearchResult | null) => {
+    const searchContentType = async (contentType: string, mapper: (entry: any) => SearchResult) => {
       try {
         const entries = await getEntries(contentType, 2);
         const filteredResults = (entries as any[]).filter((entry: any) => {
@@ -32,7 +32,7 @@ const searchContentful = unstable_cache(
           
           const searchableText = `${title} ${name} ${description} ${summary} ${role} ${bio}`.toLowerCase();
           return searchableText.includes(searchTerm);
-        }).map(mapper).filter(Boolean);
+        }).map(mapper);
         
         return filteredResults;
       } catch (error) {
@@ -113,7 +113,7 @@ const searchContentful = unstable_cache(
       });
 
       // Combine all results and sort by date (newest first)
-      const allResults = [...newsResults, ...clubResults, ...committeeResults, ...eventResults, ...pageResults];
+      const allResults = [...newsResults, ...clubResults, ...committeeResults, ...eventResults, ...pageResults].filter(Boolean);
       allResults.sort((a, b) => new Date(b.date || '').getTime() - new Date(a.date || '').getTime());
 
       return allResults;
@@ -125,7 +125,7 @@ const searchContentful = unstable_cache(
   ['search-results'],
   {
     tags: ['search', 'news', 'clubDetail', 'committeeMember', 'event'],
-    revalidate: getRevalidationTime('SEARCH')
+    revalidate: getRevalidationTime('DEFAULT')
   }
 );
 
