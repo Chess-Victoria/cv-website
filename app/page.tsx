@@ -8,8 +8,8 @@ import ReferenceList from '@/components/sections/home1/ReferenceList'
 import Section5 from '@/components/sections/home1/section5'
 import GalleryImageCarousel from '@/components/sections/home1/GalleryImageCarousel'
 import NewsUpdate from '@/components/sections/home1/NewsUpdate'
-import Section9 from '@/components/sections/home1/section9'
 import { getHomePageData } from './home.data'
+import CTAWithCountdown from "@/components/sections/home1/CTAWithCountdown"
 // Removed hardcoded fallbacks for production cleanliness
 
 export default async function Home() {
@@ -40,7 +40,11 @@ export default async function Home() {
 				) : null}
 				<ReferenceList data={homePageData.featuredClubs!} />
 				<NewsUpdate items={newsPage.items} />
-				<Section9 />
+				<CTAWithCountdown
+					buttonLabel="Contact Us"
+					buttonHref="/contact"
+					useFeaturedEvent
+				/>
 			</Layout>
 			
 			{homePageData.popupContent && (
