@@ -194,6 +194,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												<ul className="dropdown-padding">
 												<li><Link href="/galleries">Galleries</Link></li>
 													<li><Link href="/faq">FAQ</Link></li>
+													<li><Link href="/documents">Documents</Link></li>
 													<li><Link href="/contact">Contact Us</Link></li>
 												</ul>
 											</li>

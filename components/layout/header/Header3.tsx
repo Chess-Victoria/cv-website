@@ -179,6 +179,7 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, isSear
 													<li><Link href="/memories">Our Memories</Link></li>
 													<li><Link href="/pricing-plan">Pricing Plan</Link></li>
 													<li><Link href="/faq">FAQ,s</Link></li>
+													<li><Link href="/documents">Documents</Link></li>
 													<li><Link href="/contact">Contact Us</Link></li>
 												</ul>
 											</li>

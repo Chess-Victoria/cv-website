@@ -16594,7 +16594,7 @@ html {
   z-index: 1;
 }
 .faq-inner-section-area .faq-widget-area .tab-content .tab-pane .faq-section-area .accordian-area .accordion-item .accordion-body {
-  padding: 0;
+  padding: 5px 15px;
 }
 .faq-inner-section-area .faq-widget-area .tab-content .tab-pane .faq-section-area .accordian-area .accordion-item .accordion-body p {
   color: var(--ztc-text-text-3);

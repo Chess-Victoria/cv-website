@@ -7,3 +7,4 @@ build
 .next-local
 build-output.txt
 tsbuildinfo.json
+tsconfig.tsbuildinfo

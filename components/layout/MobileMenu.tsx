@@ -83,6 +83,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 6 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 6 ? 'block' : 'none'}` }}>
 								<li><Link href="/galleries">Galleries</Link></li>
 								<li><Link href="/faq">FAQ</Link></li>
+								<li><Link href="/documents">Documents</Link></li>
 								<li><Link href="/contact">Contact Us</Link></li>
 							</ul>
 						</li>

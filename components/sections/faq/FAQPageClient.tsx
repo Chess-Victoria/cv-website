@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { FAQData } from "@/lib/types/faq"
+import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface FAQPageClientProps {
   data: {
@@ -123,31 +124,20 @@ export default function FAQPageClient({ data }: FAQPageClientProps) {
 
   return (
     <div>
-
-      <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg15.png)' }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-9 m-auto">
-              <div className="heading1 text-center">
-                <h1>Frequently Asked Questions</h1>
-                <div className="space20" />
-                <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Frequently Asked Questions</span></Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeadContent
+        title="Frequently Asked Questions"
+        backgroundImage="/assets/img/bg/header-bg15.png"
+        subtitle={data.subtitle}
+        breadcrumbs={[
+          { name: "Home", link: "/" },
+          { name: "Frequently Asked Questions", link: "/faq" }
+        ]}
+      />
 
       {/*===== FAQ AREA STARTS =======*/}
       <div className="faq-inner-section-area sp1">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-7 m-auto">
-              <div className="heading2 text-center space-margin60">
-                <h2>{data.title}</h2>
-              </div>
-            </div>
-          </div>
+          
           <div className="row">
             <div className="col-lg-11">
               <div className="faq-widget-area">
