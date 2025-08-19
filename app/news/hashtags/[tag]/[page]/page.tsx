@@ -1,17 +1,19 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getPostsByHashtagPageData } from "@/lib/utils/posts";
-import { getRevalidationTime } from "@/lib/config";
 import Paginator from "@/components/elements/Paginator";
 import PageHeadContent from '@/components/elements/PageHeadContent';
 
-export const revalidate = getRevalidationTime('POST');
+// Static revalidation for Next.js 15
+export const revalidate = 3600; // 1 hour
 
-interface TagPageProps { params: { tag: string; page: string } }
+interface TagPageProps { 
+  params: Promise<{ tag: string; page: string }> 
+}
 
 export default async function NewsHashtagPage({ params }: TagPageProps) {
-  const { tag } = params;
-  const match = params.page?.match(/page-(\d+)/i);
+  const { tag, page: pageParam } = await params;
+  const match = pageParam?.match(/page-(\d+)/i);
   const currentPage = Math.max(1, parseInt(match?.[1] || '1', 10) || 1);
   const perPage = 10;
 

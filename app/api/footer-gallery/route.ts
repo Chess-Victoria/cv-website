@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery';
-import { getRevalidationTime } from '@/lib/config';
 
-export const revalidate = getRevalidationTime('IMAGE_GALLERY');
+// Static revalidate value for Next.js 15
+export const revalidate = 3600; // 1 hour
 
 export async function GET() {
   try {
@@ -21,7 +21,7 @@ export async function GET() {
     }, { 
       status: 200,
       headers: {
-        'Cache-Control': `public, s-maxage=${getRevalidationTime('IMAGE_GALLERY')}, stale-while-revalidate`,
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate',
       }
     });
   } catch (error) {

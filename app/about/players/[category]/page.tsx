@@ -3,7 +3,6 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getPlayersByCategory, Player } from "@/lib/utils/acf-ratings" // Import Player and getPlayersByCategory
-import { getRevalidationTime } from '@/lib/config'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface Category {
@@ -31,11 +30,12 @@ const CATEGORIES: Record<string, Category> = {
   'top-female': { id: 'top-female', name: 'Top Female Players', description: 'All female players in Victoria' }
 };
 
-// ISR revalidation
-export const revalidate = getRevalidationTime('ACF_RATINGS') || 86400 * 30; // 30 days default
+// ISR revalidation - static value for Next.js 15
+export const revalidate = 2592000; // 30 days (86400 * 30)
 
-export default async function TopPlayersPage({ params }: { params: { category: string } }) {
-  const category = CATEGORIES[params.category];
+export default async function TopPlayersPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category: categorySlug } = await params;
+  const category = CATEGORIES[categorySlug];
 
   if (!category) {
     notFound();
@@ -45,7 +45,7 @@ export default async function TopPlayersPage({ params }: { params: { category: s
   let error: string | null = null;
 
   try {
-    filteredPlayers = await getPlayersByCategory(params.category);
+    filteredPlayers = await getPlayersByCategory(categorySlug);
   } catch (err) {
     console.error('Error fetching players:', err);
     error = err instanceof Error ? err.message : 'Failed to load player data';
@@ -57,7 +57,7 @@ export default async function TopPlayersPage({ params }: { params: { category: s
         <PageHeadContent
           title={`Top Players - ${category.name}`}
           backgroundImage="/assets/img/bg/header-bg8.png"
-          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: category.name, link: `/about/players/${params.category}` }]}
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: category.name, link: `/about/players/${categorySlug}` }]}
         />
 
         <div className="event-team-area sp1">

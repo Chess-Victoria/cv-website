@@ -27,7 +27,7 @@ export const getChessClubData = unstable_cache(
   async (slug: string) => {
     console.log(`🔍 Fetching chess club data for slug: ${slug}`);
     
-    const response = await getEntryBySlug('clubDetail', slug, 3);
+    const response = await getEntryBySlug('clubDetail', slug);
     
     console.log(`📥 Raw Contentful response:`, response);
     console.log(`📥 Response type:`, typeof response);

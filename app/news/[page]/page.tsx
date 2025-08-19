@@ -1,18 +1,19 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getPostsPageData } from "@/lib/utils/posts";
-import { getRevalidationTime } from "@/lib/config";
 import PageHeadContent from '@/components/elements/PageHeadContent';
 
-export const revalidate = getRevalidationTime('POST');
+// Static revalidation for Next.js 15
+export const revalidate = 3600; // 1 hour
 
 interface NewsPageProps {
-  params: { page: string };
+  params: Promise<{ page: string }>;
 }
 
 export default async function NewsPage({ params }: NewsPageProps) {
+  const { page } = await params;
   // Expect format: page-1, page-2, etc.
-  const match = params.page?.match(/page-(\d+)/i);
+  const match = page?.match(/page-(\d+)/i);
   const currentPage = Math.max(1, parseInt(match?.[1] || '1', 10) || 1);
   const perPage = 10;
 

@@ -38,8 +38,8 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                     <li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
                                                     <li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
                                                     <li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>
-                                                    <li><Link href="/victorian-champions/victorian-open">Victorian Open</Link></li>
-                                                    <li><Link href="/victorian-champions/victorian-women">Victorian Women</Link></li>
+                                                    <li><Link href="/victorian-champions/victorian-open-champions">Victorian Open Champions</Link></li>
+                                                    <li><Link href="/victorian-champions/victorian-women-champions">Victorian Women Champions</Link></li>
                                                 </ul>
                                             </li>
                                             <li>

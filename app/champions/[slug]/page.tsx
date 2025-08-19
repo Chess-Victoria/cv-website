@@ -1,26 +1,9 @@
 import Countdown from '@/components/elements/Countdown';
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
-import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getEntryBySlug } from '@/lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import { unstable_cache } from 'next/cache';
-// Static revalidation for Next.js 15
-import { notFound } from 'next/navigation';
-
-// Cache the champion data fetching
-const getCachedChampion = unstable_cache(
-  async (slug: string) => {
-    const champion = await getEntryBySlug('championPage', slug);
-    return champion;
-  },
-  ['champion-data'],
-  {
-    tags: ['champions'],
-    revalidate: 86400 // 24 hours
-  }
-);
 
 interface ChampionPageProps {
     params: Promise<{ slug: string }>
@@ -28,13 +11,7 @@ interface ChampionPageProps {
 
 export default async function ChampionPage({ params }: ChampionPageProps) {
     const { slug } = await params;
-    const champion = await getCachedChampion(slug);
-    
-    // If no champion found, show 404
-    if (!champion) {
-        notFound();
-    }
-    
+    const champion = await getEntryBySlug('championPage', slug);
     const { title = 'Champion', introduction } = champion?.fields || {};
 
     // Type guard for Contentful rich text Document
@@ -49,15 +26,20 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
     return (
         <Layout headerStyle={1} footerStyle={1}>
             <div>
-                <PageHeadContent
-                    title={typeof title === 'string' ? title : 'Champion'}
-                    backgroundImage="/assets/img/bg/header-bg12.png"
-                    breadcrumbs={[
-                        { name: 'Home', link: '/' },
-                        { name: 'Victorian Champions', link: '/victorian-champions' },
-                        { name: typeof title === 'string' ? title : 'Champion', link: `/victorian-champions/${slug}` }
-                    ]}
-                />
+                <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg12.png)' }}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 m-auto">
+                                <div className="heading1 text-center">
+                                    <h1>{typeof title === 'string' ? title : 'Champion'}</h1>
+
+                                    <div className="space20" />
+                                    <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Champion</span></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/*===== HERO AREA ENDS =======*/}
                 {/*===== MAIN CONTENT AREA STARTS =======*/}
                 <div className="champion-inner-section sp1">
@@ -107,57 +89,9 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                 </div>
                 {/*===== MAIN CONTENT AREA ENDS =======*/}
                 {/*===== CTA AREA STARTS =======*/}
-                <div className="cta1-section-area d-lg-block d-block">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-10 m-auto">
-                                <div className="cta1-main-boxarea">
-                                    <div className="timer-btn-area">
-                                        <div className="btn-area1">
-                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
-                                        </li>
-                                        <li className="m-0">
-                                            <Link href="/chess-clubs"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*===== CTA AREA ENDS =======*/}
-                {/*===== CTA AREA STARTS =======*/}
-                <div className="cta1-section-area d-lg-none d-block">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-10 m-auto">
-                                <div className="cta1-main-boxarea">
-                                    <div className="timer-btn-area">
-                                        <div className="btn-area1">
-                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
-                                        </li>
-                                        <li className="m-0">
-                                            <Link href="/contact"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export async function generateStaticParams() {

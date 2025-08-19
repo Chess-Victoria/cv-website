@@ -5,7 +5,7 @@ import { ImageGalleryData, ImageGalleryEntry } from '@/lib/types/image-gallery';
 import { mapImageGallery } from '@/lib/utils/image-gallery-mapper';
 
 async function fetchImageGalleryUncached(slug: string): Promise<ImageGalleryData | null> {
-  const entry = (await getEntryBySlug('imageGallery', slug, 3)) as unknown as ImageGalleryEntry | null;
+  const entry = (await getEntryBySlug('imageGallery', slug)) as unknown as ImageGalleryEntry | null;
   if (!entry) return null;
   return mapImageGallery(entry);
 }

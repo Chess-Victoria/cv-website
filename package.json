@@ -25,12 +25,12 @@
     "aos": "^2.3.4",
     "contentful": "^11.7.15",
     "contentful-management": "^11.54.4",
+    "dotenv": "^17.2.1",
     "gsap": "^3.12.5",
-    "next": "14.2.15",
-    "react": "^18",
+    "next": "^15.4.7",
+    "react": "^19.1.1",
     "react-countup": "^6.5.3",
-    "react-dom": "^18",
-    "react-modal-video": "^2.0.2",
+    "react-dom": "^19.1.1",
     "react-slick": "^0.30.2",
     "resend": "^6.0.1",
     "sass": "^1.81.0",
@@ -45,10 +45,9 @@
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-modal-video": "^1.2.3",
     "@types/react-slick": "^0.23.13",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.15",
+    "eslint-config-next": "^15.4.7",
     "typescript": "^5"
   }
 }

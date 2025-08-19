@@ -6,12 +6,13 @@ import RichTextRenderer from '@/components/elements/RichTextRenderer';
 import { getPageBySlug, generateOpenGraphMetadata } from '@/lib/utils/page';
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Generate metadata for the page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const pageData = await getPageBySlug(params.slug);
+  const { slug } = await params;
+  const pageData = await getPageBySlug(slug);
   
   if (!pageData) {
     return {
@@ -64,7 +65,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: PageProps) {
-  const pageData = await getPageBySlug(params.slug);
+  const { slug } = await params;
+  const pageData = await getPageBySlug(slug);
 
   if (!pageData) {
     notFound();

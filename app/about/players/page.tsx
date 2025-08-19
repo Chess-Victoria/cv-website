@@ -1,7 +1,7 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { getRevalidationTime } from '@/lib/config'
+// Static revalidation for Next.js 15
 import { getTitleStatistics } from '@/lib/utils/acf-ratings'
 
 // Available categories organized by type
@@ -107,8 +107,8 @@ const FEMALE_CATEGORIES = [
   }
 ];
 
-// ISR revalidation
-export const revalidate = getRevalidationTime('ACF_RATINGS') || 86400 * 30; // 30 days default
+// ISR revalidation - static value for Next.js 15
+export const revalidate = 2592000; // 30 days
 
 export default async function PlayersPage() {
   // Get title statistics

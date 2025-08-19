@@ -18,14 +18,12 @@ export async function GET() {
     const CACHE_TTL = 60 * 5 * 1000; // 5 minutes
     const now = Date.now();
     const cache = (globalThis as any)._siteConfigCache as SiteConfigCache;
-    const config = await getSiteConfiguration();
-    // Only include keys with non-empty string values
-    const filtered: SiteConfiguration = Object.fromEntries(
-      Object.entries(config).filter(([_, v]) => !(typeof v === 'string' && v.trim() === ''))
-    ) as SiteConfiguration;
-    cache.data = filtered;
-    cache.timestamp = now;
-    return NextResponse.json(filtered);
+    if (!cache.data || now - cache.timestamp > CACHE_TTL) {
+      const config = await getSiteConfiguration();
+      cache.data = config;
+      cache.timestamp = now;
+    }
+    return NextResponse.json(cache.data);
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : 'Failed to load site configuration' }, { status: 500 });
   }

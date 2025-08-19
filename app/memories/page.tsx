@@ -4,16 +4,17 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
-import { getRevalidationTime } from '@/lib/config'
 
-export const revalidate = getRevalidationTime('IMAGE_GALLERY');
+// Static revalidation for Next.js 15
+export const revalidate = 3600; // 1 hour
 
-export default async function Memories({ searchParams }: { searchParams?: { page?: string; per?: string } }) {
+export default async function Memories({ searchParams }: { searchParams?: Promise<{ page?: string; per?: string }> }) {
+  const searchParamsData = await searchParams;
   const gallery = await getImageGalleryBySlugWithTags('chess-victoria-photo-gallery');
   const allImages = gallery?.images || [];
 
-  const perPage = Math.max(1, parseInt(searchParams?.per || '15', 10) || 3);
-  const currentPage = Math.max(1, parseInt(searchParams?.page || '1', 10) || 1);
+  const perPage = Math.max(1, parseInt(searchParamsData?.per || '15', 10) || 3);
+  const currentPage = Math.max(1, parseInt(searchParamsData?.page || '1', 10) || 1);
   const totalItems = allImages.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / perPage));
   const page = Math.min(currentPage, totalPages);
@@ -123,7 +124,6 @@ export default async function Memories({ searchParams }: { searchParams?: { page
 						</div>
 					</div>
 				</div>
-
 			</Layout>
 		</>
 	)

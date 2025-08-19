@@ -3,23 +3,25 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
-import { getRevalidationTime } from '@/lib/config'
 import { notFound } from 'next/navigation'
 
-export const revalidate = getRevalidationTime('IMAGE_GALLERY');
+// Static revalidation for Next.js 15
+export const revalidate = 3600; // 1 hour
 
 interface GalleryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-  searchParams?: { 
+  }>;
+  searchParams?: Promise<{ 
     page?: string; 
     per?: string 
-  };
+  }>;
 }
 
 export default async function GalleryPage({ params, searchParams }: GalleryPageProps) {
-  const gallery = await getImageGalleryBySlugWithTags(params.slug);
+  const { slug } = await params;
+  const searchParamsData = await searchParams;
+  const gallery = await getImageGalleryBySlugWithTags(slug);
   
   if (!gallery) {
     notFound();
@@ -27,15 +29,15 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 
   const allImages = gallery?.images || [];
 
-  const perPage = Math.max(1, parseInt(searchParams?.per || '15', 10) || 15);
-  const currentPage = Math.max(1, parseInt(searchParams?.page || '1', 10) || 1);
+  const perPage = Math.max(1, parseInt(searchParamsData?.per || '15', 10) || 15);
+  const currentPage = Math.max(1, parseInt(searchParamsData?.page || '1', 10) || 1);
   const totalItems = allImages.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / perPage));
   const page = Math.min(currentPage, totalPages);
   const startIndex = (page - 1) * perPage;
   const pageImages = allImages.slice(startIndex, startIndex + perPage);
 
-  const makeHref = (p: number) => `/galleries/${params.slug}?page=${p}&per=${perPage}`;
+  const makeHref = (p: number) => `/galleries/${slug}?page=${p}&per=${perPage}`;
 
 	return (
 		<>
@@ -102,10 +104,16 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 										</div>
 										<ul>
 											<li>
-												<Link href="/galleries"><img src="/assets/img/icons/calender1.svg" alt="" />Browse More Photo Collections</Link>
+												<Link href="/galleries">
+													<img src="/assets/img/icons/calender1.svg" alt="" />
+													View All Galleries
+												</Link>
 											</li>
 											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
+												<Link href="/contact">
+													<img src="/assets/img/icons/location1.svg" alt="" />
+													Contact Chess Victoria
+												</Link>
 											</li>
 										</ul>
 									</div>
@@ -114,6 +122,7 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 						</div>
 					</div>
 					{/*===== CTA AREA ENDS =======*/}
+					
 					{/*===== CTA AREA STARTS =======*/}
 					<div className="cta1-section-area d-lg-none d-block">
 						<div className="container">
@@ -128,10 +137,16 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 										</div>
 										<ul>
 											<li>
-												<Link href="/galleries"><img src="/assets/img/icons/calender1.svg" alt="" />Browse More Photo Collections</Link>
+												<Link href="/galleries">
+													<img src="/assets/img/icons/calender1.svg" alt="" />
+													View All Galleries
+												</Link>
 											</li>
 											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Victoria, Australia</Link>
+												<Link href="/contact">
+													<img src="/assets/img/icons/location1.svg" alt="" />
+													Contact Chess Victoria
+												</Link>
 											</li>
 										</ul>
 									</div>
@@ -140,7 +155,6 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 						</div>
 					</div>
 				</div>
-
 			</Layout>
 		</>
 	)

@@ -48,7 +48,7 @@ export const getAllPages = unstable_cache(
 export const getPageBySlug = unstable_cache(
   async (slug: string): Promise<PageData | null> => {
     try {
-      const page = await getEntryBySlug('page', slug, 2);
+      const page = await getEntryBySlug('page', slug);
       if (!page) return null;
       return mapPageToData(page as unknown as Page);
     } catch (error) {

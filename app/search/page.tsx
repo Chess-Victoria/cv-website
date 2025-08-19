@@ -5,7 +5,7 @@ import PageHeadContent from '@/components/elements/PageHeadContent';
 import SearchResults from '@/components/sections/search/SearchResults';
 
 interface SearchPageProps {
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 }
 
 export const metadata: Metadata = {
@@ -13,8 +13,9 @@ export const metadata: Metadata = {
   description: 'Search results for Chess Victoria website',
 };
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || '';
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const searchParamsData = await searchParams;
+  const query = searchParamsData.q || '';
 
   return (
     <Layout headerStyle={1} footerStyle={1}>

@@ -3,7 +3,6 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getPlayersByTitle, Player } from "@/lib/utils/acf-ratings"
-import { getRevalidationTime } from '@/lib/config'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface TitleCategory {
@@ -13,21 +12,22 @@ interface TitleCategory {
 }
 
 const TITLE_CATEGORIES: Record<string, TitleCategory> = {
-  'cm': { id: 'cm', name: 'Candidate Master (CM)', description: 'Players with Candidate Master title' },
-  'fm': { id: 'fm', name: 'FIDE Master (FM)', description: 'Players with FIDE Master title' },
-  'im': { id: 'im', name: 'International Master (IM)', description: 'Players with International Master title' },
   'gm': { id: 'gm', name: 'Grandmaster (GM)', description: 'Players with Grandmaster title' },
+  'im': { id: 'im', name: 'International Master (IM)', description: 'Players with International Master title' },
+  'fm': { id: 'fm', name: 'FIDE Master (FM)', description: 'Players with FIDE Master title' },
+  'cm': { id: 'cm', name: 'Candidate Master (CM)', description: 'Players with Candidate Master title' },
   'wcm': { id: 'wcm', name: 'Woman Candidate Master (WCM)', description: 'Female players with Woman Candidate Master title' },
   'wfm': { id: 'wfm', name: 'Woman FIDE Master (WFM)', description: 'Female players with Woman FIDE Master title' },
   'wim': { id: 'wim', name: 'Woman International Master (WIM)', description: 'Female players with Woman International Master title' },
   'wgm': { id: 'wgm', name: 'Woman Grandmaster (WGM)', description: 'Female players with Woman Grandmaster title' }
 };
 
-// ISR revalidation
-export const revalidate = getRevalidationTime('ACF_RATINGS') || 86400 * 30; // 30 days default
+// ISR revalidation - static value for Next.js 15
+export const revalidate = 2592000; // 30 days
 
-export default async function TitlePlayersPage({ params }: { params: { title: string } }) {
-  const titleCategory = TITLE_CATEGORIES[params.title.toLowerCase()];
+export default async function TitlePlayersPage({ params }: { params: Promise<{ title: string }> }) {
+  const { title } = await params;
+  const titleCategory = TITLE_CATEGORIES[title.toLowerCase()];
 
   if (!titleCategory) {
     notFound();
@@ -37,7 +37,7 @@ export default async function TitlePlayersPage({ params }: { params: { title: st
   let error: string | null = null;
 
   try {
-    filteredPlayers = await getPlayersByTitle(params.title.toUpperCase());
+    filteredPlayers = await getPlayersByTitle(title.toUpperCase());
   } catch (err) {
     console.error('Error fetching players:', err);
     error = err instanceof Error ? err.message : 'Failed to load player data';
@@ -49,7 +49,7 @@ export default async function TitlePlayersPage({ params }: { params: { title: st
         <PageHeadContent
           title={`Top Players - ${titleCategory.name}`}
           backgroundImage="/assets/img/bg/header-bg8.png"
-          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: titleCategory.name, link: `/about/players/titles/${params.title}` }]}
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: titleCategory.name, link: `/about/players/titles/${title}` }]}
         />
 
         <div className="event-team-area sp1">
@@ -128,9 +128,9 @@ export default async function TitlePlayersPage({ params }: { params: { title: st
                                         </td>
                                         <td className="text-center">
                                           {player.fideId && player.fideId !== '0' ? (
-                                            <a
-                                              href={`https://ratings.fide.com/profile/${player.fideId}`}
-                                              target="_blank"
+                                            <a 
+                                              href={`https://ratings.fide.com/profile/${player.fideId}`} 
+                                              target="_blank" 
                                               rel="noopener noreferrer"
                                               className="text-primary text-decoration-none"
                                             >
@@ -157,7 +157,7 @@ export default async function TitlePlayersPage({ params }: { params: { title: st
                                   borderCollapse: 'collapse'
                                 }}>
                                   <thead>
-                                    <tr>
+                                    <tr style={{display: 'table-row'}}>
                                       <th style={{width: '15%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rank</th>
                                       <th style={{width: '65%', textAlign: 'left', padding: '8px 4px', border: '1px solid #dee2e6'}}>Name</th>
                                       <th style={{width: '20%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rating</th>

@@ -8,13 +8,13 @@ import { notFound } from "next/navigation"
 import PageHeadContent from '@/components/elements/PageHeadContent'
 
 interface EventPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function EventPage({ params }: EventPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch event list data
   const eventListData = await getEventListData(slug);
@@ -116,9 +116,9 @@ export default async function EventPage({ params }: EventPageProps) {
                   </div>
                   <ul>
                     <li>
-                      <Link href="/events">
+                      <Link href="/contact">
                         <img src="/assets/img/icons/calender1.svg" alt="" />
-                        View All Event Lists
+                        Join Chess Victoria
                       </Link>
                     </li>
                     <li className="m-0">
@@ -149,9 +149,9 @@ export default async function EventPage({ params }: EventPageProps) {
                   </div>
                   <ul>
                     <li>
-                      <Link href="/events">
+                      <Link href="/contact">
                         <img src="/assets/img/icons/calender1.svg" alt="" />
-                        View All Event Lists
+                        Join Chess Victoria
                       </Link>
                     </li>
                     <li className="m-0">

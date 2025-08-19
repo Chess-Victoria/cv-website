@@ -1,18 +1,18 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getPostsByCategoryPageData } from "@/lib/utils/posts";
-import { getRevalidationTime } from "@/lib/config";
 import PageHeadContent from '@/components/elements/PageHeadContent';
 
-export const revalidate = getRevalidationTime('POST');
+// Static revalidation for Next.js 15
+export const revalidate = 3600; // 1 hour
 
 interface CategoryPageProps {
-  params: { slug: string; page: string };
+  params: Promise<{ slug: string; page: string }>;
 }
 
 export default async function NewsCategoryPage({ params }: CategoryPageProps) {
-  const { slug } = params;
-  const match = params.page?.match(/page-(\d+)/i);
+  const { slug, page: pageParam } = await params;
+  const match = pageParam?.match(/page-(\d+)/i);
   const currentPage = Math.max(1, parseInt(match?.[1] || '1', 10) || 1);
   const perPage = 10;
 
