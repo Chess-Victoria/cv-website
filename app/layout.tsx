@@ -15,6 +15,8 @@ import "/public/assets/css/main.css"
 
 import type { Metadata, Viewport } from "next"
 import { Figtree, Space_Grotesk } from "next/font/google"
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const figtree = Figtree({
 	weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -114,7 +116,11 @@ export default function RootLayout({
 				<meta name="msapplication-TileColor" content="#1a365d" />
 				<meta name="theme-color" content="#1a365d" />
 			</head>
-			<body className={`${figtree.variable} ${grotesk.variable}`}>{children}</body>
+			<body className={`${figtree.variable} ${grotesk.variable}`}>
+				{children}
+				<Analytics />
+				<SpeedInsights />
+			</body>
 		</html>
 	)
 }
