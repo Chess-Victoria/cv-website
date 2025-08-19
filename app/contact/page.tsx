@@ -204,7 +204,8 @@ export default function Contact() {
 								<div className="col-lg-6">
 									<div className="space48" />
 									<div className="row">
-										<div className="col-lg-6 col-md-6">
+										{/* Email full row */}
+										<div className="col-lg-12 col-md-12">
 											<div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
 												<div className="icons">
 													<img src="/assets/img/icons/mail1.svg" alt="" />
@@ -216,6 +217,9 @@ export default function Contact() {
 												</div>
 											</div>
 											<div className="space18" />
+										</div>
+										{/* Location and Phone in 2 col */}
+										<div className="col-lg-6 col-md-6">
 											<div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
 												<div className="icons">
 													<img src="/assets/img/icons/location1.svg" alt="" />
@@ -237,17 +241,6 @@ export default function Contact() {
 													<h5>Call/Message</h5>
 													<div className="space14" />
 													<Link href={phoneHref}>{phoneDisplay}</Link>
-												</div>
-											</div>
-											<div className="space18" />
-											<div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
-												<div className="icons">
-													<img src="/assets/img/icons/instagram.svg" alt="" />
-												</div>
-												<div className="text">
-													<h5>Instagram</h5>
-													<div className="space14" />
-													<Link href="/#">enChess Victoria.eve</Link>
 												</div>
 											</div>
 										</div>
