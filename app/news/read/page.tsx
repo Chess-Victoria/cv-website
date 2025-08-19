@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import "@/node_modules/react-modal-video/css/modal-video.css"
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
