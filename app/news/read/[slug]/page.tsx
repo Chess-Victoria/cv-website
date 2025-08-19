@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
 import type { Metadata } from 'next';
 // ISR
-export const revalidate = getRevalidationTime('POST');
+export const revalidate = 600;
 
 interface NewsReadPageProps {
   params: Promise<{ slug: string }>;
@@ -246,13 +246,11 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
         </div>
         {/*===== CTA AREA =======*/}
         <CTAWithCountdown
-          buttonLabel="Buy Ticket"
-          buttonHref="/pricing-plan"
+          buttonLabel="Contact Us"
+          buttonHref="/contact"
           links={[
-            { name: '30 January 2025 - 6pm to 11:30pm', href: '/#', icon: '/assets/img/icons/calender1.svg' },
-            { name: 'Secret Location In The UK', href: '/#', icon: '/assets/img/icons/location1.svg' },
           ]}
-          targetDate={targetDate}
+          useFeaturedEvent
         />
       </div>
     </Layout>

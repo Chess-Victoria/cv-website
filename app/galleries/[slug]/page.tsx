@@ -4,6 +4,7 @@ import Link from "next/link"
 import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
 import { notFound } from 'next/navigation'
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
 // Static revalidation for Next.js 15
 export const revalidate = 3600; // 1 hour
@@ -91,69 +92,11 @@ export default async function GalleryPage({ params, searchParams }: GalleryPageP
 					</div>
 					{/*===== GALLERY AREA ENDS =======*/}
 					{/*===== CTA AREA STARTS =======*/}
-					<div className="cta1-section-area d-lg-block d-block">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-10 m-auto">
-									<div className="cta1-main-boxarea">
-										<div className="timer-btn-area">
-										<Countdown />
-											<div className="btn-area1">
-												<Link href="/galleries" className="vl-btn1">View All Galleries</Link>
-											</div>
-										</div>
-										<ul>
-											<li>
-												<Link href="/galleries">
-													<img src="/assets/img/icons/calender1.svg" alt="" />
-													View All Galleries
-												</Link>
-											</li>
-											<li className="m-0">
-												<Link href="/contact">
-													<img src="/assets/img/icons/location1.svg" alt="" />
-													Contact Chess Victoria
-												</Link>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					{/*===== CTA AREA ENDS =======*/}
-					
-					{/*===== CTA AREA STARTS =======*/}
-					<div className="cta1-section-area d-lg-none d-block">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-10 m-auto">
-									<div className="cta1-main-boxarea">
-										<div className="timer-btn-area">
-										<Countdown />
-											<div className="btn-area1">
-												<Link href="/galleries" className="vl-btn1">View All Galleries</Link>
-											</div>
-										</div>
-										<ul>
-											<li>
-												<Link href="/galleries">
-													<img src="/assets/img/icons/calender1.svg" alt="" />
-													View All Galleries
-												</Link>
-											</li>
-											<li className="m-0">
-												<Link href="/contact">
-													<img src="/assets/img/icons/location1.svg" alt="" />
-													Contact Chess Victoria
-												</Link>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
 				</div>
 			</Layout>
 		</>

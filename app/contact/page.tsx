@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useState } from 'react'
 import { SITE_CONFIG } from '@/lib/site-config'
 import PageHeadContent from '@/components/elements/PageHeadContent'
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
 export default function Contact() {
 	const emailDisplay = SITE_CONFIG.contactEmail || 'Chess Victoria@gmail.com'
@@ -258,56 +259,11 @@ export default function Contact() {
 					<div className="space50 d-lg-none d-block" />
 					{/*===== CONTACT AREA ENDS =======*/}
 					{/*===== CTA AREA STARTS =======*/}
-					<div className="cta1-section-area d-lg-block d-block">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-10 m-auto">
-									<div className="cta1-main-boxarea">
-										<div className="timer-btn-area">
-											<Countdown />
-											<div className="btn-area1">
-												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
-											</div>
-										</div>
-										<ul>
-											<li>
-												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />30 January 2025 - 6pm to 11:30pm</Link>
-											</li>
-											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The UK</Link>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					{/*===== CTA AREA ENDS =======*/}
-					{/*===== CTA AREA STARTS =======*/}
-					<div className="cta1-section-area d-lg-none d-block">
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-10 m-auto">
-									<div className="cta1-main-boxarea">
-										<div className="timer-btn-area">
-											<Countdown />
-											<div className="btn-area1">
-												<Link href="/pricing-plan" className="vl-btn1">Buy Ticket</Link>
-											</div>
-										</div>
-										<ul>
-											<li>
-												<Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />30 January 2025 - 6pm to 11:30pm</Link>
-											</li>
-											<li className="m-0">
-												<Link href="/#"><img src="/assets/img/icons/location1.svg" alt="" />Secret Location In The UK</Link>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
 				</div>
 
 			</Layout>

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { FAQData } from "@/lib/types/faq"
 import PageHeadContent from '@/components/elements/PageHeadContent'
+import CTAWithCountdown from "../home1/CTAWithCountdown"
 
 interface FAQPageClientProps {
   data: {
@@ -166,30 +167,11 @@ export default function FAQPageClient({ data }: FAQPageClientProps) {
       {/*===== FAQ AREA ENDS =======*/}
 
       {/*===== CTA AREA STARTS =======*/}
-      <div className="cta1-section-area d-lg-block d-block">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-10 m-auto">
-              <div className="cta1-main-boxarea">
-                <div className="timer-btn-area">
-                  <div className="btn-area1">
-                    <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                  </div>
-                </div>
-                <ul>
-                  <li>
-                    <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
-                  </li>
-                  <li className="m-0">
-                    <Link href="/chess-clubs"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*===== CTA AREA ENDS =======*/}
+      <CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
     </div>
   )
 }

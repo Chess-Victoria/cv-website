@@ -1,5 +1,6 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown';
 import Link from "next/link"
 
 // Interface for FIDE tournament data
@@ -177,69 +178,11 @@ export default async function FideTournamentsPage() {
         {/*===== FIDE TOURNAMENTS AREA ENDS =======*/}
         
         {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-block d-block">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Organize a Tournament
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/*===== CTA AREA ENDS =======*/}
-        
-        {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-none d-block">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Organize a Tournament
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
       </div>
     </Layout>
   )

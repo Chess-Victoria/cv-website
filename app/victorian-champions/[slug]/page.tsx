@@ -9,6 +9,7 @@ import { unstable_cache } from 'next/cache';
 // Static revalidation for Next.js 15
 import { notFound } from 'next/navigation';
 import { getRevalidationTime } from '@/lib/config'
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown';
 
 // Note: define per-slug cache inside the page to avoid cross-slug staleness
 
@@ -111,54 +112,11 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                 </div>
                 {/*===== MAIN CONTENT AREA ENDS =======*/}
                 {/*===== CTA AREA STARTS =======*/}
-                <div className="cta1-section-area d-lg-block d-block">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-10 m-auto">
-                                <div className="cta1-main-boxarea">
-                                    <div className="timer-btn-area">
-                                        <div className="btn-area1">
-                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
-                                        </li>
-                                        <li className="m-0">
-                                            <Link href="/chess-clubs"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*===== CTA AREA ENDS =======*/}
-                {/*===== CTA AREA STARTS =======*/}
-                <div className="cta1-section-area d-lg-none d-block">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-10 m-auto">
-                                <div className="cta1-main-boxarea">
-                                    <div className="timer-btn-area">
-                                        <div className="btn-area1">
-                                            <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <Link href="/events"><img src="/assets/img/icons/calender1.svg" alt="" />Check our upcoming events</Link>
-                                        </li>
-                                        <li className="m-0">
-                                            <Link href="/contact"><img src="/assets/img/icons/location1.svg" alt="" />Find a chess club near you</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
             </div>
         </Layout>
     )

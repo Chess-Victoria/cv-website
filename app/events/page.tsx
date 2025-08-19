@@ -1,4 +1,4 @@
-import Countdown from '@/components/elements/Countdown'
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { getEventListsForNavigation } from "@/lib/utils/event"
@@ -94,71 +94,17 @@ export default async function EventsPage() {
         </div>
         {/*===== EVENT AREA ENDS =======*/}
         
-        {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-block d-block">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Organize an Event
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/*===== CTA AREA =======*/}
+        <CTAWithCountdown
+          buttonLabel="Contact Us"
+          buttonHref="/contact"
+          links={[
+            { name: 'Organize an Event', href: '/contact', icon: '/assets/img/icons/calender1.svg' },
+            { name: 'Victoria, Australia', href: '/#', icon: '/assets/img/icons/location1.svg' },
+          ]}
+          useFeaturedEvent
+        />
         </div>
-        {/*===== CTA AREA ENDS =======*/}
-        
-        {/*===== CTA AREA STARTS =======*/}
-        <div className="cta1-section-area d-lg-none d-block">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-10 m-auto">
-                <div className="cta1-main-boxarea">
-                  <div className="timer-btn-area">
-                    <Countdown />
-                    <div className="btn-area1">
-                      <Link href="/contact" className="vl-btn1">Contact Us</Link>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <Link href="/contact">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        Organize an Event
-                      </Link>
-                    </li>
-                    <li className="m-0">
-                      <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
-                        Victoria, Australia
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
-  )
-}
+ 		</Layout>
+ 	  )
+ }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getEntryBySlug } from '@/lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown';
 
 interface ChampionPageProps {
     params: Promise<{ slug: string }>
@@ -91,6 +92,11 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                 </div>
                 {/*===== MAIN CONTENT AREA ENDS =======*/}
                 {/*===== CTA AREA STARTS =======*/}
+                <CTAWithCountdown
+						buttonLabel="Contact Us"
+						buttonHref="/contact"
+						useFeaturedEvent
+					/>
             </div>
         </Layout>
     );
