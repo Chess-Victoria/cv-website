@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
         // Revalidate individual club pages
         revalidatePath('/chess-clubs/[slug]');
         revalidateTag('chess-club');
+        revalidateTag('club-detail');
         // Also revalidate the clubs listing page
         revalidatePath('/chess-clubs');
         revalidateTag('chess-clubs');

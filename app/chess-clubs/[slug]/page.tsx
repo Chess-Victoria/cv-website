@@ -27,7 +27,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
     },
     ['chess-club-data', slug],
     {
-      tags: ['chess-club', 'clubDetail', `chess-club:${slug}`],
+      tags: ['chess-club', 'club-detail', `chess-club:${slug}`],
       revalidate: getRevalidationTime('CHESS_CLUB')
     }
   )
