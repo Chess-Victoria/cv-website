@@ -6,10 +6,9 @@ import ChessClubSlider from '@/components/slider/ChessClubSlider'
 import PagesGrid from '@/components/sections/about/PagesGrid'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getAboutPageData } from '@/lib/utils/about-page'
-import { getRevalidationTime } from '@/lib/config'
 import AboutContent from '@/components/sections/about/AboutContent'
 
-export const revalidate = getRevalidationTime()
+export const revalidate = 3600 // 1 hour
 
 export default async function About() {
   const aboutPageData = await getAboutPageData()
