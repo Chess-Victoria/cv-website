@@ -180,11 +180,30 @@ export const getACFZipFile = unstable_cache(
   }
 );
 
-// Parse data from cached base64 zip file
+// In-memory cache for parsed players (avoids 2MB Next data cache limit)
+let inMemoryPlayersCache: { key: string; data: Player[] } | null = null;
+
+function buildZipKey(base64String: string): string {
+  // Simple fingerprint using length and a small prefix
+  const prefix = base64String.slice(0, 128);
+  return `${base64String.length}:${prefix}`;
+}
+
+export async function getACFPlayersData(): Promise<Player[]> {
+  const base64String = await getACFZipFile();
+  const key = buildZipKey(base64String);
+  if (inMemoryPlayersCache && inMemoryPlayersCache.key === key) {
+    return inMemoryPlayersCache.data;
+  }
+  const parsed = parseACFDataFromBase64(base64String);
+  inMemoryPlayersCache = { key, data: parsed };
+  return parsed;
+}
+
+// Backward-compatible function name
 export const getACFRatingData = async (): Promise<Player[]> => {
   try {
-    const base64String = await getACFZipFile();
-    return parseACFDataFromBase64(base64String);
+    return await getACFPlayersData();
   } catch (error) {
     console.error('Error getting ACF rating data:', error);
     throw error;
@@ -193,7 +212,7 @@ export const getACFRatingData = async (): Promise<Player[]> => {
 
 export const getPlayersByCategory = async (category: string): Promise<Player[]> => {
   try {
-    const allPlayers = await getACFRatingData();
+    const allPlayers = await getACFPlayersData();
 
     const categoryFilters: Record<string, (player: Player) => boolean> = {
       'all': (player: Player) => true, // All VIC players already filtered
@@ -234,7 +253,7 @@ export const getPlayersByCategory = async (category: string): Promise<Player[]> 
 
 export const getPlayersByTitle = async (title: string): Promise<Player[]> => {
   try {
-    const allPlayers = await getACFRatingData();
+    const allPlayers = await getACFPlayersData();
     
     // Filter players by title (case-insensitive, trim spaces)
     const filteredPlayers = allPlayers.filter(player => 
@@ -251,7 +270,7 @@ export const getPlayersByTitle = async (title: string): Promise<Player[]> => {
 
 export const getTitleStatistics = async () => {
   try {
-    const allPlayers = await getACFRatingData();
+    const allPlayers = await getACFPlayersData();
 
     // Open titles (CM, FM, IM, GM)
     const openTitles = ['CM', 'FM', 'IM', 'GM'];

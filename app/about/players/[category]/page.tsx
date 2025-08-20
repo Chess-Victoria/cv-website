@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getPlayersByCategory, Player } from "@/lib/utils/acf-ratings" // Import Player and getPlayersByCategory
+import { getFideRatingMap } from '@/lib/utils/fide-ratings'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
@@ -43,10 +44,12 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
   }
 
   let filteredPlayers: Player[] = [];
+  let fideMap: Record<string, { rating?: number; ratingMonth?: string }> = {}
   let error: string | null = null;
 
   try {
     filteredPlayers = await getPlayersByCategory(categorySlug);
+    fideMap = await getFideRatingMap();
   } catch (err) {
     console.error('Error fetching players:', err);
     error = err instanceof Error ? err.message : 'Failed to load player data';
@@ -108,6 +111,7 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                                       <th className="text-center">Age</th>
                                       <th className="text-center">Rating</th>
                                       <th className="text-center">ACF ID</th>
+                                      <th className="text-center">FIDE Rating</th>
                                       <th className="text-center">FIDE ID</th>
                                       <th className="text-center">State</th>
                                     </tr>
@@ -134,6 +138,13 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                                         </td>
                                         <td className="text-center">
                                           <code className="text-dark small">{player.nationalId}</code>
+                                        </td>
+                                        <td className="text-center">
+                                          {player.fideId && player.fideId !== '0' && fideMap[player.fideId]?.rating ? (
+                                            <span className="badge bg-dark text-white">{fideMap[player.fideId]?.rating}</span>
+                                          ) : (
+                                            <span className="text-muted">-</span>
+                                          )}
                                         </td>
                                         <td className="text-center">
                                           {player.fideId && player.fideId !== '0' ? (
@@ -167,9 +178,10 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                                 }}>
                                   <thead>
                                     <tr style={{display: 'table-row'}}>
-                                      <th style={{width: '15%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rank</th>
-                                      <th style={{width: '65%', textAlign: 'left', padding: '8px 4px', border: '1px solid #dee2e6'}}>Name</th>
-                                      <th style={{width: '20%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rating</th>
+                                      <th style={{width: '13%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rank</th>
+                                      <th style={{width: '49%', textAlign: 'left', padding: '8px 4px', border: '1px solid #dee2e6'}}>Name</th>
+                                      <th style={{width: '19%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>Rating</th>
+                                      <th style={{width: '19%', textAlign: 'center', padding: '8px 4px', border: '1px solid #dee2e6'}}>FIDE</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -202,6 +214,20 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                                         </td>
                                         <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
                                           <span className="badge bg-primary text-white">{player.nationalRating}</span>
+                                        </td>
+                                        <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
+                                          {player.fideId && player.fideId !== '0' && fideMap[player.fideId]?.rating ? (
+                                            <a
+                                              href={`https://ratings.fide.com/profile/${player.fideId}`}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="text-decoration-none"
+                                            >
+                                              <span className="badge bg-dark text-white">{fideMap[player.fideId]?.rating}</span>
+                                            </a>
+                                          ) : (
+                                            <span className="text-muted">-</span>
+                                          )}
                                         </td>
                                       </tr>
                                     ))}
