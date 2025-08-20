@@ -67,7 +67,7 @@ export default async function ChessClubsPage() {
           {/*===== PROMOTED CLUBS AREA ENDS =======*/}
           
           {/*===== ALL CLUBS TABLE AREA STARTS =======*/}
-          {clubPageData?.allClubs && clubPageData.allClubs.length > 0  && <ClubsTable clubs={clubPageData.allClubs} />}
+          {clubPageData?.allClubs && clubPageData.allClubs.length > 0  && <ClubsTable clubs={clubPageData.allClubs} title="All Chess Associations" />}
           {/*===== ALL CLUBS TABLE AREA ENDS =======*/}
           
           {/*===== CLUBS MAP AREA STARTS =======*/}

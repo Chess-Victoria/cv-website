@@ -6,9 +6,10 @@ import { ClubListItem } from "@/lib/types/club-page";
 
 interface ClubsTableProps {
   clubs: ClubListItem[];
+  title?: string;
 }
 
-export default function ClubsTable({ clubs }: ClubsTableProps) {
+export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTableProps) {
   const [selectedFilter, setSelectedFilter] = React.useState<string | null>(null);
 
   if (!clubs || clubs.length === 0) {
@@ -53,8 +54,8 @@ export default function ClubsTable({ clubs }: ClubsTableProps) {
             <div className="row mb-4">
               <div className="col-lg-12">
                 <div className="heading2 text-center space-margin60">
-                  <h2>All Chess Clubs</h2>
-                  <p>Find a chess club near you in Victoria</p>
+                  <h2>{title}</h2>
+                  <p>Find a chess club or association near you in Victoria</p>
                 </div>
               </div>
             </div>
@@ -132,7 +133,7 @@ export default function ClubsTable({ clubs }: ClubsTableProps) {
               <table>
                 <thead>
                   <tr>
-                    <th>Club Name</th>
+                    <th>Name</th>
                     <th>Location</th>
                     <th>Contact</th>
                     <th>Weekly Schedule</th>
