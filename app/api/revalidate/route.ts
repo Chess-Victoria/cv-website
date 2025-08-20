@@ -25,7 +25,6 @@ export async function POST(request: NextRequest) {
 
     // Parse the webhook payload
     const body = await request.json();
-    console.log('Contentful webhook received:', JSON.stringify(body, null, 2));
 
     // Extract content type and entry ID from the webhook
     const contentType = body.sys?.contentType?.sys?.id;
@@ -40,7 +39,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`Revalidating content: ${contentType} (${entryId})`);
 
     // Revalidate based on content type
     switch (contentType) {
@@ -141,7 +139,6 @@ export async function POST(request: NextRequest) {
 
       default:
         // For unknown content types, revalidate all pages
-        console.log(`Unknown content type: ${contentType}, revalidating all pages`);
         revalidatePath('/');
         revalidatePath('/chess-clubs');
         revalidatePath('/committees');
@@ -152,7 +149,7 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    console.log(`Successfully revalidated content for ${contentType} (${entryId})`);
+
 
     return NextResponse.json({
       revalidated: true,

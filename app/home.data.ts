@@ -116,7 +116,6 @@ export const getHomePageData = unstable_cache(
       }
       
       const homePageFields = homePage.fields as HomePage;
-      console.log('🏠 HomePage raw fields keys:', Object.keys(homePageFields || {}));
 
       // Get announcement from resolved fields
       let popupContent: PopupContent | undefined;
@@ -149,11 +148,7 @@ export const getHomePageData = unstable_cache(
       let welcomeBlock: WelcomeBlockData | undefined;
       const anyFields: any = homePageFields as any;
       if (anyFields.welcomeBlock?.fields) {
-        console.log('🧩 welcomeBlock raw fields:', anyFields.welcomeBlock.fields);
         welcomeBlock = mapWelcomeBlock(anyFields.welcomeBlock.fields);
-        console.log('🧩 welcomeBlock mapped:', welcomeBlock);
-        console.log('🧩 welcomeBlock images count:', welcomeBlock?.images?.length || 0);
-        console.log('🧩 welcomeBlock cta:', welcomeBlock?.ctaLabel, welcomeBlock?.ctaHref);
       }
 
       // Get scheduledEvents from resolved fields

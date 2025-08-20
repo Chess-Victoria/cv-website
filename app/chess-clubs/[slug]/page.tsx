@@ -42,13 +42,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
   // Get featured event (first event or null)
   const featuredEvent = clubData.currentEvents?.events?.[0] || null
   
-  // Diagnostics: Log currentEvents shape for debugging missing events
-  console.log('🧭 currentEvents exists:', Boolean(clubData.currentEvents))
-  console.log('🧭 currentEvents title:', clubData.currentEvents?.title)
-  console.log('🧭 currentEvents events length:', clubData.currentEvents?.events?.length ?? 0)
-  if (clubData.currentEvents?.events) {
-    console.log('🧭 currentEvents event names:', clubData.currentEvents.events.map(e => e?.name))
-  }
+  // Diagnostics removed for production
 
   return (
     <Layout headerStyle={1} footerStyle={1}>

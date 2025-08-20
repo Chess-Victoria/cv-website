@@ -43,7 +43,6 @@ export default function PopupExamples() {
     actionButton: {
       text: "Claim Offer",
       onClick: () => {
-        console.log("Offer claimed!");
         setActivePopup(null);
       }
     },
@@ -57,7 +56,6 @@ export default function PopupExamples() {
     actionButton: {
       text: "Subscribe",
       onClick: () => {
-        console.log("Subscribed!");
         setActivePopup(null);
       }
     },
@@ -121,7 +119,6 @@ export default function PopupExamples() {
           onClose={() => setActivePopup(null)}
           onNoThanks={() => setActivePopup(null)}
           onAction={() => {
-            console.log('Simple popup action clicked');
             setActivePopup(null);
           }}
         />
@@ -134,7 +131,6 @@ export default function PopupExamples() {
           onClose={() => setActivePopup(null)}
           onNoThanks={() => setActivePopup(null)}
           onAction={() => {
-            console.log('Items popup action clicked');
             setActivePopup(null);
           }}
         />
@@ -146,7 +142,6 @@ export default function PopupExamples() {
           isVisible={true}
           onClose={() => setActivePopup(null)}
           onAction={() => {
-            console.log('Custom popup action clicked');
             setActivePopup(null);
           }}
         />
@@ -159,7 +154,6 @@ export default function PopupExamples() {
           onClose={() => setActivePopup(null)}
           onNoThanks={() => setActivePopup(null)}
           onAction={() => {
-            console.log('Custom no thanks popup action clicked');
             setActivePopup(null);
           }}
         />

@@ -42,9 +42,9 @@ export default async function HomePageDataExample() {
       <Popup 
         content={homePageData.popupContent}
         isVisible={!!homePageData.popupContent}
-        onClose={() => console.log('Popup closed')}
-        onNoThanks={() => console.log('No thanks clicked')}
-        onAction={() => console.log('Action clicked')}
+        onClose={() => {}}
+        onNoThanks={() => {}}
+        onAction={() => {}}
       />
     </div>
   );

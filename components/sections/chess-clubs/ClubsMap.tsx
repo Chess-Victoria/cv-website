@@ -20,21 +20,11 @@ export default function ClubsMap({ clubs }: ClubsMapProps) {
   const clubsWithCoords = useMemo(() => {
     return clubs.filter(club => {
       const hasCoords = club.location?.lat && club.location?.lon
-      if (!hasCoords) {
-        console.log(`Club "${club.name}" missing coordinates:`, club.location)
-      }
       return hasCoords
     })
   }, [clubs])
 
-  console.log('Total clubs:', clubs.length)
-  console.log('Clubs with coordinates:', clubsWithCoords.length)
-  console.log('Clubs with coordinates data:', clubsWithCoords.map(club => ({
-    name: club.name,
-    lat: club.location?.lat,
-    lon: club.location?.lon,
-    address: club.location?.address
-  })))
+  // Debug logs removed for production
 
   // Calculate bounds to fit all markers
   const bounds = useMemo(() => {

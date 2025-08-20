@@ -19,7 +19,7 @@ export interface Player {
 async function downloadACFZipFile(): Promise<string> {
   try {
     // First, fetch the ACF ratings page to find the current vegamast.zip link
-    console.log('Fetching ACF ratings page to find current download link...');
+    // Fetch ACF ratings page to find current download link
     
     const ratingsPageResponse = await fetch('https://auschess.org.au/rating-lists/', {
       next: { revalidate: getRevalidationTime('ACF_RATINGS') || 86400 * 30 }
@@ -43,8 +43,7 @@ async function downloadACFZipFile(): Promise<string> {
     const relativeUrl = matches[0][1];
     const zipUrl = relativeUrl.startsWith('http') ? relativeUrl : `https://auschess.org.au${relativeUrl}`;
     
-    console.log(`Found vegamast.zip link: ${zipUrl}`);
-    console.log(`Downloading ACF ratings from: ${zipUrl}`);
+    // Proceed to download zip data
     
     // Download the zip file
     const zipResponse = await fetch(zipUrl, {
@@ -59,7 +58,7 @@ async function downloadACFZipFile(): Promise<string> {
     const zipBuffer = await zipResponse.arrayBuffer();
     const base64String = Buffer.from(zipBuffer).toString('base64');
     
-    console.log(`Downloaded zip file: ${zipBuffer.byteLength} bytes, base64 length: ${base64String.length}`);
+    // Zip file downloaded and converted to base64
     
     return base64String;
   } catch (error) {
@@ -79,10 +78,6 @@ function parseACFDataFromBase64(base64String: string): Player[] {
     
     // Get all entries in the zip file
     const entries = zip.getEntries();
-    console.log(`Found ${entries.length} files in the zip:`);
-    entries.forEach((entry: any) => {
-      console.log(`- ${entry.entryName}`);
-    });
     
     // Try to find any file that might contain the data (not just .vega)
     let dataEntry = null;
@@ -107,18 +102,17 @@ function parseACFDataFromBase64(base64String: string): Player[] {
       throw new Error('No data file found in the zip');
     }
     
-    console.log(`Using file: ${dataEntry.entryName}`);
+    // Use the first matching data file
     
     // Get the file content
     const fileContent = dataEntry.getData().toString('utf8');
     
-    console.log('Successfully extracted ACF data, parsing content...');
-    console.log(`File content preview (first 200 chars): ${fileContent.substring(0, 200)}`);
+    // Extracted ACF data, parsing content
     
     // Parse the content - try different line endings
     const lines = fileContent.split(/\r?\n/).filter((line: string) => line.trim());
     
-    console.log(`Found ${lines.length} lines of data`);
+    // Parsed lines count ready
     
     const currentYear = new Date().getFullYear();
 
@@ -154,11 +148,10 @@ function parseACFDataFromBase64(base64String: string): Player[] {
       return null;
     }).filter((player: Player | null): player is Player => player !== null);
 
-    console.log(`Successfully parsed ${allPlayers.length} total players from ACF data`);
+    // Parsed players count
 
     // Filter only VIC players to reduce cache size
     const vicPlayers = allPlayers.filter(player => player.state === 'VIC');
-    console.log(`Filtered to ${vicPlayers.length} VIC players`);
 
     // Sort by national rating (descending) - highest rating first
     return vicPlayers.sort((a: Player, b: Player) => b.nationalRating - a.nationalRating);

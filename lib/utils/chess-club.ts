@@ -25,29 +25,12 @@ export const getAllChessClubs = unstable_cache(
  */
 export const getChessClubData = unstable_cache(
   async (slug: string) => {
-    console.log(`🔍 Fetching chess club data for slug: ${slug}`);
-    
     const response = await getEntryBySlug('clubDetail', slug);
-    
-    console.log(`📥 Raw Contentful response:`, response);
-    console.log(`📥 Response type:`, typeof response);
-    console.log(`📥 Response fields:`, response?.fields);
-    
     if (!response) {
-      console.log(`❌ No response found for slug: ${slug}`);
       return null;
     }
 
     const mappedData = mapChessClubToData(response as unknown as ChessClub);
-    console.log(`🗺️ Mapped chess club data:`, mappedData);
-    console.log(`🗺️ Content field:`, mappedData?.content);
-    console.log(`🗺️ QuickIntro field:`, mappedData?.quickIntro);
-    console.log(`🧭 currentEvents title:`, mappedData?.currentEvents?.title);
-    console.log(`🧭 currentEvents events length:`, mappedData?.currentEvents?.events?.length ?? 0);
-    if (mappedData?.currentEvents?.events) {
-      console.log(`🧭 currentEvents event names:`, mappedData.currentEvents.events.map(e => e?.name));
-    }
-    
     return mappedData;
   },
   ['chess-club-data'],
@@ -61,13 +44,6 @@ export const getChessClubData = unstable_cache(
  * Map Contentful chess club entry to component data
  */
 function mapChessClubToData(club: ChessClub): ChessClubData {
-  console.log(`🗺️ Mapping chess club: ${club.fields.name}`);
-  console.log(`🗺️ Raw content field:`, club.fields.content);
-  console.log(`🗺️ Raw content type:`, typeof club.fields.content);
-  console.log(`🗺️ Raw quickIntro field:`, club.fields.quickIntro);
-  console.log(`🗺️ Raw quickIntro type:`, typeof club.fields.quickIntro);
-  console.log(`🧭 Raw currentEvents:`, (club as any)?.fields?.currentEvents);
-  
   const clubData: ChessClubData = {
     id: club.sys.id,
     slug: club.fields.slug,
@@ -83,11 +59,6 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
     currentEvents: undefined,
     images: []
   };
-
-  console.log(`🗺️ Mapped content:`, clubData.content);
-  console.log(`🗺️ Mapped content type:`, typeof clubData.content);
-  console.log(`🗺️ Mapped quickIntro:`, clubData.quickIntro);
-  console.log(`🗺️ Mapped quickIntro type:`, typeof clubData.quickIntro);
 
   // Map contact information
   if (club.fields.contact && typeof club.fields.contact === 'object' && 'fields' in club.fields.contact) {
@@ -107,14 +78,6 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
   if (club.fields.currentEvents && typeof club.fields.currentEvents === 'object' && 'fields' in club.fields.currentEvents) {
     const eventsList = club.fields.currentEvents as any;
     const events = eventsList.fields.events || [];
-    console.log(`🧭 Raw currentEvents name:`, eventsList.fields?.name, `slug:`, eventsList.fields?.slug);
-    console.log(`🧭 Raw events array length:`, Array.isArray(events) ? events.length : 0);
-    if (Array.isArray(events)) {
-      events.forEach((evt: any, idx: number) => {
-        const hasFields = evt && typeof evt === 'object' && 'fields' in evt;
-        console.log(`🧭 Event[${idx}] has fields:`, hasFields, hasFields ? evt.fields?.name : evt?.sys);
-      });
-    }
     
     clubData.currentEvents = {
       title: eventsList.fields.name || '',

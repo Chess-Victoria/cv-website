@@ -42,9 +42,9 @@ export default async function SimpleContentfulExample() {
       <Popup 
         content={popupContent}
         isVisible={!!popupContent}
-        onClose={() => console.log('Popup closed')}
-        onNoThanks={() => console.log('No thanks clicked')}
-        onAction={() => console.log('Action clicked')}
+        onClose={() => {}}
+        onNoThanks={() => {}}
+        onAction={() => {}}
       />
     </div>
   );
