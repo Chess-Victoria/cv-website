@@ -184,7 +184,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/news">News & Update <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/news/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
+													<li><Link href="/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
 													<li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
 													<li><Link href="/news/category/victorian-championship-news/page-1">Victorian Champions News</Link></li>
 												</ul>

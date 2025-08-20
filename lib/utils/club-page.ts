@@ -1,4 +1,4 @@
-import { getSingleEntry } from '@/lib/contentful';
+import { getEntryBySlug, getSingleEntry } from '@/lib/contentful';
 import { ClubPage, ClubPageData, ClubListItem } from '@/lib/types/club-page';
 
 /**
@@ -56,9 +56,9 @@ function extractAddressFromQuickIntro(quickIntro: any): string | undefined {
 /**
  * Fetch club page data from Contentful
  */
-export async function getClubPageData(): Promise<ClubPageData | null> {
+export async function getClubPageData(slug: string): Promise<ClubPageData | null> {
   try {
-    const clubPage = await getSingleEntry('clubPage', 4);
+    const clubPage = await getEntryBySlug('clubPage', slug, 4);
     
     if (!clubPage) {
       return null;

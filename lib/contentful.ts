@@ -24,11 +24,11 @@ export async function getSingleEntry(contentType: string, include: 0 | 1 | 2 | 3
   return entries.items[0] || null;
 }
 
-export async function getEntryBySlug(contentType: string, slug: string) {
+export async function getEntryBySlug(contentType: string, slug: string,  include: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 = 3) {
   const entries = await client.getEntries({
     content_type: contentType,
     'fields.slug': slug,
-    include: 3,
+    include,
   });
   return entries.items[0] || null;
 }

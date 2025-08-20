@@ -14,11 +14,11 @@ import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 // Cache the data fetching with tags for revalidation
 const getCachedClubPageData = unstable_cache(
   async () => {
-    return await getClubPageData("chess-club-in-victoria");
+    return await getClubPageData("other-chess-associations");
   },
   ['chess-clubs-data'],
   {
-    tags: ['chess-clubs', 'clubDetail'],
+    tags: ['chess-assocition', 'clubDetail'],
     revalidate: getRevalidationTime('CLUB_PAGE')
   }
 );
@@ -49,11 +49,11 @@ export default async function ChessClubsPage() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeadContent
-            title="Chess Clubs in Victoria"
+            title="Other Chess Associations"
             backgroundImage="/assets/img/bg/header-bg10.png"
             breadcrumbs={[
               { name: "Home", link: "/" },
-              { name: "Chess Clubs", link: "/chess-clubs" }
+              { name: "Other Chess Associations", link: "/chess-clubs/other-chess-associations" }
             ]}
           />
 
