@@ -17,10 +17,12 @@ interface SearchResponse {
   results: SearchResult[];
   total: number;
   query: string;
+  type?: string | null;
 }
 
 interface SearchResultsProps {
   query: string;
+  type?: string;
 }
 
 const getTypeIcon = (type: string) => {
@@ -70,7 +72,7 @@ const formatDate = (dateString?: string) => {
   }
 };
 
-export default function SearchResults({ query }: SearchResultsProps) {
+export default function SearchResults({ query, type }: SearchResultsProps) {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -87,13 +89,17 @@ export default function SearchResults({ query }: SearchResultsProps) {
       setError(null);
 
       try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`);
+        const searchUrl = type 
+          ? `/api/search?q=${encodeURIComponent(query.trim())}&type=${encodeURIComponent(type)}`
+          : `/api/search?q=${encodeURIComponent(query.trim())}`;
+        const response = await fetch(searchUrl);
         const data: SearchResponse = await response.json();
 
         if (response.ok) {
           setResults(data.results);
           if (data.results.length === 0) {
-            setError(`No results found for "${query}"`);
+            const typeLabel = type ? getTypeLabel(type) : 'content';
+            setError(`No ${typeLabel.toLowerCase()} found for "${query}"`);
           }
         } else {
           setError('Search failed. Please try again.');
@@ -131,21 +137,45 @@ export default function SearchResults({ query }: SearchResultsProps) {
           <div className="mt-4">
             <p>Try searching for different keywords or browse our content:</p>
             <div className="space24" />
-            <div className="btn-area1">
-              <Link href="/news" className="vl-btn1">Browse News</Link>
-            </div>
-            <div className="space16" />
-            <div className="btn-area1">
-              <Link href="/events" className="vl-btn1">Browse Events</Link>
-            </div>
-            <div className="space16" />
-            <div className="btn-area1">
-              <Link href="/chess-clubs" className="vl-btn1">Browse Clubs</Link>
-            </div>
-            <div className="space16" />
-            <div className="btn-area1">
-              <Link href="/committees" className="vl-btn1">Browse Committees</Link>
-            </div>
+            {!type && (
+              <>
+                <div className="btn-area1">
+                  <Link href="/news" className="vl-btn1">Browse News</Link>
+                </div>
+                <div className="space16" />
+                <div className="btn-area1">
+                  <Link href="/events" className="vl-btn1">Browse Events</Link>
+                </div>
+                <div className="space16" />
+                <div className="btn-area1">
+                  <Link href="/chess-clubs" className="vl-btn1">Browse Clubs</Link>
+                </div>
+                <div className="space16" />
+                <div className="btn-area1">
+                  <Link href="/committees" className="vl-btn1">Browse Committees</Link>
+                </div>
+              </>
+            )}
+            {type === 'news' && (
+              <div className="btn-area1">
+                <Link href="/news" className="vl-btn1">Browse All News</Link>
+              </div>
+            )}
+            {type === 'event' && (
+              <div className="btn-area1">
+                <Link href="/events" className="vl-btn1">Browse All Events</Link>
+              </div>
+            )}
+            {type === 'chess-club' && (
+              <div className="btn-area1">
+                <Link href="/chess-clubs" className="vl-btn1">Browse All Clubs</Link>
+              </div>
+            )}
+            {type === 'committee-member' && (
+              <div className="btn-area1">
+                <Link href="/committees" className="vl-btn1">Browse All Committees</Link>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -156,7 +186,10 @@ export default function SearchResults({ query }: SearchResultsProps) {
     <div className="search-results">
       {results.length > 0 && (
         <div className="mb-4">
-          <h3>Found {results.length} result{results.length !== 1 ? 's' : ''} for "{query}"</h3>
+          <h3>
+            Found {results.length} {type ? getTypeLabel(type).toLowerCase() : 'result'}{results.length !== 1 ? 's' : ''} for "{query}"
+            {type && <span className="badge bg-primary ms-2">{getTypeLabel(type)}</span>}
+          </h3>
         </div>
       )}
 
@@ -209,21 +242,45 @@ export default function SearchResults({ query }: SearchResultsProps) {
             Can't find what you're looking for? Try different keywords or browse our content.
           </p>
           <div className="space24" />
-          <div className="btn-area1">
-            <Link href="/news" className="vl-btn1">Browse News</Link>
-          </div>
-          <div className="space16" />
-          <div className="btn-area1">
-            <Link href="/events" className="vl-btn1">Browse Events</Link>
-          </div>
-          <div className="space16" />
-          <div className="btn-area1">
-            <Link href="/chess-clubs" className="vl-btn1">Browse Clubs</Link>
-          </div>
-          <div className="space16" />
-          <div className="btn-area1">
-            <Link href="/committees" className="vl-btn1">Browse Committees</Link>
-          </div>
+          {!type && (
+            <>
+              <div className="btn-area1">
+                <Link href="/news" className="vl-btn1">Browse News</Link>
+              </div>
+              <div className="space16" />
+              <div className="btn-area1">
+                <Link href="/events" className="vl-btn1">Browse Events</Link>
+              </div>
+              <div className="space16" />
+              <div className="btn-area1">
+                <Link href="/chess-clubs" className="vl-btn1">Browse Clubs</Link>
+              </div>
+              <div className="space16" />
+              <div className="btn-area1">
+                <Link href="/committees" className="vl-btn1">Browse Committees</Link>
+              </div>
+            </>
+          )}
+          {type === 'news' && (
+            <div className="btn-area1">
+              <Link href="/news" className="vl-btn1">Browse All News</Link>
+            </div>
+          )}
+          {type === 'event' && (
+            <div className="btn-area1">
+              <Link href="/events" className="vl-btn1">Browse All Events</Link>
+            </div>
+          )}
+          {type === 'chess-club' && (
+            <div className="btn-area1">
+              <Link href="/chess-clubs" className="vl-btn1">Browse All Clubs</Link>
+            </div>
+          )}
+          {type === 'committee-member' && (
+            <div className="btn-area1">
+              <Link href="/committees" className="vl-btn1">Browse All Committees</Link>
+            </div>
+          )}
         </div>
       )}
     </div>

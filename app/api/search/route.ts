@@ -157,6 +157,7 @@ const searchContentful = unstable_cache(
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get('q');
+  const type = searchParams.get('type');
 
   if (!query || query.trim().length < 2) {
     return NextResponse.json({ results: [], total: 0, query: query || '' });
@@ -165,10 +166,17 @@ export async function GET(request: NextRequest) {
   try {
     const results = await searchContentful(query.trim());
     
+    // Filter results by type if specified
+    let filteredResults = results;
+    if (type) {
+      filteredResults = results.filter(result => result.type === type);
+    }
+    
     return NextResponse.json({
-      results,
-      total: results.length,
-      query: query.trim()
+      results: filteredResults,
+      total: filteredResults.length,
+      query: query.trim(),
+      type: type || null
     });
   } catch (error) {
     console.error('Search API error:', error);

@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 import PageHeadContent from '@/components/elements/PageHeadContent'
+import NewsSearchForm from '@/components/elements/NewsSearchForm'
 import { getRevalidationTime } from '@/lib/config'
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -152,14 +153,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
               <div className="col-lg-4">
                 <div className="space30 d-lg-none d-block" />
                 <div className="blog-auhtor-details">
-                  <div className="search-area">
-                    <h3>Search</h3>
-                    <div className="space24" />
-                    <form>
-                      <input type="text" placeholder="Search..." />
-                      <button type="submit"><i className="fa-solid fa-magnifying-glass" /></button>
-                    </form>
-                  </div>
+                  <NewsSearchForm />
                   <div className="space32" />
                   <div className="blog-categories">
                     <h3>News Category</h3>
