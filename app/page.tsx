@@ -5,7 +5,6 @@ import WelcomeBlock from '@/components/sections/home1/WelcomeBlock'
 import EventList from '@/components/sections/home1/EventList'
 import CommitteeList from '@/components/sections/home1/CommitteeList'
 import ReferenceList from '@/components/sections/home1/ReferenceList'
-import Section5 from '@/components/sections/home1/section5'
 import GalleryImageCarousel from '@/components/sections/home1/GalleryImageCarousel'
 import NewsUpdate from '@/components/sections/home1/NewsUpdate'
 import { getHomePageData } from './home.data'
@@ -29,7 +28,6 @@ export default async function Home() {
 				)}
 				{homePageData.eventList && <EventList data={homePageData.eventList} />}
 				{homePageData.committeeList && <CommitteeList data={homePageData.committeeList} />}
-				<Section5 />
 				{homePageData.featuredGallery?.images?.length ? (
 					<GalleryImageCarousel
 						title={homePageData.featuredGallery.title}
