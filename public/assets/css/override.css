@@ -89,3 +89,7 @@
 	max-width: 100%;
 	word-wrap: break-word;
 }
+
+.hero1-section-area {
+	background-image: url(../img/bg/header-bg1-new.png);
+  }
