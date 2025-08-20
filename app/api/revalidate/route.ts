@@ -53,7 +53,10 @@ export async function POST(request: NextRequest) {
       case 'clubPage':
         // Revalidate chess clubs pages
         revalidatePath('/chess-clubs');
+        revalidatePath('/chess-clubs/other-chess-associations');
         revalidateTag('chess-clubs');
+        revalidateTag('chess-association');
+        revalidateTag('club-page');
         break;
 
       case 'clubDetail':

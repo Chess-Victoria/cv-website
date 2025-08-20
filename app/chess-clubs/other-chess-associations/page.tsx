@@ -18,7 +18,7 @@ const getCachedClubPageData = unstable_cache(
   },
   ['chess-clubs-data'],
   {
-    tags: ['chess-assocition', 'clubDetail'],
+    tags: ['chess-association', 'club-page', 'chess-clubs'],
     revalidate: getRevalidationTime('CLUB_PAGE')
   }
 );
