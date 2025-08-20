@@ -5,7 +5,7 @@ import Paginator from "@/components/elements/Paginator";
 import PageHeadContent from '@/components/elements/PageHeadContent';
 
 // Static revalidation for Next.js 15
-export const revalidate = 3600; // 1 hour
+export const revalidate = 86400; // 24 hours
 
 interface TagPageProps { 
   params: Promise<{ tag: string; page: string }> 

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: 'Find answers to common questions about Chess Victoria events, registration, and more.',
 }
 
+export const revalidate = 604800; // 7 days
+
 export default async function FAQPage() {
   const faqData = await getFAQData()
 

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: 'Browse and download important documents and resources from Chess Victoria',
 };
 
+export const revalidate = 604800; // 7 days
+
 async function getDocumentLinks() {
   try {
     const entries = await getEntries('documentLink');

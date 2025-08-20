@@ -8,7 +8,7 @@ import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getAboutPageData } from '@/lib/utils/about-page'
 import AboutContent from '@/components/sections/about/AboutContent'
 
-export const revalidate = 3600 // 1 hour
+export const revalidate = 604800 // 7 days
 
 export default async function About() {
   const aboutPageData = await getAboutPageData()

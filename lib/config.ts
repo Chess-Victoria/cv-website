@@ -4,22 +4,22 @@
 
 // Revalidation settings
 export const REVALIDATION_CONFIG = {
-  // Default revalidation time in seconds (1 hour)
-  DEFAULT: parseInt(process.env.REVALIDATE_DEFAULT || '3600'),
+  // Default revalidation time in seconds (24 hours)
+  DEFAULT: parseInt(process.env.REVALIDATE_DEFAULT || '86400'),
   
   // Development revalidation time in seconds (10 seconds for quick updates)
   DEVELOPMENT: parseInt(process.env.REVALIDATE_DEVELOPMENT || '10'),
   
   // Specific content type revalidation times
-  HOMEPAGE: parseInt(process.env.REVALIDATE_HOMEPAGE || '3600'),
-  CHESS_CLUB: parseInt(process.env.REVALIDATE_CHESS_CLUB || '3600'),
-  COMMITTEE: parseInt(process.env.REVALIDATE_COMMITTEE || '3600'),
-  FAQ: parseInt(process.env.REVALIDATE_FAQ || '3600'),
-  CHAMPION: parseInt(process.env.REVALIDATE_CHAMPION || '3600'),
-  CLUB_PAGE: parseInt(process.env.REVALIDATE_CLUB_PAGE || '3600'),
-  EVENT: parseInt(process.env.REVALIDATE_EVENT || '3600'),
-  IMAGE_GALLERY: parseInt(process.env.REVALIDATE_IMAGE_GALLERY || '3600'),
-  POST: parseInt(process.env.REVALIDATE_POST || '3600'),
+  HOMEPAGE: parseInt(process.env.REVALIDATE_HOMEPAGE || '86400'), // 24 hours
+  CHESS_CLUB: parseInt(process.env.REVALIDATE_CHESS_CLUB || '604800'), // 7 days
+  COMMITTEE: parseInt(process.env.REVALIDATE_COMMITTEE || '604800'), // 7 days
+  FAQ: parseInt(process.env.REVALIDATE_FAQ || '604800'), // 7 days
+  CHAMPION: parseInt(process.env.REVALIDATE_CHAMPION || '604800'), // 7 days
+  CLUB_PAGE: parseInt(process.env.REVALIDATE_CLUB_PAGE || '604800'), // 7 days
+  EVENT: parseInt(process.env.REVALIDATE_EVENT || '86400'), // 24 hours (events change more frequently)
+  IMAGE_GALLERY: parseInt(process.env.REVALIDATE_IMAGE_GALLERY || '604800'), // 7 days
+  POST: parseInt(process.env.REVALIDATE_POST || '86400'), // 24 hours (news posts change more frequently)
   ACF_RATINGS: parseInt(process.env.REVALIDATE_ACF_RATINGS || '2592000'), // 30 days default
 } as const;
 

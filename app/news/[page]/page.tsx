@@ -4,7 +4,7 @@ import { getPostsPageData } from "@/lib/utils/posts";
 import PageHeadContent from '@/components/elements/PageHeadContent';
 
 // Static revalidation for Next.js 15
-export const revalidate = 3600; // 1 hour
+export const revalidate = 86400; // 24 hours
 
 interface NewsPageProps {
   params: Promise<{ page: string }>;

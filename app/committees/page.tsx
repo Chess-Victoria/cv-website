@@ -5,6 +5,8 @@ import CommitteeList from "@/components/sections/committee/CommitteeList"
 import { getCommitteePageData } from "@/lib/utils/committee"
 import PageHeadContent from '@/components/elements/PageHeadContent'
 
+export const revalidate = 604800; // 7 days
+
 export default async function CommitteesPage() {
   // Fetch committee data from Contentful
   const committeeLists = await getCommitteePageData();

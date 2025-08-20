@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
 // Static revalidation for Next.js 15
-export const revalidate = 3600; // 1 hour
+export const revalidate = 604800; // 7 days
 
 interface GalleryPageProps {
   params: Promise<{

@@ -6,7 +6,7 @@ import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
 
 // Static revalidation for Next.js 15
-export const revalidate = 3600; // 1 hour
+export const revalidate = 604800; // 7 days
 
 export default async function Memories({ searchParams }: { searchParams?: Promise<{ page?: string; per?: string }> }) {
   const searchParamsData = await searchParams;

@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
 import type { Metadata } from 'next';
 // ISR
-export const revalidate = 600;
+export const revalidate = 86400; // 24 hours
 
 interface NewsReadPageProps {
   params: Promise<{ slug: string }>;
