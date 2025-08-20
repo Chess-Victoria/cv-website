@@ -71,7 +71,7 @@ export default function SiteFooter() {
 									)}
 									{SITE_CONFIG.websiteUrl && (
 										<li>
-											<Link href={"//" + SITE_CONFIG.websiteUrl} target="_blank"> <img src="/assets/img/icons/world1.svg" alt="" />{SITE_CONFIG.websiteUrl}</Link>
+											<Link href={SITE_CONFIG.websiteUrl} target="_blank"> <img src="/assets/img/icons/world1.svg" alt="" />{SITE_CONFIG.websiteUrl}</Link>
 										</li>
 									)}
 								</ul>

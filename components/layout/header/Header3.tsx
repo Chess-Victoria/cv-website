@@ -16,7 +16,7 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, isSear
 												<Link href="/mailto:Chess Victoriaconference@.com"><img src="/assets/img/icons/mail1.svg" alt="" />Chess Victoriaconference@.com <span> | </span></Link>
 											</li>
 											<li>
-												<Link href="/tel:(234)345-4574"><img src="/assets/img/icons/phn1.svg" alt="" />(234) 345-4574</Link>
+												<Link href="tel:(234)345-4574"><img src="/assets/img/icons/phn1.svg" alt="" />(234) 345-4574</Link>
 											</li>
 										</ul>
 									</div>

@@ -3,6 +3,24 @@ import { getEntries } from '@/lib/contentful';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
 
+/**
+ * Extract plain text from rich text content
+ */
+function extractTextFromRichText(content: any): string {
+  if (!content || !content.content) return '';
+  
+  const extractText = (items: any[]): string => {
+    return items.map(item => {
+      if (item.content) {
+        return extractText(item.content);
+      }
+      return item.value || '';
+    }).join(' ');
+  };
+  
+  return extractText(content.content);
+}
+
 interface SearchResult {
   id: string;
   title: string;
@@ -30,7 +48,12 @@ const searchContentful = unstable_cache(
           const role = String(entry.fields?.role || '').toLowerCase();
           const bio = String(entry.fields?.bio || '').toLowerCase();
           
-          const searchableText = `${title} ${name} ${description} ${summary} ${role} ${bio}`.toLowerCase();
+          // Extract text from rich text fields
+          const descriptionText = entry.fields?.description ? extractTextFromRichText(entry.fields.description) : '';
+          const summaryText = entry.fields?.summary ? extractTextFromRichText(entry.fields.summary) : '';
+          const bioText = entry.fields?.bio ? extractTextFromRichText(entry.fields.bio) : '';
+          
+          const searchableText = `${title} ${name} ${description} ${summary} ${role} ${bio} ${descriptionText} ${summaryText} ${bioText}`.toLowerCase();
           return searchableText.includes(searchTerm);
         }).map(mapper);
         
@@ -46,7 +69,7 @@ const searchContentful = unstable_cache(
       const newsResults = await searchContentType('post', (entry: any) => ({
         id: entry.sys.id,
         title: entry.fields.title || 'Untitled',
-        description: entry.fields.summary || '',
+        description: entry.fields.summary ? extractTextFromRichText(entry.fields.summary) : '',
         type: 'news' as const,
         slug: entry.fields.slug || '',
         url: `/news/read/${entry.fields.slug}`,
@@ -60,7 +83,8 @@ const searchContentful = unstable_cache(
         return {
           id: entry.sys.id,
           title: title,
-          description: entry.fields.description || entry.fields.summary || '',
+          description: entry.fields.description ? extractTextFromRichText(entry.fields.description) : 
+                     entry.fields.summary ? extractTextFromRichText(entry.fields.summary) : '',
           type: 'chess-club' as const,
           slug: entry.fields.slug || '',
           url: `/chess-clubs/${entry.fields.slug}`,
@@ -91,7 +115,8 @@ const searchContentful = unstable_cache(
         return {
           id: entry.sys.id,
           title: title,
-          description: entry.fields.description || entry.fields.summary || '',
+          description: entry.fields.description ? extractTextFromRichText(entry.fields.description) : 
+                     entry.fields.summary ? extractTextFromRichText(entry.fields.summary) : '',
           type: 'event' as const,
           slug: slug,
           url: slug ? `/event/${slug}` : '#',
@@ -104,7 +129,7 @@ const searchContentful = unstable_cache(
         return {
           id: entry.sys.id,
           title: entry.fields.title || 'Untitled Page',
-          description: entry.fields.summary || '',
+          description: entry.fields.summary ? extractTextFromRichText(entry.fields.summary) : '',
           type: 'page' as const,
           slug: entry.fields.slug || '',
           url: entry.fields.slug ? `/pages/${entry.fields.slug}` : '#',

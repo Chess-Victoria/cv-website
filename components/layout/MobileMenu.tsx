@@ -94,7 +94,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					</ul>
 
 					<div className="allmobilesection">
-						<Link href="//contact" className="vl-btn1">Contact Now</Link>
+						<Link href="/contact" className="vl-btn1">Contact Now</Link>
 						<div className="single-footer">
 							<h3>Contact Info</h3>
 							<div className="footer1-contact-info">
@@ -103,7 +103,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 										<span><i className="fa-solid fa-phone-volume" /></span>
 									</div>
 									<div className="contact-info-text">
-										<Link href="//tel:+3(924)4596512">+3(924)4596512</Link>
+										<Link href="tel:+3(924)4596512">+3(924)4596512</Link>
 									</div>
 								</div>
 								<div className="contact-info-single">
@@ -111,7 +111,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 										<span><i className="fa-solid fa-envelope" /></span>
 									</div>
 									<div className="contact-info-text">
-										<Link href="//mailto:info@example.com">info@example.com</Link>
+										<Link href="mailto:info@example.com">info@example.com</Link>
 									</div>
 								</div>
 								<div className="single-footer">
@@ -121,7 +121,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 											<span><i className="fa-solid fa-location-dot" /></span>
 										</div>
 										<div className="contact-info-text">
-											<Link href="//mailto:info@example.com">55 East Birchwood Ave.Brooklyn, <br />
+											<Link href="mailto:info@example.com">55 East Birchwood Ave.Brooklyn, <br />
 												New York 11201,United States</Link>
 										</div>
 									</div>
@@ -131,16 +131,16 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 									<div className="social-links-mobile-menu">
 										<ul>
 											<li>
-												<Link href="//#"><i className="fa-brands fa-facebook-f" /></Link>
+												<Link href="#"><i className="fa-brands fa-facebook-f" /></Link>
 											</li>
 											<li>
-												<Link href="//#"><i className="fa-brands fa-instagram" /></Link>
+												<Link href="#"><i className="fa-brands fa-instagram" /></Link>
 											</li>
 											<li>
-												<Link href="//#"><i className="fa-brands fa-linkedin-in" /></Link>
+												<Link href="#"><i className="fa-brands fa-linkedin-in" /></Link>
 											</li>
 											<li>
-												<Link href="//#"><i className="fa-brands fa-youtube" /></Link>
+												<Link href="#"><i className="fa-brands fa-youtube" /></Link>
 											</li>
 										</ul>
 									</div>
