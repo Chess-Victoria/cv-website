@@ -2,35 +2,7 @@ import { HeroBannerData } from '@/components/sections/home1/HeroBanner';
 import { renderRichText } from '@/lib/utils/rich-text';
 import { formatEventDateTime } from '@/lib/utils/date-formatter';
 
-// Fallback hero banner data
-export const fallbackHeroBannerData: HeroBannerData = {
-  tagline: {
-    icon: "/assets/img/icons/sub-logo1.svg",
-    text: "Lead Purpose, Innovate with Passion"
-  },
-  title: "Business Forward 2025 Strategies \nfor a New Era",
-  description: "Welcome Innovate 2025 Shaping the Future of Business, \nwhere industry leaders, innovators, and visionaries come.",
-  buttons: {
-    primary: {
-      text: "Reserve My Seat",
-      url: "/event-schedule"
-    },
-    secondary: {
-      text: "Learn More",
-      url: "/about"
-    }
-  },
-  eventInfo: {
-    title: "THE INNOVATION SUMMIT",
-    date: "January 15-16, 2025",
-    location: "CITY CENTER CONVENTION CENTER, NEW YORK CITY",
-    description: "Join us for an extraordinary two-day journey into the realm of innovation at The Innovation Summit."
-  },
-  backgroundImage: "/assets/img/bg/header-bg2.png",
-  heroImage: "/assets/img/all-images/hero/hero-img1.png",
-  showCountdown: true,
-  eventDateTime: undefined
-};
+// Removed hardcoded fallback hero banner data for production cleanliness
 
 import { PromotionBanner } from '@/lib/types/promotion-banner';
 
@@ -42,35 +14,46 @@ export function mapHeroBannerData(homePageFields: any): HeroBannerData {
   const hasHeroData = homePageFields.heroTitle || homePageFields.heroTagline;
   
   if (!hasHeroData) {
-    return fallbackHeroBannerData;
+    // Return minimal empty-safe structure to avoid render errors
+    return {
+      tagline: { icon: "/assets/img/icons/sub-logo1.svg", text: "" },
+      title: "",
+      description: "",
+      buttons: { primary: { text: "", url: "#" }, secondary: { text: "", url: "#" } },
+      eventInfo: { title: "", date: "", location: "", description: "" },
+      backgroundImage: "/assets/img/bg/header-bg2.png",
+      heroImage: "/assets/img/all-images/hero/hero-img1.png",
+      showCountdown: false,
+      eventDateTime: undefined
+    };
   }
 
   return {
     tagline: {
-      icon: homePageFields.heroTaglineIcon?.fields?.file?.url || fallbackHeroBannerData.tagline.icon,
-      text: homePageFields.heroTagline || fallbackHeroBannerData.tagline.text
+      icon: homePageFields.heroTaglineIcon?.fields?.file?.url || "/assets/img/icons/sub-logo1.svg",
+      text: homePageFields.heroTagline || ""
     },
-    title: homePageFields.heroTitle || fallbackHeroBannerData.title,
-    description: homePageFields.heroDescription || fallbackHeroBannerData.description,
+    title: homePageFields.heroTitle || "",
+    description: homePageFields.heroDescription || "",
     buttons: {
       primary: {
-        text: homePageFields.heroPrimaryButtonText || fallbackHeroBannerData.buttons.primary.text,
-        url: homePageFields.heroPrimaryButtonUrl || fallbackHeroBannerData.buttons.primary.url
+        text: homePageFields.heroPrimaryButtonText || "",
+        url: homePageFields.heroPrimaryButtonUrl || "#"
       },
       secondary: {
-        text: homePageFields.heroSecondaryButtonText || fallbackHeroBannerData.buttons.secondary.text,
-        url: homePageFields.heroSecondaryButtonUrl || fallbackHeroBannerData.buttons.secondary.url
+        text: homePageFields.heroSecondaryButtonText || "",
+        url: homePageFields.heroSecondaryButtonUrl || "#"
       }
     },
     eventInfo: {
-      title: homePageFields.heroEventTitle || fallbackHeroBannerData.eventInfo.title,
-      date: homePageFields.heroEventDate || fallbackHeroBannerData.eventInfo.date,
-      location: homePageFields.heroEventLocation || fallbackHeroBannerData.eventInfo.location,
-      description: homePageFields.heroEventDescription || fallbackHeroBannerData.eventInfo.description
+      title: homePageFields.heroEventTitle || "",
+      date: homePageFields.heroEventDate || "",
+      location: homePageFields.heroEventLocation || "",
+      description: homePageFields.heroEventDescription || ""
     },
-    backgroundImage: homePageFields.heroBackgroundImage?.fields?.file?.url || fallbackHeroBannerData.backgroundImage,
-    heroImage: homePageFields.heroImage?.fields?.file?.url || fallbackHeroBannerData.heroImage,
-    showCountdown: homePageFields.heroShowCountdown !== undefined ? homePageFields.heroShowCountdown : fallbackHeroBannerData.showCountdown
+    backgroundImage: homePageFields.heroBackgroundImage?.fields?.file?.url || "/assets/img/bg/header-bg2.png",
+    heroImage: homePageFields.heroImage?.fields?.file?.url || "/assets/img/all-images/hero/hero-img1.png",
+    showCountdown: homePageFields.heroShowCountdown !== undefined ? homePageFields.heroShowCountdown : false
   };
 }
 
@@ -81,30 +64,30 @@ export function mapPromotionBannerToHeroBannerData(promotionBanner: PromotionBan
 
   return {
     tagline: {
-      icon: "/assets/img/icons/sub-logo1.svg", //promotionBanner.image?.fields?.file?.url || fallbackHeroBannerData.tagline.icon,
-      text: promotionBanner.subTitle || fallbackHeroBannerData.tagline.text
+      icon: "/assets/img/icons/sub-logo1.svg",
+      text: promotionBanner.subTitle || ""
     },
-    title: promotionBanner.title || fallbackHeroBannerData.title,
-    description: promotionBanner.summary || fallbackHeroBannerData.description,
+    title: promotionBanner.title || "",
+    description: promotionBanner.summary || "",
     buttons: {
       primary: {
         text: "Learn More",
-        url: promotionBanner.url || fallbackHeroBannerData.buttons.primary.url
+        url: promotionBanner.url || "#"
       },
       secondary: {
         text: "Take Action",
-        url: promotionBanner.actionUrl || fallbackHeroBannerData.buttons.secondary.url
+        url: promotionBanner.actionUrl || "#"
       }
     },
           eventInfo: {
-        title: promotionBanner.event?.fields?.name || fallbackHeroBannerData.eventInfo.title,
-        date: promotionBanner.event?.fields?.datetime ? formatEventDateTime(promotionBanner.event.fields.datetime) : fallbackHeroBannerData.eventInfo.date,
-        location: promotionBanner.event?.fields?.location || fallbackHeroBannerData.eventInfo.location,
-        description: promotionBanner.event?.fields?.summary || fallbackHeroBannerData.eventInfo.description
+        title: promotionBanner.event?.fields?.name || "",
+        date: promotionBanner.event?.fields?.datetime ? formatEventDateTime(promotionBanner.event.fields.datetime) : "",
+        location: promotionBanner.event?.fields?.location || "",
+        description: promotionBanner.event?.fields?.summary || ""
       },
-          backgroundImage: promotionBanner.image?.fields?.file?.url || fallbackHeroBannerData.backgroundImage,
-      heroImage: promotionBanner.image?.fields?.file?.url || fallbackHeroBannerData.heroImage,
-      showCountdown: promotionBanner.event?.fields?.datetime ? true : fallbackHeroBannerData.showCountdown,
+          backgroundImage: promotionBanner.image?.fields?.file?.url || "/assets/img/bg/header-bg2.png",
+      heroImage: promotionBanner.image?.fields?.file?.url || "/assets/img/all-images/hero/hero-img1.png",
+      showCountdown: promotionBanner.event?.fields?.datetime ? true : false,
       eventDateTime: promotionBanner.event?.fields?.datetime || undefined
   };
 }

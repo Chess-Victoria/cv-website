@@ -12,7 +12,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 							<div className="col-lg-12">
 								<div className="header-elements">
 									<div className="site-logo">
-										<Link href="/"><img src={SITE_CONFIG.logo || '/assets/img/logo/cvlogo1.png'} alt="" width={150} /></Link>
+										<Link href="/"><img src={SITE_CONFIG.logo} alt="" width={150} /></Link>
 									</div>
 									<div className="main-menu">
 										<ul>
@@ -192,7 +192,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/news">Others<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-												<li><Link href="/galleries">Galleries</Link></li>
+													<li><Link href="/galleries">Galleries</Link></li>
 													<li><Link href="/faq">FAQ</Link></li>
 													<li><Link href="/documents">Documents</Link></li>
 													<li><Link href="/contact">Contact Us</Link></li>

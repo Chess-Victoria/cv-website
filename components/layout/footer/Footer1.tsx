@@ -10,7 +10,7 @@ export default function Footer1() {
 					<div className="row">
 						<div className="col-lg-3 col-md-6">
 							<div className="footer-logo-area">
-								<img src={SITE_CONFIG.logoBlack || '/assets/img/logo/cvlogo-black.png'} alt="" width={100} />
+								<img src={SITE_CONFIG.logoBlack} alt="" width={100} />
 								<div className="space16" />
 								<p>{SITE_CONFIG.footerText || ''}</p>
 								<div className="space24" />

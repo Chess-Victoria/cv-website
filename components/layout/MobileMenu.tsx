@@ -21,7 +21,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					<div className="col-12">
 						<div className="mobile-header-elements">
 							<div className="mobile-logo">
-								<Link href="/"><img src={SITE_CONFIG.logo || '/assets/img/logo/cvlogo1.png'} alt="" /></Link>
+								<Link href="/"><img src={SITE_CONFIG.logo} alt="" /></Link>
 							</div>
 							<div className="search-icon header__search header-search-btn" onClick={handleSearch}>
 								<a><img src="/assets/img/icons/search1.svg" alt="" /></a>
@@ -36,7 +36,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? 'mobile-menu-active' : ''}`}>
 				<div className="logosicon-area">
 					<div className="logos">
-						<img src={SITE_CONFIG.logoBlack || '/assets/img/logo/cvlogo1.png'} alt="" />
+						<img src={SITE_CONFIG.logoBlack} alt="" />
 					</div>
 					<div className="menu-close" onClick={handleMobileMenu}>
 						<i className="fa-solid fa-xmark" />

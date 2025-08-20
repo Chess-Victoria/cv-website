@@ -17,9 +17,11 @@ export default function NewsUpdate({ items }: { items: NewsItem[] }) {
   const renderCard = (item: NewsItem, aosDuration: number) => (
     <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={aosDuration} key={item.id}>
       <div className="blog1-auhtor-boxarea">
-        <div className="img1 image-anime">
-          <img src={item.imageUrl || '/assets/img/all-images/blog/blog-img1.png'} alt="" />
-        </div>
+        {item.imageUrl ? (
+          <div className="img1 image-anime">
+            <img src={item.imageUrl} alt="" />
+          </div>
+        ) : null}
         <div className="content-area">
           <ul>
             <li>

@@ -1,6 +1,6 @@
 import { getSingleEntry } from '@/lib/contentful';
 import { mapAnnouncementToPopupContent } from '@/lib/utils/announcement-mapper';
-import { mapPromotionBannerToHeroBannerData, fallbackHeroBannerData } from '@/lib/utils/hero-banner-mapper';
+import { mapPromotionBannerToHeroBannerData } from '@/lib/utils/hero-banner-mapper';
 import { mapEventListToEventListData } from '@/lib/utils/event-list-mapper';
 import { mapCommitteeListToCommitteeListData } from '@/lib/utils/committee-list-mapper';
 import { mapReferenceListToData } from '@/lib/utils/reference-list-mapper';
@@ -139,10 +139,7 @@ export const getHomePageData = unstable_cache(
         heroBanner = mapPromotionBannerToHeroBannerData(homePageFields.heroBanner.fields);
       }
 
-      // If no hero banner data, use fallback
-      if (!heroBanner) {
-        heroBanner = fallbackHeroBannerData;
-      }
+      // If no hero banner data, leave undefined (no hardcoded fallback)
 
       // WelcomeBlock reference (new content type)
       let welcomeBlock: WelcomeBlockData | undefined;

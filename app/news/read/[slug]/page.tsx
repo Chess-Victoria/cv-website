@@ -73,9 +73,11 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                 <div className="blog-deatils-content heading2">
                   <h2>{post.title}</h2>
                   <div className="space16" />
-                  <div className="img1">
-                    <img src={post.imageUrl || "/assets/img/all-images/blog/blog-img7.png"} alt="" />
-                  </div>
+                  {post.imageUrl ? (
+                    <div className="img1">
+                      <img src={post.imageUrl} alt="" />
+                    </div>
+                  ) : null}
                   <div className="space32" />
                   <ul>
                     <li>
@@ -193,12 +195,12 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                     <div className="space12" />
                     <ul>
                       {popularAuthors.slice(0, 4).map((a, i) => (
-                        <li key={i}><img src={a.imageUrl || '/assets/img/all-images/blog/blog-img11.png'} alt={a.name || ''} title={a.name} /></li>
+                        a.imageUrl ? <li key={i}><img src={a.imageUrl} alt={a.name || ''} title={a.name} /></li> : null
                       ))}
                     </ul>
                     <ul>
                       {popularAuthors.slice(4, 8).map((a, i) => (
-                        <li key={i}><img src={a.imageUrl || '/assets/img/all-images/blog/blog-img11.png'} alt={a.name || ''} title={a.name} /></li>
+                        a.imageUrl ? <li key={i}><img src={a.imageUrl} alt={a.name || ''} title={a.name} /></li> : null
                       ))}
                     </ul>
                   </div>
@@ -220,7 +222,9 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
               {related && related.length > 0 ? related.map((r, idx) => (
                 <div key={r.id || idx} className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (idx % 3) * 200}>
                   <div className="blog4-boxarea">
-                    <div className="img1"><img src={r.imageUrl || '/assets/img/all-images/blog/blog-img4.png'} alt="" /></div>
+                    {r.imageUrl ? (
+                      <div className="img1"><img src={r.imageUrl} alt="" /></div>
+                    ) : null}
                     <div className="content-area">
                       <ul>
                         <li><Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(r.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })}</Link></li>
