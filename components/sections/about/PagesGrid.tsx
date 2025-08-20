@@ -11,9 +11,12 @@ interface PageItem {
 
 interface PagesGridProps {
   pages?: PageItem[]
+  eyebrow?: string
+  heading?: string
+  ctaLabel?: string
 }
 
-export default function PagesGrid({ pages }: PagesGridProps) {
+export default function PagesGrid({ pages, eyebrow = 'Learn More', heading = 'Explore Our Content', ctaLabel = 'Read More' }: PagesGridProps) {
   // If no pages data, show a message
   if (!pages || pages.length === 0) {
     return (
@@ -22,9 +25,9 @@ export default function PagesGrid({ pages }: PagesGridProps) {
           <div className="row">
             <div className="col-lg-4 m-auto">
               <div className="heading2 text-center space-margin60">
-                <h5>Learn More</h5>
+                <h5>{eyebrow}</h5>
                 <div className="space18" />
-                <h2>Explore Our Content</h2>
+                <h2>{heading}</h2>
               </div>
             </div>
           </div>
@@ -41,14 +44,14 @@ export default function PagesGrid({ pages }: PagesGridProps) {
   }
 
   return (
-    <div className="choose-section-area sp2">
+    
       <div className="container">
         <div className="row">
           <div className="col-lg-4 m-auto">
             <div className="heading2 text-center space-margin60">
-              <h5>Learn More</h5>
+              <h5>{eyebrow}</h5>
               <div className="space18" />
-              <h2>Explore Our Content</h2>
+              <h2>{heading}</h2>
             </div>
           </div>
         </div>
@@ -73,7 +76,7 @@ export default function PagesGrid({ pages }: PagesGridProps) {
                     href={page.url || `/pages/${page.slug}` || '#'} 
                     className="readmore"
                   >
-                    Read More <i className="fa-solid fa-arrow-right" />
+                    {ctaLabel} <i className="fa-solid fa-arrow-right" />
                   </Link>
                 </div>
               </div>
@@ -81,6 +84,6 @@ export default function PagesGrid({ pages }: PagesGridProps) {
           ))}
         </div>
       </div>
-    </div>
+
   )
 }

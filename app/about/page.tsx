@@ -51,7 +51,10 @@ export default async function About() {
 					</div>
 					{/*===== OTHERS AREA ENDS =======*/}
 					{/*===== OTHERS AREA STARTS =======*/}
-					<PagesGrid pages={aboutPageData.pages} />
+					<div className="choose-section-area sp2">
+						<PagesGrid pages={aboutPageData.pages} />
+
+					</div>
 					{/*===== OTHERS AREA ENDS =======*/}
 					{/*===== CTA AREA =======*/}
 					<CTAWithCountdown

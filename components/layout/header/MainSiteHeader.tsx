@@ -18,7 +18,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                     </div>
                                     <div className="main-menu">
                                         <ul>
-                                            <li><Link href="/pages/chess-victoria-mission">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
+                                            <li><Link href="/about">About Chess Victoria<i className="fa-solid fa-angle-down" /></Link>
 
                                                 <ul className="dropdown-padding">
                                                     <li>

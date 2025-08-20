@@ -5,10 +5,28 @@ import Link from 'next/link'
 import { unstable_cache } from 'next/cache'
 import { getRevalidationTime } from '@/lib/config'
 import { getEntries } from '@/lib/contentful'
+import PagesGrid from '@/components/sections/about/PagesGrid'
+
+function extractTextFromRichText(content: any): string {
+  if (!content) return ''
+  if (typeof content === 'string') return content
+  if (content.content && Array.isArray(content.content)) {
+    return content.content
+      .map((node: any) => {
+        if (node.content && Array.isArray(node.content)) {
+          return node.content.map((t: any) => t.value || '').join('')
+        }
+        return node.value || ''
+      })
+      .join(' ')
+  }
+  return ''
+}
 
 interface ChampionListItem {
   title: string
   slug: string
+  summary?: string
 }
 
 const getAllChampions = unstable_cache(
@@ -16,7 +34,8 @@ const getAllChampions = unstable_cache(
     const entries = await getEntries('championPage', 1)
     const items = (entries as any[]).map((item) => ({
       title: item?.fields?.title ?? 'Untitled',
-      slug: item?.fields?.slug ?? ''
+      slug: item?.fields?.slug ?? '',
+      summary: extractTextFromRichText(item?.fields?.introduction)
     }))
     return items.filter(item => !!item.slug)
   },
@@ -34,6 +53,13 @@ export const metadata: Metadata = {
 
 export default async function VictorianChampionsIndexPage() {
   const champions = await getAllChampions()
+  const pages = champions.map((c) => ({
+    id: c.slug,
+    title: c.title,
+    slug: c.slug,
+    url: `/victorian-champions/${c.slug}`,
+    summary: c.summary,
+  }))
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -47,38 +73,11 @@ export default async function VictorianChampionsIndexPage() {
           ]}
         />
 
-        <div className="schedule-section-area sp10 py-5 px-5">
+        <div className="choose-section-area sp2">
           <div className="container">
             <div className="row">
-              <div className="col-lg-11 m-auto">
-                <div className="schedule">
-                  <table className="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Title</th>
-                        <th style={{ width: '160px' }}>Link</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {champions.length > 0 ? (
-                        champions.map((c) => (
-                          <tr key={c.slug}>
-                            <td>{c.title}</td>
-                            <td>
-                              <Link href={`/victorian-champions/${c.slug}`} className="vl-btn1">
-                                View
-                              </Link>
-                            </td>
-                          </tr>
-                        ))
-                      ) : (
-                        <tr>
-                          <td colSpan={2} className="text-center">No champions found.</td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
+              <div className="col-lg-12">
+                <PagesGrid pages={pages} eyebrow="Champions" heading="Our Champion Category" ctaLabel="View Champion" />
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					<ul className="mobile-nav-list nav-list1">
 						{/* About Chess Victoria */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 1 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(1)}><em /></span>
-							<Link href="/pages/chess-victoria-mission" className="hash-nav">About Chess Victoria</Link>
+							<Link href="/about" className="hash-nav">About Chess Victoria</Link>
 							<ul className={`sub-menu ${isAccordion == 1 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 1 ? 'block' : 'none'}` }}>
 								<li><Link href="/committees">Our Committees</Link></li>
 								<li><Link href="/about/players">Our Players</Link></li>
