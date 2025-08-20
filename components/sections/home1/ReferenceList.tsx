@@ -4,11 +4,23 @@ import { ReferenceListData } from '@/lib/types/reference-list'
 
 interface ReferenceListProps {
   data: ReferenceListData;
+  useTextLogo?: boolean;
 }
 
 
 
-export default function ReferenceList({ data }: ReferenceListProps) {
+export default function ReferenceList({ data, useTextLogo = false }: ReferenceListProps) {
+  const getInitials = (text: string): string => {
+    if (!text) return '?'
+    const parts = text
+      .trim()
+      .split(/[\s\-_/]+/)
+      .filter(Boolean)
+    if (parts.length === 0) return '?'
+    const initials = parts.map(p => p.charAt(0)).join('').toUpperCase()
+    return initials.slice(0, 4)
+  }
+
   return (
     <div className="brands1-section-area sp2">
       <div className="container">
@@ -22,29 +34,44 @@ export default function ReferenceList({ data }: ReferenceListProps) {
           </div>
         </div>
         <div className="row">
-          {data.items.map((item, index) => (
-            <div key={item.id} className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (index * 100)}>
-              <div className="brand-box" style={{ backgroundColor: '#A02BBD',  color:"white"}}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  {item.url ? (
-                    <Link href={item.url} target="_blank" rel="noopener noreferrer">
-                      <img src={item.image.src} alt={item.image.alt} />
-                    </Link>
-                  ) : (
-                    <img src={item.image.src} alt={item.image.alt} />
-                  )}
-                  <span style={{ 
-                    fontSize: '20px', 
-                    fontWeight: 'bold', 
-                    minWidth: 'fit-content',
-                    color: 'white'
-                  }}>
-                    {item.shortName}
-                  </span>
+          {data.items.map((item, index) => {
+            const initials = getInitials(item.shortName || item.name)
+            const logoNode = useTextLogo ? (
+              <div
+                className="text-logo-circle"
+                aria-label={`Logo ${item.shortName || item.name}`}
+                data-length={String(initials.length)}
+              >
+                {initials}
+              </div>
+            ) : (
+              <img src={item.image.src} alt={item.image.alt} />
+            )
+
+            return (
+              <div key={item.id} className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (index * 100)}>
+                <div className="brand-box" style={{ backgroundColor: '#A02BBD',  color:"white"}}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    {item.url ? (
+                      <Link href={item.url} target="_blank" rel="noopener noreferrer">
+                        {logoNode}
+                      </Link>
+                    ) : (
+                      logoNode
+                    )}
+                    <span style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      minWidth: 'fit-content',
+                      color: 'white'
+                    }}>
+                      {item.shortName}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </div>

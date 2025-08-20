@@ -93,3 +93,22 @@
 .hero1-section-area {
 	background-image: url(../img/bg/header-bg1-new.png);
   }
+
+/* Text logo circle for ReferenceList */
+.text-logo-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  background: #fff;
+  color: #A02BBD;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.text-logo-circle[data-length="3"] { font-size: 18px; }
+.text-logo-circle[data-length="4"] { font-size: 13px; letter-spacing: -0.5px; }

@@ -36,7 +36,7 @@ export default async function Home() {
 						link={homePageData.featuredGallery.referenceLink || '/memories'}
 					/>
 				) : null}
-				<ReferenceList data={homePageData.featuredClubs!} />
+				<ReferenceList data={homePageData.featuredClubs!} useTextLogo />
 				<NewsUpdate items={newsPage.items} />
 				<CTAWithCountdown
 					buttonLabel="Contact Us"

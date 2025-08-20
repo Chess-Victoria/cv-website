@@ -26,8 +26,13 @@ export async function GET(request: NextRequest) {
         'Referer': `${target.origin}/`,
         'Accept': '*/*',
       },
-      // Cache per Next runtime; browsers will also cache via headers below
-      next: { revalidate: parseInt(process.env.REVALIDATE_IMAGE_GALLERY || (process.env.NODE_ENV === 'development' ? '10' : '86400')) },
+      // Cache per Next runtime; browsers/CDN will also cache via headers below
+      next: {
+        revalidate: parseInt(
+          process.env.REVALIDATE_IMAGE_PROXY ||
+            (process.env.NODE_ENV === 'development' ? '10' : '31536000')
+        ),
+      },
     });
 
     if (!upstream.ok || !upstream.body) {
@@ -38,13 +43,18 @@ export async function GET(request: NextRequest) {
     const contentType = upstream.headers.get('content-type') || 'application/octet-stream';
     const contentLength = upstream.headers.get('content-length');
 
+    const isDev = process.env.NODE_ENV === 'development';
+    const oneYearSeconds = 31536000;
+    const cacheSeconds = isDev ? 10 : oneYearSeconds;
+    const staleSeconds = isDev ? 60 : oneYearSeconds;
+
     const res = new NextResponse(upstream.body, {
       status: 200,
       headers: {
         'Content-Type': contentType,
         ...(contentLength ? { 'Content-Length': contentLength } : {}),
-        // Cache on CDN/browser; adjust as needed
-        'Cache-Control': `public, max-age=${process.env.NODE_ENV === 'development' ? '10' : '86400'}, s-maxage=${process.env.NODE_ENV === 'development' ? '10' : '86400'}, stale-while-revalidate=${process.env.NODE_ENV === 'development' ? '60' : '604800'}`,
+        // Cache aggressively on CDN/browser in production; short in development
+        'Cache-Control': `public, max-age=${cacheSeconds}, s-maxage=${cacheSeconds}, stale-while-revalidate=${staleSeconds}, immutable`,
       },
     });
     return res;

@@ -12,7 +12,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 							<div className="col-lg-12">
 								<div className="header-elements">
 									<div className="site-logo">
-										<Link href="/"><img src={SITE_CONFIG.logo || '/assets/img/logo/cvlogo1.png'} alt="" /></Link>
+										<Link href="/"><img src={SITE_CONFIG.logo || '/assets/img/logo/cvlogo1.png'} alt="" width={150} /></Link>
 									</div>
 									<div className="main-menu">
 										<ul>
