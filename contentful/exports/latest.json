@@ -3303,6 +3303,144 @@
           "omitted": false
         }
       ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "aboutPage",
+        "type": "ContentType",
+        "createdAt": "2025-08-20T01:31:16.691Z",
+        "updatedAt": "2025-08-20T01:31:17.412Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2025-08-20T01:31:17.412Z",
+        "firstPublishedAt": "2025-08-20T01:31:17.412Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/aboutPage"
+      },
+      "displayField": "title",
+      "name": "About Page",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "overviewBlock",
+          "name": "Overview Block",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "welcomeBlock"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "clubList",
+          "name": "Club List",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "referenceList"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "pages",
+          "name": "Pages",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "page"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "metadata",
+          "name": "metadata",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "pageMetadata"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
     }
   ],
   "tags": [
@@ -5188,6 +5326,77 @@
         {
           "fieldId": "round",
           "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "j5mfd0rflg30",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2025-08-20T01:31:17.545Z",
+        "createdBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2025-08-20T01:31:18.617Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2l6dHVcobMXFnKLqDloKFl",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "aboutPage",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "overviewBlock",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "clubList",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pages",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metadata",
+          "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -9461,7 +9670,7 @@
         "id": "4nzeVYkTej6UaTaKadYXCn",
         "type": "Entry",
         "createdAt": "2025-08-16T06:43:03.797Z",
-        "updatedAt": "2025-08-17T23:45:24.089Z",
+        "updatedAt": "2025-08-19T13:11:14.245Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -9487,7 +9696,7 @@
           }
         },
         "publishedCounter": 6,
-        "version": 20,
+        "version": 21,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -9497,7 +9706,7 @@
         },
         "fieldStatus": {
           "*": {
-            "en-US": "published"
+            "en-US": "changed"
           }
         },
         "automationTags": [
@@ -9591,6 +9800,17 @@
         },
         "summary": {
           "en-US": "Premier Division – Round Robin; Reserves Division - Swiss"
+        },
+        "schedules": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "01bjs0mZafDHLexRmp7Q2x"
+              }
+            }
+          ]
         }
       }
     },
@@ -37286,6 +37506,86 @@
         },
         "summary": {
           "en-US": "Chess Victoria is the not-for-profit peak body for chess in the state of Victoria. Founded in 1938 (incorporated in 1983, renamed in 2000), it's one of seven state associations under the Australian Chess Federation. It fosters, governs, and organizes chess through affiliations with local clubs"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "01bjs0mZafDHLexRmp7Q2x",
+        "type": "Entry",
+        "createdAt": "2025-08-19T13:11:08.744Z",
+        "updatedAt": "2025-08-19T13:12:48.753Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-19T13:12:48.753Z",
+        "firstPublishedAt": "2025-08-19T13:12:48.753Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "eventScheduledPlan"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/01bjs0mZafDHLexRmp7Q2x"
+      },
+      "fields": {
+        "title": {
+          "en-US": "2025 Victorian Champion -R4"
+        },
+        "datetime": {
+          "en-US": "2025-08-23T19:15+10:00"
+        },
+        "round": {
+          "en-US": "R4"
         }
       }
     }

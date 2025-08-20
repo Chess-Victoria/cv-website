@@ -11,6 +11,12 @@ import { WelcomeBlockData } from '@/components/sections/home1/WelcomeBlock'
 // - line2Text (Symbol)
 // - caption (Symbol)
 // - summary (Text)
+export interface WelcomeBlockCounter {
+  name: string
+  end: number
+  value?: string
+}
+
 export interface WelcomeBlockEntryFields {
   title?: string
   images?: Array<any>
@@ -22,6 +28,7 @@ export interface WelcomeBlockEntryFields {
   line2Text?: string
   caption?: string
   summary?: string
+  counter?: WelcomeBlockCounter[]
 }
 
 export function mapWelcomeBlock(entryFields: WelcomeBlockEntryFields): WelcomeBlockData {
@@ -57,6 +64,7 @@ export function mapWelcomeBlock(entryFields: WelcomeBlockEntryFields): WelcomeBl
     features,
     ctaLabel: entryFields.actionButtonText,
     ctaHref: entryFields.actionButtonUrl,
+    counter: entryFields.counter || [],
   }
 }
 

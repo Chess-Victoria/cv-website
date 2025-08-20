@@ -4,3 +4,4 @@ alwaysApply: true
 - when i said pull model mean run "make pull" from terminal and check for the file in contentful/exports folder
 - do not run build by tsc or lint , if you want verify build just run npm run build
 - when new page add, make sure layout apply same with other page  consisently unless i asking for differently.
+- If need to add css styles, add it in override.css not in main.css

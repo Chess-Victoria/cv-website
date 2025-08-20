@@ -12,7 +12,7 @@ import "/public/assets/css/vendor/slick-slider.css"
 import "/public/assets/css/vendor/nice-select.css"
 import "/public/assets/css/vendor/odometer.css"
 import "/public/assets/css/main.css"
-
+import "/public/assets/css/override.css"
 import type { Metadata, Viewport } from "next"
 import { Figtree, Space_Grotesk } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'

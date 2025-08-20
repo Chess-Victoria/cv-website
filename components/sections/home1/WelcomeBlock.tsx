@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CountUp from 'react-countup'
 
 export interface WelcomeBlockImage {
   url: string
@@ -11,6 +12,12 @@ export interface WelcomeBlockFeature {
   text?: string
 }
 
+export interface WelcomeBlockCounter {
+  name: string
+  end: number
+  value?: string
+}
+
 export interface WelcomeBlockData {
   eyebrow?: string
   title?: string
@@ -19,6 +26,7 @@ export interface WelcomeBlockData {
   features?: WelcomeBlockFeature[]
   ctaLabel?: string
   ctaHref?: string
+  counter?: WelcomeBlockCounter[]
 }
 
 interface WelcomeBlockProps {
@@ -94,6 +102,23 @@ export default function WelcomeBlock({ data }: WelcomeBlockProps) {
                       </div>
                     </div>
                   ))}
+                </>
+              )}
+              {Array.isArray(data.counter) && data.counter.length > 0 && (
+                <>
+                  <div className="space32" />
+                  <div className="about-counter-area">
+                    {data.counter.slice(0, 3).map((counter, idx) => (
+                      <div key={idx} className={`counter-box ${idx === 1 ? 'box2' : idx === 2 ? 'box3' : ''}`} style={idx === 2 ? { border: 'none' } : {}}>
+                        <h2>
+                          <CountUp className="odometer" enableScrollSpy={true} end={counter.end} />
+                          {counter.value || '+'}
+                        </h2>
+                        <div className="space18" />
+                        <p>{counter.name}</p>
+                      </div>
+                    ))}
+                  </div>
                 </>
               )}
               {(data.ctaHref && data.ctaLabel) && (
