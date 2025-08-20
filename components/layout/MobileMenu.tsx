@@ -87,7 +87,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(5)}><em /></span>
 							<Link href="/news" className="hash-nav">News & Update</Link>
 							<ul className={`sub-menu ${isAccordion == 5 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 5 ? 'block' : 'none'}` }}>
-								<li><Link href="/news/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
+								<li><Link href="/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
 								<li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
 								<li><Link href="/news/category/victorian-championship-news/page-1">Victorian Champions News</Link></li>
 							</ul>
