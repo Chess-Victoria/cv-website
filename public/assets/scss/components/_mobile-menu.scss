@@ -1280,4 +1280,20 @@
 	}
 }
 
+// Mobile sidebar logo styling
+.mobile-sidebar .logos img {
+	width: 75px;
+}
+
+// Mobile search styling
+@media screen and (max-width: 768px) {
+	.header-search-container .search-submit {
+		background-color: #A02BBD;
+	}
+	
+	.header-search-container .search-field {
+		border: 1px solid #A02BBD;
+	}
+}
+
 /*============= MOBILE MENU CSS AREA ===============*/

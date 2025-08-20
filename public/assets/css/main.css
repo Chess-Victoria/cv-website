@@ -24314,3 +24314,19 @@ html {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+.mobile-sidebar .logos {
+  text-align: center;
+}
+.mobile-sidebar .logos img{
+  width: 75px
+}
+
+@media screen and (max-width: 768px) {
+  .header-search-container .search-submit {
+    background-color: #A02BBD;
+  }
+  .header-search-container .search-field {
+    border: 1px solid #A02BBD;
+  }
+}
