@@ -93,7 +93,7 @@ export default function EventList({ data }: EventListProps) {
                                 </li>
                               </ul>
                               <div className="space20" />
-                              <Link href="/event-single" className="head">{event.title}</Link>
+                              <Link href={event.buttonUrl?.startsWith('/event/') ? event.buttonUrl : '/event-single'} className="head">{event.title}</Link>
                               <div className="space16" />
                               <p>{event.description}</p>
                               <div className="space32" />

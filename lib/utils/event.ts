@@ -30,6 +30,33 @@ export const getAllEvents = unstable_cache(
 );
 
 /**
+ * Fetch single event by slug from Contentful with caching
+ */
+export const getEventBySlug = (slug: string) => {
+  return unstable_cache(
+    async () => {
+      try {
+        const response = await client.getEntries({
+          content_type: 'event',
+          'fields.slug': slug,
+          include: 3,
+          limit: 1
+        });
+        return response.items[0] || null;
+      } catch (error) {
+        console.error('Error fetching event by slug:', error);
+        return null;
+      }
+    },
+    [`event-${slug}`],
+    {
+      tags: ['events'],
+      revalidate: getRevalidationTime('EVENT')
+    }
+  )();
+};
+
+/**
  * Fetch all event lists from Contentful with caching
  */
 export const getAllEventLists = unstable_cache(
@@ -89,6 +116,7 @@ function mapEventToData(event: Event): EventData {
   const eventData: EventData = {
     id: event.sys.id,
     name: event.fields.name,
+    slug: (event.fields as any).slug,
     datetime: event.fields.datetime,
     location: event.fields.location,
     url: event.fields.url,
@@ -122,6 +150,29 @@ function mapEventToData(event: Event): EventData {
 
   return eventData;
 }
+
+/**
+ * Get single event data by slug
+ */
+export const getEventDataBySlug = (slug: string): Promise<EventData | null> => {
+  return unstable_cache(
+    async () => {
+      try {
+        const event = await getEventBySlug(slug);
+        if (!event) return null;
+        return mapEventToData(event as unknown as Event);
+      } catch (error) {
+        console.error('Error getting event data by slug:', error);
+        return null;
+      }
+    },
+    [`event-data-${slug}`],
+    {
+      tags: ['events'],
+      revalidate: getRevalidationTime('EVENT')
+    }
+  )();
+};
 
 /**
  * Map event list entry to data structure

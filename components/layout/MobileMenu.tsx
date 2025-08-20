@@ -21,7 +21,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 					<div className="col-12">
 						<div className="mobile-header-elements">
 							<div className="mobile-logo">
-								<Link href="/"><img src={SITE_CONFIG.logo} alt="" /></Link>
+								<Link href="/"><img src={SITE_CONFIG.logo} alt="" width={100} /></Link>
 							</div>
 							<div className="search-icon header__search header-search-btn" onClick={handleSearch}>
 								<a><img src="/assets/img/icons/search1.svg" alt="" /></a>

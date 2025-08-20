@@ -44,7 +44,7 @@ export default function EventCard({ event, index }: EventCardProps) {
                 )}
               </ul>
               <div className="space20" />
-              <Link href={event.url || '#'} className="head">{event.name}</Link>
+              <Link href={event.slug ? `/event/${event.slug}` : (event.url || '#')} className="head">{event.name}</Link>
               {event.summary && (
                 <>
                   <div className="space16" />

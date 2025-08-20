@@ -10,6 +10,7 @@ export interface Event {
   };
   fields: {
     name: string;
+    slug?: string;
     datetime: string;
     location?: string;
     url?: string;
@@ -60,6 +61,7 @@ export interface EventList {
 export interface EventData {
   id: string;
   name: string;
+  slug?: string;
   datetime: string;
   location?: string;
   url?: string;

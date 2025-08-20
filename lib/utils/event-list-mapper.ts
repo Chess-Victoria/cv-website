@@ -85,7 +85,7 @@ export function mapEventListToEventListData(eventList: EventList): EventListData
           alt: event.name || 'Event'
         },
         buttonText: "Learn More",
-        buttonUrl: event.url || "/event-schedule"
+        buttonUrl: event.slug ? `/event/${event.slug}` : (event.url || "/event-schedule")
       }))
     };
     

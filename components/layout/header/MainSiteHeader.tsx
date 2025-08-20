@@ -14,7 +14,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                             <div className="col-lg-12">
                                 <div className="header-elements">
                                     <div className="site-logo">
-                                        <Link href="/"><img src={SITE_CONFIG.logo} alt="" /></Link>
+                                        <Link href="/"><img src={SITE_CONFIG.logo} alt="" width={100} /></Link>
                                     </div>
                                     <div className="main-menu">
                                         <ul>

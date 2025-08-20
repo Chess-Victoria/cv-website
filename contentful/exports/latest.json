@@ -150,7 +150,7 @@
         "id": "clubDetail",
         "type": "ContentType",
         "createdAt": "2025-08-15T11:22:35.011Z",
-        "updatedAt": "2025-08-19T04:15:13.794Z",
+        "updatedAt": "2025-08-20T09:50:04.502Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -158,8 +158,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 27,
-        "publishedAt": "2025-08-19T04:15:13.794Z",
+        "publishedVersion": 29,
+        "publishedAt": "2025-08-20T09:50:04.502Z",
         "firstPublishedAt": "2025-08-15T11:22:35.385Z",
         "createdBy": {
           "sys": {
@@ -175,8 +175,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 14,
-        "version": 28,
+        "publishedCounter": 15,
+        "version": 30,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -420,6 +420,17 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "notAClub",
+          "name": "Not A Club?",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -676,7 +687,7 @@
         "id": "event",
         "type": "ContentType",
         "createdAt": "2025-08-15T13:22:19.453Z",
-        "updatedAt": "2025-08-19T10:41:24.702Z",
+        "updatedAt": "2025-08-20T13:20:22.664Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -684,8 +695,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 13,
-        "publishedAt": "2025-08-19T10:41:24.702Z",
+        "publishedVersion": 15,
+        "publishedAt": "2025-08-20T13:20:22.664Z",
         "firstPublishedAt": "2025-08-15T13:22:20.053Z",
         "createdBy": {
           "sys": {
@@ -701,8 +712,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 7,
-        "version": 14,
+        "publishedCounter": 8,
+        "version": 16,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -863,6 +874,17 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -1163,7 +1185,7 @@
         "id": "clubPage",
         "type": "ContentType",
         "createdAt": "2025-08-15T13:40:50.678Z",
-        "updatedAt": "2025-08-15T13:40:51.286Z",
+        "updatedAt": "2025-08-20T09:30:51.232Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1171,8 +1193,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2025-08-15T13:40:51.286Z",
+        "publishedVersion": 3,
+        "publishedAt": "2025-08-20T09:30:51.232Z",
         "firstPublishedAt": "2025-08-15T13:40:51.286Z",
         "createdBy": {
           "sys": {
@@ -1188,8 +1210,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1257,6 +1279,17 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -3059,7 +3092,7 @@
         "id": "welcomeBlock",
         "type": "ContentType",
         "createdAt": "2025-08-19T07:56:58.471Z",
-        "updatedAt": "2025-08-19T08:10:23.030Z",
+        "updatedAt": "2025-08-20T02:08:01.353Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -3067,8 +3100,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 11,
-        "publishedAt": "2025-08-19T08:10:23.030Z",
+        "publishedVersion": 13,
+        "publishedAt": "2025-08-20T02:08:01.353Z",
         "firstPublishedAt": "2025-08-19T07:56:59.121Z",
         "createdBy": {
           "sys": {
@@ -3084,8 +3117,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 6,
-        "version": 12,
+        "publishedCounter": 7,
+        "version": 14,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3208,6 +3241,17 @@
           "id": "summary",
           "name": "Summary",
           "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "counter",
+          "name": "Counter",
+          "type": "Object",
           "localized": false,
           "required": false,
           "validations": [
@@ -3694,7 +3738,7 @@
             "linkType": "Space"
           }
         },
-        "version": 28,
+        "version": 30,
         "createdAt": "2025-08-15T11:22:35.465Z",
         "createdBy": {
           "sys": {
@@ -3703,7 +3747,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-19T04:15:14.634Z",
+        "updatedAt": "2025-08-20T09:50:05.625Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3780,6 +3824,11 @@
         {
           "fieldId": "moreContacts",
           "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "notAClub",
+          "widgetId": "boolean",
           "widgetNamespace": "builtin"
         }
       ]
@@ -3927,7 +3976,7 @@
             "linkType": "Space"
           }
         },
-        "version": 14,
+        "version": 16,
         "createdAt": "2025-08-15T13:22:20.182Z",
         "createdBy": {
           "sys": {
@@ -3936,7 +3985,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-19T10:41:25.692Z",
+        "updatedAt": "2025-08-20T13:20:23.434Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -3998,6 +4047,11 @@
         {
           "fieldId": "schedules",
           "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         }
       ]
@@ -4180,7 +4234,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2025-08-15T13:40:51.413Z",
         "createdBy": {
           "sys": {
@@ -4189,7 +4243,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-15T13:40:52.376Z",
+        "updatedAt": "2025-08-20T09:30:52.651Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -4226,6 +4280,11 @@
         {
           "fieldId": "clubs",
           "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         }
       ]
@@ -5184,7 +5243,7 @@
             "linkType": "Space"
           }
         },
-        "version": 12,
+        "version": 14,
         "createdAt": "2025-08-19T07:56:59.301Z",
         "createdBy": {
           "sys": {
@@ -5193,7 +5252,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-08-19T08:10:23.734Z",
+        "updatedAt": "2025-08-20T02:08:02.496Z",
         "updatedBy": {
           "sys": {
             "id": "2l6dHVcobMXFnKLqDloKFl",
@@ -5265,6 +5324,11 @@
         {
           "fieldId": "summary",
           "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "counter",
+          "widgetId": "objectEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -7321,7 +7385,7 @@
         "id": "60nw3IDwza8hO2tS1IAcP9",
         "type": "Entry",
         "createdAt": "2025-08-15T13:41:05.579Z",
-        "updatedAt": "2025-08-19T01:16:58.052Z",
+        "updatedAt": "2025-08-20T09:31:21.515Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -7329,8 +7393,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 31,
-        "publishedAt": "2025-08-19T01:16:58.052Z",
+        "publishedVersion": 33,
+        "publishedAt": "2025-08-20T09:31:21.515Z",
         "firstPublishedAt": "2025-08-17T04:21:56.568Z",
         "createdBy": {
           "sys": {
@@ -7346,8 +7410,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 11,
-        "version": 32,
+        "publishedCounter": 12,
+        "version": 34,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7497,6 +7561,9 @@
               }
             }
           ]
+        },
+        "slug": {
+          "en-US": "chess-club-in-victoria"
         }
       }
     },
@@ -9670,7 +9737,7 @@
         "id": "4nzeVYkTej6UaTaKadYXCn",
         "type": "Entry",
         "createdAt": "2025-08-16T06:43:03.797Z",
-        "updatedAt": "2025-08-19T13:11:14.245Z",
+        "updatedAt": "2025-08-20T13:20:42.731Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -9678,8 +9745,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 19,
-        "publishedAt": "2025-08-17T23:45:24.089Z",
+        "publishedVersion": 23,
+        "publishedAt": "2025-08-20T13:20:42.731Z",
         "firstPublishedAt": "2025-08-16T06:45:46.651Z",
         "createdBy": {
           "sys": {
@@ -9695,8 +9762,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 6,
-        "version": 21,
+        "publishedCounter": 7,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -9706,7 +9773,7 @@
         },
         "fieldStatus": {
           "*": {
-            "en-US": "changed"
+            "en-US": "published"
           }
         },
         "automationTags": [
@@ -9811,6 +9878,9 @@
               }
             }
           ]
+        },
+        "slug": {
+          "en-US": "2025-victorian-championship"
         }
       }
     },
@@ -10931,7 +11001,7 @@
         "id": "4XsPpRmLhD6ELouMLSi0v4",
         "type": "Entry",
         "createdAt": "2025-08-16T12:54:25.982Z",
-        "updatedAt": "2025-08-19T07:50:02.041Z",
+        "updatedAt": "2025-08-20T12:36:44.762Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10939,8 +11009,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 11,
-        "publishedAt": "2025-08-19T07:50:02.041Z",
+        "publishedVersion": 19,
+        "publishedAt": "2025-08-20T12:36:44.762Z",
         "firstPublishedAt": "2025-08-16T12:55:23.343Z",
         "createdBy": {
           "sys": {
@@ -10956,8 +11026,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 12,
+        "publishedCounter": 5,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -11015,6 +11085,55 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
+                "id": "4PI5rsdcnC2nXLXfsMv338"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5GM9Mg774jxmEU3grQvsKE"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5EqiCvxnqQLQIWxaF9ZGPO"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "44rBljlmavqUAWh0OvUs9k"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4yzpkiwzKGyw5EWERQNq5U"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4ld3z46t8KfLMoaXI40Oav"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1OhJTGpzauKEwbqJLN2bZH"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
                 "id": "2cVkvkcxZ1xWVtIvUDT07H"
               }
             },
@@ -11022,14 +11141,56 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "6ldILlcdxTOWOd0g07Shyx"
+                "id": "4Fc0D8n9H3SxzpBsfkxmwZ"
               }
             },
             {
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "4PI5rsdcnC2nXLXfsMv338"
+                "id": "5QlHIrvinCpDy6b1YisAvk"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4N3pt1IYp2uwvEX9vxpp9u"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6XbUKF4w2QLEYgbSOreupD"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "7nzQaknUcofIobWFcIY8fR"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "48xkuMlzpa5kuPcX8CZYYh"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "783a8LpKYYXTbVuHCoszWd"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2METHZTYQeDAmm3glGOSLe"
               }
             }
           ]
@@ -17756,7 +17917,7 @@
         "id": "5LLJCGHk5gfpbr909eZVLn",
         "type": "Entry",
         "createdAt": "2025-08-19T03:31:17.624Z",
-        "updatedAt": "2025-08-19T03:52:54.680Z",
+        "updatedAt": "2025-08-20T04:12:34.778Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -17764,8 +17925,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 19,
-        "publishedAt": "2025-08-19T03:52:54.680Z",
+        "publishedVersion": 22,
+        "publishedAt": "2025-08-20T04:12:34.778Z",
         "firstPublishedAt": "2025-08-19T03:33:58.387Z",
         "createdBy": {
           "sys": {
@@ -17781,8 +17942,8 @@
             "id": "2l6dHVcobMXFnKLqDloKFl"
           }
         },
-        "publishedCounter": 3,
-        "version": 20,
+        "publishedCounter": 4,
+        "version": 23,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -17814,7 +17975,7 @@
           "en-US": "Chess Victoria Mission"
         },
         "summary": {
-          "en-US": "TBD"
+          "en-US": "Our mission is to harness chess to inspire individuals, connect communities, and build a culture of learning and achievement—showing that chess is not just a sport, but a tool for education, connection, and lifelong growth."
         },
         "content": {
           "en-US": {
@@ -37586,6 +37747,730 @@
         },
         "round": {
           "en-US": "R4"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "2R0lHtKWdrwBPDRLAcnHFN",
+        "type": "Entry",
+        "createdAt": "2025-08-20T02:08:35.641Z",
+        "updatedAt": "2025-08-20T02:14:47.557Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2025-08-20T02:14:47.557Z",
+        "firstPublishedAt": "2025-08-20T02:10:31.054Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "welcomeBlock"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/2R0lHtKWdrwBPDRLAcnHFN"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Chess Victoria Overview"
+        },
+        "images": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "2M2egrPHTqDvwqSK3epte2"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "58V1gna7XSVtIpOegpffHV"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "4nofKMYRAX8hk9VZRI60TF"
+              }
+            }
+          ]
+        },
+        "actionButtonText": {
+          "en-US": "Read. More"
+        },
+        "actionButtonUrl": {
+          "en-US": "/pages/chess-victoria-mission"
+        },
+        "line1Header": {
+          "en-US": "Our Mission"
+        },
+        "line1Text": {
+          "en-US": "Chess Victoria’s mission is to promote chess across communities, support player development, and foster education, inclusivity, and lifelong learning."
+        },
+        "line2Header": {
+          "en-US": "Our Vision"
+        },
+        "line2Text": {
+          "en-US": "Chess Victoria’s vision is to inspire excellence, grow participation, and establish chess as a valued, inclusive sport across Victoria."
+        },
+        "caption": {
+          "en-US": "Empowering the Future of Chess in Victoria"
+        },
+        "summary": {
+          "en-US": "Chess Victoria is the not-for-profit peak body for chess in the state of Victoria. Founded in 1938 (incorporated in 1983, renamed in 2000), it's one of seven state associations under the Australian Chess Federation. It fosters, governs, and organizes chess through affiliations with local clubs"
+        },
+        "counter": {
+          "en-US": [
+            {
+              "name": "Our Clubs",
+              "value": 15,
+              "end": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "5OuOZFHUtWdATPYqfZEU0M",
+        "type": "Entry",
+        "createdAt": "2025-08-20T02:10:42.030Z",
+        "updatedAt": "2025-08-20T02:11:23.159Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-20T02:11:23.159Z",
+        "firstPublishedAt": "2025-08-20T02:11:23.159Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "aboutPage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/5OuOZFHUtWdATPYqfZEU0M"
+      },
+      "fields": {
+        "title": {
+          "en-US": "About Page"
+        },
+        "overviewBlock": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "2R0lHtKWdrwBPDRLAcnHFN"
+            }
+          }
+        },
+        "clubList": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4XsPpRmLhD6ELouMLSi0v4"
+            }
+          }
+        },
+        "pages": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2H8O72lNITjJBLmvojLlWF"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "5LLJCGHk5gfpbr909eZVLn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3Ekfzn72AHZ3ncE5ETRRsz",
+        "type": "Entry",
+        "createdAt": "2025-08-20T09:29:44.173Z",
+        "updatedAt": "2025-08-20T12:14:11.503Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-08-20T12:14:11.503Z",
+        "firstPublishedAt": "2025-08-20T09:30:17.961Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubPage"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3Ekfzn72AHZ3ncE5ETRRsz"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Other Chess Associations"
+        },
+        "clubs": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "67rpm0B54qdKo7qNq8C5Jm"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3rHeI3IVr4XgMqjdTgT2Ju"
+              }
+            }
+          ]
+        },
+        "slug": {
+          "en-US": "other-chess-associations"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "67rpm0B54qdKo7qNq8C5Jm",
+        "type": "Entry",
+        "createdAt": "2025-08-20T09:50:22.837Z",
+        "updatedAt": "2025-08-20T09:56:27.401Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-08-20T09:56:27.401Z",
+        "firstPublishedAt": "2025-08-20T09:53:08.789Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/67rpm0B54qdKo7qNq8C5Jm"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "chess-education"
+        },
+        "name": {
+          "en-US": "Chess Education"
+        },
+        "location": {
+          "en-US": {
+            "lon": 144.9584,
+            "lat": -37.7666
+          }
+        },
+        "website": {
+          "en-US": "https://www.chesseducation.com.au/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We are a friendly business that provides children and adults across Melbourne with an opportunity to experience the world of chess and benefit from all the wonder the game has to offer. We have a current focus on teaching school aged children the game and arming them with the mental tools chess helps develop.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "content": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "We are a friendly business that provides children and adults across Melbourne with an opportunity to experience the world of chess and benefit from all the wonder the game has to offer. We have a current focus on teaching school aged children the game and arming them with the mental tools chess helps develop.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "notAClub": {
+          "en-US": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3rHeI3IVr4XgMqjdTgT2Ju",
+        "type": "Entry",
+        "createdAt": "2025-08-20T10:08:23.843Z",
+        "updatedAt": "2025-08-20T10:11:38.074Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2025-08-20T10:11:38.074Z",
+        "firstPublishedAt": "2025-08-20T10:11:38.074Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "clubDetail"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3rHeI3IVr4XgMqjdTgT2Ju"
+      },
+      "fields": {
+        "slug": {
+          "en-US": "https://www.darkhorsechess.net/"
+        },
+        "name": {
+          "en-US": "Dark Horse Chess"
+        },
+        "contact": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3MPpAA750VgrEroRS0K1wl"
+            }
+          }
+        },
+        "website": {
+          "en-US": "https://www.darkhorsechess.net/"
+        },
+        "quickIntro": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We specialise in providing high-quality individual chess coaching as well as fun and engaging lunch-time chess classes in primary and secondary schools across Melbourne.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "content": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Founded in 2001, Dark Horse Chess is a Melbourne-based chess coaching organisation involved in running a wide variety of chess-related activities. In particular, we specialise in providing high-quality individual chess coaching as well as fun and engaging lunch-time chess classes in primary and secondary schools across Melbourne.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Dark Horse Chess prides itself on two key things:",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "A very high-quality private coaching program with a stellar record of success. Click here to find out more about our personal training and results.\nA school-coaching program that is taught by really friendly, enthusiastic coaches who not only are good at chess but work fantastically with young people and large groups – two very different skills!",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "notAClub": {
+          "en-US": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "j5mfd0rflg30"
+          }
+        },
+        "id": "3MPpAA750VgrEroRS0K1wl",
+        "type": "Entry",
+        "createdAt": "2025-08-20T10:09:24.880Z",
+        "updatedAt": "2025-08-20T10:11:23.017Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-08-20T10:11:23.017Z",
+        "firstPublishedAt": "2025-08-20T10:11:23.017Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2l6dHVcobMXFnKLqDloKFl"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/entries/3MPpAA750VgrEroRS0K1wl"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Dark Horse Chess"
+        },
+        "phone": {
+          "en-US": "0447 557 047"
+        },
+        "email": {
+          "en-US": "admin@darkhorsechess.com"
         }
       }
     }
