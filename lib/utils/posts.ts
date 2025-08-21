@@ -152,7 +152,6 @@ async function fetchPostsByCategoryPageUncached(categorySlug: string, page: numb
   const catRes: any = await client.getEntries({ content_type: 'postCategory', 'fields.slug': categorySlug, limit: 1 } as any);
   const catEntry: any = (catRes.items || [])[0];
   const category: PostCategory | undefined = catEntry ? { id: catEntry.sys.id, slug: catEntry.fields.slug, name: (catEntry.fields.name || catEntry.fields.title) } : undefined;
-  console.log(categorySlug, category)
   const skip = (page - 1) * perPage;
   const res = await client.getEntries({
     content_type: 'post',
@@ -197,15 +196,30 @@ function normalizeHashtag(tagParam: string): { forDisplay: string; forQuery: str
   let decoded = tagParam || '';
   try { decoded = decodeURIComponent(decoded); } catch {}
   const trimmed = decoded.trim();
-  const withoutHash = trimmed.startsWith('#') ? trimmed.slice(1) : trimmed;
-  const withHash = `#${withoutHash}`;
-  return { forDisplay: withHash, forQuery: [withoutHash, withHash], decoded };
+  const base = trimmed.startsWith('#') ? trimmed.slice(1) : trimmed;
+
+  const variants = new Set<string>();
+  const addVariants = (s: string) => {
+    variants.add(s);
+    variants.add(s.toLowerCase());
+    variants.add(s.toUpperCase());
+    // TitleCase (basic): first char upper, rest lower
+    variants.add(s.charAt(0).toUpperCase() + s.slice(1).toLowerCase());
+  };
+
+  addVariants(base);
+  // Also add with leading '#'
+  Array.from(variants).forEach(v => variants.add(`#${v}`));
+
+  const forQuery = Array.from(variants).filter(v => v);
+  const forDisplay = `#${base}`;
+  return { forDisplay, forQuery, decoded };
 }
 
 async function fetchPostsByHashtagPageUncached(tagParam: string, page: number, perPage: number): Promise<PostPageData & { tag: string }> {
   const { forQuery, forDisplay, decoded } = normalizeHashtag(tagParam);
   const skip = (page - 1) * perPage;
-  const res = await client.getEntries({
+  let res: any = await client.getEntries({
     content_type: 'post',
     limit: perPage,
     skip,
@@ -214,6 +228,27 @@ async function fetchPostsByHashtagPageUncached(tagParam: string, page: number, p
     'fields.hashtags[in]': forQuery.join(','),
   } as any);
 
+  // Fallback: if no direct hashtag match, try a broader text search using the base tag
+  if (!res || (res.total || 0) === 0) {
+    const base = forDisplay.replace(/^#+/, '').trim();
+    const baseLower = base.toLowerCase();
+    const fallback = await client.getEntries({
+      content_type: 'post',
+      limit: perPage,
+      skip,
+      order: ['-fields.date', '-sys.createdAt'],
+      include: 2,
+      query: base,
+    } as any);
+    // Filter to posts that actually contain the hashtag variant
+    if (fallback && (fallback.total || 0) > 0) {
+      fallback.items = (fallback.items || []).filter((entry: any) => {
+        const tags: any[] = Array.isArray(entry.fields?.hashtags) ? entry.fields.hashtags : [];
+        return tags.some((t: any) => typeof t === 'string' && t.replace(/^#+/, '').trim().toLowerCase() === baseLower);
+      });
+      res = fallback;
+    }
+  }
   const items: PostListItem[] = (res.items || []).map((entry: any) => {
     const fields = entry.fields || {};
     return {
@@ -237,7 +272,7 @@ export function getPostsByHashtagPageData(tagParam: string, page: number, perPag
   const dataFn = unstable_cache(
     async () => fetchPostsByHashtagPageUncached(tagParam, page, perPage),
     [`posts-hashtag:${tagParam}:${page}:${perPage}`],
-    { revalidate: getRevalidationTime('POST'), tags: ['posts', `posts-hashtag:${tagParam}`] }
+    { revalidate: getRevalidationTime('POST'), tags: ['posts'] }
   );
   return dataFn();
 }
