@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CountUp from 'react-countup'
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 
 export interface WelcomeBlockImage {
   url: string
@@ -9,7 +10,7 @@ export interface WelcomeBlockImage {
 export interface WelcomeBlockFeature {
   iconUrl?: string
   title?: string
-  text?: string
+  text?: string | any
 }
 
 export interface WelcomeBlockCounter {
@@ -21,7 +22,7 @@ export interface WelcomeBlockCounter {
 export interface WelcomeBlockData {
   eyebrow?: string
   title?: string
-  description?: string
+  description?: string | any
   images: [WelcomeBlockImage, WelcomeBlockImage, WelcomeBlockImage]
   features?: WelcomeBlockFeature[]
   ctaLabel?: string
@@ -81,7 +82,13 @@ export default function WelcomeBlock({ data }: WelcomeBlockProps) {
               {data.title && <h2 className="text-anime-style-3">{data.title}</h2>}
               <div className="space16" />
               {data.description && (
-                <p data-aos="fade-left" data-aos-duration={900}>{data.description}</p>
+                typeof data.description === 'string' ? (
+                  <p data-aos="fade-left" data-aos-duration={900}>{data.description}</p>
+                ) : (
+                  <div className="rich-text-content" data-aos="fade-left" data-aos-duration={900}>
+                    <RichTextRenderer content={data.description as any} />
+                  </div>
+                )
               )}
               {Array.isArray(data.features) && data.features.length > 0 && (
                 <>
@@ -96,7 +103,13 @@ export default function WelcomeBlock({ data }: WelcomeBlockProps) {
                         {feature.text && (
                           <>
                             <div className="space12" />
-                            <p>{feature.text}</p>
+                            {typeof feature.text === 'string' ? (
+                              <p>{feature.text}</p>
+                            ) : (
+                              <div className="rich-text-content">
+                                <RichTextRenderer content={feature.text as any} />
+                              </div>
+                            )}
                           </>
                         )}
                       </div>

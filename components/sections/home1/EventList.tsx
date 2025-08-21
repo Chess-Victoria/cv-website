@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useState } from "react"
 import { EventListData } from '@/lib/types/event-list'
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 
 interface EventListProps {
   data: EventListData;
@@ -95,7 +96,13 @@ export default function EventList({ data }: EventListProps) {
                               <div className="space20" />
                               <Link href={event.buttonUrl?.startsWith('/event/') ? event.buttonUrl : '/event-single'} className="head">{event.title}</Link>
                               <div className="space16" />
-                              <p>{event.description}</p>
+                              {typeof event.description === 'string' ? (
+                                <p>{event.description}</p>
+                              ) : (
+                                <div className="rich-text-content">
+                                  <RichTextRenderer content={event.description as any} />
+                                </div>
+                              )}
                               <div className="space32" />
                               <div className="btn-area1">
                                 <Link href={event.buttonUrl} className="vl-btn1">{event.buttonText}</Link>
