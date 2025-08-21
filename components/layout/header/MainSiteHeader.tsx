@@ -68,7 +68,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 </ul>
                                             </li>
                                             <li>
-                                                <Link href="/news">Others<i className="fa-solid fa-angle-down" /></Link>
+                                                <Link href="/others">Others<i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
                                                 <li><Link href="/documents">Documents</Link></li>
                                                 <li><Link href="/galleries">Galleries</Link></li>
