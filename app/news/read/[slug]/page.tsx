@@ -6,6 +6,7 @@ import { getRevalidationTime } from '@/lib/config'
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 import type { Metadata } from 'next';
 // ISR
 export const revalidate = 86400; // 24 hours
@@ -85,13 +86,25 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                     </li>
                     {post.authorName ? (
                       <li>
-                        <Link href="/#"><img src="/assets/img/icons/user1.svg" alt="" />{post.authorName}</Link>
+                        <Link href="/#"><img src="/assets/img/icons/user1.svg" alt="" />{post.authorName} <span> | </span></Link>
+                      </li>
+                    ) : null}
+                    {post.category?.slug && post.category?.name ? (
+                      <li>
+                        <Link href={`/news/category/${post.category.slug}/page-1`}>{post.category.name}</Link>
                       </li>
                     ) : null}
                   </ul>
                   <div className="space18" />
                   {post.summary ? <p>{post.summary}</p> : null}
-                  {post.body ? <p style={{ whiteSpace: 'pre-wrap' }}>{post.body}</p> : null}
+                  {/* Prefer richtext fullContent; fallback to markdown body */}
+                  {post.fullContent ? (
+                    <div className="rich-text-content">
+                      <RichTextRenderer content={post.fullContent as any} />
+                    </div>
+                  ) : post.body ? (
+                    <p style={{ whiteSpace: 'pre-wrap' }}>{post.body}</p>
+                  ) : null}
                   {post.gallery && post.gallery.length > 0 ? (
                     <>
                       <div className="space48" />

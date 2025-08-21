@@ -22,6 +22,7 @@ export interface PostPageData {
 
 export interface PostDetail extends PostListItem {
   body?: string;
+  fullContent?: any;
   gallery?: string[];
   hashtags?: string[];
   category?: {
@@ -111,6 +112,7 @@ async function fetchPostBySlugUncached(slug: string): Promise<PostDetail | null>
     imageUrl,
     summary: f.summary,
     body: f.content,
+    fullContent: f.fullContent,
     gallery,
     hashtags,
     category,
@@ -149,8 +151,8 @@ async function fetchPostsByCategoryPageUncached(categorySlug: string, page: numb
   // Resolve category id by slug first
   const catRes: any = await client.getEntries({ content_type: 'postCategory', 'fields.slug': categorySlug, limit: 1 } as any);
   const catEntry: any = (catRes.items || [])[0];
-  const category: PostCategory | undefined = catEntry ? { id: catEntry.sys.id, slug: catEntry.fields.slug, name: catEntry.fields.name } : undefined;
-
+  const category: PostCategory | undefined = catEntry ? { id: catEntry.sys.id, slug: catEntry.fields.slug, name: (catEntry.fields.name || catEntry.fields.title) } : undefined;
+  console.log(categorySlug, category)
   const skip = (page - 1) * perPage;
   const res = await client.getEntries({
     content_type: 'post',
@@ -158,7 +160,7 @@ async function fetchPostsByCategoryPageUncached(categorySlug: string, page: numb
     skip,
     order: ['-fields.date', '-sys.createdAt'],
     include: 2,
-    ...(category ? { 'fields.category.sys.id': category.id } : {}),
+    ...(category ? { 'fields.category.sys.id[in]': category.id } : {}),
   } as any);
 
   const items: PostListItem[] = (res.items || []).map((entry: any) => {
@@ -186,7 +188,7 @@ export function getPostsByCategoryPageData(categorySlug: string, page: number, p
   const dataFn = unstable_cache(
     async () => fetchPostsByCategoryPageUncached(categorySlug, page, perPage),
     [`posts-category:${categorySlug}:${page}:${perPage}`],
-    { revalidate: getRevalidationTime('POST'), tags: ['posts', 'post-categories', `posts-category:${categorySlug}`] }
+    { revalidate: getRevalidationTime('POST'), tags: ['posts', 'post-categories'] }
   );
   return dataFn();
 }

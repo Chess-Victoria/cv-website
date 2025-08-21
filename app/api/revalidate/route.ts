@@ -135,6 +135,7 @@ export async function POST(request: NextRequest) {
         revalidatePath('/news');
         revalidatePath('/news/[page]');
         revalidateTag('posts');
+        revalidateTag('post-categories');
         break;
 
       default:
