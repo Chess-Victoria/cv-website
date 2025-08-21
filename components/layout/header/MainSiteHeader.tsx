@@ -34,7 +34,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             <li>
                                                 <Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
-                                                    <li><Link href="/victorian-champions/junior-champions">Junor Champions</Link></li>
+                                                    <li><Link href="/victorian-champions/victorian-junior-champions">Victorian Junior Champions</Link></li>
                                                     <li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
                                                     <li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
                                                     <li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>

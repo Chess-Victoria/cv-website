@@ -112,3 +112,52 @@
 
 .text-logo-circle[data-length="3"] { font-size: 18px; }
 .text-logo-circle[data-length="4"] { font-size: 13px; letter-spacing: -0.5px; }
+
+/* Rich Text Table Styles for Champion Pages */
+.champion-inner-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.champion-inner-section table th {
+  background: #1a365d;
+  color: #ffffff;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.champion-inner-section table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.champion-inner-section table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.champion-inner-section table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+  .champion-inner-section table {
+    font-size: 12px;
+  }
+  
+  .champion-inner-section table th,
+  .champion-inner-section table td {
+    padding: 8px 12px;
+  }
+}

@@ -59,7 +59,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 2 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(2)}><em /></span>
 							<Link href="/victorian-champions" className="hash-nav">Victorian Champions</Link>
 							<ul className={`sub-menu ${isAccordion == 2 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 2 ? 'block' : 'none'}` }}>
-								<li><Link href="/victorian-champions/junior-champions">Junior Champions</Link></li>
+								<li><Link href="/victorian-champions/victorian-junior-champions">Victorian Junior Champions</Link></li>
 								<li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
 								<li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
 								<li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>

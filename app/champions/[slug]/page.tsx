@@ -13,8 +13,9 @@ interface ChampionPageProps {
 export default async function ChampionPage({ params }: ChampionPageProps) {
     const { slug } = await params;
     const champion = await getEntryBySlug('championPage', slug);
-    const { title = 'Champion', introduction } = champion?.fields || {};
+    const { title = 'Champion', summary, introduction } = champion?.fields || {};
     const championsList = (champion as any)?.fields?.champions as any[] | undefined;
+    const showList = (champion as any)?.fields?.showList || false;
     const hasDivision = Array.isArray(championsList) && championsList.some((item: any) => !!item?.fields?.division);
 
     // Type guard for Contentful rich text Document
@@ -51,11 +52,23 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                             <div className="col-lg-8 col-md-10 m-auto" data-aos="zoom-in" data-aos-duration={1000}>
                                 <div className="contact4-boxarea">
                                     <div className="space8" />
-                                    {introductionContent && (
-                                        <div className="mb-3">{introductionContent}</div>
+                                    
+                                    {/* Summary/Introduction */}
+                                    {summary && typeof summary === 'string' && (
+                                        <div className="mb-4">
+                                            <p className="lead">{summary}</p>
+                                        </div>
                                     )}
-                                    {/* Champions Table */}
-                                    {Array.isArray(champion?.fields?.champions) && champion.fields.champions.length > 0 && (
+                                    
+                                    {/* Main Content (Rich Text with Table Support) */}
+                                    {introductionContent && (
+                                        <div className="mb-4">
+                                            {introductionContent}
+                                        </div>
+                                    )}
+                                    
+                                    {/* Champions Table - Only show if showList is true */}
+                                    {showList && Array.isArray(champion?.fields?.champions) && champion.fields.champions.length > 0 && (
                                         <div className="schedule-section-area">
                                             <div className="container">
                                                 <div className="row">
