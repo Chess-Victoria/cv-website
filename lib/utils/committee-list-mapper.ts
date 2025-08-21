@@ -1,27 +1,4 @@
 import { CommitteeListData, CommitteeList, CommitteeMemberFields, PersonFields } from '@/lib/types/committee-list';
-import { renderRichText } from '@/lib/utils/rich-text';
-
-// Fallback committee list data
-export const fallbackCommitteeListData: CommitteeListData = {
-  title: "Chess Victoria Committee",
-  subtitle: "Our Leadership Team",
-  members: [
-    {
-      id: "member-1",
-      name: "Dr. Peter Tsai",
-      title: "President",
-      image: {
-        src: "/assets/img/all-images/team/team-img1.png",
-        alt: "Dr. Peter Tsai"
-      },
-      socialLinks: {
-        linkedin: "https://linkedin.com/in/peter-tsai",
-        email: "chess@t-s-a-i.com"
-      },
-      profileUrl: "/committee/peter-tsai"
-    }
-  ]
-};
 
 /**
  * Map Contentful CommitteeList to CommitteeListData
@@ -29,7 +6,11 @@ export const fallbackCommitteeListData: CommitteeListData = {
 export function mapCommitteeListToCommitteeListData(committeeList: CommitteeList): CommitteeListData {
   if (!committeeList.members || committeeList.members.length === 0) {
     console.warn('No committee members found in CommitteeList');
-    return fallbackCommitteeListData;
+    return {
+      title: committeeList.name || '',
+      subtitle: 'Our Leadership Team',
+      members: []
+    };
   }
 
   const members = committeeList.members
@@ -48,7 +29,7 @@ export function mapCommitteeListToCommitteeListData(committeeList: CommitteeList
       }
 
       // Get image URL
-      let imageUrl = "/assets/img/all-images/team/team-img1.png"; // Default fallback
+      let imageUrl = "/assets/img/default/committee-no-image.png"; // Prefer content-provided image only
       let imageAlt = personData?.name || memberFields.role || "Committee Member";
       
       if (memberFields.image?.fields?.file?.url) {
@@ -63,23 +44,25 @@ export function mapCommitteeListToCommitteeListData(committeeList: CommitteeList
       if (personData?.facebook) socialLinks.facebook = personData.facebook;
       if (personData?.email) socialLinks.email = personData.email;
 
+      const memberSlug = (memberRef as any)?.fields?.slug || personData?.name?.toLowerCase().replace(/\s+/g, '-') || `member-${index + 1}`;
+
       return {
         id: `member-${index + 1}`,
         name: personData?.name || memberFields.role || "Unknown Member",
         title: memberFields.role || personData?.jobTitle || "Committee Member",
         image: {
-          src: imageUrl,
-          alt: imageAlt
+          src: imageUrl || '/assets/img/default/no-photo.png',
+          alt: imageAlt || '/assets/img/default/committee-no-image.png'
         },
         socialLinks,
-        profileUrl: `/committee/${personData?.name?.toLowerCase().replace(/\s+/g, '-') || `member-${index + 1}`}`
+        profileUrl: `/committees/${memberSlug}`
       };
     })
     .filter(member => member !== null) as any[];
 
   return {
-    title: committeeList.name || "Chess Victoria Committee",
-    subtitle: "Our Leadership Team",
-    members: members.length > 0 ? members : fallbackCommitteeListData.members
+    title: committeeList.name || '',
+    subtitle: 'Our Leadership Team',
+    members
   };
 }
