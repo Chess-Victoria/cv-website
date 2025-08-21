@@ -81,10 +81,11 @@ export async function POST(request: NextRequest) {
         revalidatePath('/events');
         revalidatePath('/events/[slug]');
         revalidatePath('/event');
-        revalidatePath('/event-schedule');
-        revalidatePath('/event-single');
         revalidateTag('events');
         revalidateTag('event-lists');
+        // Homepage consumes events/eventList widgets
+        revalidatePath('/');
+        revalidateTag('homepage');
         break;
 
       case 'frequentlyAskedQuestion':
