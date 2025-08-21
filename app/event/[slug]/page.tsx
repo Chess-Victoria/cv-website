@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import Layout from "@/components/layout/Layout"
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 import Link from "next/link"
@@ -8,6 +9,63 @@ import { getEventImage, getContactImage } from '@/lib/constants'
 
 interface EventSingleProps {
   params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: EventSingleProps): Promise<Metadata> {
+  const { slug } = await params;
+  const event = await getEventDataBySlug(slug);
+  
+  if (!event) {
+    return {
+      title: 'Event Not Found - Chess Victoria',
+      description: 'The event you are looking for does not exist.',
+    };
+  }
+
+  const formattedDate = new Date(event.datetime).toLocaleDateString('en-AU', { 
+    day: '2-digit', 
+    month: 'long', 
+    year: 'numeric' 
+  });
+  
+  const formattedTime = new Date(event.datetime).toLocaleTimeString('en-AU', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  const title = `${event.name} | Chess Victoria Event`;
+  const description = event.summary 
+    ? `${event.summary} Join us on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`
+    : `Join us for ${event.name} on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`;
+
+  return {
+    title,
+    description,
+    keywords: `chess event, ${event.name}, chess tournament, chess Victoria, chess competition, ${event.location || 'chess event'}`,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      		url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/event/${slug}`,
+      images: [
+        {
+          url: '/assets/img/logo/cvlogo.png',
+          width: 1200,
+          height: 630,
+          alt: event.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/assets/img/logo/cvlogo.png'],
+    },
+    	alternates: {
+		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/event/${slug}`,
+	},
+  };
 }
 
 export default async function EventSingle({ params }: EventSingleProps) {
@@ -104,62 +162,39 @@ export default async function EventSingle({ params }: EventSingleProps) {
                   )}
                 </div>
               </div>
-
               <div className="col-lg-5">
                 <div className="shedule-listarea">
                   <div className="content-area">
                     <ul>
                       <li>
-                        <Link href={event.url || '#'}><img src="/assets/img/icons/clock1.svg" alt="" />{formattedDate} - {formattedTime} <span> | </span></Link>
+                        <img src="/assets/img/icons/clock1.svg" alt="" />
+                        {formattedDate} - {formattedTime}
                       </li>
                       {event.location && (
                         <li>
-                          <Link href={event.url || '#'}><img src="/assets/img/icons/location1.svg" alt="" />{event.location}</Link>
+                          <img src="/assets/img/icons/location1.svg" alt="" />
+                          {event.location}
                         </li>
                       )}
                     </ul>
                     <div className="space20" />
-                    <Link href={event.slug ? `/event/${event.slug}` : '#'} className="head">{event.name}</Link>
-                    <div className="space24" />
-
-                    {/* Right-side contacts preview */}
-                    {event.contact && event.contact.length > 0 && (
-                      <div className="author-area">
-                        {event.contact.slice(0, 2).map((c, i) => (
-                          <div key={c.id || i} className="autho-name-area" style={i > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
-                            <div className="img1">
-                              <img src={c.image?.url || getContactImage()} alt={c.image?.alt || c.name || ''} />
-                            </div>
-                            <div className="text">
-                              {c.email ? (
-                                <Link href={`mailto:${c.email}`}>{c.name}</Link>
-                              ) : (
-                                <span>{c.name}</span>
-                              )}
-                              <div className="space8" />
-                              <p>{c.title || 'Event Contact'}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="space24" />
                     <div className="btn-area1">
                       {event.url ? (
-                        <Link href={event.url} className="vl-btn1"><span className="demo">View Details</span></Link>
+                        <Link href={event.url} className="vl-btn1">
+                          <span className="demo">View Details</span>
+                        </Link>
                       ) : (
-                        <Link href="/contact" className="vl-btn1"><span className="demo">Contact Organizer</span></Link>
+                        <Link href="/contact" className="vl-btn1">
+                          <span className="demo">Contact Organizer</span>
+                        </Link>
                       )}
                     </div>
                   </div>
                   <div className="space30" />
-
-                  {/* Map */}
                   <div className="mapouter">
                     <div className="gmap_canvas">
                       {mapSrc ? (
-                        <iframe 
+                        <iframe
                           src={mapSrc}
                           width={600}
                           height={450}
@@ -169,7 +204,14 @@ export default async function EventSingle({ params }: EventSingleProps) {
                           referrerPolicy="no-referrer-when-downgrade"
                         />
                       ) : (
-                        <div style={{ width: 600, height: 450, backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ 
+                          width: '100%', 
+                          height: '450px', 
+                          backgroundColor: '#f0f0f0', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center' 
+                        }}>
                           <p>Location map not available</p>
                         </div>
                       )}
@@ -177,13 +219,15 @@ export default async function EventSingle({ params }: EventSingleProps) {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
 
-        {/* CTA */}
-        <CTAWithCountdown buttonLabel="Contact Us" buttonHref="/contact" useFeaturedEvent />
+        <CTAWithCountdown 
+          buttonLabel="Contact Us" 
+          buttonHref="/contact" 
+          useFeaturedEvent 
+        />
       </div>
     </Layout>
   )

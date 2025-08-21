@@ -1,4 +1,5 @@
 
+import { Metadata } from 'next'
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
@@ -10,6 +11,35 @@ import PageHeadContent from '@/components/elements/PageHeadContent'
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+
+export const metadata: Metadata = {
+  title: "Chess Clubs in Victoria | Find Local Chess Clubs & Communities",
+  description: "Discover chess clubs across Victoria. Find local chess communities, club locations, contact information, and join the vibrant chess scene in your area. From beginners to advanced players.",
+  keywords: "chess clubs Victoria, local chess clubs, chess communities, chess Victoria clubs, chess club locations, join chess club, chess Victoria",
+  openGraph: {
+    title: "Chess Clubs in Victoria | Find Local Chess Clubs & Communities",
+    description: "Discover chess clubs across Victoria. Find local chess communities, club locations, contact information, and join the vibrant chess scene in your area.",
+    type: 'website',
+    		url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/chess-clubs`,
+    images: [
+      {
+        url: '/assets/img/logo/cvlogo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Chess Clubs in Victoria',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Chess Clubs in Victoria | Find Local Chess Clubs & Communities",
+    description: "Discover chess clubs across Victoria. Find local chess communities, club locations, and join the vibrant chess scene.",
+    images: ['/assets/img/logo/cvlogo.png'],
+  },
+  	alternates: {
+		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/chess-clubs`,
+	},
+}
 
 // Cache the data fetching with tags for revalidation
 const getCachedClubPageData = unstable_cache(

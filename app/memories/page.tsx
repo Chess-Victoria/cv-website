@@ -1,9 +1,39 @@
 
+import { Metadata } from 'next'
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import GalleryGridWithViewer from '@/components/elements/GalleryGridWithViewer'
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery'
+
+export const metadata: Metadata = {
+  title: "Recent Memories | Chess Victoria - Photo Gallery & Chess Events",
+  description: "Browse our collection of recent memories and photos from chess events, tournaments, and community gatherings across Victoria. Relive the excitement of chess competitions and community moments.",
+  keywords: "chess photos Victoria, chess memories, chess gallery, chess events photos, chess tournament pictures, chess Victoria gallery",
+  openGraph: {
+    title: "Recent Memories | Chess Victoria - Photo Gallery & Chess Events",
+    description: "Browse our collection of recent memories and photos from chess events, tournaments, and community gatherings across Victoria.",
+    type: 'website',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/memories`,
+    images: [
+      {
+        url: '/assets/img/logo/cvlogo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Chess Victoria Memories & Gallery',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Recent Memories | Chess Victoria - Photo Gallery & Chess Events",
+    description: "Browse our collection of recent memories and photos from chess events, tournaments, and community gatherings across Victoria.",
+    images: ['/assets/img/logo/cvlogo.png'],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/memories`,
+  },
+}
 
 // Static revalidation for Next.js 15
 export const revalidate = 604800; // 7 days

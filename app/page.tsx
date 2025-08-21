@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import Layout from "@/components/layout/Layout"
 import Popup from '@/components/layout/Popup'
 import HeroBanner from '@/components/sections/home1/HeroBanner'
@@ -9,6 +10,14 @@ import GalleryImageCarousel from '@/components/sections/home1/GalleryImageCarous
 import NewsUpdate from '@/components/sections/home1/NewsUpdate'
 import { getHomePageData } from './home.data'
 import CTAWithCountdown from "@/components/sections/home1/CTAWithCountdown"
+import { generateHomeMetadata } from './metadata'
+
+// Generate metadata using the new system
+export async function generateMetadata(): Promise<Metadata> {
+  const homePageData = await getHomePageData()
+  return generateHomeMetadata(homePageData.metadata)
+}
+
 // Removed hardcoded fallbacks for production cleanliness
 
 export default async function Home() {

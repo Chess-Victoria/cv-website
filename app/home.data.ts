@@ -21,6 +21,8 @@ import { ReferenceListData } from '@/lib/types/reference-list';
 import { HeroBannerData } from '@/components/sections/home1/HeroBanner';
 import { WelcomeBlockData } from '@/components/sections/home1/WelcomeBlock';
 import { mapWelcomeBlock } from '@/lib/utils/welcome-block-mapper';
+import { mapPageMetadataToData } from '@/lib/utils/metadata-mapper';
+import { MetadataData } from '@/lib/types/metadata';
 
 // Interface for the homepage content type from Contentful
 export interface HomePage {
@@ -100,6 +102,7 @@ export interface HomePageData {
   committeeList?: CommitteeListData;
   featuredClubs?: ReferenceListData;
   featuredGallery?: ImageGalleryData;
+  metadata?: MetadataData;
 }
 
 /**
@@ -182,6 +185,16 @@ export const getHomePageData = unstable_cache(
         }
       }
 
+      // Get metadata from resolved fields
+      let metadata: MetadataData | undefined;
+      if (homePageFields.metadata?.fields) {
+        try {
+          metadata = mapPageMetadataToData(homePageFields.metadata as any);
+        } catch (e) {
+          console.error('Error mapping metadata:', e);
+        }
+      }
+
       return {
         title: homePageFields.name,
         description: homePageFields.name, // Using name as description for now
@@ -192,6 +205,7 @@ export const getHomePageData = unstable_cache(
         committeeList,
         featuredClubs,
         featuredGallery,
+        metadata,
       };
     } catch (error) {
       console.error('Error loading homepage data:', error);

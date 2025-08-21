@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'en_AU',
-		url: 'https://chessvictoria.org.au',
+		url: process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au',
 		title: 'Chess Victoria | Promoting Chess Growth, Inclusion & Excellence',
 		description: 'Discover Chess Victoria, the leading body promoting chess across Victoria. We support players of all ages and abilities, host tournaments, foster community, and inspire excellence through the game of chess.',
 		siteName: 'Chess Victoria',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 		google: 'your-google-verification-code', // Replace with actual verification code
 	},
 	alternates: {
-		canonical: 'https://chessvictoria.org.au',
+		canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au',
 	},
 }
 

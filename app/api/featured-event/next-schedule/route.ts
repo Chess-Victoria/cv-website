@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getSingleEntry } from '@/lib/contentful'
-import { getRevalidationTime } from '@/lib/config'
 import client from '@/lib/contentful'
 
-export const revalidate = 300
+// Use static revalidation time for API routes (24 hours = 86400 seconds)
+export const revalidate = 86400
 
 function isValidDate(d: Date) {
   return d instanceof Date && !isNaN(d.getTime())
@@ -90,11 +90,17 @@ export async function GET() {
     const future = candidates.filter(c => c.date.getTime() > now.getTime()).sort((a, b) => a.date.getTime() - b.date.getTime())
     const next = future[0] || null
 
-    const defaultTtl = Math.max(60, getRevalidationTime('EVENT'))
-    let sMaxAge = defaultTtl
+    // Optimized cache strategy:
+    // - Default cache time: 24 hours (86400 seconds)
+    // - If next event is soon, cache until 5 minutes before the event
+    // - Use consistent cache headers for best performance
+    const defaultCacheTime = 86400 // 24 hours
+    let cacheTime = defaultCacheTime
+    
     if (next) {
-      const secondsUntilNext = Math.max(30, Math.floor((next.date.getTime() - now.getTime()) / 1000))
-      sMaxAge = secondsUntilNext
+      const secondsUntilNext = Math.floor((next.date.getTime() - now.getTime()) / 1000)
+      // Cache until 5 minutes before the event, but not longer than 24 hours
+      cacheTime = Math.min(Math.max(300, secondsUntilNext - 300), defaultCacheTime)
     }
 
     return NextResponse.json({
@@ -116,7 +122,11 @@ export async function GET() {
     }, {
       status: 200,
       headers: {
-        'Cache-Control': `public, s-maxage=${sMaxAge}, stale-while-revalidate=${defaultTtl}`
+        // Optimized cache headers for best performance
+        // max-age: browser cache time
+        // s-maxage: CDN cache time
+        // stale-while-revalidate: serve stale content while revalidating (24 hours)
+        'Cache-Control': `public, max-age=${cacheTime}, s-maxage=${cacheTime}, stale-while-revalidate=86400`,
       }
     })
   } catch (e) {

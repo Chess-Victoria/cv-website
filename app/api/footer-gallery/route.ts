@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getImageGalleryBySlugWithTags } from '@/lib/utils/image-gallery';
 
-// Static revalidate value for Next.js 15
-export const revalidate = 3600; // 1 hour
+// Use static revalidation time for API routes (7 days = 604800 seconds)
+export const revalidate = 604800;
 
 export async function GET() {
   try {
@@ -21,7 +21,11 @@ export async function GET() {
     }, { 
       status: 200,
       headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate',
+        // Optimized cache headers for best performance
+        // max-age: browser cache time (7 days)
+        // s-maxage: CDN cache time (7 days) 
+        // stale-while-revalidate: serve stale content while revalidating (7 days)
+        'Cache-Control': 'public, max-age=604800, s-maxage=604800, stale-while-revalidate=604800',
       }
     });
   } catch (error) {
