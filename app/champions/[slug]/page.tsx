@@ -2,8 +2,7 @@ import Countdown from '@/components/elements/Countdown';
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getEntryBySlug } from '@/lib/contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import RichTextRenderer from '@/components/elements/RichTextRenderer';
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown';
 
 interface ChampionPageProps {
@@ -18,14 +17,9 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
     const showList = (champion as any)?.fields?.showList || false;
     const hasDivision = Array.isArray(championsList) && championsList.some((item: any) => !!item?.fields?.division);
 
-    // Type guard for Contentful rich text Document
-    const isRichTextDocument = (doc: any): doc is import('@contentful/rich-text-types').Document => {
-        return doc && typeof doc === 'object' && doc.nodeType === 'document';
-    };
-
-    const introductionContent = isRichTextDocument(introduction)
-        ? documentToReactComponents(introduction)
-        : null;
+    const introductionContent = introduction ? (
+        <RichTextRenderer content={introduction} className="champion-introduction" />
+    ) : null;
 
     return (
         <Layout headerStyle={1} footerStyle={1}>

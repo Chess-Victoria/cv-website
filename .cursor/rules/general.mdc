@@ -6,3 +6,5 @@ alwaysApply: true
 - when new page add, make sure layout apply same with other page  consisently unless i asking for differently.
 - If need to add css styles, add it in override.css not in main.css
 - no need to change anything in folder "app/cleanup" as this is template for reference and will be clean up later
+- whenever we need render RichText data from contentful, using the RichTextRenderer share component to centralise all logic for richtext render
+- make sure all page have proper, meaning and all metadata/opengraph setup

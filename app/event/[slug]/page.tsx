@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { getEventDataBySlug } from '@/lib/utils/event'
 import { EventData } from '@/lib/types/event'
 import { getEventImage, getContactImage } from '@/lib/constants'
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 
 interface EventSingleProps {
   params: Promise<{ slug: string }>
@@ -82,6 +83,10 @@ export default async function EventSingle({ params }: EventSingleProps) {
     ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(event.location)}`
     : undefined
 
+  const descriptionContent = event.description ? (
+    <RichTextRenderer content={event.description} className="event-description" />
+  ) : null;
+
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
@@ -102,7 +107,7 @@ export default async function EventSingle({ params }: EventSingleProps) {
 
         {/* Event main area (template) */}
         <div className="event-sidepage-section-area sp8">
-          <div className="container">
+          <div className="container" style={{ paddingBottom: '3rem' }}>
             <div className="row">
               <div className="col-lg-7">
                 <div className="event-side-images">
@@ -113,6 +118,14 @@ export default async function EventSingle({ params }: EventSingleProps) {
                   <h3>{event.name}</h3>
                   <div className="space16" />
                   {event.summary && <p>{event.summary}</p>}
+                  {descriptionContent && (
+                    <>
+                      <div className="space24" />
+                      <div className="event-description">
+                        {descriptionContent}
+                      </div>
+                    </>
+                  )}
 
                   {/* Event Contacts */}
                   {event.contact && event.contact.length > 0 && (
@@ -141,6 +154,11 @@ export default async function EventSingle({ params }: EventSingleProps) {
                                         <Link href={`mailto:${c.email}`} className="icon1"><i className="fa-solid fa-envelope" /></Link>
                                       </li>
                                     )}
+                                    {c.phone && (
+                                      <li>
+                                        <Link href={`tel:${c.phone}`} className="icon2"><i className="fa-solid fa-phone" /></Link>
+                                      </li>
+                                    )}
                                   </ul>
                                 </div>
                               </div>
@@ -152,7 +170,7 @@ export default async function EventSingle({ params }: EventSingleProps) {
                                   <span>{c.name}</span>
                                 )}
                                 <div className="space16" />
-                                <p>{c.title || 'Event Contact'}</p>
+                                <p>{c.title || 'Event Organizer'}</p>
                               </div>
                             </div>
                           </div>

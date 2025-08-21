@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getEntryBySlug } from '@/lib/contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import RichTextRenderer from '@/components/elements/RichTextRenderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { unstable_cache } from 'next/cache';
 // Static revalidation for Next.js 15
@@ -47,9 +47,9 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
         return doc && typeof doc === 'object' && doc.nodeType === 'document';
     };
 
-    const introductionContent = isRichTextDocument(introduction)
-        ? documentToReactComponents(introduction)
-        : null;
+    const introductionContent = introduction ? (
+        <RichTextRenderer content={introduction} className="champion-introduction" />
+    ) : null;
 
     return (
         <Layout headerStyle={1} footerStyle={1}>

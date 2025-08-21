@@ -4,7 +4,7 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getCommitteeMemberBySlug } from "@/lib/utils/committee"
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import RichTextRenderer from '@/components/elements/RichTextRenderer'
 import { getContactImage } from "@/lib/constants"
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
@@ -81,7 +81,7 @@ export default async function CommitteeMemberPage({ params }: { params: Promise<
                           <div className="space16" />
                           {member.about ? (
                             <div className="about-content">
-                              {documentToReactComponents(member.about)}
+                              <RichTextRenderer content={member.about} />
                             </div>
                           ) : (
                             <p>No detailed information available for this committee member.</p>
