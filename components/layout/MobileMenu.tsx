@@ -89,7 +89,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 5 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 5 ? 'block' : 'none'}` }}>
 								<li><Link href="/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
 								<li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
-								<li><Link href="/news/category/victorian-championship-news/page-1">Victorian Champions News</Link></li>
+								<li><Link href="/news/category/victorian-chess-news/page-1">Victorian Chess News</Link></li>
 							</ul>
 						</li>
 						{/* Others */}
