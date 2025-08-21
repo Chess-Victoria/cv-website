@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
       case 'clubDetail':
         // Revalidate individual club pages
-        revalidatePath('/chess-clubs/[slug]');
+        revalidatePath('/chess-clubs/[slug]', 'page');
         revalidateTag('chess-club');
         revalidateTag('club-detail');
         // Also revalidate the clubs listing page
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
       case 'comitteeMember':
         // Revalidate committee pages
         revalidatePath('/committees');
-        revalidatePath('/committees/[slug]');
+        revalidatePath('/committees/[slug]', 'page');
         revalidateTag('committees');
         break;
 
@@ -79,8 +79,9 @@ export async function POST(request: NextRequest) {
       case 'eventList':
         // Revalidate event pages
         revalidatePath('/events');
-        revalidatePath('/events/[slug]');
+        revalidatePath('/events/[slug]', 'page');
         revalidatePath('/event');
+        revalidatePath('/event/[slug]', 'page');
         revalidateTag('events');
         revalidateTag('event-lists');
         // Homepage consumes events/eventList widgets
@@ -97,7 +98,7 @@ export async function POST(request: NextRequest) {
       case 'champion':
       case 'championPage':
         // Revalidate champion pages
-        revalidatePath('/champions/[slug]');
+        revalidatePath('/victorian-champions/[slug]', 'page');
         revalidateTag('champions');
         break;
 
@@ -125,7 +126,7 @@ export async function POST(request: NextRequest) {
         // Revalidate memories/gallery pages
         revalidatePath('/memories');
         revalidatePath('/galleries');
-        revalidatePath('/galleries/[slug]');
+        revalidatePath('/galleries/[slug]', 'page');
         revalidateTag('image-gallery');
         revalidateTag('all-galleries');
         break;
@@ -134,7 +135,7 @@ export async function POST(request: NextRequest) {
         // Revalidate news listing pages
         revalidatePath('/');
         revalidatePath('/news');
-        revalidatePath('/news/[page]');
+        revalidatePath('/news/[page]', 'page');
         revalidateTag('posts');
         revalidateTag('post-categories');
         break;
