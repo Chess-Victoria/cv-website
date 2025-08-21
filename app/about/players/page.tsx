@@ -271,7 +271,7 @@ export default async function PlayersPage() {
         <div className="event-team-area sp1">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 m-auto">
+              <div className="col-lg-10 m-auto">
                 <div className="heading2 text-center space-margin60">
                   <h2>Title Statistics</h2>
                   <p>Overview of chess titles held by Victorian players</p>

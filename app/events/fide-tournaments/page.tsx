@@ -130,7 +130,7 @@ export default async function FideTournamentsPage() {
                                 <thead>
                                   <tr>
                                     <th>Tournament Name</th>
-                                    <th>FIDE ID</th>
+                                    <th>Tournament FIDE ID</th>
                                     <th>Date</th>
                                     <th>Location</th>
                                   </tr>
@@ -142,7 +142,17 @@ export default async function FideTournamentsPage() {
                                         <strong>{tournament.name}</strong>
                                       </td>
                                       <td>
-                                        <code>{tournament.id}</code>
+                                        <Link 
+                                          href={`https://ratings.fide.com/tournament_information.phtml?event=${tournament.id}`}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-decoration-none"
+                                          title="View tournament details on FIDE website"
+                                        >
+                                          <code className="text-primary" style={{ cursor: 'pointer' }}>
+                                            {tournament.id} <i className="fa-solid fa-external-link-alt" style={{ fontSize: '0.8em', marginLeft: '4px' }}></i>
+                                          </code>
+                                        </Link>
                                       </td>
                                       <td>
                                         {tournament.date}

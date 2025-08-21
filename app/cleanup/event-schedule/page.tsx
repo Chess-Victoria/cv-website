@@ -24,7 +24,7 @@ export default function EventSchedule() {
 					<div className="choose-section-area sp2">
 						<div className="container">
 							<div className="row">
-								<div className="col-lg-4 m-auto">
+								<div className="col-lg-10 m-auto">
 									<div className="heading2 text-center space-margin60">
 										<h2>Event Schedule</h2>
 									</div>

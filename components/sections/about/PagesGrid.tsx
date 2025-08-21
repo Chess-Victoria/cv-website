@@ -23,7 +23,7 @@ export default function PagesGrid({ pages, eyebrow = 'Learn More', heading = 'Ex
       <div className="choose-section-area sp2">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 m-auto">
+            <div className="col-lg-10 m-auto">
               <div className="heading2 text-center space-margin60">
                 <h5>{eyebrow}</h5>
                 <div className="space18" />
