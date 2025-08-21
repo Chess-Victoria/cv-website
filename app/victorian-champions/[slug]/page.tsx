@@ -1,17 +1,9 @@
 import Countdown from '@/components/elements/Countdown';
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
-import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getEntryBySlug } from '@/lib/contentful';
 import RichTextRenderer from '@/components/elements/RichTextRenderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import { unstable_cache } from 'next/cache';
-// Static revalidation for Next.js 15
-import { notFound } from 'next/navigation';
-import { getRevalidationTime } from '@/lib/config'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown';
-
-// Note: define per-slug cache inside the page to avoid cross-slug staleness
 
 interface ChampionPageProps {
     params: Promise<{ slug: string }>
@@ -19,33 +11,11 @@ interface ChampionPageProps {
 
 export default async function ChampionPage({ params }: ChampionPageProps) {
     const { slug } = await params;
-    const getCachedChampion = unstable_cache(
-      async () => {
-        const champion = await getEntryBySlug('championPage', slug)
-        return champion
-      },
-      ['champion-data', slug],
-      {
-        tags: ['champions', `champion:${slug}`],
-        revalidate: getRevalidationTime('CHAMPION')
-      }
-    )
-
-    const champion = await getCachedChampion();
-    
-    // If no champion found, show 404
-    if (!champion) {
-        notFound();
-    }
-    
-    const { title = 'Champion', introduction } = champion?.fields || {};
+    const champion = await getEntryBySlug('championPage', slug);
+    const { title = 'Champion', summary, introduction } = champion?.fields || {};
     const championsList = (champion as any)?.fields?.champions as any[] | undefined;
+    const showList = (champion as any)?.fields?.showList || false;
     const hasDivision = Array.isArray(championsList) && championsList.some((item: any) => !!item?.fields?.division);
-
-    // Type guard for Contentful rich text Document
-    const isRichTextDocument = (doc: any): doc is import('@contentful/rich-text-types').Document => {
-        return doc && typeof doc === 'object' && doc.nodeType === 'document';
-    };
 
     const introductionContent = introduction ? (
         <RichTextRenderer content={introduction} className="champion-introduction" />
@@ -54,15 +24,20 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
     return (
         <Layout headerStyle={1} footerStyle={1}>
             <div>
-                <PageHeadContent
-                    title={typeof title === 'string' ? title : 'Champion'}
-                    backgroundImage="/assets/img/bg/header-bg12.png"
-                    breadcrumbs={[
-                        { name: 'Home', link: '/' },
-                        { name: 'Victorian Champions', link: '/victorian-champions' },
-                        { name: typeof title === 'string' ? title : 'Champion', link: `/victorian-champions/${slug}` }
-                    ]}
-                />
+                <div className="inner-page-header" style={{ backgroundImage: 'url(/assets/img/bg/header-bg12.png)' }}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 m-auto">
+                                <div className="heading1 text-center">
+                                    <h1>{typeof title === 'string' ? title : 'Champion'}</h1>
+
+                                    <div className="space20" />
+                                    <Link href="/">Home <i className="fa-solid fa-angle-right" /> <span>Champion</span></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/*===== HERO AREA ENDS =======*/}
                 {/*===== MAIN CONTENT AREA STARTS =======*/}
                 <div className="champion-inner-section sp1">
@@ -71,17 +46,29 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
                             <div className="col-lg-8 col-md-10 m-auto" data-aos="zoom-in" data-aos-duration={1000}>
                                 <div className="contact4-boxarea">
                                     <div className="space8" />
-                                    {introductionContent && (
-                                        <div className="mb-3">{introductionContent}</div>
+                                    
+                                    {/* Summary/Introduction */}
+                                    {summary && typeof summary === 'string' && (
+                                        <div className="mb-4">
+                                            <p className="lead">{summary}</p>
+                                        </div>
                                     )}
-                                    {/* Champions Table */}
-                                    {Array.isArray(champion?.fields?.champions) && champion.fields.champions.length > 0 && (
-                                        <div className="schedule-section-area ">
+                                    
+                                    {/* Main Content (Rich Text with Table Support) */}
+                                    {introductionContent && (
+                                        <div className="mb-4">
+                                            {introductionContent}
+                                        </div>
+                                    )}
+                                    
+                                    {/* Champions Table - Only show if showList is true */}
+                                    {showList && Array.isArray(champion?.fields?.champions) && champion.fields.champions.length > 0 && (
+                                        <div className="schedule-section-area">
                                             <div className="container">
                                                 <div className="row">
                                                     <div className="col-lg-11 m-auto">
                                                         <div className="schedule">
-                                                            <table className="table table-bordered">
+                                                            <table>
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Year</th>
@@ -119,7 +106,7 @@ export default async function ChampionPage({ params }: ChampionPageProps) {
 					/>
             </div>
         </Layout>
-    )
+    );
 }
 
 export async function generateStaticParams() {

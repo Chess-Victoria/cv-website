@@ -288,13 +288,13 @@
 
 .rich-text-content table th {
   background: #1a365d;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 12px 16px;
   text-align: left;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+letter-spacing: 0.5px;
 }
 
 .rich-text-content table td {
