@@ -21,7 +21,7 @@ export default function PlayersSearchPage() {
               <div className="col-lg-10 m-auto">
                 <div className="heading2 text-center space-margin60">
                   <h2>Find Victorian Players</h2>
-                  <p>Search by player name and browse with pagination</p>
+                  <p>Data is base on current ACF (Australian Chess Federation) ratings. Ratings are updated periodically and reflect the most recent official standings.</p>
                 </div>
               </div>
             </div>

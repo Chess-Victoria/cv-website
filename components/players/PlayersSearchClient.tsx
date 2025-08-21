@@ -175,7 +175,7 @@ export default function PlayersSearchClient() {
                                 <td className="text-center">{(data.page - 1) * data.hitsPerPage + idx + 1}</td>
                                 <td><strong className="text-break">{p.name}</strong></td>
                                 <td className="text-center">{p.title?.trim() ? (<span className="badge bg-success text-white">{p.title.trim()}</span>) : null}</td>
-                                <td className="text-center">{p.age}</td>
+                                <td className="text-center">{p.age && p.age > 0 ? p.age : ''}</td>
                                 <td className="text-center"><span className="badge bg-primary text-white">{p.nationalRating}</span></td>
                                 <td className="text-center">
                                   {p.fideId && p.fideId !== '0' && p.fideRating ? (
