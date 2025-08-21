@@ -59,7 +59,7 @@ Check sync status and configuration.
   "algoliaIndexName": "players",
   "algoliaIndexSettings": {
     "searchableAttributes": ["name", "state", "title", "fideId", "nationalId"],
-    "attributesForFaceting": ["state", "gender", "title", "searchable(fideRating)"],
+    "attributesForFaceting": ["state", "gender", "title", "searchable(fideRating)", "birthYear"],
     "customRanking": ["desc(nationalRating)", "desc(fideRating)"]
   }
 }
@@ -89,6 +89,7 @@ interface AlgoliaPlayerObject {
   name: string;               // Player name
   state: string;              // State (VIC)
   dateOfBirth: string;        // Date of birth
+  birthYear?: number;         // Derived from dateOfBirth (YYYY) for filtering/faceting
   gender: string;             // Gender
   title: string;              // Chess title
   fideId: string;             // FIDE ID
@@ -107,7 +108,7 @@ interface AlgoliaPlayerObject {
 The API automatically configures Algolia with:
 
 - **Searchable Attributes**: name, state, title, fideId, nationalId
-- **Facets**: state, gender, title, fideRating
+- **Facets**: state, gender, title, fideRating, birthYear
 - **Custom Ranking**: By national rating (desc), then FIDE rating (desc)
 
 ## Security Notes

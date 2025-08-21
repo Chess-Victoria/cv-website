@@ -255,6 +255,18 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
             </div>
           </div>
         </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 m-auto">
+              <div className="text-center mt-3 mb-5">
+                <p className="mb-0">
+                  Not in the list?{' '}
+                  <a href="/players/search" className="text-primary text-decoration-underline">You can search all Victorian players here</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <CTAWithCountdown
 						buttonLabel="Contact Us"
 						buttonHref="/contact"

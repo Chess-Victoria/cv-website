@@ -154,7 +154,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/victorian-champions/junior-champions">Junor Champions</Link></li>
+													<li><Link href="/victorian-champions/junior-champions">Junior Champions</Link></li>
 													<li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
 													<li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
 													<li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>
@@ -193,6 +193,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												<Link href="/others">Others<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/galleries">Galleries</Link></li>
+													<li><Link href="/players/search">Players Search</Link></li>
 													<li><Link href="/faq">FAQ</Link></li>
 													<li><Link href="/documents">Documents</Link></li>
 													<li><Link href="/contact">Contact Us</Link></li>

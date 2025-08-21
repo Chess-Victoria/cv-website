@@ -17,6 +17,7 @@ interface AlgoliaPlayer {
   fideRating?: number
   fideRatingMonth?: string
   lastUpdated: string
+  birthYear?: number
 }
 
 interface AlgoliaSearchResponse {
@@ -84,7 +85,7 @@ export default function PlayersSearchClient() {
         attributesToRetrieve: [
           'objectID', 'name', 'state', 'dateOfBirth', 'gender', 'title',
           'fideId', 'nationalId', 'nationalRating', 'nationalElo', 'age',
-          'fideRating', 'fideRatingMonth', 'lastUpdated'
+          'fideRating', 'fideRatingMonth', 'lastUpdated', 'birthYear'
         ],
         attributesToHighlight: ['name'],
         highlightPreTag: '<mark>',

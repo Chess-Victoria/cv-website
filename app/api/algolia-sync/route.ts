@@ -8,6 +8,7 @@ interface AlgoliaPlayerObject extends Player {
   fideRating?: number
   fideRatingMonth?: string
   lastUpdated: string
+  birthYear?: number
 }
 
 export async function POST(request: NextRequest) {
@@ -55,13 +56,24 @@ export async function POST(request: NextRequest) {
     console.log(`📊 Found ${allPlayers.length} ACF players`)
 
     // Transform data for Algolia
-    const algoliaObjects: AlgoliaPlayerObject[] = allPlayers.map(player => ({
-      ...player,
-      objectID: player.nationalId || `acf_${player.name.replace(/\s+/g, '_')}_${player.state}`,
-      fideRating: player.fideId && fideMap[player.fideId]?.rating ? fideMap[player.fideId]?.rating : undefined,
-      fideRatingMonth: player.fideId && fideMap[player.fideId]?.ratingMonth ? fideMap[player.fideId]?.ratingMonth : undefined,
-      lastUpdated: new Date().toISOString(),
-    }))
+    const algoliaObjects: AlgoliaPlayerObject[] = allPlayers.map(player => {
+      let birthYear: number | undefined = undefined
+      if (player.dateOfBirth && player.dateOfBirth !== '0000/00/00') {
+        const parts = player.dateOfBirth.split('/')
+        const year = Number(parts[0])
+        if (!Number.isNaN(year) && year > 0) {
+          birthYear = year
+        }
+      }
+      return {
+        ...player,
+        objectID: player.nationalId || `acf_${player.name.replace(/\s+/g, '_')}_${player.state}`,
+        fideRating: player.fideId && fideMap[player.fideId]?.rating ? fideMap[player.fideId]?.rating : undefined,
+        fideRatingMonth: player.fideId && fideMap[player.fideId]?.ratingMonth ? fideMap[player.fideId]?.ratingMonth : undefined,
+        lastUpdated: new Date().toISOString(),
+        birthYear,
+      }
+    })
 
     console.log(`🔄 Preparing to sync ${algoliaObjects.length} objects to Algolia...`)
 
@@ -109,7 +121,8 @@ export async function POST(request: NextRequest) {
           'state',
           'gender',
           'title',
-          'searchable(fideRating)'
+          'searchable(fideRating)',
+          'birthYear'
         ],
         ranking: [
           'typo',

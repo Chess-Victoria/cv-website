@@ -72,6 +72,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 <ul className="dropdown-padding">
                                                 <li><Link href="/documents">Documents</Link></li>
                                                 <li><Link href="/galleries">Galleries</Link></li>
+                                                    <li><Link href="/players/search">Players Search</Link></li>
                                                     <li><Link href="/faq">FAQ</Link></li>
                                                     <li><Link href="/contact">Contact Us</Link></li>
                                                 </ul>
