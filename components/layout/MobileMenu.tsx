@@ -72,7 +72,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<Link href="/events" className="hash-nav">Events</Link>
 							<ul className={`sub-menu ${isAccordion == 3 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 3 ? 'block' : 'none'}` }}>
 								<li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
-								<li><Link href="/events/2025-state-tournaments">State level Tournaments</Link></li>
+								<li><Link href="/events/2025-victorian-champion-tournaments">Victorian Champion Tournaments</Link></li>
 								<li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
 							</ul>
 						</li>

@@ -46,7 +46,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 <Link href="/events">Events <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
-                                                    <li><Link href="/events/2025-state-tournaments">State level Tournaments</Link></li>
+                                                    <li><Link href="/events/2025-victorian-champion-tournaments">Victorian Champion Tournaments</Link></li>
                                                     <li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
                                                 </ul>
                                             </li>
