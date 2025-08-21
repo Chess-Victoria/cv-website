@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "algolia:sync": "curl -X POST http://localhost:3000/api/algolia-sync -H \"x-secret-key: test\"",
     "dev": "NEXT_RUN_LOCAL=true next dev",
     "build": "next build",
     "start": "next start",
@@ -24,6 +25,7 @@
     "@vercel/speed-insights": "1.2.0",
     "@vis.gl/react-google-maps": "^1.5.5",
     "adm-zip": "^0.5.16",
+    "algoliasearch": "^5.35.0",
     "aos": "^2.3.4",
     "contentful": "^11.7.15",
     "contentful-management": "^11.54.4",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.7",
+    "@types/algoliasearch": "^3.34.11",
     "@types/aos": "^3.0.7",
     "@types/google.maps": "^3.58.1",
     "@types/node": "^22",

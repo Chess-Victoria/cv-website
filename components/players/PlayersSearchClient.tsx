@@ -1,7 +1,9 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import { algoliasearch } from 'algoliasearch'
 
-interface ApiItem {
+interface AlgoliaPlayer {
+  objectID: string
   name: string
   state: string
   dateOfBirth: string
@@ -10,17 +12,19 @@ interface ApiItem {
   fideId: string
   nationalId: string
   nationalRating: number
+  nationalElo: number
   age: number
   fideRating?: number
   fideRatingMonth?: string
+  lastUpdated: string
 }
 
-interface ApiResponse {
-  items: ApiItem[]
-  total: number
+interface AlgoliaSearchResponse {
+  hits: AlgoliaPlayer[]
+  nbHits: number
   page: number
-  perPage: number
-  totalPages: number
+  nbPages: number
+  hitsPerPage: number
   query: string
 }
 
@@ -30,16 +34,22 @@ export default function PlayersSearchClient() {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [data, setData] = useState<ApiResponse | null>(null)
-  const perPage = 50
+  const [data, setData] = useState<AlgoliaSearchResponse | null>(null)
+  const hitsPerPage = 50
 
-  const url = useMemo(() => {
-    const params = new URLSearchParams()
-    if (debouncedQuery.trim()) params.set('q', debouncedQuery.trim())
-    params.set('page', String(page))
-    params.set('perPage', String(perPage))
-    return `/api/players?${params.toString()}`
-  }, [debouncedQuery, page])
+  // Initialize Algolia search client
+  const searchClient = useMemo(() => {
+    const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID
+    const searchKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_KEY
+    const indexName = process.env.NEXT_PUBLIC_ALGOLIA_PLAYERS_INDEX_NAME || 'players'
+
+    if (!appId || !searchKey) {
+      console.error('Algolia configuration missing')
+      return null
+    }
+
+    return algoliasearch(appId, searchKey)
+  }, [])
 
   // Debounce query input
   useEffect(() => {
@@ -54,28 +64,55 @@ export default function PlayersSearchClient() {
     setPage(1)
   }, [debouncedQuery])
 
+  // Search with Algolia
   useEffect(() => {
+    if (!searchClient) {
+      setError('Search service not configured')
+      return
+    }
+
     let ignore = false
-    const controller = new AbortController()
     setLoading(true)
     setError(null)
-    fetch(url, { signal: controller.signal })
-      .then(r => r.json())
-      .then((json: ApiResponse) => {
-        if (ignore) return
-        setData(json)
+
+    searchClient.searchSingleIndex({
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_PLAYERS_INDEX_NAME || 'players',
+      searchParams: {
+        query: debouncedQuery,
+        page: page - 1, // Algolia uses 0-based pagination
+        hitsPerPage,
+        attributesToRetrieve: [
+          'objectID', 'name', 'state', 'dateOfBirth', 'gender', 'title',
+          'fideId', 'nationalId', 'nationalRating', 'nationalElo', 'age',
+          'fideRating', 'fideRatingMonth', 'lastUpdated'
+        ],
+        attributesToHighlight: ['name'],
+        highlightPreTag: '<mark>',
+        highlightPostTag: '</mark>'
+      }
+    })
+    .then((response: any) => {
+      if (ignore) return
+      setData({
+        hits: response.hits,
+        nbHits: response.nbHits,
+        page: response.page + 1, // Convert back to 1-based pagination
+        nbPages: response.nbPages,
+        hitsPerPage: response.hitsPerPage,
+        query: debouncedQuery
       })
-      .catch(err => {
-        if (ignore) return
-        if (err?.name === 'AbortError') return
-        setError('Failed to load players')
-        console.error(err)
-      })
-      .finally(() => {
-        if (!ignore) setLoading(false)
-      })
-    return () => { ignore = true; controller.abort() }
-  }, [url])
+    })
+    .catch(err => {
+      if (ignore) return
+      setError('Failed to search players')
+      console.error('Algolia search error:', err)
+    })
+    .finally(() => {
+      if (!ignore) setLoading(false)
+    })
+
+    return () => { ignore = true }
+  }, [debouncedQuery, page, searchClient])
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -109,7 +146,7 @@ export default function PlayersSearchClient() {
             <div className="alert alert-danger text-center">{error}</div>
           )}
 
-          {data && data.items && (
+          {data && data.hits && (
             <div className="schedule-section-area mobile-table">
               <div className="container">
                 <div className="row">
@@ -132,9 +169,9 @@ export default function PlayersSearchClient() {
                             </tr>
                           </thead>
                           <tbody>
-                            {data.items.map((p, idx) => (
+                            {data.hits.map((p: AlgoliaPlayer, idx: number) => (
                               <tr key={`${p.nationalId}-${idx}`}>
-                                <td className="text-center">{(data.page - 1) * data.perPage + idx + 1}</td>
+                                <td className="text-center">{(data.page - 1) * data.hitsPerPage + idx + 1}</td>
                                 <td><strong className="text-break">{p.name}</strong></td>
                                 <td className="text-center">{p.title?.trim() ? (<span className="badge bg-success text-white">{p.title.trim()}</span>) : null}</td>
                                 <td className="text-center">{p.age}</td>
@@ -174,9 +211,9 @@ export default function PlayersSearchClient() {
                             </tr>
                           </thead>
                           <tbody>
-                            {data.items.map((p, idx) => (
+                            {data.hits.map((p: AlgoliaPlayer, idx: number) => (
                               <tr key={`${p.nationalId}-${idx}`}>
-                                <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>{(data.page - 1) * data.perPage + idx + 1}</td>
+                                <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>{(data.page - 1) * data.hitsPerPage + idx + 1}</td>
                                 <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'left', paddingLeft: '8px'}}>
                                   {p.fideId && p.fideId !== '0' ? (
                                     <a href={`https://ratings.fide.com/profile/${p.fideId}`} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
@@ -209,8 +246,8 @@ export default function PlayersSearchClient() {
                       {/* Pagination */}
                       <div className="d-flex justify-content-center align-items-center gap-2 mt-3">
                         <button className="vl-btn1" disabled={page <= 1} onClick={() => setPage(p => Math.max(1, p - 1))}>Prev</button>
-                        <span>Page {data.page} of {data.totalPages}</span>
-                        <button className="vl-btn1" disabled={page >= (data.totalPages || 1)} onClick={() => setPage(p => p + 1)}>Next</button>
+                        <span>Page {data.page} of {data.nbPages}</span>
+                        <button className="vl-btn1" disabled={page >= (data.nbPages || 1)} onClick={() => setPage(p => p + 1)}>Next</button>
                       </div>
                     </div>
                   </div>
