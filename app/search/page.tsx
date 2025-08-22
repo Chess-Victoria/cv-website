@@ -48,7 +48,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           ]}
         />
 
-        <div className="search-results-section-area py-5 px-5">
+        <div className="search-results-section-area py-2 px-2">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
