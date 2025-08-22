@@ -377,3 +377,7 @@ letter-spacing: 0.5px;
     font-size: 1.1rem;
   }
 }
+
+.chess-club-page {
+  padding-bottom: 100px !important;
+}

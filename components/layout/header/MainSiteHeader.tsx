@@ -70,6 +70,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             <li>
                                                 <Link href="/others">Others <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
+                                                    <li><Link href="https://www.trybooking.com/au/donate/cvi2" target="_blank">Donate to Chess Victoria</Link></li>
                                                 <li><Link href="/documents">Documents</Link></li>
                                                 <li><Link href="/galleries">Galleries</Link></li>
                                                     <li><Link href="/players/search">Players Search</Link></li>
