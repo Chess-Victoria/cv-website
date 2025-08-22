@@ -6,7 +6,6 @@ interface AlgoliaPlayer {
   objectID: string
   name: string
   state: string
-  dateOfBirth: string
   gender: string
   title: string
   fideId: string
@@ -83,7 +82,7 @@ export default function PlayersSearchClient() {
         page: page - 1, // Algolia uses 0-based pagination
         hitsPerPage,
         attributesToRetrieve: [
-          'objectID', 'name', 'state', 'dateOfBirth', 'gender', 'title',
+          'objectID', 'name', 'state', 'gender', 'title',
           'fideId', 'nationalId', 'nationalRating', 'nationalElo', 'age',
           'fideRating', 'fideRatingMonth', 'lastUpdated', 'birthYear'
         ],
@@ -166,7 +165,6 @@ export default function PlayersSearchClient() {
                               <th className="text-center">FIDE Rating</th>
                               <th className="text-center">ACF ID</th>
                               <th className="text-center">FIDE ID</th>
-                              <th className="text-center">State</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -193,7 +191,6 @@ export default function PlayersSearchClient() {
                                     </a>
                                   ) : (<span className="text-muted">-</span>)}
                                 </td>
-                                <td className="text-center">{p.state}</td>
                               </tr>
                             ))}
                           </tbody>

@@ -3,7 +3,7 @@ import { getACFPlayersData, Player } from '@/lib/utils/acf-ratings'
 import { getFideRatingMap } from '@/lib/utils/fide-ratings'
 import { algoliasearch } from 'algoliasearch'
 
-interface AlgoliaPlayerObject extends Player {
+interface AlgoliaPlayerObject extends Omit<Player, 'dateOfBirth'> {
   objectID: string // ACF ID as object key
   fideRating?: number
   fideRatingMonth?: string
@@ -65,8 +65,12 @@ export async function POST(request: NextRequest) {
           birthYear = year
         }
       }
+      
+      // Destructure to exclude dateOfBirth and add Algolia-specific fields
+      const { dateOfBirth, ...playerWithoutDateOfBirth } = player
+      
       return {
-        ...player,
+        ...playerWithoutDateOfBirth,
         objectID: player.nationalId || `acf_${player.name.replace(/\s+/g, '_')}_${player.state}`,
         fideRating: player.fideId && fideMap[player.fideId]?.rating ? fideMap[player.fideId]?.rating : undefined,
         fideRatingMonth: player.fideId && fideMap[player.fideId]?.ratingMonth ? fideMap[player.fideId]?.ratingMonth : undefined,

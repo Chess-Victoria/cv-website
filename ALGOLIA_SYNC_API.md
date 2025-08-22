@@ -88,7 +88,6 @@ interface AlgoliaPlayerObject {
   objectID: string;           // ACF ID as object key
   name: string;               // Player name
   state: string;              // State (VIC)
-  dateOfBirth: string;        // Date of birth
   birthYear?: number;         // Derived from dateOfBirth (YYYY) for filtering/faceting
   gender: string;             // Gender
   title: string;              // Chess title
@@ -125,6 +124,7 @@ The API automatically configures Algolia with:
 - Only VIC players are included (as per existing ACF data filtering)
 - FIDE ratings are merged from the existing FIDE ratings API
 - Object keys use ACF ID for easy replacement on subsequent runs
+- **Privacy**: `dateOfBirth` is excluded from Algolia data, only `birthYear` is included for filtering
 
 ## Client-Side Search
 
