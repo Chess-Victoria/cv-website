@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
-import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import { Suspense } from 'react'
 import Layout from "@/components/layout/Layout"
-import { getEventListsForNavigation } from "@/lib/utils/event"
 import PageHeadContent from '@/components/elements/PageHeadContent'
-import EventListsGrid from '@/components/sections/events/EventListsGrid'
+import PageLoadingSkeleton from '@/components/layout/PageLoadingSkeleton'
+import EventsPageDataFetcher from '@/components/sections/events/EventsPageDataFetcher'
 
 export const metadata: Metadata = {
   title: "Events & Tournaments | Chess Victoria - Chess Competitions & Events",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Events & Tournaments | Chess Victoria - Chess Competitions & Events",
     description: "Discover chess events and tournaments across Victoria. From local club tournaments to major championships, find upcoming chess competitions, schedules, and registration information.",
     type: 'website',
-    		url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/events`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/events`,
     images: [
       {
         url: '/assets/img/logo/cvlogo.png',
@@ -29,17 +29,14 @@ export const metadata: Metadata = {
     description: "Discover chess events and tournaments across Victoria. From local club tournaments to major championships.",
     images: ['/assets/img/logo/cvlogo.png'],
   },
-  	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/events`,
-	},
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://chessvictoria.org.au'}/events`,
+  },
 }
 
 export const revalidate = 86400; // 24 hours
 
 export default async function EventsPage() {
-  // Fetch all event lists for the cards (only those with events)
-  const eventLists = await getEventListsForNavigation();
-
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
@@ -52,26 +49,9 @@ export default async function EventsPage() {
           ]}
         />
         
-        {/*===== HERO AREA ENDS =======*/}
-        {/*===== EVENT AREA STARTS =======*/}
-        <EventListsGrid 
-          eventLists={eventLists}
-          eyebrow="Events"
-          heading="Chess Events and Tournaments"
-          ctaLabel="View Events"
-        />
-        {/*===== EVENT AREA ENDS =======*/}
-        
-        {/*===== CTA AREA =======*/}
-        <CTAWithCountdown
-          buttonLabel="Contact Us"
-          buttonHref="/contact"
-          links={[
-            { name: 'Organize an Event', href: '/contact', icon: '/assets/img/icons/calender1.svg' },
-            { name: 'Victoria, Australia', href: '/#', icon: '/assets/img/icons/location1.svg' },
-          ]}
-          useFeaturedEvent
-        />
+        <Suspense fallback={<PageLoadingSkeleton />}>
+          <EventsPageDataFetcher />
+        </Suspense>
       </div>
     </Layout>
   )

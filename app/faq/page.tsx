@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import Layout from "@/components/layout/Layout"
-import { getFAQData } from "@/lib/utils/faq"
-import FAQPageClient from "@/components/sections/faq/FAQPageClient"
+import PageLoadingSkeleton from '@/components/layout/PageLoadingSkeleton'
+import FAQPageDataFetcher from "@/components/sections/faq/FAQPageDataFetcher"
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions - Chess Victoria',
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
 export const revalidate = 604800; // 7 days
 
 export default async function FAQPage() {
-  const faqData = await getFAQData()
-
   return (
     <Layout headerStyle={1} footerStyle={1}>
-      <FAQPageClient data={faqData} />
+      <Suspense fallback={<PageLoadingSkeleton />}>
+        <FAQPageDataFetcher />
+      </Suspense>
     </Layout>
   )
 }
