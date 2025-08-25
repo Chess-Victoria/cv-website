@@ -2,7 +2,7 @@ import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getPlayersByCategory, Player } from "@/lib/utils/acf-ratings" // Import Player and getPlayersByCategory
+import { getACFPlayersData, Player } from "@/lib/utils/acf-ratings"
 import { getFideRatingMap } from '@/lib/utils/fide-ratings'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
@@ -35,7 +35,7 @@ const CATEGORIES: Record<string, Category> = {
 // ISR revalidation - static value for Next.js 15
 export const revalidate = 2592000; // 30 days (86400 * 30)
 
-export default async function TopPlayersPage({ params }: { params: Promise<{ category: string }> }) {
+export default async function TopActivePlayersPage({ params }: { params: Promise<{ category: string }> }) {
   const { category: categorySlug } = await params;
   const category = CATEGORIES[categorySlug];
 
@@ -48,7 +48,37 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
   let error: string | null = null;
 
   try {
-    filteredPlayers = await getPlayersByCategory(categorySlug);
+    const allPlayers = await getACFPlayersData();
+
+    // Build category filter (replicates logic from ratings util)
+    const categoryFilters: Record<string, (player: Player) => boolean> = {
+      'all': (player: Player) => true,
+      'u8': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 8,
+      'u10': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 10,
+      'u12': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 12,
+      'u14': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 14,
+      'u16': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 16,
+      'u18': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 18,
+      'u20': (player: Player) => player.dateOfBirth !== '0000/00/00' && player.age < 20,
+      'girls-u8': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 8,
+      'girls-u10': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 10,
+      'girls-u12': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 12,
+      'girls-u14': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 14,
+      'girls-u16': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 16,
+      'girls-u18': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 18,
+      'girls-u20': (player: Player) => player.gender === 'f' && player.dateOfBirth !== '0000/00/00' && player.age < 20,
+      'top-female': (player: Player) => player.gender === 'f'
+    };
+
+    const categoryFilter = categoryFilters[categorySlug] || (() => true);
+
+    filteredPlayers = allPlayers
+      .filter(categoryFilter)
+      .filter(p => p.active)
+      .filter(p => p.nationalRating > 0)
+      .sort((a, b) => b.nationalRating - a.nationalRating)
+      .slice(0, 100);
+
     fideMap = await getFideRatingMap();
   } catch (err) {
     console.error('Error fetching players:', err);
@@ -59,9 +89,9 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
     <Layout headerStyle={1} footerStyle={1}>
       <div>
         <PageHeadContent
-          title={`Top Players - ${category.name}`}
+          title={`Top Active Players - ${category.name}`}
           backgroundImage="/assets/img/bg/header-bg8.png"
-          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: category.name, link: `/about/players/${categorySlug}` }]}
+          breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: category.name, link: `/about/players/${categorySlug}` }, { name: 'Active', link: `/about/players/${categorySlug}/active` }]}
         />
 
         <div className="event-team-area sp1">
@@ -69,12 +99,16 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
             <div className="row">
               <div className="col-lg-10 m-auto">
                 <div className="heading2 text-center space-margin60">
-                  <h2>Top Victorian Players - {category.name}</h2>
-                  <p>{category.description}</p>
+                  <h2>Top Victorian Players - {category.name} (Active)</h2>
+                  <p>Showing only players listed as Active by ACF.</p>
                   <div className="alert alert-info mt-3" role="alert">
                     <i className="fa-solid fa-info-circle me-2"></i>
-                    <strong>Data Source:</strong> This data is based on official ACF (Australian Chess Federation) ratings. 
-                    Ratings are updated periodically and reflect the most recent official standings.
+                    <strong>Active status:</strong> Based on ACF "Players Active" list. Ratings are updated periodically.
+                  </div>
+                  <div className="mt-2">
+                    <Link href={`/about/players/${categorySlug}`} className="text-decoration-none">
+                      <i className="fa-solid fa-arrow-left me-1"></i> Back to {category.name}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -89,8 +123,7 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                         <div className="text-center">
                           <h3>Error Loading Player Data</h3>
                           <p className="text-danger">{error}</p>
-                          <p>Please try again later or contact support if the problem persists.</p>
-                          <p>You can also visit the <a href="https://auschess.org.au/rating-lists/" target="_blank" rel="noopener noreferrer">ACF rating lists</a> directly for more information.</p>
+                          <p>Please try again later.</p>
                         </div>
                       </div>
                     </div>
@@ -243,9 +276,12 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                     <div className="row">
                       <div className="col-lg-10 m-auto">
                         <div className="text-center">
-                          <h3>No Players Found</h3>
-                          <p>There are currently no players in this category.</p>
-                          <p>Please check back later or visit the <a href="https://auschess.org.au/rating-lists/" target="_blank" rel="noopener noreferrer">ACF rating lists</a> for more information.</p>
+                          <h3>No Active Players Found</h3>
+                          <p>There are currently no active players in this category.</p>
+                          <p>
+                            View all players in this category:{' '}
+                            <Link href={`/about/players/${categorySlug}`} className="text-primary text-decoration-underline">Back to {category.name}</Link>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -263,22 +299,18 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
                   Not in the list?{' '}
                   <a href="/players/search" className="text-primary text-decoration-underline">You can search all Victorian players here</a>.
                 </p>
-                <p className="mt-2 mb-0">
-                  See standings by Active players:{' '}
-                  <Link href={`/about/players/${categorySlug}/active`} className="text-primary text-decoration-underline">
-                    Go to Active page
-                  </Link>
-                </p>
               </div>
             </div>
           </div>
         </div>
         <CTAWithCountdown
-						buttonLabel="Contact Us"
-						buttonHref="/contact"
-						useFeaturedEvent
-					/>
+          buttonLabel="Contact Us"
+          buttonHref="/contact"
+          useFeaturedEvent
+        />
       </div>
     </Layout>
   )
 }
+
+

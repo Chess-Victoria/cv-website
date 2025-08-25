@@ -13,6 +13,7 @@ export interface Player {
   nationalRating: number;
   nationalElo: number;
   age: number;
+  active?: boolean;
 }
 
 // Function to download the ACF zip file
@@ -66,6 +67,98 @@ async function downloadACFZipFile(): Promise<string> {
     throw error;
   }
 }
+
+// Fetch and parse the Active players list (act.txt) from the ACF ratings page
+async function downloadActiveNames(): Promise<Set<string>> {
+  try {
+    const ratingsPageResponse = await fetch('https://auschess.org.au/rating-lists/', {
+      next: { revalidate: getRevalidationTime('ACF_RATINGS') || 86400 * 30 }
+    });
+
+    if (!ratingsPageResponse.ok) {
+      throw new Error(`Failed to fetch ACF ratings page for act.txt: ${ratingsPageResponse.status} ${ratingsPageResponse.statusText}`);
+    }
+
+    const ratingsPageContent = await ratingsPageResponse.text();
+
+    // Look for act.txt link
+    const actRegex = /href="([^"]*act\.txt[^"]*)"/i;
+    const match = ratingsPageContent.match(actRegex);
+
+    let relativeUrl = '';
+    if (match && match[1]) {
+      relativeUrl = match[1];
+    } else {
+      // Fallback: try any link that contains 'active' and ends with .txt
+      const fallbackRegex = /href="([^"]*(active|act)[^"]*\.txt[^"]*)"/i;
+      const fbMatch = ratingsPageContent.match(fallbackRegex);
+      if (!fbMatch || !fbMatch[1]) {
+        // If no file found, return empty set (no-one marked active)
+        return new Set();
+      }
+      relativeUrl = fbMatch[1];
+    }
+
+    const actUrl = relativeUrl.startsWith('http') ? relativeUrl : `https://auschess.org.au${relativeUrl}`;
+
+    const actResponse = await fetch(actUrl, {
+      next: { revalidate: getRevalidationTime('ACF_RATINGS') || 86400 * 30 }
+    });
+
+    if (!actResponse.ok) {
+      throw new Error(`Failed to download act.txt: ${actResponse.status} ${actResponse.statusText}`);
+    }
+
+    const text = await actResponse.text();
+    const lines = text.split(/\r?\n/);
+
+    const normalizeName = (name: string) =>
+      name
+        .replace(/\s+/g, '') // remove all whitespace
+        .replace(/\./g, '') // remove all dots
+        .toLowerCase();
+
+    const activeNames = new Set<string>();
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      if (line.startsWith('*') || line.toLowerCase().startsWith('players active')) continue;
+
+      // Try to extract names like "Lastname, Firstname [middles]"
+      const nameMatch = line.match(/[A-Za-z][A-Za-z\-\'\s\.]+,\s*[A-Za-z][A-Za-z\-\'\s\.]*/);
+      if (nameMatch) {
+        const name = nameMatch[0];
+        activeNames.add(normalizeName(name));
+        continue;
+      }
+
+      // Fallback: if the line is tab/space separated, take the last token chunk as name
+      const parts = line.split(/\s{2,}|\t/).filter(Boolean);
+      const possibleName = parts[parts.length - 1];
+      if (possibleName && /[,A-Za-z]/.test(possibleName)) {
+        activeNames.add(normalizeName(possibleName));
+      }
+    }
+
+    return activeNames;
+  } catch (error) {
+    console.error('Error fetching/parsing act.txt:', error);
+    return new Set();
+  }
+}
+
+const getActiveNames = unstable_cache(
+  async (): Promise<string[]> => {
+    const set = await downloadActiveNames();
+    return Array.from(set);
+  },
+  ['acf-active-names'],
+  {
+    tags: ['acf-active-names'],
+    revalidate: getRevalidationTime('ACF_RATINGS') || 86400 * 30
+  }
+);
 
 // Function to parse ACF data from base64 zip string
 function parseACFDataFromBase64(base64String: string): Player[] {
@@ -153,8 +246,18 @@ function parseACFDataFromBase64(base64String: string): Player[] {
     // Filter only VIC players to reduce cache size
     const vicPlayers = allPlayers.filter(player => player.state === 'VIC');
 
-    // Sort by national rating (descending) - highest rating first
-    return vicPlayers.sort((a: Player, b: Player) => b.nationalRating - a.nationalRating);
+    // Enrich with Active flag by matching names against act.txt
+    const normalizeName = (name: string) =>
+      name
+        .replace(/\s+/g, ' ')
+        .replace(/\.+$/g, '')
+        .trim()
+        .toLowerCase();
+
+    // We intentionally do not await here; active names are injected in getACFPlayersData to keep this parser pure
+    return vicPlayers
+      .map(p => ({ ...p }))
+      .sort((a: Player, b: Player) => b.nationalRating - a.nationalRating);
   } catch (error) {
     console.error('Error parsing ACF data from base64 zip:', error);
     throw error;
@@ -189,8 +292,22 @@ export async function getACFPlayersData(): Promise<Player[]> {
     return inMemoryPlayersCache.data;
   }
   const parsed = parseACFDataFromBase64(base64String);
-  inMemoryPlayersCache = { key, data: parsed };
-  return parsed;
+  const activeNamesArray = await getActiveNames();
+  const activeNames = new Set(activeNamesArray);
+
+  const normalizeName = (name: string) =>
+    name
+      .replace(/\s+/g, '') // remove all whitespace
+      .replace(/\./g, '') // remove all dots
+      .toLowerCase();
+
+  const enriched = parsed.map(p => ({
+    ...p,
+    active: activeNames.has(normalizeName(p.name))
+  }));
+
+  inMemoryPlayersCache = { key, data: enriched };
+  return enriched;
 }
 
 // Backward-compatible function name

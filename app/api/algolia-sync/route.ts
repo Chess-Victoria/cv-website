@@ -125,6 +125,7 @@ export async function POST(request: NextRequest) {
           'state',
           'gender',
           'title',
+          'active',
           'searchable(fideRating)',
           'birthYear'
         ],

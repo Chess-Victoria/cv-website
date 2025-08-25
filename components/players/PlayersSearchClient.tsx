@@ -13,6 +13,7 @@ interface AlgoliaPlayer {
   nationalRating: number
   nationalElo: number
   age: number
+  active?: boolean
   fideRating?: number
   fideRatingMonth?: string
   lastUpdated: string
@@ -35,6 +36,7 @@ export default function PlayersSearchClient() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [data, setData] = useState<AlgoliaSearchResponse | null>(null)
+  const [activeOnly, setActiveOnly] = useState(false)
   const hitsPerPage = 50
 
   // Initialize Algolia search client
@@ -64,6 +66,11 @@ export default function PlayersSearchClient() {
     setPage(1)
   }, [debouncedQuery])
 
+  // Reset to first page when active filter toggles
+  useEffect(() => {
+    setPage(1)
+  }, [activeOnly])
+
   // Search with Algolia
   useEffect(() => {
     if (!searchClient) {
@@ -83,12 +90,13 @@ export default function PlayersSearchClient() {
         hitsPerPage,
         attributesToRetrieve: [
           'objectID', 'name', 'state', 'gender', 'title',
-          'fideId', 'nationalId', 'nationalRating', 'nationalElo', 'age',
+          'fideId', 'nationalId', 'nationalRating', 'nationalElo', 'age', 'active',
           'fideRating', 'fideRatingMonth', 'lastUpdated', 'birthYear'
         ],
         attributesToHighlight: ['name'],
         highlightPreTag: '<mark>',
-        highlightPostTag: '</mark>'
+        highlightPostTag: '</mark>',
+        filters: activeOnly ? 'active:true' : undefined
       }
     })
     .then((response: any) => {
@@ -112,7 +120,7 @@ export default function PlayersSearchClient() {
     })
 
     return () => { ignore = true }
-  }, [debouncedQuery, page, searchClient])
+  }, [debouncedQuery, page, activeOnly, searchClient])
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -126,15 +134,29 @@ export default function PlayersSearchClient() {
         <div className="event-widget-area">
           <div className="row mb-3">
             <div className="col-lg-8 col-md-10 m-auto">
-              <form onSubmit={onSubmit} className="d-flex gap-2">
+              <form onSubmit={onSubmit} className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control flex-grow-1"
                   placeholder="Search by player name..."
                   value={queryInput}
                   onChange={(e) => setQueryInput(e.target.value)}
                 />
-                <button type="submit" className="vl-btn1">Search</button>
+                <div className="d-flex justify-content-between justify-content-lg-start align-items-center gap-lg-2">
+                  <div className="form-check me-lg-2">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="activeOnly"
+                      checked={activeOnly}
+                      onChange={(e) => setActiveOnly(e.target.checked)}
+                    />
+                    <label className="form-check-label" htmlFor="activeOnly">
+                      Active only
+                    </label>
+                  </div>
+                  <button type="submit" className="vl-btn1">Search</button>
+                </div>
               </form>
             </div>
           </div>
