@@ -133,29 +133,72 @@ export default function PlayersSearchClient() {
       <div className="col-lg-12 m-auto">
         <div className="event-widget-area">
           <div className="row mb-3">
-            <div className="col-lg-8 col-md-10 m-auto">
-              <form onSubmit={onSubmit} className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2">
-                <input
-                  type="text"
-                  className="form-control flex-grow-1"
-                  placeholder="Search by player name..."
-                  value={queryInput}
-                  onChange={(e) => setQueryInput(e.target.value)}
-                />
-                <div className="d-flex justify-content-between justify-content-lg-start align-items-center gap-lg-2">
-                  <div className="form-check me-lg-2">
+            <div className="col-lg-10 col-md-10 m-auto">
+              <form onSubmit={onSubmit} className="d-flex flex-column gap-3">
+                {/* Search box and button on same line */}
+                <div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-3">
+                  <input
+                    type="text"
+                    className="form-control flex-grow-1"
+                    placeholder="Search by player name..."
+                    value={queryInput}
+                    onChange={(e) => setQueryInput(e.target.value)}
+                    style={{
+                      height: '48px',
+                      fontSize: '16px',
+                      padding: '12px 16px',
+                      border: '2px solid #e9ecef',
+                      borderRadius: '8px',
+                      transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+                    }}
+                  />
+                  <button 
+                    type="submit" 
+                    className="vl-btn1"
+                    style={{
+                      height: '48px',
+                      padding: '12px 24px',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    Search
+                  </button>
+                </div>
+                
+                {/* Checkbox on second line */}
+                <div className="d-flex justify-content-center justify-content-lg-start">
+                  <div className="form-check" style={{ margin: 0 }}>
                     <input
                       className="form-check-input"
                       type="checkbox"
                       id="activeOnly"
                       checked={activeOnly}
                       onChange={(e) => setActiveOnly(e.target.checked)}
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        marginTop: '0',
+                        marginRight: '8px',
+                        accentColor: '#a02bff',
+                        cursor: 'pointer'
+                      }}
                     />
-                    <label className="form-check-label" htmlFor="activeOnly">
+                    <label 
+                      className="form-check-label" 
+                      htmlFor="activeOnly"
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: '500',
+                        color: '#495057',
+                        cursor: 'pointer',
+                        userSelect: 'none'
+                      }}
+                    >
                       Active only
                     </label>
                   </div>
-                  <button type="submit" className="vl-btn1">Search</button>
                 </div>
               </form>
             </div>
