@@ -37,6 +37,23 @@ export default function Countdown({ style, targetDate }: CountdownProps) {
 		return endDateTime.getTime() - now
 	})
 
+	// Update timeDif when targetDate changes
+	useEffect(() => {
+		const now = Date.now()
+		let endDateTime: Date
+		
+		if (targetDate) {
+			// Parse the ISO datetime string from Contentful
+			endDateTime = new Date(targetDate)
+		} else {
+			// Fallback to 2 days from now
+			endDateTime = new Date()
+			endDateTime.setDate(endDateTime.getDate() + 2)
+		}
+		
+		setTimeDif(endDateTime.getTime() - now)
+	}, [targetDate])
+
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTimeDif((prev) => {

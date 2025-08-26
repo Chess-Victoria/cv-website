@@ -19,7 +19,7 @@ export default async function HomePageDataFetcher() {
   
   return (
     <>
-      <HeroBanner data={homePageData.heroBanner!} />
+      <HeroBanner data={homePageData.heroBanner!} useDynamicCountdown={true} />
       {homePageData.welcomeBlock && (
         <WelcomeBlock data={homePageData.welcomeBlock} />
       )}

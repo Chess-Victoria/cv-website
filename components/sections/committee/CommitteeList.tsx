@@ -23,8 +23,8 @@ export default function CommitteeList({ committee }: CommitteeListProps) {
           </div>
         </div>
         <div className="row">
-          {committee.members.map((member) => (
-            <CommitteeMemberCard key={member.id} member={member} />
+          {committee.members.map((member, index) => (
+            <CommitteeMemberCard key={`committee-member-${member.id}-${index}`} member={member} />
           ))}
         </div>
       </div>

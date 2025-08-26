@@ -14,8 +14,8 @@ type NewsItem = {
 export default function NewsUpdate({ items }: { items: NewsItem[] }) {
   if (!items || items.length === 0) return null
 
-  const renderCard = (item: NewsItem, aosDuration: number) => (
-    <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={aosDuration} key={item.id}>
+  const renderCard = (item: NewsItem, aosDuration: number, index: number) => (
+    <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={aosDuration} key={`news-${item.id}-${index}`}>
       <div className="blog1-auhtor-boxarea">
         {item.imageUrl ? (
           <div className="img1 image-anime">
@@ -53,7 +53,7 @@ export default function NewsUpdate({ items }: { items: NewsItem[] }) {
             </div>
           </div>
           <div className="row">
-            {items.slice(0, 3).map((item, idx) => renderCard(item, 800 + idx * 200))}
+            {items.slice(0, 3).map((item, idx) => renderCard(item, 800 + idx * 200, idx))}
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
+"use client"
 import Countdown from '@/components/elements/Countdown'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 // Interface for HeroBanner data
 export interface HeroBannerData {
@@ -33,9 +35,57 @@ export interface HeroBannerData {
 
 interface HeroBannerProps {
   data: HeroBannerData;
+  useDynamicCountdown?: boolean; // New prop to enable dynamic countdown
 }
 
-export default function HeroBanner({ data }: HeroBannerProps) {
+export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBannerProps) {
+  const [dynamicEventDateTime, setDynamicEventDateTime] = useState<string | undefined>(data.eventDateTime)
+  const [dynamicEventInfo, setDynamicEventInfo] = useState(data.eventInfo)
+
+  useEffect(() => {
+    if (!useDynamicCountdown) return
+
+    let cancelled = false
+    async function loadDynamicCountdown() {
+      try {
+        const res = await fetch('/api/featured-event/next-schedule', { next: { revalidate: 0 } })
+        if (!res.ok) return
+        const scheduleData = await res.json()
+        if (cancelled) return
+        
+        if (scheduleData?.nextDateTime) {
+          setDynamicEventDateTime(scheduleData.nextDateTime)
+          
+          // Update event info with dynamic data
+          const updatedEventInfo = { ...data.eventInfo }
+          if (scheduleData.title) {
+            updatedEventInfo.title = scheduleData.title
+          }
+          if (scheduleData.location) {
+            updatedEventInfo.location = scheduleData.location
+          }
+          if (scheduleData.nextDateTime) {
+            try {
+              const d = new Date(scheduleData.nextDateTime)
+              updatedEventInfo.date = d.toLocaleString('en-AU', {
+                day: '2-digit', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit'
+              })
+            } catch {}
+          }
+          setDynamicEventInfo(updatedEventInfo)
+        }
+      } catch (e) {
+        // silent fail - fallback to static data
+      }
+    }
+
+    loadDynamicCountdown()
+    return () => { cancelled = true }
+  }, [useDynamicCountdown, data.eventInfo])
+
+  // Use dynamic data if available, otherwise fall back to static data
+  const eventDateTime = dynamicEventDateTime || data.eventDateTime
+  const eventInfo = dynamicEventInfo
 
   return (
     <>
@@ -76,19 +126,19 @@ export default function HeroBanner({ data }: HeroBannerProps) {
                   <img src={data.heroImage} alt="" />
                 </div>
                 <div className="images-content-area" data-aos="fade-up" data-aos-duration={900}>
-                  <h3>{data.eventInfo.title}</h3>
+                  <h3>{eventInfo.title}</h3>
                   <div className="space12" />
-                  <Link href="/#">{data.eventInfo.date}</Link>
+                  <Link href="/#">{eventInfo.date}</Link>
                   <div className="space12" />
-                  <Link href="/#">{data.eventInfo.location}</Link>
+                  <Link href="/#">{eventInfo.location}</Link>
                   <div className="space16" />
-                  <p>{data.eventInfo.description}</p>
+                  <p>{eventInfo.description}</p>
                 </div>
               </div>
             </div>
             <div className="col-lg-1">
-              {data.showCountdown && data.eventDateTime && (
-                <Countdown targetDate={data.eventDateTime} />
+              {data.showCountdown && eventDateTime && (
+                <Countdown targetDate={eventDateTime} />
               )}
             </div>
           </div>

@@ -60,7 +60,10 @@ export default function CTAWithCountdown({
         if (!res.ok) return
         const data = await res.json()
         if (cancelled) return
-        if (data?.nextDateTime) setResolvedDate(data.nextDateTime)
+        
+        if (data?.nextDateTime) {
+          setResolvedDate(data.nextDateTime)
+        }
         if (data?.title) setResolvedTitle(data.title)
         const newLinks: CTALinkItem[] = []
         if (data?.nextDateTime) {

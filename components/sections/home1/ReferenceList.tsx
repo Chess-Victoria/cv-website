@@ -49,7 +49,7 @@ export default function ReferenceList({ data, useTextLogo = false }: ReferenceLi
             )
 
             return (
-              <div key={item.id} className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (index * 100)}>
+              <div key={`reference-${item.id}-${index}`} className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (index * 100)}>
                 <div className="brand-box" style={{ backgroundColor: '#A02BBD',  color:"white"}}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     {item.url ? (

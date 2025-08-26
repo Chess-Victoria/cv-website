@@ -9,31 +9,50 @@ function isValidDate(d: Date) {
   return d instanceof Date && !isNaN(d.getTime())
 }
 
-function parseScheduleString(schedule: string): Date | null {
+function parseScheduleString(schedule: string, fallbackYear?: number): Date | null {
   const direct = new Date(schedule)
   if (isValidDate(direct)) return direct
 
   const patterns = [
     /(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/,
-    /([A-Za-z]{3,})\s+(\d{1,2}),\s*(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/
+    /([A-Za-z]{3,})\s+(\d{1,2}),\s*(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/,
+    /Round\s+(\d+)\s+as\s+(\d{1,2})\s+([A-Za-z]{3,})/i, // "Round X as DD MMM"
+    /(\d{1,2})\s+([A-Za-z]{3,})/,  // "DD MMM"
+    /R(\d+)\s+on\s+(\d{1,2})\s+([A-Za-z]{3,})/i  // "R5 on 6 sept"
   ]
 
-  for (const p of patterns) {
+  for (let i = 0; i < patterns.length; i++) {
+    const p = patterns[i]
     const m = schedule.match(p)
     if (m) {
       try {
-        let year: number, monthStr: string, day: number, hour = 0, minute = 0
-        if (p === patterns[0]) {
+        let year: number = fallbackYear || new Date().getFullYear()
+        let monthStr: string = ''
+        let day: number = 0
+        let hour = 0
+        let minute = 0
+
+        if (i === 0) { // "DD MMM YYYY"
           day = parseInt(m[1], 10)
           monthStr = m[2]
           year = parseInt(m[3], 10)
           if (m[4] && m[5]) { hour = parseInt(m[4], 10); minute = parseInt(m[5], 10) }
-        } else {
+        } else if (i === 1) { // "MMM DD, YYYY"
           monthStr = m[1]
           day = parseInt(m[2], 10)
           year = parseInt(m[3], 10)
           if (m[4] && m[5]) { hour = parseInt(m[4], 10); minute = parseInt(m[5], 10) }
+        } else if (i === 2) { // "Round X as DD MMM"
+          day = parseInt(m[2], 10)
+          monthStr = m[3]
+        } else if (i === 3) { // "DD MMM"
+          day = parseInt(m[1], 10)
+          monthStr = m[2]
+        } else if (i === 4) { // "R5 on 6 sept"
+          day = parseInt(m[2], 10)
+          monthStr = m[3]
         }
+
         const month = new Date(`${monthStr} 1, ${year}`).getMonth()
         const d = new Date(Date.UTC(year, month, day, hour, minute))
         if (isValidDate(d)) return d
@@ -65,24 +84,45 @@ export async function GET() {
 
     const now = new Date()
     const fieldsEvent: any = entry.fields || {}
+    
     type Candidate = { date: Date; schedule?: any }
     const candidates: Candidate[] = []
 
+    // Determine the base year for parsing schedules
+    let baseYear = now.getFullYear()
+    if (fieldsEvent.datetime) {
+      const eventDate = new Date(fieldsEvent.datetime)
+      if (isValidDate(eventDate)) {
+        baseYear = eventDate.getFullYear()
+      }
+    }
+
     if (fieldsEvent.datetime) {
       const d = new Date(fieldsEvent.datetime)
-      if (!isNaN(d.getTime())) candidates.push({ date: d })
+      if (!isNaN(d.getTime())) {
+        candidates.push({ date: d })
+      }
     }
-    if (Array.isArray(fieldsEvent.schedules)) {
-      for (const s of fieldsEvent.schedules) {
+    
+    // Check for scheduledPlans (EventScheduledPlan content type)
+    const scheduledPlans = fieldsEvent.scheduledPlans || fieldsEvent.schedulePlans || fieldsEvent.schedules
+    if (Array.isArray(scheduledPlans)) {
+      for (let i = 0; i < scheduledPlans.length; i++) {
+        const s = scheduledPlans[i]
+        
         if (s && typeof s === 'object' && 'fields' in s) {
           const sf: any = (s as any).fields
           if (sf?.datetime) {
             const d = new Date(sf.datetime)
-            if (isValidDate(d)) candidates.push({ date: d, schedule: sf })
+            if (isValidDate(d)) {
+              candidates.push({ date: d, schedule: sf })
+            }
           }
         } else if (typeof s === 'string' && s.trim()) {
-          const dd = parseScheduleString(s)
-          if (dd && isValidDate(dd)) candidates.push({ date: dd, schedule: { name: s } })
+          const dd = parseScheduleString(s, baseYear)
+          if (dd && isValidDate(dd)) {
+            candidates.push({ date: dd, schedule: { name: s } })
+          }
         }
       }
     }
@@ -103,7 +143,7 @@ export async function GET() {
       cacheTime = Math.min(Math.max(300, secondsUntilNext - 300), defaultCacheTime)
     }
 
-    return NextResponse.json({
+    const result = {
       eventId,
       eventUrl: fieldsEvent.url,
       location: fieldsEvent.location,
@@ -119,7 +159,9 @@ export async function GET() {
         }
         return eventName
       })()
-    }, {
+    }
+
+    return NextResponse.json(result, {
       status: 200,
       headers: {
         // Optimized cache headers for best performance

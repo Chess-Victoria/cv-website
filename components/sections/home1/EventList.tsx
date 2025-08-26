@@ -32,7 +32,7 @@ export default function EventList({ data }: EventListProps) {
             <div data-aos="fade-up" data-aos-duration={900}>
               <ul className="nav nav-pills space-margin60" id="pills-tab" role="tablist">
                 {data.days.map((day, index) => (
-                  <li key={day.id} className="nav-item" onClick={() => handleTab(index + 1)}>
+                  <li key={`day-${day.id}-${index}`} className="nav-item" onClick={() => handleTab(index + 1)}>
                     <button 
                       className={isTab === index + 1 ? "nav-link active" : "nav-link"} 
                       id={`pills-${day.id}-tab`} 
@@ -56,7 +56,7 @@ export default function EventList({ data }: EventListProps) {
             <div className="tab-content" id="pills-tabContent">
               {data.days.map((day, dayIndex) => (
                 <div 
-                  key={day.id}
+                  key={`tab-${day.id}-${dayIndex}`}
                   className={isTab === dayIndex + 1 ? "tab-pane fade show active" : "tab-pane fade"} 
                   id={`pills-${day.id}`} 
                   role="tabpanel" 
@@ -64,7 +64,7 @@ export default function EventList({ data }: EventListProps) {
                   tabIndex={0}
                 >
                   {day.events.map((event, eventIndex) => (
-                    <div key={event.id}>
+                    <div key={`event-${event.id}-${dayIndex}-${eventIndex}`}>
                       {eventIndex > 0 && <div className="space30" />}
                       <div 
                         className="tabs-widget-boxarea" 

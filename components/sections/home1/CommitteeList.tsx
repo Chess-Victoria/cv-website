@@ -75,8 +75,8 @@ export default function CommitteeList({ data }: CommitteeListProps) {
           <div className="col-lg-12 position-relative">
             <div className="team-slider-area">
               <Swiper {...swiperOptions} className="team-slider-area ">
-                {data.members.map((member) => (
-                  <SwiperSlide key={member.id} className="team-widget-boxarea">
+                {data.members.map((member, index) => (
+                  <SwiperSlide key={`member-${member.id}-${index}`} className="team-widget-boxarea">
                     <div className="img1 image-anime">
                       <img src={member.image.src} alt={member.image.alt} />
                       <ul>
