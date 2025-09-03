@@ -27,7 +27,7 @@ export const SITE_CONFIG: SiteConfiguration = {
   footerText: 'We strive to create an environment where the Victorian chess community can collaborate, compete, and celebrate the game of chess.',
 
   contactEmail: 'admin@chessvictoria.com.au',
-  contactPhone: '???? ??? ????)',
+  contactPhone: 'NA',
   address: 'Melbourne, Australia',
   	websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.chessvictoria.org.au/',
 
