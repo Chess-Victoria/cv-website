@@ -19,6 +19,11 @@ export async function POST(request: NextRequest) {
     // Get email configuration from environment variables
     const fromEmail = process.env.FROM_EMAIL || 'Chess Victoria <noreply@chessvictoria.com>';
     const contactUsEmail = process.env.CONTACT_US_EMAIL || 'contact@chessvictoria.com';
+    // Support multiple comma-separated emails
+    const contactEmailList = contactUsEmail
+      .split(',')
+      .map((e) => e.trim())
+      .filter((e) => e.length > 0);
     const senderName = process.env.SENDER_NAME || 'Chess Victoria';
 
     // Render the email template to HTML string
@@ -29,14 +34,14 @@ export async function POST(request: NextRequest) {
       subject,
       message,
       senderName,
-      contactUsEmail,
+      contactUsEmail: contactEmailList.join(', '),
     });
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: fromEmail,
-      to: [contactUsEmail],
-      subject: `Contact Form: ${subject || 'New Contact Message'}`,
+      to: contactEmailList.length > 0 ? contactEmailList : [contactUsEmail],
+      subject: `[Chess Victoria] Contact Us Form: ${subject || 'New Contact Message'}`,
       html,
     });
 
