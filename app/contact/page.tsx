@@ -3,7 +3,8 @@
 import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Script from 'next/script'
 import { SITE_CONFIG } from '@/lib/site-config'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
@@ -28,6 +29,8 @@ export default function Contact() {
 		message: string
 	}>({ type: null, message: '' })
 
+	const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target
 		setFormData(prev => ({
@@ -42,12 +45,16 @@ export default function Contact() {
 		setSubmitStatus({ type: null, message: '' })
 
 		try {
+			let recaptchaToken: string | undefined = undefined
+			if (typeof window !== 'undefined' && siteKey && (window as any).grecaptcha) {
+				recaptchaToken = await (window as any).grecaptcha.execute(siteKey, { action: 'contact_form' })
+			}
 			const response = await fetch('/api/send-email', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify({ ...formData, recaptchaToken }),
 			})
 
 			const result = await response.json()
@@ -83,6 +90,9 @@ export default function Contact() {
 
 	return (
 		<>
+			{siteKey ? (
+				<Script src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`} strategy="afterInteractive" />
+			) : null}
 			<Layout headerStyle={1} footerStyle={1}>
 				<div>
 					<PageHeadContent

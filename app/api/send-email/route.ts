@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, phone, subject, message } = await request.json();
+    const { name, email, phone, subject, message, recaptchaToken } = await request.json();
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -14,6 +14,23 @@ export async function POST(request: NextRequest) {
         { error: 'Name, email, and message are required' },
         { status: 400 }
       );
+    }
+
+    // Verify reCAPTCHA (v3)
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret) {
+      if (!recaptchaToken) {
+        return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
+      }
+      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ secret: recaptchaSecret, response: recaptchaToken }),
+      });
+      const verifyJson: any = await verifyRes.json();
+      if (!verifyJson.success || (typeof verifyJson.score === 'number' && verifyJson.score < 0.5)) {
+        return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
+      }
     }
 
     // Get email configuration from environment variables
