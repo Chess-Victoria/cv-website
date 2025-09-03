@@ -2,12 +2,13 @@ import Layout from "@/components/layout/Layout";
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import NewsSearchForm from '@/components/elements/NewsSearchForm'
-import { getRevalidationTime } from '@/lib/config'
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostCategories, getRelatedPostsByCategory, getPopularHashtags, getPopularAuthors } from "@/lib/utils/posts";
 import RichTextRenderer from '@/components/elements/RichTextRenderer'
 import type { Metadata } from 'next';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 // ISR
 export const revalidate = 86400; // 24 hours
 
@@ -103,7 +104,9 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                       <RichTextRenderer content={post.fullContent as any} />
                     </div>
                   ) : post.body ? (
-                    <p style={{ whiteSpace: 'pre-wrap' }}>{post.body}</p>
+                    <div className="rich-text-content">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+                    </div>
                   ) : null}
                   {post.gallery && post.gallery.length > 0 ? (
                     <>
