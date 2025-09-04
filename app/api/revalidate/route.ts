@@ -122,6 +122,13 @@ export async function POST(request: NextRequest) {
         revalidateTag('referenceList');
         break;
 
+      case 'page':
+        // Revalidate generic CMS pages
+        revalidatePath('/pages');
+        revalidatePath('/pages/[slug]', 'page');
+        revalidateTag('pages');
+        break;
+
       case 'imageGallery':
         // Revalidate memories/gallery pages
         revalidatePath('/memories');

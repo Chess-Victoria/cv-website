@@ -45,23 +45,25 @@ export const getAllPages = unstable_cache(
 /**
  * Fetch page by slug with caching
  */
-export const getPageBySlug = unstable_cache(
-  async (slug: string): Promise<PageData | null> => {
-    try {
-      const page = await getEntryBySlug('page', slug);
-      if (!page) return null;
-      return mapPageToData(page as unknown as Page);
-    } catch (error) {
-      console.error(`Error fetching page with slug ${slug}:`, error);
-      return null;
+export function getPageBySlug(slug: string) {
+  return unstable_cache(
+    async (): Promise<PageData | null> => {
+      try {
+        const page = await getEntryBySlug('page', slug);
+        if (!page) return null;
+        return mapPageToData(page as unknown as Page);
+      } catch (error) {
+        console.error(`Error fetching page with slug ${slug}:`, error);
+        return null;
+      }
+    },
+    ['page-by-slug', slug],
+    {
+      tags: ['pages', `page:${slug}`],
+      revalidate: getRevalidationTime('DEFAULT')
     }
-  },
-  ['page-by-slug'],
-  {
-    tags: ['pages'],
-    revalidate: getRevalidationTime('DEFAULT')
-  }
-);
+  )();
+}
 
 /**
  * Map Contentful page entry to component data
