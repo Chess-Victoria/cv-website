@@ -78,7 +78,7 @@ export default async function Page({ params }: PageProps) {
         <PageHeadContent
           title={pageData.title}
           backgroundImage="/assets/img/bg/header-bg10.png"
-          subtitle={pageData.summary}
+          subtitle={""}
           breadcrumbs={[
             { name: 'Home', link: '/' },
             { name: 'Pages', link: '/pages' },
