@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
+import contentfulClient from '@/lib/contentful';
 
 export async function POST(request: NextRequest) {
   try {
@@ -122,12 +123,25 @@ export async function POST(request: NextRequest) {
         revalidateTag('referenceList');
         break;
 
-      case 'page':
+      case 'page': {
         // Revalidate generic CMS pages
         revalidatePath('/pages');
-        revalidatePath('/pages/[slug]', 'page');
         revalidateTag('pages');
+
+        // Try to resolve slug from entryId for precise revalidation
+        try {
+          const entry: any = await contentfulClient.getEntry(entryId);
+          const slug = entry?.fields?.slug as string | undefined;
+          if (slug) {
+            revalidatePath(`/pages/${slug}`);
+            revalidatePath('/pages/[slug]', 'page');
+            revalidateTag(`page:${slug}`);
+          }
+        } catch (e) {
+          console.warn('Could not resolve page slug for revalidation', { entryId, e });
+        }
         break;
+      }
 
       case 'imageGallery':
         // Revalidate memories/gallery pages
