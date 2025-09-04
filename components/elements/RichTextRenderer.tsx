@@ -28,22 +28,7 @@ export default function RichTextRenderer({ content, className }: RichTextRendere
       [BLOCKS.HEADING_4]: (node: any, children: any) => <h4>{children}</h4>,
       [BLOCKS.HEADING_5]: (node: any, children: any) => <h5>{children}</h5>,
       [BLOCKS.HEADING_6]: (node: any, children: any) => <h6>{children}</h6>,
-      [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-        // Check if this paragraph contains a lot of text and might need splitting
-        const textContent = children?.toString() || '';
-        if (textContent.length > 200 && textContent.includes('. ')) {
-          // Split on sentence boundaries and create multiple paragraphs
-          const sentences = textContent.split(/(?<=\. )/);
-          return (
-            <>
-              {sentences.map((sentence: string, index: number) => (
-                <p key={index}>{sentence.trim()}</p>
-              ))}
-            </>
-          );
-        }
-        return <p>{children}</p>;
-      },
+      [BLOCKS.PARAGRAPH]: (node: any, children: any) => <p>{children}</p>,
       [BLOCKS.UL_LIST]: (node: any, children: any) => <ul>{children}</ul>,
       [BLOCKS.OL_LIST]: (node: any, children: any) => <ol>{children}</ol>,
       [BLOCKS.LIST_ITEM]: (node: any, children: any) => <li>{children}</li>,
