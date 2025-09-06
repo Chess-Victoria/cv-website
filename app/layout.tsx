@@ -17,6 +17,7 @@ import type { Metadata, Viewport } from "next"
 import { Figtree, Space_Grotesk } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import PreviewBanner from '@/components/preview/PreviewBanner'
 
 const figtree = Figtree({
 	weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -117,6 +118,7 @@ export default function RootLayout({
 				<meta name="theme-color" content="#1a365d" />
 			</head>
 			<body className={`${figtree.variable} ${grotesk.variable}`}>
+				<PreviewBanner />
 				{children}
 				<Analytics />
 				<SpeedInsights />

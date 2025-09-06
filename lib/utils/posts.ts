@@ -1,6 +1,7 @@
 import { unstable_cache } from 'next/cache';
 import client from '@/lib/contentful';
 import { getRevalidationTime } from '@/lib/config';
+import { isPreviewMode } from '@/lib/preview';
 
 export interface PostListItem {
   id: string;
@@ -76,13 +77,22 @@ async function fetchPostsPageUncached(page: number, perPage: number): Promise<Po
   };
 }
 
-export const getPostsPageData = unstable_cache(
-  async (page: number, perPage: number): Promise<PostPageData> => {
+export async function getPostsPageData(page: number, perPage: number): Promise<PostPageData> {
+  // In preview mode, bypass cache to get fresh draft content
+  if (await isPreviewMode()) {
     return await fetchPostsPageUncached(page, perPage);
-  },
-  ['posts-list'],
-  { revalidate: getRevalidationTime('POST'), tags: ['posts'] }
-);
+  }
+  
+  // In production mode, use cache
+  return unstable_cache(
+    async () => await fetchPostsPageUncached(page, perPage),
+    ['posts-list'],
+    { 
+      revalidate: getRevalidationTime('POST'), 
+      tags: ['posts'] 
+    }
+  )();
+}
 
 async function fetchPostBySlugUncached(slug: string): Promise<PostDetail | null> {
   const res = await client.getEntries({
@@ -119,11 +129,20 @@ async function fetchPostBySlugUncached(slug: string): Promise<PostDetail | null>
   } as PostDetail;
 }
 
-export function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string) {
+  // In preview mode, bypass cache to get fresh draft content
+  if (await isPreviewMode()) {
+    return await fetchPostBySlugUncached(slug);
+  }
+  
+  // In production mode, use cache
   const dataFn = unstable_cache(
     async () => fetchPostBySlugUncached(slug),
     [`post:${slug}`],
-    { revalidate: getRevalidationTime('POST'), tags: ['posts', `post:${slug}`] }
+    { 
+      revalidate: getRevalidationTime('POST'), 
+      tags: ['posts', `post:${slug}`] 
+    }
   );
   return dataFn();
 }

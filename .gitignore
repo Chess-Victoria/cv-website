@@ -1,3 +1,4 @@
+test-results
 .next
 node_modules
 .DS_Store
@@ -8,3 +9,4 @@ build
 build-output.txt
 tsbuildinfo.json
 tsconfig.tsbuildinfo
+certificates

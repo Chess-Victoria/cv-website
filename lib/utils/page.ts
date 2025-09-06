@@ -2,6 +2,7 @@ import { getEntries, getEntryBySlug } from '@/lib/contentful';
 import { Page, PageData, OpenGraphMetadata } from '@/lib/types/page';
 import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
+import { isPreviewMode, isPreviewModeFromUrl } from '@/lib/preview';
 
 /**
  * Extract plain text from rich text content
@@ -24,8 +25,9 @@ function extractTextFromRichText(content: any): string {
 /**
  * Fetch all pages from Contentful with caching
  */
-export const getAllPages = unstable_cache(
-  async (): Promise<PageData[]> => {
+export async function getAllPages(): Promise<PageData[]> {
+  // In preview mode, bypass cache to get fresh draft content
+  if (await isPreviewMode()) {
     try {
       const response = await getEntries('page', 2);
       const pages = (response as unknown as Page[]).map(mapPageToData);
@@ -34,18 +36,50 @@ export const getAllPages = unstable_cache(
       console.error('Error fetching all pages:', error);
       return [];
     }
-  },
-  ['all-pages'],
-  {
-    tags: ['pages'],
-    revalidate: getRevalidationTime('DEFAULT')
   }
-);
+  
+  // In production mode, use cache
+  return unstable_cache(
+    async (): Promise<PageData[]> => {
+      try {
+        const response = await getEntries('page', 2);
+        const pages = (response as unknown as Page[]).map(mapPageToData);
+        return pages.filter(page => page.slug); // Only return pages with slugs
+      } catch (error) {
+        console.error('Error fetching all pages:', error);
+        return [];
+      }
+    },
+    ['all-pages'],
+    {
+      tags: ['pages'],
+      revalidate: getRevalidationTime('DEFAULT')
+    }
+  )();
+}
 
 /**
  * Fetch page by slug with caching
  */
-export function getPageBySlug(slug: string) {
+export async function getPageBySlug(slug: string, searchParams?: URLSearchParams): Promise<PageData | null> {
+  // Check for preview mode via cookies or URL parameters
+  const isPreviewModeResult = await isPreviewMode();
+  const isPreviewFromUrl = searchParams ? isPreviewModeFromUrl(searchParams) : false;
+  const isPreview = isPreviewModeResult || isPreviewFromUrl;
+  
+  // In preview mode, bypass cache to get fresh draft content
+  if (isPreview) {
+    try {
+      const page = await getEntryBySlug('page', slug);
+      if (!page) return null;
+      return mapPageToData(page as unknown as Page);
+    } catch (error) {
+      console.error(`Error fetching page with slug ${slug}:`, error);
+      return null;
+    }
+  }
+  
+  // In production mode, use cache
   return unstable_cache(
     async (): Promise<PageData | null> => {
       try {

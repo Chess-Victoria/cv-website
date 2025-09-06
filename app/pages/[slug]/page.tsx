@@ -7,6 +7,7 @@ import { getPageBySlug, generateOpenGraphMetadata } from '@/lib/utils/page';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Generate metadata for the page
@@ -64,9 +65,10 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const pageData = await getPageBySlug(slug);
+  const searchParamsObj = searchParams ? await searchParams : undefined;
+  const pageData = await getPageBySlug(slug, searchParamsObj ? new URLSearchParams(searchParamsObj as Record<string, string>) : undefined);
 
   if (!pageData) {
     notFound();

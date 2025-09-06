@@ -411,3 +411,42 @@ letter-spacing: 0.5px;
 .chess-club-page {
   padding-bottom: 100px !important;
 }
+
+/* Pages index card styles */
+.page-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.page-card-body {
+  padding: 20px;
+}
+
+.page-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 10px;
+}
+
+.page-card-summary {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 42px;
+  margin-bottom: 16px;
+}
+
+.page-card-actions .vl-btn1.small {
+  padding: 8px 14px;
+  font-size: 12px;
+}

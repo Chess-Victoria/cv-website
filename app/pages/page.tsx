@@ -4,6 +4,8 @@ import Layout from '@/components/layout/Layout';
 import PageHeadContent from '@/components/elements/PageHeadContent';
 import { getAllPages } from '@/lib/utils/page';
 
+export const revalidate = 86400; // ISR: 24 hours
+
 export const metadata: Metadata = {
   title: 'Pages - Chess Victoria',
   description: 'Browse all content pages on Chess Victoria website',
@@ -27,47 +29,27 @@ export default async function PagesIndex() {
 
         <div className="pages-index-section-area sp10">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-8 m-auto">
-                {pages.length > 0 ? (
-                  <div className="pages-list">
-                    <div className="table-responsive">
-                      <table className="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Title</th>
-                            <th>Summary</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {pages.map((page) => (
-                            <tr key={page.id}>
-                              <td>
-                                <strong>{page.title}</strong>
-                              </td>
-                              <td>
-                                {page.summary ? (
-                                  <span className="text-muted">{page.summary}</span>
-                                ) : (
-                                  <span className="text-muted">No summary available</span>
-                                )}
-                              </td>
-                              <td>
-                                <Link 
-                                  href={`/pages/${page.slug}`}
-                                  className="btn btn-primary btn-sm"
-                                >
-                                  View Page
-                                </Link>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+            {pages.length > 0 ? (
+              <div className="row g-4 py-5">
+                {pages.map((page) => (
+                  <div key={page.id} className="col-lg-4 col-md-6">
+                    <div className="page-card">
+                      <div className="page-card-body">
+                        <h5 className="page-card-title">{page.title}</h5>
+                        <p className="page-card-summary">
+                          {page.summary || 'No summary available'}
+                        </p>
+                        <div className="page-card-actions">
+                          <Link href={`/pages/${page.slug}`} className="vl-btn1 small">View Page</Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                ) : (
+                ))}
+              </div>
+            ) : (
+              <div className="row">
+                <div className="col-lg-8 m-auto">
                   <div className="text-center">
                     <div className="alert alert-info" role="alert">
                       <i className="fa-solid fa-info-circle me-2"></i>
@@ -77,9 +59,9 @@ export default async function PagesIndex() {
                       Pages will appear here once they are created in Contentful.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
