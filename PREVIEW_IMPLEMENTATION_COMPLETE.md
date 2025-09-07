@@ -35,16 +35,6 @@ The Contentful preview functionality has been successfully implemented and is no
 - ✅ `getPostsPageData()` - News list preview support
 - ✅ `getAllPages()` - Pages list preview support
 
-## 🔧 Environment Variables (Configured)
-
-```env
-CONTENTFUL_SPACE_ID=j5mfd0rflg30
-CONTENTFUL_ACCESS_TOKEN=XthTkhKHwlP_c22gaNOH1MEQQ_N3Yvtks9AJnvD3dEg
-CONTENTFUL_PREVIEW_ACCESS_TOKEN=GovTJ3brwRn3Z0BKmfJWgm6mtDF1eSuVvzZZkd30eM0
-CONTENTFUL_PREVIEW_SECRET=protectme
-NEXT_PUBLIC_SITE_URL=https://localhost:3000
-```
-
 ## 🚀 How to Use
 
 ### 1. **Contentful Preview URLs**

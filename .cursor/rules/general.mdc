@@ -8,3 +8,4 @@ alwaysApply: true
 - no need to change anything in folder "app/cleanup" as this is template for reference and will be clean up later
 - whenever we need render RichText data from contentful, using the RichTextRenderer share component to centralise all logic for richtext render
 - make sure all page have proper, meaning and all metadata/opengraph setup
+- do not copy any of data from .env file into document
