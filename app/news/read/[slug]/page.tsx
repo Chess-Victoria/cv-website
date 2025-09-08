@@ -72,7 +72,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
           <div className="container">
             <div className="row">
               <div className="col-lg-8">
-                <div className="blog-deatils-content heading2">
+                <div className="blog-deatils-content">
                   <h2>{post.title}</h2>
                   <div className="space16" />
                   {post.imageUrl ? (
