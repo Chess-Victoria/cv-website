@@ -145,8 +145,6 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 														<Link href="/committees">Our Committees</Link>
 													</li>
 													<li><Link href="/about/players">Our Players</Link></li>
-													<li><Link href="/mission">Our Missions</Link></li>
-													<li><Link href="/vision">Our Vision</Link></li>
 													<li><Link href="/memories">Our Memories</Link></li>
 												</ul>
 											</li>

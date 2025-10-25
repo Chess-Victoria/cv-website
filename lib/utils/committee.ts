@@ -110,13 +110,21 @@ export const getCommitteePageData = unstable_cache(
         return mapped;
       });
 
-      // Sort by tags (Executive first, then Non-Executive)
+      // Sort by tags (Executive first, then Non-Executive, Honorary life members last)
       return mappedLists.sort((a, b) => {
         const aIsExecutive = a.tags?.some(tag => tag.toLowerCase().includes('executive'));
         const bIsExecutive = b.tags?.some(tag => tag.toLowerCase().includes('executive'));
+        const aIsHonorary = a.name?.toLowerCase().includes('honorary') || a.tags?.some(tag => tag.toLowerCase().includes('honorary'));
+        const bIsHonorary = b.name?.toLowerCase().includes('honorary') || b.tags?.some(tag => tag.toLowerCase().includes('honorary'));
         
-        if (aIsExecutive && !bIsExecutive) return -1;
-        if (!aIsExecutive && bIsExecutive) return 1;
+        // Honorary life members go to the bottom
+        if (aIsHonorary && !bIsHonorary) return 1;
+        if (!aIsHonorary && bIsHonorary) return -1;
+        
+        // Among non-honorary, Executive first
+        if (aIsExecutive && !bIsExecutive && !aIsHonorary && !bIsHonorary) return -1;
+        if (!aIsExecutive && bIsExecutive && !aIsHonorary && !bIsHonorary) return 1;
+        
         return 0;
       });
     } catch (error) {

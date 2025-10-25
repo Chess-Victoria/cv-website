@@ -28,7 +28,7 @@ export default function EventListsGrid({
       <div className="choose-section-area sp2">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 m-auto">
+            <div className="col-lg-7 m-auto">
               <div className="heading2 text-center space-margin60">
                 <h5>{eyebrow}</h5>
                 <div className="space18" />
@@ -52,7 +52,7 @@ export default function EventListsGrid({
     <div className="choose-section-area sp2">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 m-auto">
+          <div className="col-lg-7 m-auto">
             <div className="heading2 text-center space-margin60">
               <h5>{eyebrow}</h5>
               <div className="space18" />

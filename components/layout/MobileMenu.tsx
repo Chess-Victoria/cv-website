@@ -50,8 +50,6 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 1 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 1 ? 'block' : 'none'}` }}>
 								<li><Link href="/committees">Our Committees</Link></li>
 								<li><Link href="/about/players">Our Players</Link></li>
-								<li><Link href="/pages/chess-victoria-mission">Our Missions</Link></li>
-								<li><Link href="/pages/chess-victoria-vision">Our Vision</Link></li>
 								<li><Link href="/memories">Our Memories</Link></li>
 							</ul>
 						</li>
@@ -77,11 +75,8 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							</ul>
 						</li>
 						{/* Chess Club in Victoria */}
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 4 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(4)}><em /></span>
+						<li>
 							<Link href="/chess-clubs" className="hash-nav">Chess Club in Victoria</Link>
-							<ul className={`sub-menu ${isAccordion == 4 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 4 ? 'block' : 'none'}` }}>
-								<li><Link href="/chess-clubs/other-chess-associations">Other Chess Associations</Link></li>
-							</ul>
 						</li>
 						{/* News & Update */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(5)}><em /></span>

@@ -15,7 +15,7 @@ export default function CommitteeList({ committee }: CommitteeListProps) {
     <div className="team-sperkers-section-area sp1">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 m-auto">
+          <div className="col-lg-7 m-auto">
             <div className="heading2 text-center space-margin60">
               <h2>{committee.name}</h2>
               {committee.year && <p>Year: {committee.year}</p>}

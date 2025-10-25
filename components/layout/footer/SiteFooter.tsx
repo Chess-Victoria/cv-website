@@ -85,7 +85,7 @@ export default function SiteFooter() {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="copyright">
-								<p>© Copyright {new Date().getFullYear()} -{SITE_CONFIG.siteName || 'Chess Victoria'}. All Right Reserved</p>
+								<p>© Copyright {new Date().getFullYear()} -{SITE_CONFIG.siteName || 'Chess Victoria'}. All Rights Reserved</p>
 							</div>
 						</div>
 					</div>

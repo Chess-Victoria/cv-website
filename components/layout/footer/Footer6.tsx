@@ -124,7 +124,7 @@ export default function Footer6() {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="copyright">
-								<p>© Copyright {new Date().getFullYear()} -Chess Victoria. All Right Reserved</p>
+								<p>© Copyright {new Date().getFullYear()} -Chess Victoria. All Rights Reserved</p>
 							</div>
 						</div>
 					</div>

@@ -25,8 +25,6 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                         <Link href="/committees">Our Committees</Link>
                                                     </li>
                                                     <li><Link href="/about/players">Our Players</Link></li>
-                                                    <li><Link href="/pages/chess-victoria-mission">Our Missions</Link></li>
-                                                    <li><Link href="/pages/chess-victoria-vision">Our Vision</Link></li>
                                                     <li><Link href="/memories">Our Memories</Link></li>
                                                 </ul>
                                             </li>
@@ -52,11 +50,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             </li>
 
                                             <li>
-                                                <Link href="/chess-clubs">Chess Club in Victoria <i className="fa-solid fa-angle-down" /></Link>
-                                                <ul className="dropdown-padding">
-                                                    <li><Link href="/chess-clubs/other-chess-associations">Other Chess Associations</Link></li>
-                                                   
-                                                </ul>
+                                                <Link href="/chess-clubs">Chess Club in Victoria</Link>
                                             </li>
 
                                             <li>
