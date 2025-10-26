@@ -6,6 +6,7 @@ import { getPlayersByTitle, Player } from "@/lib/utils/acf-ratings"
 import { getFideRatingMap } from '@/lib/utils/fide-ratings'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import DraftBanner from '@/components/players/DraftBanner'
 
 interface TitleCategory {
   id: string;
@@ -56,6 +57,8 @@ export default async function TitlePlayersPage({ params }: { params: Promise<{ t
           breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }, { name: 'Players', link: '/about/players' }, { name: titleCategory.name, link: `/about/players/titles/${title}` }]}
         />
 
+        <DraftBanner />
+
         <div className="event-team-area sp1">
           <div className="container">
             <div className="row">
@@ -65,8 +68,8 @@ export default async function TitlePlayersPage({ params }: { params: Promise<{ t
                   <p>{titleCategory.description}</p>
                   <div className="alert alert-info mt-3" role="alert">
                     <i className="fa-solid fa-info-circle me-2"></i>
-                    <strong>Data Source:</strong> This data is based on official ACF (Australian Chess Federation) ratings.
-                    Ratings are updated periodically and reflect the most recent official standings.
+                    <strong>Data Source:</strong> This data is based on ACF (Australian Chess Federation) ratings.
+                    Ratings are updated periodically and reflect the most recent standings.
                   </div>
                 </div>
               </div>
@@ -123,7 +126,7 @@ export default async function TitlePlayersPage({ params }: { params: Promise<{ t
                                           ) : null}
                                         </td>
                                         <td className="text-center">
-                                          {player.age}
+                                          {player.age === 0 ? 'N/A' : player.age}
                                         </td>
                                         <td className="text-center">
                                           <span className="badge bg-primary text-white">{player.nationalRating}</span>

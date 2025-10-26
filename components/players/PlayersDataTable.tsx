@@ -96,7 +96,7 @@ export default function PlayersDataTable({
                           ) : null}
                         </td>
                         <td className="text-center">
-                          {player.age}
+                          {player.age === 0 ? 'N/A' : player.age}
                         </td>
                         <td className="text-center">
                           <span className="badge bg-primary text-white">{player.nationalRating}</span>

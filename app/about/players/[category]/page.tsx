@@ -8,6 +8,7 @@ import PlayersTableSkeleton from '@/components/players/PlayersTableSkeleton'
 import PlayersDataFetcher from '@/components/players/PlayersDataFetcher'
 import PlayersPageHeader from '@/components/players/PlayersPageHeader'
 import PlayersPageFooter from '@/components/players/PlayersPageFooter'
+import DraftBanner from '@/components/players/DraftBanner'
 
 // ISR revalidation - static value for Next.js 15
 export const revalidate = 2592000; // 30 days (86400 * 30)
@@ -33,6 +34,8 @@ export default async function TopPlayersPage({ params }: { params: Promise<{ cat
             { name: category.name, link: `/about/players/${categorySlug}` }
           ]}
         />
+
+        <DraftBanner />
 
         <div className="event-team-area sp1">
           <div className="container">

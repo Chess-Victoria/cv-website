@@ -3,6 +3,8 @@ import Link from "next/link"
 // Static revalidation for Next.js 15
 import { getTitleStatistics } from '@/lib/utils/acf-ratings'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import DraftBanner from '@/components/players/DraftBanner'
+import { getContactInfo } from '@/lib/site-config'
 
 // Available categories organized by type
 const OPEN_CATEGORIES = [
@@ -111,8 +113,9 @@ const FEMALE_CATEGORIES = [
 export const revalidate = 2592000; // 30 days
 
 export default async function PlayersPage() {
-  // Get title statistics
+  // Get title statistics and contact info
   const titleStats = await getTitleStatistics();
+  const contactInfo = await getContactInfo();
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -130,6 +133,8 @@ export default async function PlayersPage() {
             </div>
           </div>
         </div>
+        
+        <DraftBanner />
         
         {/*===== PLAYERS CATEGORIES AREA STARTS =======*/}
         <div className="event-team-area sp1">
@@ -403,6 +408,26 @@ export default async function PlayersPage() {
           </div>
         </div>
         {/*===== TITLE STATISTICS AREA ENDS =======*/}
+        
+        {/*===== CONTACT INFO AREA STARTS =======*/}
+        <div className="event-team-area sp1">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-10 m-auto">
+                <div className="alert alert-info text-center">
+                  <h4>Data Corrections & Amendments</h4>
+                  <p className="mb-0">
+                    In case of amendments or corrections required, please contact the webmaster at{' '}
+                    <a href={`mailto:${contactInfo.email}`} className="text-decoration-none">
+                      {contactInfo.email}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/*===== CONTACT INFO AREA ENDS =======*/}
         
         {/*===== CTA AREA STARTS =======*/}
         <CTAWithCountdown
