@@ -1,7 +1,7 @@
 import { getAboutPageData } from '@/lib/utils/about-page'
 import AboutContent from './AboutContent'
 import ChessClubSlider from '@/components/slider/ChessClubSlider'
-import PagesGrid from './PagesGrid'
+//import PagesGrid from './PagesGrid'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
 export default async function AboutPageDataFetcher() {
@@ -29,11 +29,11 @@ export default async function AboutPageDataFetcher() {
         </div>
       </div>
       
-      {/* Pages Grid Section */}
+      {/* Pages Grid Section 
       <div className="choose-section-area sp2">
         <PagesGrid pages={aboutPageData.pages} />
       </div>
-      
+      */}
       <CTAWithCountdown
         buttonLabel="Contact Us"
         buttonHref="/contact"
