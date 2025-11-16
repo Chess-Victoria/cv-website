@@ -61,6 +61,13 @@ export interface CommitteeMember {
         linkType: string;
       };
     };
+    avatarImage?: {
+      sys: {
+        id: string;
+        type: string;
+        linkType: string;
+      };
+    };
   };
 }
 
@@ -109,6 +116,10 @@ export interface CommitteeMemberData {
   about?: Document; // Rich text field from committee member
   person: PersonData;
   image?: {
+    url: string;
+    alt: string;
+  };
+  avatarImage?: {
     url: string;
     alt: string;
   };

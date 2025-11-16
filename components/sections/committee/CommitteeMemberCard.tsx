@@ -9,8 +9,8 @@ interface CommitteeMemberCardProps {
 }
 
 export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps) {
-  const imageUrl = member.image?.url || member.person.image?.url || getContactImage();
-  const imageAlt = member.image?.alt || member.person.image?.alt || member.person.name;
+  const imageUrl = member.avatarImage?.url || member.image?.url || member.person.image?.url || getContactImage();
+  const imageAlt = member.avatarImage?.alt || member.image?.alt || member.person.image?.alt || member.person.name;
 
   return (
     <div className="col-lg-3 col-md-6">

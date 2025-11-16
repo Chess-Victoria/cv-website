@@ -82,9 +82,31 @@ function mapCommitteeMemberToData(committeeMember: any): CommitteeMemberData | n
         phone: person.fields.phone || '',
         email: person.fields.email || '',
         jobTitle: person.fields.jobTitle || '',
-        about: person.fields.about || ''
+        about: person.fields.about || '',
+        image: person.fields.image ? {
+          url: person.fields.image.fields?.file?.url || getContactImage(),
+          alt: person.fields.image.fields?.description || person.fields.name || 'Person'
+        } : undefined
       };
       
+    }
+
+    // Map avatarImage if available
+    if (committeeMember.fields.avatarImage && typeof committeeMember.fields.avatarImage === 'object' && 'fields' in committeeMember.fields.avatarImage) {
+      const avatarImage = committeeMember.fields.avatarImage as any;
+      member.avatarImage = {
+        url: avatarImage.fields?.file?.url || getContactImage(),
+        alt: avatarImage.fields?.description || member.person.name || 'Avatar'
+      };
+    }
+
+    // Map image if available (fallback)
+    if (committeeMember.fields.image && typeof committeeMember.fields.image === 'object' && 'fields' in committeeMember.fields.image) {
+      const image = committeeMember.fields.image as any;
+      member.image = {
+        url: image.fields?.file?.url || getContactImage(),
+        alt: image.fields?.description || member.person.name || 'Image'
+      };
     }
     return member;
   } catch (error) {

@@ -17,8 +17,8 @@ export default async function CommitteeMemberPage({ params }: { params: Promise<
     notFound();
   }
 
-  const imageUrl = member.image?.url || member.person.image?.url || getContactImage();
-  const imageAlt = member.image?.alt || member.person.image?.alt || member.person.name;
+  const imageUrl = member.avatarImage?.url || member.image?.url || member.person.image?.url || getContactImage();
+  const imageAlt = member.avatarImage?.alt || member.image?.alt || member.person.image?.alt || member.person.name;
 
   return (
     <>
