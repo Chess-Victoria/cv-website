@@ -51,7 +51,7 @@ export default function ReferenceList({ data, useTextLogo = false }: ReferenceLi
             return (
               <div key={`reference-${item.id}-${index}`} className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (index * 100)}>
                 <div className="brand-box" style={{ backgroundColor: '#A02BBD',  color:"white"}}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div className="w-full" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     {item.url ? (
                       <Link href={item.url} target="_blank" rel="noopener noreferrer">
                         {logoNode}
@@ -62,7 +62,6 @@ export default function ReferenceList({ data, useTextLogo = false }: ReferenceLi
                     <span style={{ 
                       fontSize: '18px', 
                       fontWeight: 'bold', 
-                      minWidth: 'fit-content',
                       color: 'white'
                     }}>
                       {item.shortName}
