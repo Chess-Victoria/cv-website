@@ -9,10 +9,17 @@ interface EventCardProps {
 
 export default function EventCard({ event, index }: EventCardProps) {
   const imageUrl = getEventImage();
-  const formattedTime = new Date(event.datetime).toLocaleTimeString('en-US', {
+  const eventDate = new Date(event.datetime);
+  const formattedDate = eventDate.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+  const formattedTime = eventDate.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit'
   });
+  const formattedDateTime = `${formattedDate} at ${formattedTime}`;
 
   return (
     <div className="col-lg-10 m-auto">
@@ -31,7 +38,7 @@ export default function EventCard({ event, index }: EventCardProps) {
                 <li>
                   <Link href={event.url || '#'}>
                     <img src="/assets/img/icons/clock1.svg" alt="" />
-                    {formattedTime} <span> | </span>
+                    {formattedDateTime} <span> | </span>
                   </Link>
                 </li>
                 {event.location && (
