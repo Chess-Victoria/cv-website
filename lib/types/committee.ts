@@ -23,6 +23,7 @@ export interface CommitteeList {
     }>;
     year?: number;
     isCurrent?: boolean;
+    sortOrder?: number;
   };
   metadata?: {
     tags?: Array<{
@@ -133,6 +134,7 @@ export interface CommitteeListData {
   isCurrent: boolean;
   members: CommitteeMemberData[];
   tags?: string[];
+  sortOrder?: number;
 }
 
 // Committee page data structure

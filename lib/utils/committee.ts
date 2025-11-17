@@ -50,7 +50,8 @@ function mapCommitteeListToData(committeeList: any): CommitteeListData {
     year: committeeList.fields.year,
     isCurrent: committeeList.fields.isCurrent || false,
     members,
-    tags
+    tags,
+    sortOrder: committeeList.fields.sortOrder
   };
 }
 
@@ -132,22 +133,11 @@ export const getCommitteePageData = unstable_cache(
         return mapped;
       });
 
-      // Sort by tags (Executive first, then Non-Executive, Honorary life members last)
+      // Sort by sortOrder field (descending), items without sortOrder go to the end
       return mappedLists.sort((a, b) => {
-        const aIsExecutive = a.tags?.some(tag => tag.toLowerCase().includes('executive'));
-        const bIsExecutive = b.tags?.some(tag => tag.toLowerCase().includes('executive'));
-        const aIsHonorary = a.name?.toLowerCase().includes('honorary') || a.tags?.some(tag => tag.toLowerCase().includes('honorary'));
-        const bIsHonorary = b.name?.toLowerCase().includes('honorary') || b.tags?.some(tag => tag.toLowerCase().includes('honorary'));
-        
-        // Honorary life members go to the bottom
-        if (aIsHonorary && !bIsHonorary) return 1;
-        if (!aIsHonorary && bIsHonorary) return -1;
-        
-        // Among non-honorary, Executive first
-        if (aIsExecutive && !bIsExecutive && !aIsHonorary && !bIsHonorary) return -1;
-        if (!aIsExecutive && bIsExecutive && !aIsHonorary && !bIsHonorary) return 1;
-        
-        return 0;
+        const aOrder = a.sortOrder ?? Number.MIN_SAFE_INTEGER;
+        const bOrder = b.sortOrder ?? Number.MIN_SAFE_INTEGER;
+        return bOrder - aOrder;
       });
     } catch (error) {
       console.error('Error getting committee page data:', error);
