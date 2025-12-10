@@ -46,26 +46,26 @@ export async function POST(request: NextRequest) {
       case 'homePage':
         // Revalidate homepage and related pages
         revalidatePath('/');
-        revalidateTag('homepage');
+        revalidateTag('homepage', {});
         break;
 
       case 'clubPage':
         // Revalidate chess clubs pages
         revalidatePath('/chess-clubs');
         revalidatePath('/chess-clubs/other-chess-associations');
-        revalidateTag('chess-clubs');
-        revalidateTag('chess-association');
-        revalidateTag('club-page');
+        revalidateTag('chess-clubs', {});
+        revalidateTag('chess-association', {});
+        revalidateTag('club-page', {});
         break;
 
       case 'clubDetail':
         // Revalidate individual club pages
         revalidatePath('/chess-clubs/[slug]', 'page');
-        revalidateTag('chess-club');
-        revalidateTag('club-detail');
+        revalidateTag('chess-club', {});
+        revalidateTag('club-detail', {});
         // Also revalidate the clubs listing page
         revalidatePath('/chess-clubs');
-        revalidateTag('chess-clubs');
+        revalidateTag('chess-clubs', {});
         break;
 
       case 'committeeList':
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         // Revalidate committee pages
         revalidatePath('/committees');
         revalidatePath('/committees/[slug]', 'page');
-        revalidateTag('committees');
+        revalidateTag('committees', {});
         break;
 
       case 'event':
@@ -83,24 +83,24 @@ export async function POST(request: NextRequest) {
         revalidatePath('/events/[slug]', 'page');
         revalidatePath('/event');
         revalidatePath('/event/[slug]', 'page');
-        revalidateTag('events');
-        revalidateTag('event-lists');
+        revalidateTag('events', {});
+        revalidateTag('event-lists', {});
         // Homepage consumes events/eventList widgets
         revalidatePath('/');
-        revalidateTag('homepage');
+        revalidateTag('homepage', {});
         break;
 
       case 'frequentlyAskedQuestion':
         // Revalidate FAQ page
         revalidatePath('/faq');
-        revalidateTag('faq');
+        revalidateTag('faq', {});
         break;
 
       case 'champion':
       case 'championPage':
         // Revalidate champion pages
         revalidatePath('/victorian-champions/[slug]', 'page');
-        revalidateTag('champions');
+        revalidateTag('champions', {});
         break;
 
       case 'siteConfiguration':
@@ -108,25 +108,25 @@ export async function POST(request: NextRequest) {
         revalidatePath('/');
         revalidatePath('/about');
         revalidatePath('/contact');
-        revalidateTag('site-config');
+        revalidateTag('site-config', {});
         break;
 
       case 'announcement':
         // Revalidate homepage (where announcements are displayed)
         revalidatePath('/');
-        revalidateTag('homepage');
+        revalidateTag('homepage', {});
         break;
 
       case 'referenceList':
         // Revalidate homepage where ReferenceList is rendered
         revalidatePath('/');
-        revalidateTag('referenceList');
+        revalidateTag('referenceList', {});
         break;
 
       case 'page': {
         // Revalidate generic CMS pages
         revalidatePath('/pages');
-        revalidateTag('pages');
+        revalidateTag('pages', {});
 
         // Try to resolve slug from entryId for precise revalidation
         try {
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
           if (slug) {
             revalidatePath(`/pages/${slug}`);
             revalidatePath('/pages/[slug]', 'page');
-            revalidateTag(`page:${slug}`);
+            revalidateTag(`page:${slug}`, {});
           }
         } catch (e) {
           console.warn('Could not resolve page slug for revalidation', { entryId, e });
@@ -148,8 +148,8 @@ export async function POST(request: NextRequest) {
         revalidatePath('/memories');
         revalidatePath('/galleries');
         revalidatePath('/galleries/[slug]', 'page');
-        revalidateTag('image-gallery');
-        revalidateTag('all-galleries');
+        revalidateTag('image-gallery', {});
+        revalidateTag('all-galleries', {});
         break;
 
       case 'post':
@@ -157,8 +157,8 @@ export async function POST(request: NextRequest) {
         revalidatePath('/');
         revalidatePath('/news');
         revalidatePath('/news/[page]', 'page');
-        revalidateTag('posts');
-        revalidateTag('post-categories');
+        revalidateTag('posts', {});
+        revalidateTag('post-categories', {});
         break;
 
       default:
@@ -169,7 +169,7 @@ export async function POST(request: NextRequest) {
         revalidatePath('/event');
         revalidatePath('/faq');
         revalidatePath('/champions');
-        revalidateTag('all');
+        revalidateTag('all', {});
         break;
     }
 

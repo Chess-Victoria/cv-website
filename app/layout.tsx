@@ -1,18 +1,6 @@
 import 'swiper/css';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "/public/assets/css/vendor/aos.css"
-import "/public/assets/css/vendor/bootstrap.min.css"
-import "/public/assets/css/vendor/fontawesome.css"
-import "/public/assets/css/vendor/magnific-popup.css"
-import "/public/assets/css/vendor/mobile.css"
-// import "/public/assets/css/vendor/owlcarousel.min.css"
-import "/public/assets/css/vendor/sidebar.css"
-import "/public/assets/css/vendor/slick-slider.css"
-import "/public/assets/css/vendor/nice-select.css"
-import "/public/assets/css/vendor/odometer.css"
-import "/public/assets/css/main.css"
-import "/public/assets/css/override.css"
 import type { Metadata, Viewport } from "next"
 import { Figtree, Space_Grotesk } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
@@ -116,6 +104,20 @@ export default function RootLayout({
 				<link rel="manifest" href="/site.webmanifest" />
 				<meta name="msapplication-TileColor" content="#1a365d" />
 				<meta name="theme-color" content="#1a365d" />
+				{/* Vendor CSS */}
+				<link rel="stylesheet" href="/assets/css/vendor/aos.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/magnific-popup.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
+				{/* <link rel="stylesheet" href="/assets/css/vendor/owlcarousel.min.css" /> */}
+				<link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/slick-slider.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/nice-select.css" />
+				<link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
+				{/* Main CSS */}
+				<link rel="stylesheet" href="/assets/css/main.css" />
+				<link rel="stylesheet" href="/assets/css/override.css" />
 			</head>
 			<body className={`${figtree.variable} ${grotesk.variable}`}>
 				<PreviewBanner />
