@@ -25,14 +25,14 @@ export default async function HomePageDataFetcher() {
       )}
       {homePageData.eventList && <EventList data={homePageData.eventList} />}
       {homePageData.committeeList && <CommitteeList data={homePageData.committeeList} />}
-      {homePageData.featuredGallery?.images?.length ? (
+      {/* {homePageData.featuredGallery?.images?.length ? (
         <GalleryImageCarousel
           title={homePageData.featuredGallery.title}
           subtitle="Our memories"
           images={homePageData.featuredGallery.images}
           link={homePageData.featuredGallery.referenceLink || '/memories'}
         />
-      ) : null}
+      ) : null} */}
       <ReferenceList data={homePageData.featuredClubs!} useTextLogo />
       <NewsUpdate items={newsPage.items} />
       <CTAWithCountdown

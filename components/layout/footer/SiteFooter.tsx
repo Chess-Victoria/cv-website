@@ -77,9 +77,9 @@ export default function SiteFooter() {
 								</ul>
 							</div>
 						</div>
-						<div className="col-lg-4 col-md-6">
+						{/* <div className="col-lg-4 col-md-6">
 							<FooterGallery />
-						</div>
+						</div> */}
 					</div>
 					<div className="space60" />
 					<div className="row">

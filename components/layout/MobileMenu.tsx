@@ -50,7 +50,6 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 1 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 1 ? 'block' : 'none'}` }}>
 								<li><Link href="/committees">Our Committees</Link></li>
 								<li><Link href="/about/players">Our Players</Link></li>
-								<li><Link href="/memories">Our Memories</Link></li>
 							</ul>
 						</li>
 						{/* Victorian Champions */}
@@ -93,7 +92,6 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 6 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 6 ? 'block' : 'none'}` }}>
 								<li><Link href="/documents">Documents</Link></li>
 								<li><Link href="https://www.trybooking.com/au/donate/cvi2" target="_blank">Donate to Chess Victoria</Link></li>
-								<li><Link href="/galleries">Galleries</Link></li>
 								<li><Link href="/players/search">Players Search</Link></li>
 								<li><Link href="/faq">FAQ</Link></li>
 								<li><Link href="/contact">Contact Us</Link></li>

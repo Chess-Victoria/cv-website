@@ -56,7 +56,7 @@ export default function FooterGallery({ fallbackImages = [] }: FooterGalleryProp
   if (loading && images.length === 0) {
     return (
       <div className="footer-social-box">
-        <h3>Our Recent Event Gallery</h3>
+        {/* <h3>Our Recent Event Gallery</h3> */}
         <div className="space12" />
         <div className="row">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -81,7 +81,7 @@ export default function FooterGallery({ fallbackImages = [] }: FooterGalleryProp
   if (error && images.length === 0) {
     return (
       <div className="footer-social-box">
-        <h3>Our Recent Event Gallery</h3>
+        {/* <h3>Our Recent Event Gallery</h3> */}
         <div className="space12" />
         <div className="row">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -104,7 +104,7 @@ export default function FooterGallery({ fallbackImages = [] }: FooterGalleryProp
 
   return (
     <div className="footer-social-box">
-      <h3>Our Recent Event Gallery</h3>
+      {/* <h3>Our Recent Event Gallery</h3> */}
       <div className="space12" />
       <div className="row">
         {images.map((image, index) => (

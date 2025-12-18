@@ -25,7 +25,6 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                         <Link href="/committees">Our Committees</Link>
                                                     </li>
                                                     <li><Link href="/about/players">Our Players</Link></li>
-                                                    <li><Link href="/memories">Our Memories</Link></li>
                                                 </ul>
                                             </li>
                                             
@@ -66,7 +65,6 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="https://www.trybooking.com/au/donate/cvi2" target="_blank">Donate to Chess Victoria</Link></li>
                                                 <li><Link href="/documents">Documents</Link></li>
-                                                <li><Link href="/galleries">Galleries</Link></li>
                                                     <li><Link href="/players/search">Players Search</Link></li>
                                                     <li><Link href="/faq">FAQ</Link></li>
                                                     <li><Link href="/contact">Contact Us</Link></li>

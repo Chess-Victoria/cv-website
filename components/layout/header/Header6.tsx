@@ -163,7 +163,6 @@ export default function Header6({ scroll, isMobileMenu, handleMobileMenu, isSear
 											<li>
 												<Link href="/#">Pages <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
-													<li><Link href="/memories">Our Memories</Link></li>
 													<li><Link href="/pricing-plan">Pricing Plan</Link></li>
 													<li><Link href="/faq">FAQ,s</Link></li>
 													<li><Link href="/documents">Documents</Link></li>

@@ -76,7 +76,7 @@ export default function Footer1() {
 								</ul>
 							</div>
 						</div>
-						<div className="col-lg-4 col-md-6">
+						{/* <div className="col-lg-4 col-md-6">
 							<div className="footer-social-box">
 								<h3>Our Recent Event Gallery</h3>
 								<div className="space12" />
@@ -131,7 +131,7 @@ export default function Footer1() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 					<div className="space60" />
 					<div className="row">
