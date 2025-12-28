@@ -1,19 +1,66 @@
 'use client'
 import Link from 'next/link'
-import { useState } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { EventListData } from '@/lib/types/event-list'
 import RichTextRenderer from '@/components/elements/RichTextRenderer'
 
 interface EventListProps {
   data: EventListData;
+  hideCompleted?: boolean;
 }
 
-export default function EventList({ data }: EventListProps) {
+export default function EventList({ data, hideCompleted = false }: EventListProps) {
   const [isTab, setIsTab] = useState(1)
   
   const handleTab = (i: number) => {
     setIsTab(i)
   }
+
+  // Filter out completed days/events if hideCompleted is true
+  const filteredData = useMemo(() => {
+    if (!hideCompleted) {
+      return data;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to start of today
+
+    const monthMap: { [key: string]: number } = {
+      'JAN': 0, 'FEB': 1, 'MAR': 2, 'APR': 3, 'MAY': 4, 'JUN': 5,
+      'JUL': 6, 'AUG': 7, 'SEP': 8, 'OCT': 9, 'NOV': 10, 'DEC': 11
+    };
+
+    const filteredDays = data.days.filter((day) => {
+      const monthIndex = monthMap[day.month.toUpperCase()];
+      if (monthIndex === undefined) {
+        return true; // Keep if we can't parse the month
+      }
+
+      const dayDate = new Date(
+        parseInt(day.year),
+        monthIndex,
+        parseInt(day.date)
+      );
+      dayDate.setHours(0, 0, 0, 0);
+
+      // Keep days that are on or after today
+      return dayDate >= today;
+    });
+
+    return {
+      ...data,
+      days: filteredDays
+    };
+  }, [data, hideCompleted]);
+
+  // Reset tab to first tab when filtered data changes
+  useEffect(() => {
+    if (filteredData.days.length > 0) {
+      setIsTab(1);
+    }
+  }, [filteredData.days.length]);
+
+  const hasNoEvents = filteredData.days.length === 0;
 
   return (
     <div className="event1-section-area sp1">
@@ -21,17 +68,31 @@ export default function EventList({ data }: EventListProps) {
         <div className="row">
           <div className="col-lg-6 m-auto">
             <div className="event-header heading2 space-margin60 text-center">
-              <h5 data-aos="fade-left" data-aos-duration={800}>{data.subtitle}</h5>
+              <h5 data-aos="fade-left" data-aos-duration={800}>{filteredData.subtitle}</h5>
               <div className="space16" />
-              <h2 className="text-anime-style-3">{data.title}</h2>
+              <h2 className="text-anime-style-3">{filteredData.title}</h2>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <div data-aos="fade-up" data-aos-duration={900}>
-              <ul className="nav nav-pills space-margin60" id="pills-tab" role="tablist">
-                {data.days.map((day, index) => (
+        {hasNoEvents ? (
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="text-center space-margin60" data-aos="fade-up" data-aos-duration={900}>
+                <p className="text-muted" style={{ fontSize: '18px', marginBottom: '24px' }}>
+                  No upcoming events
+                </p>
+                <Link href="/events/our-events-scheduled" className="vl-btn1">
+                  View Past Events
+                </Link>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="row">
+            <div className="col-lg-12">
+              <div data-aos="fade-up" data-aos-duration={900}>
+                <ul className="nav nav-pills space-margin60" id="pills-tab" role="tablist">
+                  {filteredData.days.map((day, index) => (
                   <li key={`day-${day.id}-${index}`} className="nav-item" onClick={() => handleTab(index + 1)}>
                     <button 
                       className={isTab === index + 1 ? "nav-link active" : "nav-link"} 
@@ -52,9 +113,9 @@ export default function EventList({ data }: EventListProps) {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="tab-content" id="pills-tabContent">
-              {data.days.map((day, dayIndex) => (
+              </div>
+              <div className="tab-content" id="pills-tabContent">
+                {filteredData.days.map((day, dayIndex) => (
                 <div 
                   key={`tab-${day.id}-${dayIndex}`}
                   className={isTab === dayIndex + 1 ? "tab-pane fade show active" : "tab-pane fade"} 
@@ -115,9 +176,10 @@ export default function EventList({ data }: EventListProps) {
                   ))}
                 </div>
               ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ export default async function HomePageDataFetcher() {
       {homePageData.welcomeBlock && (
         <WelcomeBlock data={homePageData.welcomeBlock} />
       )}
-      {homePageData.eventList && <EventList data={homePageData.eventList} />}
+      {homePageData.eventList && <EventList data={homePageData.eventList} hideCompleted={true} />}
       {homePageData.committeeList && <CommitteeList data={homePageData.committeeList} />}
       {/* {homePageData.featuredGallery?.images?.length ? (
         <GalleryImageCarousel
