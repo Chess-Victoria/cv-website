@@ -1,36 +1,6 @@
 import { EventListData, EventList } from '@/lib/types/event-list';
 import { formatEventDateTime } from '@/lib/utils/date-formatter';
 
-// Fallback event list data
-export const fallbackEventListData: EventListData = {
-  title: "Our Events Schedule Plan",
-  subtitle: "Event Schedule",
-  days: [
-    {
-      id: "day-1",
-      dayNumber: "01",
-      date: "01",
-      month: "JAN",
-      year: "2025",
-      events: [
-        {
-          id: "event-1-1",
-          title: "Chess Victoria Championship",
-          description: "Join us for the premier chess tournament in Victoria featuring top players from across the state.",
-          time: "7:30 PM - 10:30 PM",
-          location: "Box Hill Chess Club",
-          image: {
-            src: "/assets/img/all-images/event/event-img1.png",
-            alt: "Chess Tournament"
-          },
-          buttonText: "Register Now",
-          buttonUrl: "/event-schedule"
-        }
-      ]
-    }
-  ]
-};
-
 /**
  * Map Contentful EventList to EventListData
  * Groups events by date and creates day-based structure
@@ -38,7 +8,11 @@ export const fallbackEventListData: EventListData = {
 export function mapEventListToEventListData(eventList: EventList): EventListData {
   if (!eventList.events || eventList.events.length === 0) {
     console.warn('No events found in EventList');
-    return fallbackEventListData;
+    return {
+      title: eventList.name || "Our Events Schedule Plan",
+      subtitle: "Event Schedule",
+      days: []
+    };
   }
 
   // Group events by date
@@ -81,7 +55,7 @@ export function mapEventListToEventListData(eventList: EventList): EventListData
         time: event.datetime ? formatEventDateTime(event.datetime) : 'TBD',
         location: event.location || 'Location TBD',
         image: {
-          src: event.image?.fields?.file?.url || "/assets/img/all-images/event/event-img1.png",
+          src: event.image?.fields?.file?.url || "/assets/img/default/generic-event.png",
           alt: event.name || 'Event'
         },
         buttonText: "Learn More",
@@ -96,6 +70,6 @@ export function mapEventListToEventListData(eventList: EventList): EventListData
   return {
     title: eventList.name || "Our Events Schedule Plan",
     subtitle: "Event Schedule",
-    days: days.length > 0 ? days : fallbackEventListData.days
+    days: days
   };
 }
