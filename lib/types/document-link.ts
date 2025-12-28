@@ -1,3 +1,5 @@
+import { ContentfulAsset } from './image-gallery';
+
 // Interface for the documentLink content type from Contentful
 export interface DocumentLink {
   sys: {
@@ -8,8 +10,9 @@ export interface DocumentLink {
   };
   fields: {
     name: string;
-    url: string;
+    url?: string;
     type: string;
+    document?: ContentfulAsset; // Reference to media/document file
   };
 }
 

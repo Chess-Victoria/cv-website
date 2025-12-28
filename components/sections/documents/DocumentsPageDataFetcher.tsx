@@ -4,7 +4,8 @@ import { mapDocumentLink, groupDocumentLinksByType } from '@/lib/utils/document-
 
 async function getDocumentLinks() {
   try {
-    const entries = await getEntries('documentLink');
+    // Include level 2 ensures linked assets (documents) are included
+    const entries = await getEntries('documentLink', 2);
     const documentLinks = entries.map((entry: any) => mapDocumentLink(entry as DocumentLink));
     return groupDocumentLinksByType(documentLinks);
   } catch (error) {
