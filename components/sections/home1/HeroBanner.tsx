@@ -41,6 +41,20 @@ interface HeroBannerProps {
 export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBannerProps) {
   const [dynamicEventDateTime, setDynamicEventDateTime] = useState<string | undefined>(data.eventDateTime)
   const [dynamicEventInfo, setDynamicEventInfo] = useState(data.eventInfo)
+  
+  // Initialize isEventPast by checking static eventDateTime if not using dynamic countdown
+  const initialIsEventPast = (() => {
+    if (!useDynamicCountdown && data.eventDateTime) {
+      const eventDate = new Date(data.eventDateTime)
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      eventDate.setHours(0, 0, 0, 0)
+      return eventDate < today
+    }
+    return false
+  })()
+  
+  const [isEventPast, setIsEventPast] = useState(initialIsEventPast)
 
   useEffect(() => {
     if (!useDynamicCountdown) return
@@ -53,8 +67,15 @@ export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBa
         const scheduleData = await res.json()
         if (cancelled) return
         
+        // Check if event has ended
+        if (scheduleData?.ended === true) {
+          setIsEventPast(true)
+          return
+        }
+        
         if (scheduleData?.nextDateTime) {
           setDynamicEventDateTime(scheduleData.nextDateTime)
+          setIsEventPast(false)
           
           // Update event info with dynamic data
           const updatedEventInfo = { ...data.eventInfo }
@@ -73,9 +94,26 @@ export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBa
             } catch {}
           }
           setDynamicEventInfo(updatedEventInfo)
+        } else if (scheduleData?.ended !== true) {
+          // If API doesn't return nextDateTime and ended is not explicitly true,
+          // fall back to checking static eventDateTime
+          if (data.eventDateTime) {
+            const eventDate = new Date(data.eventDateTime)
+            const today = new Date()
+            today.setHours(0, 0, 0, 0)
+            eventDate.setHours(0, 0, 0, 0)
+            setIsEventPast(eventDate < today)
+          }
         }
       } catch (e) {
-        // silent fail - fallback to static data
+        // silent fail - fallback to static data check
+        if (data.eventDateTime) {
+          const eventDate = new Date(data.eventDateTime)
+          const today = new Date()
+          today.setHours(0, 0, 0, 0)
+          eventDate.setHours(0, 0, 0, 0)
+          setIsEventPast(eventDate < today)
+        }
       }
     }
 
@@ -86,6 +124,17 @@ export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBa
   // Use dynamic data if available, otherwise fall back to static data
   const eventDateTime = dynamicEventDateTime || data.eventDateTime
   const eventInfo = dynamicEventInfo
+
+  // Check if event has passed (for static data)
+  useEffect(() => {
+    if (!useDynamicCountdown && eventDateTime) {
+      const eventDate = new Date(eventDateTime)
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      eventDate.setHours(0, 0, 0, 0)
+      setIsEventPast(eventDate < today)
+    }
+  }, [eventDateTime, useDynamicCountdown])
 
   return (
     <>
@@ -125,22 +174,26 @@ export default function HeroBanner({ data, useDynamicCountdown = false }: HeroBa
                 <div className="img1" data-aos="zoom-in" data-aos-duration={1000}>
                   <img src={data.heroImage} alt="" />
                 </div>
-                <div className="images-content-area" data-aos="fade-up" data-aos-duration={900}>
-                  <h3>{eventInfo.title}</h3>
-                  <div className="space12" />
-                  <Link href="/#">{eventInfo.date}</Link>
-                  <div className="space12" />
-                  <Link href="/#">{eventInfo.location}</Link>
-                  <div className="space16" />
-                  <p>{eventInfo.description}</p>
-                </div>
+                {!isEventPast && (
+                  <div className="images-content-area" data-aos="fade-up" data-aos-duration={900}>
+                    <h3>{eventInfo.title}</h3>
+                    <div className="space12" />
+                    <Link href="/#">{eventInfo.date}</Link>
+                    <div className="space12" />
+                    <Link href="/#">{eventInfo.location}</Link>
+                    <div className="space16" />
+                    <p>{eventInfo.description}</p>
+                  </div>
+                )}
               </div>
             </div>
-            <div className="col-lg-1">
-              {data.showCountdown && eventDateTime && (
-                <Countdown targetDate={eventDateTime} />
-              )}
-            </div>
+            {!isEventPast && (
+              <div className="col-lg-1">
+                {data.showCountdown && eventDateTime && (
+                  <Countdown targetDate={eventDateTime} />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

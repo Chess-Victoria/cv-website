@@ -33,11 +33,32 @@ export default function CTAWithCountdown({
   const [resolvedHref, setResolvedHref] = useState<string>(buttonHref)
   const [resolvedTitle, setResolvedTitle] = useState<string | undefined>(undefined)
 
+  // Initialize isEventPast by checking targetDate if provided
+  const initialIsEventPast = (() => {
+    if (targetDate) {
+      const eventDate = new Date(targetDate)
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      eventDate.setHours(0, 0, 0, 0)
+      return eventDate < today
+    }
+    return false
+  })()
+  
+  const [isEventPast, setIsEventPast] = useState(initialIsEventPast)
+
   useEffect(() => {
     let cancelled = false
     async function load() {
       if (targetDate) {
         setResolvedDate(targetDate)
+        // Check if targetDate is in the past
+        const eventDate = new Date(targetDate)
+        const today = new Date()
+        today.setHours(0, 0, 0, 0)
+        eventDate.setHours(0, 0, 0, 0)
+        setIsEventPast(eventDate < today)
+        
         // Build date link from provided targetDate
         try {
           const d = new Date(targetDate)
@@ -61,8 +82,15 @@ export default function CTAWithCountdown({
         const data = await res.json()
         if (cancelled) return
         
+        // Check if event has ended
+        if (data?.ended === true) {
+          setIsEventPast(true)
+          return
+        }
+        
         if (data?.nextDateTime) {
           setResolvedDate(data.nextDateTime)
+          setIsEventPast(false)
         }
         if (data?.title) setResolvedTitle(data.title)
         const newLinks: CTALinkItem[] = []
@@ -85,12 +113,19 @@ export default function CTAWithCountdown({
           setResolvedHref(data.eventUrl)
         }
       } catch (e) {
-        // silent fail
+        // silent fail - fallback to checking targetDate if available
+        if (targetDate) {
+          const eventDate = new Date(targetDate)
+          const today = new Date()
+          today.setHours(0, 0, 0, 0)
+          eventDate.setHours(0, 0, 0, 0)
+          setIsEventPast(eventDate < today)
+        }
       }
     }
     load()
     return () => { cancelled = true }
-  }, [targetDate, eventId, useFeaturedEvent, JSON.stringify(links)])
+  }, [targetDate, eventId, useFeaturedEvent, JSON.stringify(links), buttonHref])
 
   return (
     <div className={`cta1-section-area d-lg-block d-block ${className || ''}`.trim()}>
@@ -98,19 +133,19 @@ export default function CTAWithCountdown({
         <div className="row">
           <div className="col-lg-10 m-auto">
             <div className="cta1-main-boxarea">
-            {resolvedTitle && (
+            {!isEventPast && resolvedTitle && (
                   <div className="mb-2" style={{ fontWeight: 600, fontSize: '1.8rem' }}>
                     {resolvedTitle}
                   </div>
                 )}
               <div className="timer-btn-area">
                
-                {resolvedDate && <Countdown targetDate={resolvedDate} />}
+                {!isEventPast && resolvedDate && <Countdown targetDate={resolvedDate} />}
                 <div className="btn-area1">
                   <Link href={resolvedHref} className="vl-btn1">{buttonLabel}</Link>
                 </div>
               </div>
-              {resolvedLinks.length > 0 && (
+              {!isEventPast && resolvedLinks.length > 0 && (
                 <ul>
                   {resolvedLinks.map((l, idx) => (
                     <li key={idx} className={idx === resolvedLinks.length - 1 ? 'm-0' : ''}>
