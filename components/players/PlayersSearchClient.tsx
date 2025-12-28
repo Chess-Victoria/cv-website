@@ -239,7 +239,13 @@ export default function PlayersSearchClient() {
                                 <td><strong className="text-break">{p.name}</strong></td>
                                 <td className="text-center">{p.title?.trim() ? (<span className="badge bg-success text-white">{p.title.trim()}</span>) : null}</td>
                                 <td className="text-center">{p.age && p.age > 0 ? p.age : 'N/A'}</td>
-                                <td className="text-center"><span className="badge bg-primary text-white">{p.nationalRating}</span></td>
+                                <td className="text-center">
+                                  {p.nationalRating && p.nationalRating > 0 ? (
+                                    <span className="badge bg-primary text-white">{p.nationalRating}</span>
+                                  ) : (
+                                    <span className="text-muted">-</span>
+                                  )}
+                                </td>
                                 <td className="text-center">
                                   {p.fideId && p.fideId !== '0' && p.fideRating ? (
                                     <a href={`https://ratings.fide.com/profile/${p.fideId}`} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
@@ -291,7 +297,11 @@ export default function PlayersSearchClient() {
                                   )}
                                 </td>
                                 <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
-                                  <span className="badge bg-primary text-white">{p.nationalRating}</span>
+                                  {p.nationalRating && p.nationalRating > 0 ? (
+                                    <span className="badge bg-primary text-white">{p.nationalRating}</span>
+                                  ) : (
+                                    <span className="text-muted">-</span>
+                                  )}
                                 </td>
                                 <td style={{display: 'table-cell', verticalAlign: 'middle', padding: '8px 4px', border: '1px solid #dee2e6', textAlign: 'center'}}>
                                   {p.fideId && p.fideId !== '0' && p.fideRating ? (
