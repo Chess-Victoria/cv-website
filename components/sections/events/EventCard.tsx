@@ -85,7 +85,7 @@ export default function EventCard({ event, index }: EventCardProps) {
               <div className="btn-area1">
                 {event.url ? (
                   <Link href={event.url} className="vl-btn1">
-                    <span className="demo">Register for Event</span>
+                    <span className="demo">View Details</span>
                   </Link>
                 ) : (
                   <Link href="/contact" className="vl-btn1">

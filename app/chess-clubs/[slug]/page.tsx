@@ -188,7 +188,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
                     <div className="btn-area1">
                       {featuredEvent?.url ? (
                         <Link href={featuredEvent.url} className="vl-btn1">
-                          <span className="demo">Register for Event</span>
+                          <span className="demo">View Details</span>
                         </Link>
                       ) : (
                         <Link href="/contact" className="vl-btn1">

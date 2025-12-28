@@ -146,7 +146,7 @@ export default function EventTabs({ events }: EventTabsProps) {
                                 <div className="space24" />
                                 <div className="btn-area1">
                                   <Link href={event.url || '/contact'} className="vl-btn1">
-                                    <span className="demo">Register for Event</span>
+                                    <span className="demo">View Details</span>
                                   </Link>
                                 </div>
                               </div>
