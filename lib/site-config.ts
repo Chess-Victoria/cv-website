@@ -22,7 +22,7 @@ export interface SiteConfiguration {
 export const SITE_CONFIG: SiteConfiguration = {
   siteName: 'Chess Victoria',
   siteDescription: 'Victorian chess community – collaborate, compete, and celebrate the game of chess.',
-  logo: '/assets/img/logo/cvlogo1.png',
+  logo: '/assets/img/logo/cvlogo_org.png',
   logoBlack: '/assets/img/logo/cvlogo-black.png',
   footerText: 'We strive to create an environment where the Victorian chess community can collaborate, compete, and celebrate the game of chess.',
 

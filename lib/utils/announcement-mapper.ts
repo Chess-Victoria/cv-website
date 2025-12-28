@@ -15,7 +15,7 @@ export function mapAnnouncementToPopupContent(announcement: Announcement): Popup
       url: announcement.url,
     } : undefined,
     logo: {
-      src: "/assets/img/logo/cvlogo-notext.png",
+      src: "/assets/img/logo/cvlogo_org.png",
       alt: "Logo"
     },
     showNoThanks: true,

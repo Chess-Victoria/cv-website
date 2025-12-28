@@ -75,7 +75,7 @@ export function mapPromotionBannerToHeroBannerData(promotionBanner: PromotionBan
         url: promotionBanner.url || "#"
       },
       secondary: {
-        text: "Take Action",
+        text: "Getting Updates",
         url: promotionBanner.actionUrl || "#"
       }
     },
