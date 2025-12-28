@@ -40,7 +40,7 @@ export default async function NewsCategoryPage({ params }: CategoryPageProps) {
                 <div key={post.id || idx} className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800 + (idx % 3) * 200}>
                   <div className="blog4-boxarea">
                     <div className="img1">
-                      <img src={post.imageUrl || "/assets/img/all-images/blog/blog-img4.png"} alt="" />
+                      <img src={post.imageUrl || "/assets/img/all-images/blog/default.png"} alt="" />
                     </div>
                     <div className="content-area">
                       <ul>
