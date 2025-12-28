@@ -10,8 +10,8 @@ import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
 
 export default function Contact() {
-	const emailDisplay = SITE_CONFIG.contactEmail || 'Chess Victoria@gmail.com'
-	const emailHref = SITE_CONFIG.contactEmail ? `mailto:${SITE_CONFIG.contactEmail}` : 'mailto:Chess-Victoria@gmail.com'
+	const emailDisplay = SITE_CONFIG.contactEmail || 'chessvictoriasecretary@gmail.com'
+	const emailHref = SITE_CONFIG.contactEmail ? `mailto:${SITE_CONFIG.contactEmail}` : 'mailto:chessvictoriasecretary@gmail.com'
 	const phoneDisplay = SITE_CONFIG.contactPhone || '+1 123 456 7890'
 	const phoneHref = SITE_CONFIG.contactPhone ? `tel:${SITE_CONFIG.contactPhone}` : 'tel:+11234567890'
 	const addressDisplay = SITE_CONFIG.address || 'Melbourne, Australia'

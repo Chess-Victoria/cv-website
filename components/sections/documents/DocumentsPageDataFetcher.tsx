@@ -44,14 +44,14 @@ export default async function DocumentsPageDataFetcher() {
                             <thead>
                               <tr>
                                 <th>Document Name</th>
-                                <th>Action</th>
+                                <th className="text-end">Action</th>
                               </tr>
                             </thead>
                             <tbody>
                               {groupedLinks[type].map((link) => (
                                 <tr key={link.id}>
                                   <td>{link.name}</td>
-                                  <td>
+                                  <td className="text-end">
                                     <a 
                                       href={link.url} 
                                       target="_blank" 

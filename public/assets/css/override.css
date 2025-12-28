@@ -450,3 +450,21 @@ letter-spacing: 0.5px;
   padding: 8px 14px;
   font-size: 12px;
 }
+
+/* Documents page card header styles */
+.documents-section-area .card {
+  border: 1px solid #A02BBD;
+  border-radius: 0.375rem;
+}
+
+.documents-section-area .card-header {
+  background-color: #A02BBD;
+  border-bottom: none;
+  padding: 1rem 1.25rem;
+}
+
+.documents-section-area .card-header .card-title {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0;
+}
