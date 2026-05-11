@@ -68,7 +68,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 3 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(3)}><em /></span>
 							<Link href="/events" className="hash-nav">Events</Link>
 							<ul className={`sub-menu ${isAccordion == 3 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 3 ? 'block' : 'none'}` }}>
-								<li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
+								<li><Link href="/events/2026-chess-victoria/">Chess Victoria Event</Link></li>
 								<li><Link href="/events/2026-victorian-champion-tournaments">Victorian Champion Tournaments</Link></li>
 								<li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
 							</ul>
@@ -177,8 +177,8 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
 				<div className="tx-search-close tx-close" onClick={handleSearch}><i className="fa-solid fa-xmark" /></div>
 				<div className="header-search-container">
-					<form 
-						role="search" 
+					<form
+						role="search"
 						className="search-form"
 						onSubmit={(e) => {
 							e.preventDefault();
@@ -190,11 +190,11 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							}
 						}}
 					>
-						<input 
-							type="search" 
-							className="search-field" 
-							placeholder="Search news, events, clubs..." 
-							name="s" 
+						<input
+							type="search"
+							className="search-field"
+							placeholder="Search news, events, clubs..."
+							name="s"
 							required
 							minLength={2}
 						/>
