@@ -59,7 +59,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
     <Layout headerStyle={1} footerStyle={1}>
       <div>
         <PageHeadContent
-          title="News & Update"
+          title="News & Updates"
           backgroundImage="/assets/img/bg/header-bg14.png"
           breadcrumbs={[
             { name: 'Home', link: '/' },

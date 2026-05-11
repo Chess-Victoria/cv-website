@@ -187,7 +187,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 												</ul>
 											</li>
 											<li>
-												<Link href="/others">Others<i className="fa-solid fa-angle-down" /></Link>
+												<Link href="/more">More<i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">
 													<li><Link href="/players/search">Players Search</Link></li>
 													<li><Link href="/faq">FAQ</Link></li>

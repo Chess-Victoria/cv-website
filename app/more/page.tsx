@@ -64,7 +64,7 @@ export default async function OthersPage() {
     <Layout headerStyle={1} footerStyle={1}>
       <div>
         <PageHeadContent
-          title="Others"
+          title="Mores"
           backgroundImage="/assets/img/bg/header-bg12.png"
           breadcrumbs={[
             { name: 'Home', link: '/' },
@@ -76,11 +76,11 @@ export default async function OthersPage() {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <PagesGrid 
-                  pages={otherPages} 
-                  eyebrow="Resources" 
-                  heading="Other Resources & Information" 
-                  ctaLabel="Learn More" 
+                <PagesGrid
+                  pages={otherPages}
+                  eyebrow="Resources"
+                  heading="Other Resources & Information"
+                  ctaLabel="Learn More"
                 />
               </div>
             </div>

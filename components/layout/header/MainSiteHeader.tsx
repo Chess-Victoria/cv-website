@@ -49,7 +49,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             </li>
 
                                             <li>
-                                                <Link href="/chess-clubs">Chess Club in Victoria</Link>
+                                                <Link href="/chess-clubs">Chess Clubs</Link>
                                             </li>
 
                                             <li>
@@ -62,7 +62,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 </ul>
                                             </li>
                                             <li>
-                                                <Link href="/others">Others <i className="fa-solid fa-angle-down" /></Link>
+                                                <Link href="/more">More <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="/documents">Documents</Link></li>
                                                     <li><Link href="/players/search">Players Search</Link></li>

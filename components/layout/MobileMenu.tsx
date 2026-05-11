@@ -75,7 +75,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						</li>
 						{/* Chess Club in Victoria */}
 						<li>
-							<Link href="/chess-clubs" className="hash-nav">Chess Club in Victoria</Link>
+							<Link href="/chess-clubs" className="hash-nav">Chess Clubs</Link>
 						</li>
 						{/* News & Update */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(5)}><em /></span>
@@ -89,7 +89,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 						</li>
 						{/* Others */}
 						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 6 ? 'submenu-opened' : ''}`} onClick={() => handleAccordion(6)}><em /></span>
-							<Link href="/others" className="hash-nav">Others</Link>
+							<Link href="/more" className="hash-nav">More</Link>
 							<ul className={`sub-menu ${isAccordion == 6 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 6 ? 'block' : 'none'}` }}>
 								<li><Link href="/documents">Documents</Link></li>
 								<li><Link href="/players/search">Players Search</Link></li>
