@@ -147,7 +147,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSear
 													<li><Link href="/about/players">Our Players</Link></li>
 												</ul>
 											</li>
-											
+
 											<li>
 												<Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
 												<ul className="dropdown-padding">

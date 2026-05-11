@@ -27,7 +27,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                     <li><Link href="/about/players">Our Players</Link></li>
                                                 </ul>
                                             </li>
-                                            
+
                                             <li>
                                                 <Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
@@ -43,7 +43,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                 <Link href="/events">Events <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
                                                     <li><Link href="/events/2025-chess-victoria/">Chess Victoria Event</Link></li>
-                                                    <li><Link href="/events/2025-victorian-champion-tournaments">Victorian Champion Tournaments</Link></li>
+                                                    <li><Link href="/events/2026-victorian-champion-tournaments">Victorian Champion Tournaments</Link></li>
                                                     <li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
                                                 </ul>
                                             </li>
@@ -64,7 +64,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                             <li>
                                                 <Link href="/others">Others <i className="fa-solid fa-angle-down" /></Link>
                                                 <ul className="dropdown-padding">
-                                                <li><Link href="/documents">Documents</Link></li>
+                                                    <li><Link href="/documents">Documents</Link></li>
                                                     <li><Link href="/players/search">Players Search</Link></li>
                                                     <li><Link href="/faq">FAQ</Link></li>
                                                     <li><Link href="/contact">Contact Us</Link></li>
@@ -102,8 +102,8 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                     <div className={`header-search-form-wrapper ${isSearch ? 'open' : ''}`}>
                                         <div className="tx-search-close tx-close" onClick={handleSearch}><i className="fa-solid fa-xmark" /></div>
                                         <div className="header-search-container">
-                                            <form 
-                                                role="search" 
+                                            <form
+                                                role="search"
                                                 className="search-form"
                                                 onSubmit={(e) => {
                                                     e.preventDefault();
@@ -115,11 +115,11 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                                     }
                                                 }}
                                             >
-                                                <input 
-                                                    type="search" 
-                                                    className="search-field" 
-                                                    placeholder="Search news, events, clubs..." 
-                                                    name="s" 
+                                                <input
+                                                    type="search"
+                                                    className="search-field"
+                                                    placeholder="Search news, events, clubs..."
+                                                    name="s"
                                                     required
                                                     minLength={2}
                                                 />
