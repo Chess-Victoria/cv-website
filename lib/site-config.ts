@@ -26,10 +26,10 @@ export const SITE_CONFIG: SiteConfiguration = {
   logoBlack: '/assets/img/logo/cvlogo-black.png',
   footerText: 'We strive to create an environment where the Victorian chess community can collaborate, compete, and celebrate the game of chess.',
 
-  contactEmail: 'chessvictoriasecretary@gmail.com',
+  contactEmail: 'secretary.chess.victoria@gmail.com',
   contactPhone: '',
   address: 'Melbourne, Australia',
-  	websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.chessvictoria.org.au/',
+  websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.chessvictoria.org.au/',
 
   facebookUrl: '', //'https://www.facebook.com/ChessVictoria/',
   instagramUrl: '',
