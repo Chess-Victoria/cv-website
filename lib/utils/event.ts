@@ -179,7 +179,16 @@ export const getEventDataBySlug = (slug: string): Promise<EventData | null> => {
  */
 function mapEventListToData(eventList: EventList): EventListData {
   const mappedEvents: EventData[] = [];
-  
+
+  const getEventSortTime = (datetime?: string): number => {
+    if (!datetime) {
+      return Number.MAX_SAFE_INTEGER;
+    }
+
+    const parsedTime = new Date(datetime).getTime();
+    return Number.isNaN(parsedTime) ? Number.MAX_SAFE_INTEGER : parsedTime;
+  };
+
   if (eventList.fields.events && Array.isArray(eventList.fields.events)) {
     mappedEvents.push(...eventList.fields.events
       .map((eventRef: any) => {
@@ -191,6 +200,10 @@ function mapEventListToData(eventList: EventList): EventListData {
       .filter((event): event is EventData => event !== null)
     );
   }
+
+  mappedEvents.sort((firstEvent, secondEvent) => {
+    return getEventSortTime(firstEvent.datetime) - getEventSortTime(secondEvent.datetime);
+  });
 
   return {
     id: eventList.sys.id,
@@ -207,8 +220,8 @@ function mapEventListToData(eventList: EventList): EventListData {
 export const getAllEventsData = async (): Promise<EventData[]> => {
   try {
     const events = await getAllEvents();
-    
-    return events.map((event: any) => 
+
+    return events.map((event: any) =>
       mapEventToData(event as Event)
     );
   } catch (error) {
@@ -225,7 +238,7 @@ export const getEventListData = (slug: string): Promise<EventListData | null> =>
     async () => {
       try {
         const eventList = await getEventListBySlug(slug);
-        
+
         if (!eventList) {
           return null;
         }
@@ -250,12 +263,12 @@ export const getEventListData = (slug: string): Promise<EventListData | null> =>
 export const getEventListsForNavigation = async () => {
   try {
     const eventLists = await getAllEventLists();
-    
+
     // Filter event lists to only include those with events
     const eventListsWithEvents = eventLists.filter((eventList: any) => {
       return eventList.fields.events && Array.isArray(eventList.fields.events) && eventList.fields.events.length > 0;
     });
-    
+
     return eventListsWithEvents.map((eventList: any) => ({
       id: eventList.sys.id,
       name: eventList.fields.name,
