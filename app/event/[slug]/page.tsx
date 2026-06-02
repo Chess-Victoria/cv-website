@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: EventSingleProps): Promise<Me
     minute: '2-digit' 
   });
 
-  const title = `${event.name} | Chess Victoria Event`;
+  const title = `${event.name} | Chess Victoria Events`;
   const description = event.summary 
     ? `${event.summary} Join us on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`
     : `Join us for ${event.name} on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`;
