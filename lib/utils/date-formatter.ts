@@ -21,31 +21,65 @@ function formatDateParts(
   }).format(date);
 }
 
+function logRawDateTime(source: string, isoDateTime: string) {
+  console.log(`[date-formatter] ${source} raw datetime from Contentful:`, isoDateTime);
+}
+
+function formatDatePartLabels(isoDateTime: string, locale: string, month: 'short' | 'long') {
+  const date = parseIsoDateTime(isoDateTime);
+
+  if (!date) {
+    return null;
+  }
+
+  const formatter = new Intl.DateTimeFormat(locale, {
+    timeZone: MELBOURNE_TIME_ZONE,
+    day: '2-digit',
+    month,
+    year: 'numeric',
+  });
+
+  const parts = formatter.formatToParts(date);
+  const values = Object.fromEntries(
+    parts
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, part.value])
+  ) as Record<string, string>;
+
+  return {
+    date: `${values.day} ${values.month} ${values.year}`,
+    formattedDate: formatter.format(date),
+  };
+}
+
 /**
  * Format ISO datetime string to user-friendly format
  * Example: "2025-08-16T19:30+10:00" → "August 16, 2025 at 7:30 PM"
  */
 export function formatEventDateTime(isoDateTime: string): string {
   try {
-    const date = parseIsoDateTime(isoDateTime);
+    logRawDateTime('formatEventDateTime', isoDateTime);
 
-    if (!date) {
+    const dateParts = formatDatePartLabels(isoDateTime, 'en-US', 'long');
+
+    if (!dateParts) {
       console.warn('Invalid datetime format:', isoDateTime);
       return isoDateTime;
     }
 
-    const formattedDate = formatDateParts(date, 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
+      return isoDateTime;
+    }
+
     const formattedTime = formatDateParts(date, 'en-US', {
       hour: 'numeric',
       minute: '2-digit',
       hour12: true,
     });
 
-    return `${formattedDate} at ${formattedTime}`;
+    return `${dateParts.formattedDate} at ${formattedTime}`;
   } catch (error) {
     console.error('Error formatting datetime:', error);
     return isoDateTime;
@@ -60,6 +94,8 @@ export function formatEventDateTimeParts(
   locale = 'en-AU',
   month: 'short' | 'long' = 'short'
 ): { date: string; time: string } {
+  logRawDateTime('formatEventDateTimeParts', isoDateTime);
+
   const date = parseIsoDateTime(isoDateTime);
 
   if (!date) {
