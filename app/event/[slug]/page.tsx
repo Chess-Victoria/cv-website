@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { getEventDataBySlug } from '@/lib/utils/event'
 import PageLoadingSkeleton from '@/components/layout/PageLoadingSkeleton'
 import EventSinglePageDataFetcher from '@/components/sections/events/EventSinglePageDataFetcher'
+import { formatEventDateTimeParts } from '@/lib/utils/date-formatter'
 
 interface EventSingleProps {
   params: Promise<{ slug: string }>
@@ -13,7 +14,7 @@ interface EventSingleProps {
 export async function generateMetadata({ params }: EventSingleProps): Promise<Metadata> {
   const { slug } = await params;
   const event = await getEventDataBySlug(slug);
-  
+
   if (!event) {
     return {
       title: 'Event Not Found - Chess Victoria',
@@ -21,19 +22,10 @@ export async function generateMetadata({ params }: EventSingleProps): Promise<Me
     };
   }
 
-  const formattedDate = new Date(event.datetime).toLocaleDateString('en-AU', { 
-    day: '2-digit', 
-    month: 'long', 
-    year: 'numeric' 
-  });
-  
-  const formattedTime = new Date(event.datetime).toLocaleTimeString('en-AU', { 
-    hour: '2-digit', 
-    minute: '2-digit' 
-  });
+  const { date: formattedDate, time: formattedTime } = formatEventDateTimeParts(event.datetime, 'en-AU', 'long')
 
   const title = `${event.name} | Chess Victoria Events`;
-  const description = event.summary 
+  const description = event.summary
     ? `${event.summary} Join us on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`
     : `Join us for ${event.name} on ${formattedDate} at ${formattedTime}${event.location ? ` at ${event.location}` : ''}.`;
 
@@ -70,7 +62,7 @@ export async function generateMetadata({ params }: EventSingleProps): Promise<Me
 export default async function EventSingle({ params }: EventSingleProps) {
   const { slug } = await params
   const event = await getEventDataBySlug(slug)
-  
+
   if (!event) {
     notFound()
   }

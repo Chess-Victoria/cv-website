@@ -8,6 +8,7 @@ import RichTextRenderer from "@/components/elements/RichTextRenderer"
 import { unstable_cache } from 'next/cache'
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import { getRevalidationTime } from '@/lib/config'
+import { formatEventDateTimeParts } from '@/lib/utils/date-formatter'
 
 // Note: caching created per-slug inside the page to avoid stale cross-slug cache
 
@@ -41,6 +42,9 @@ export default async function ClubPage({ params }: ClubPageProps) {
 
   // Get featured event (first event or null)
   const featuredEvent = clubData.currentEvents?.events?.[0] || null
+  const featuredEventDateTime = featuredEvent
+    ? formatEventDateTimeParts(featuredEvent.datetime)
+    : null
 
   // Diagnostics removed for production
 
@@ -150,7 +154,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
                           <li>
                             <Link href={featuredEvent.url || '#'}>
                               <img src="/assets/img/icons/clock1.svg" alt="" />
-                              {new Date(featuredEvent.datetime).toLocaleDateString()} - {new Date(featuredEvent.datetime).toLocaleTimeString()}
+                              {featuredEventDateTime ? `${featuredEventDateTime.date} - ${featuredEventDateTime.time}` : ''}
                               <span> | </span>
                             </Link>
                           </li>

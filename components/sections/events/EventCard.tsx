@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { EventData } from "@/lib/types/event";
 import { getEventImage } from "@/lib/constants";
+import { formatEventDateTimeParts } from "@/lib/utils/date-formatter";
 
 interface EventCardProps {
   event: EventData;
@@ -9,16 +10,7 @@ interface EventCardProps {
 
 export default function EventCard({ event, index }: EventCardProps) {
   const imageUrl = getEventImage();
-  const eventDate = new Date(event.datetime);
-  const formattedDate = eventDate.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  });
-  const formattedTime = eventDate.toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+  const { date: formattedDate, time: formattedTime } = formatEventDateTimeParts(event.datetime, 'en-US');
   const formattedDateTime = `${formattedDate} at ${formattedTime}`;
 
   return (
@@ -59,16 +51,16 @@ export default function EventCard({ event, index }: EventCardProps) {
                 </>
               )}
               <div className="space24" />
-              
+
               {/* Event Contacts */}
               {event.contact && event.contact.length > 0 && (
                 <div className="author-area">
                   {event.contact.map((contact, contactIndex) => (
                     <div key={contact.id} className="autho-name-area" style={contactIndex > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
                       <div className="img1">
-                        <img 
-                          src={contact.image?.url || getEventImage()} 
-                          alt={contact.image?.alt || contact.name || ""} 
+                        <img
+                          src={contact.image?.url || getEventImage()}
+                          alt={contact.image?.alt || contact.name || ""}
                         />
                       </div>
                       <div className="text">
@@ -80,7 +72,7 @@ export default function EventCard({ event, index }: EventCardProps) {
                   ))}
                 </div>
               )}
-              
+
               <div className="space24" />
               <div className="btn-area1">
                 {event.url ? (

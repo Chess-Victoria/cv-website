@@ -4,6 +4,7 @@ import { EventData } from '@/lib/types/event'
 import { getEventImage, getContactImage } from '@/lib/constants'
 import RichTextRenderer from '@/components/elements/RichTextRenderer'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import { formatEventDateTimeParts } from '@/lib/utils/date-formatter'
 
 interface EventSinglePageDataFetcherProps {
   slug: string;
@@ -15,8 +16,7 @@ export default async function EventSinglePageDataFetcher({ slug }: EventSinglePa
     throw new Error('Event not found')
   }
 
-  const formattedDate = new Date(event.datetime).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })
-  const formattedTime = new Date(event.datetime).toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })
+  const { date: formattedDate, time: formattedTime } = formatEventDateTimeParts(event.datetime, 'en-AU')
 
   const mapSrc = event.location && process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(event.location)}`
@@ -160,13 +160,13 @@ export default async function EventSinglePageDataFetcher({ slug }: EventSinglePa
                         referrerPolicy="no-referrer-when-downgrade"
                       />
                     ) : (
-                      <div style={{ 
-                        width: '100%', 
-                        height: '450px', 
-                        backgroundColor: '#f0f0f0', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center' 
+                      <div style={{
+                        width: '100%',
+                        height: '450px',
+                        backgroundColor: '#f0f0f0',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                       }}>
                         <p>Location map not available</p>
                       </div>
@@ -179,10 +179,10 @@ export default async function EventSinglePageDataFetcher({ slug }: EventSinglePa
         </div>
       </div>
 
-      <CTAWithCountdown 
-        buttonLabel="Contact Us" 
-        buttonHref="/contact" 
-        useFeaturedEvent 
+      <CTAWithCountdown
+        buttonLabel="Contact Us"
+        buttonHref="/contact"
+        useFeaturedEvent
       />
     </>
   )

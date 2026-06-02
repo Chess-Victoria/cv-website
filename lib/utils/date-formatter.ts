@@ -1,32 +1,110 @@
+export const MELBOURNE_TIME_ZONE = 'Australia/Melbourne';
+
+function parseIsoDateTime(isoDateTime: string): Date | null {
+  const date = new Date(isoDateTime);
+
+  if (isNaN(date.getTime())) {
+    return null;
+  }
+
+  return date;
+}
+
+function formatDateParts(
+  date: Date,
+  locale: string,
+  options: Intl.DateTimeFormatOptions
+): string {
+  return new Intl.DateTimeFormat(locale, {
+    timeZone: MELBOURNE_TIME_ZONE,
+    ...options,
+  }).format(date);
+}
+
 /**
  * Format ISO datetime string to user-friendly format
  * Example: "2025-08-16T19:30+10:00" → "August 16, 2025 at 7:30 PM"
  */
 export function formatEventDateTime(isoDateTime: string): string {
   try {
-    const date = new Date(isoDateTime);
-    
-    // Check if date is valid
-    if (isNaN(date.getTime())) {
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
       console.warn('Invalid datetime format:', isoDateTime);
-      return isoDateTime; // Return original if parsing fails
+      return isoDateTime;
     }
-    
-    // Format options for user-friendly display
-    const options: Intl.DateTimeFormatOptions = {
+
+    const formattedDate = formatDateParts(date, 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+    });
+    const formattedTime = formatDateParts(date, 'en-US', {
       hour: 'numeric',
       minute: '2-digit',
-      hour12: true
-    };
-    
-    return date.toLocaleDateString('en-US', options);
+      hour12: true,
+    });
+
+    return `${formattedDate} at ${formattedTime}`;
   } catch (error) {
     console.error('Error formatting datetime:', error);
-    return isoDateTime; // Return original if formatting fails
+    return isoDateTime;
   }
+}
+
+/**
+ * Format ISO datetime string to separate Melbourne date and time strings.
+ */
+export function formatEventDateTimeParts(
+  isoDateTime: string,
+  locale = 'en-AU',
+  month: 'short' | 'long' = 'short'
+): { date: string; time: string } {
+  const date = parseIsoDateTime(isoDateTime);
+
+  if (!date) {
+    return { date: isoDateTime, time: isoDateTime };
+  }
+
+  return {
+    date: formatDateParts(date, locale, {
+      day: '2-digit',
+      month,
+      year: 'numeric',
+    }),
+    time: formatDateParts(date, locale, {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    }),
+  };
+}
+
+/**
+ * Format ISO datetime string to an event date key in Melbourne time.
+ * This prevents UTC conversion from shifting events onto the wrong day.
+ */
+export function formatEventDateKey(isoDateTime: string): string {
+  const date = parseIsoDateTime(isoDateTime);
+
+  if (!date) {
+    return isoDateTime;
+  }
+
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: MELBOURNE_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+
+  const values = Object.fromEntries(
+    parts
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, part.value])
+  ) as Record<string, string>;
+
+  return `${values.year}-${values.month}-${values.day}`;
 }
 
 /**
@@ -35,21 +113,19 @@ export function formatEventDateTime(isoDateTime: string): string {
  */
 export function formatShortDateTime(isoDateTime: string): string {
   try {
-    const date = new Date(isoDateTime);
-    
-    if (isNaN(date.getTime())) {
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
       return isoDateTime;
     }
-    
-    const options: Intl.DateTimeFormatOptions = {
+
+    return formatDateParts(date, 'en-US', {
       month: 'short',
       day: 'numeric',
       hour: 'numeric',
       minute: '2-digit',
-      hour12: true
-    };
-    
-    return date.toLocaleDateString('en-US', options);
+      hour12: true,
+    });
   } catch (error) {
     console.error('Error formatting short datetime:', error);
     return isoDateTime;
@@ -62,19 +138,17 @@ export function formatShortDateTime(isoDateTime: string): string {
  */
 export function formatDateOnly(isoDateTime: string): string {
   try {
-    const date = new Date(isoDateTime);
-    
-    if (isNaN(date.getTime())) {
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
       return isoDateTime;
     }
-    
-    const options: Intl.DateTimeFormatOptions = {
+
+    return formatDateParts(date, 'en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
-    };
-    
-    return date.toLocaleDateString('en-US', options);
+      day: 'numeric',
+    });
   } catch (error) {
     console.error('Error formatting date only:', error);
     return isoDateTime;
@@ -87,19 +161,17 @@ export function formatDateOnly(isoDateTime: string): string {
  */
 export function formatTimeOnly(isoDateTime: string): string {
   try {
-    const date = new Date(isoDateTime);
-    
-    if (isNaN(date.getTime())) {
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
       return isoDateTime;
     }
-    
-    const options: Intl.DateTimeFormatOptions = {
+
+    return formatDateParts(date, 'en-US', {
       hour: 'numeric',
       minute: '2-digit',
-      hour12: true
-    };
-    
-    return date.toLocaleTimeString('en-US', options);
+      hour12: true,
+    });
   } catch (error) {
     console.error('Error formatting time only:', error);
     return isoDateTime;
