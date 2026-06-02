@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { EventData } from "@/lib/types/event";
 import { getEventImage } from "@/lib/constants";

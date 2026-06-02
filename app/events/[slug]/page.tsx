@@ -3,10 +3,10 @@ import Countdown from '@/components/elements/Countdown'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { getEventListData } from "@/lib/utils/event"
-import EventCard from "@/components/sections/events/EventCard"
 import { notFound } from "next/navigation"
 import PageHeadContent from '@/components/elements/PageHeadContent'
 import CTAWithCountdown from '@/components/sections/home1/CTAWithCountdown'
+import EventMonthFilter from '@/components/sections/events/EventMonthFilter'
 
 interface EventPageProps {
   params: Promise<{
@@ -32,7 +32,7 @@ export default async function EventPage({ params }: EventPageProps) {
           backgroundImage="/assets/img/bg/header-bg8.png"
           breadcrumbs={[{ name: 'Home', link: '/' }, { name: 'Events', link: '/events' }, { name: eventListData.name, link: `/events/${slug}` }]}
         />
-        
+
         {/*===== HERO AREA ENDS =======*/}
         {/*===== EVENT AREA STARTS =======*/}
         <div className="event-team-area sp1">
@@ -44,22 +44,13 @@ export default async function EventPage({ params }: EventPageProps) {
                 </div>
               </div>
             </div>
-            
+
             <div className="row">
               <div className="col-lg-12 m-auto">
-                <div className="event-widget-area">
-                  {eventListData.events.length > 0 ? (
-                    eventListData.events.map((event, index) => (
-                      <div key={event.id}>
-                        <div className="row">
-                          <EventCard event={event} index={index} />
-                        </div>
-                        {index < eventListData.events.length - 1 && (
-                          <div className="space48" />
-                        )}
-                      </div>
-                    ))
-                  ) : (
+                {eventListData.events.length > 0 ? (
+                  <EventMonthFilter events={eventListData.events} />
+                ) : (
+                  <div className="event-widget-area">
                     <div className="row">
                       <div className="col-lg-10 m-auto">
                         <div className="text-center">
@@ -69,9 +60,9 @@ export default async function EventPage({ params }: EventPageProps) {
                         </div>
                       </div>
                     </div>
-                  )}
-                </div>
-                
+                  </div>
+                )}
+
                 {/* Pagination - Simplified for now */}
                 {eventListData.events.length > 0 && (
                   <>
@@ -102,13 +93,13 @@ export default async function EventPage({ params }: EventPageProps) {
           </div>
         </div>
         {/*===== EVENT AREA ENDS =======*/}
-        
+
         {/*===== CTA AREA STARTS =======*/}
         <CTAWithCountdown
-						buttonLabel="Contact Us"
-						buttonHref="/contact"
-						useFeaturedEvent
-					/>
+          buttonLabel="Contact Us"
+          buttonHref="/contact"
+          useFeaturedEvent
+        />
       </div>
     </Layout>
   )

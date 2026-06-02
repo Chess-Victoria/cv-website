@@ -52,6 +52,27 @@ function formatDatePartLabels(isoDateTime: string, locale: string, month: 'short
   };
 }
 
+function getDatePartValues(isoDateTime: string) {
+  const date = parseIsoDateTime(isoDateTime);
+
+  if (!date) {
+    return null;
+  }
+
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: MELBOURNE_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+
+  return Object.fromEntries(
+    parts
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, part.value])
+  ) as Record<string, string>;
+}
+
 /**
  * Format ISO datetime string to user-friendly format
  * Example: "2025-08-16T19:30+10:00" → "August 16, 2025 at 7:30 PM"
@@ -121,26 +142,34 @@ export function formatEventDateTimeParts(
  * This prevents UTC conversion from shifting events onto the wrong day.
  */
 export function formatEventDateKey(isoDateTime: string): string {
-  const date = parseIsoDateTime(isoDateTime);
+  const values = getDatePartValues(isoDateTime);
 
-  if (!date) {
+  if (!values) {
     return isoDateTime;
   }
 
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: MELBOURNE_TIME_ZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(date);
-
-  const values = Object.fromEntries(
-    parts
-      .filter((part) => part.type !== 'literal')
-      .map((part) => [part.type, part.value])
-  ) as Record<string, string>;
-
   return `${values.year}-${values.month}-${values.day}`;
+}
+
+/**
+ * Format ISO datetime string to a Melbourne month key and label.
+ */
+export function formatEventMonth(isoDateTime: string): { key: string; label: string } {
+  const values = getDatePartValues(isoDateTime);
+
+  if (!values) {
+    return { key: isoDateTime, label: isoDateTime };
+  }
+
+  const monthLabel = new Intl.DateTimeFormat('en-US', {
+    timeZone: MELBOURNE_TIME_ZONE,
+    month: 'short',
+  }).format(parseIsoDateTime(isoDateTime) as Date).toUpperCase();
+
+  return {
+    key: `${values.year}-${values.month}`,
+    label: monthLabel,
+  };
 }
 
 /**
