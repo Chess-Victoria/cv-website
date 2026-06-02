@@ -19,7 +19,7 @@ interface ClubPageProps {
 
 export default async function ClubPage({ params }: ClubPageProps) {
   const { slug } = await params
-  
+
   // Per-slug ISR cache (tags allow revalidation; include slug in key)
   const getCachedChessClub = unstable_cache(
     async () => {
@@ -33,7 +33,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
   )
 
   const clubData = await getCachedChessClub()
-  
+
   // If no club found, show 404
   if (!clubData) {
     notFound()
@@ -41,7 +41,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
 
   // Get featured event (first event or null)
   const featuredEvent = clubData.currentEvents?.events?.[0] || null
-  
+
   // Diagnostics removed for production
 
   return (
@@ -79,9 +79,17 @@ export default async function ClubPage({ params }: ClubPageProps) {
                       <RichTextRenderer content={clubData.quickIntro} />
                     </div>
                   )}
-                  
+
+                  {clubData.website && (
+                    <div className="club-website" style={{ marginTop: 12 }}>
+                      <a href={clubData.website} target="_blank" rel="noopener noreferrer" className="website-link">
+                        {clubData.website.replace(/^https?:\/\//, '')}
+                      </a>
+                    </div>
+                  )}
+
                   <div className="space40" />
-                  
+
                   {/* Event Speakers/Contact Information */}
                   {clubData.contact && (
                     <>
@@ -93,10 +101,10 @@ export default async function ClubPage({ params }: ClubPageProps) {
                               <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
                               <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
                               <div className="img1">
-                                <img 
-                                  src={getContactImage(clubData.contact?.image?.url)} 
-                                  alt={clubData.contact?.image?.alt || clubData.contact?.name || ""} 
-                                  className="team-img4" 
+                                <img
+                                  src={getContactImage(clubData.contact?.image?.url)}
+                                  alt={clubData.contact?.image?.alt || clubData.contact?.name || ""}
+                                  className="team-img4"
                                 />
                                 <div className="share">
                                   <Link href={`mailto:${clubData.contact.email}`}>
@@ -132,7 +140,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
                   )}
                 </div>
               </div>
-              
+
               <div className="col-lg-5">
                 <div className="shedule-listarea">
                   <div className="content-area">
@@ -162,16 +170,16 @@ export default async function ClubPage({ params }: ClubPageProps) {
                       <div className="head">No upcoming events</div>
                     )}
                     <div className="space24" />
-                    
+
                     {/* Event Contact Information */}
                     {featuredEvent?.contact && featuredEvent.contact.length > 0 && (
                       <div className="author-area">
                         {featuredEvent.contact.map((contact, index) => (
                           <div key={index} className="autho-name-area" style={index > 0 ? { padding: '0 0 0 12px', border: 'none' } : {}}>
                             <div className="img1">
-                              <img 
-                                src={getContactImage(contact.image?.url)} 
-                                alt={contact.image?.alt || contact.name || ""} 
+                              <img
+                                src={getContactImage(contact.image?.url)}
+                                alt={contact.image?.alt || contact.name || ""}
                               />
                             </div>
                             <div className="text">
@@ -183,7 +191,7 @@ export default async function ClubPage({ params }: ClubPageProps) {
                         ))}
                       </div>
                     )}
-                    
+
                     <div className="space24" />
                     <div className="btn-area1">
                       {featuredEvent?.url ? (
@@ -191,24 +199,26 @@ export default async function ClubPage({ params }: ClubPageProps) {
                           <span className="demo">View Details</span>
                         </Link>
                       ) : (
-                        <Link href="/contact" className="vl-btn1">
-                          <span className="demo">Contact Club</span>
+                        <Link href={clubData.website || "#"} className="vl-btn1" target="_blank">
+                          <span className="demo">Visit Club Website</span>
                         </Link>
                       )}
+
+
                     </div>
                   </div>
                   <div className="space30" />
                   <div className="mapouter">
                     <div className="gmap_canvas">
                       {clubData.location ? (
-                        <iframe 
+                        <iframe
                           src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${clubData.location.lat},${clubData.location.lon}`}
-                          width={600} 
-                          height={450} 
-                          style={{ border: 0 }} 
-                          allowFullScreen 
-                          loading="lazy" 
-                          referrerPolicy="no-referrer-when-downgrade" 
+                          width={600}
+                          height={450}
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
                         />
                       ) : (
                         <div style={{ width: 600, height: 450, backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -223,13 +233,13 @@ export default async function ClubPage({ params }: ClubPageProps) {
           </div>
         </div>
         {/*===== EVENT AREA ENDS =======*/}
-        
+
         {/*===== EVENT TABS AREA STARTS =======*/}
         {clubData.currentEvents && clubData.currentEvents.events.length > 0 && (
           <EventTabs events={clubData.currentEvents.events} />
         )}
         {/*===== EVENT TABS AREA ENDS =======*/}
-        
+
         {/*===== CTA AREA STARTS =======*/}
         <div className="cta1-section-area d-lg-block d-block">
           <div className="container">
