@@ -70,6 +70,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<ul className={`sub-menu ${isAccordion == 3 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 3 ? 'block' : 'none'}` }}>
 								<li><Link href="/events/2026-chess-victoria/">Chess Victoria Events</Link></li>
 								<li><Link href="/events/2026-victorian-champion-tournaments">Victorian Championships</Link></li>
+								<li><Link href="/events/cv-intershool-events/">CV Intershool Events</Link></li>
 								<li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
 							</ul>
 						</li>
