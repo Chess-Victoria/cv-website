@@ -4,6 +4,14 @@ import { unstable_cache } from 'next/cache';
 import { getRevalidationTime } from '@/lib/config';
 import { getContactImage } from '@/lib/constants';
 
+function normalizeContentfulUrl(url?: string): string | undefined {
+  if (!url) {
+    return undefined;
+  }
+
+  return url.startsWith('//') ? `https:${url}` : url;
+}
+
 /**
  * Fetch all events directly from Contentful with caching
  */
@@ -113,6 +121,9 @@ export const getEventListBySlug = (slug: string) => {
  * Map event entry to data structure
  */
 function mapEventToData(event: Event): EventData {
+  const imageUrl = normalizeContentfulUrl((event.fields as any).image?.fields?.file?.url);
+  const imageAlt = (event.fields as any).image?.fields?.description || event.fields.name || 'Event';
+
   const eventData: EventData = {
     id: event.sys.id,
     name: event.fields.name,
@@ -120,6 +131,10 @@ function mapEventToData(event: Event): EventData {
     datetime: event.fields.datetime,
     location: event.fields.location,
     url: event.fields.url,
+    image: imageUrl ? {
+      url: imageUrl,
+      alt: imageAlt,
+    } : undefined,
     description: event.fields.description,
     summary: event.fields.summary,
     tags: event.metadata?.tags?.map(tag => tag.sys.id) || []

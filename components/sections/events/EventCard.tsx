@@ -11,7 +11,7 @@ interface EventCardProps {
 }
 
 export default function EventCard({ event, index }: EventCardProps) {
-  const imageUrl = getEventImage();
+  const imageUrl = event.image?.url || getEventImage();
   const { date: formattedDate, time: formattedTime } = formatEventDateTimeParts(event.datetime, 'en-US');
   const formattedDateTime = `${formattedDate} at ${formattedTime}`;
 

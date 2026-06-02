@@ -21,9 +21,6 @@ function formatDateParts(
   }).format(date);
 }
 
-function logRawDateTime(source: string, isoDateTime: string) {
-  console.log(`[date-formatter] ${source} raw datetime from Contentful:`, isoDateTime);
-}
 
 function formatDatePartLabels(isoDateTime: string, locale: string, month: 'short' | 'long') {
   const date = parseIsoDateTime(isoDateTime);
@@ -79,8 +76,6 @@ function getDatePartValues(isoDateTime: string) {
  */
 export function formatEventDateTime(isoDateTime: string): string {
   try {
-    logRawDateTime('formatEventDateTime', isoDateTime);
-
     const dateParts = formatDatePartLabels(isoDateTime, 'en-US', 'long');
 
     if (!dateParts) {
@@ -115,7 +110,6 @@ export function formatEventDateTimeParts(
   locale = 'en-AU',
   month: 'short' | 'long' = 'short'
 ): { date: string; time: string } {
-  logRawDateTime('formatEventDateTimeParts', isoDateTime);
 
   const date = parseIsoDateTime(isoDateTime);
 

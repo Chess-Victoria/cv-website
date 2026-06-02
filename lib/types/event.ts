@@ -14,6 +14,7 @@ export interface Event {
     datetime: string;
     location?: string;
     url?: string;
+    image?: any;
     contact?: Array<{
       sys: {
         id: string;
@@ -65,6 +66,10 @@ export interface EventData {
   datetime: string;
   location?: string;
   url?: string;
+  image?: {
+    url: string;
+    alt: string;
+  };
   description?: Document;
   summary?: string;
   contact?: Array<{
