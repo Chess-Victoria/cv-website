@@ -41,6 +41,7 @@ export interface ClubListItem {
   id: string;
   slug: string;
   name: string;
+  venue?: string;
   location?: {
     lat: number;
     lon: number;

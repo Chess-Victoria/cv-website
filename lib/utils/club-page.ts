@@ -6,7 +6,7 @@ import { ClubPage, ClubPageData, ClubListItem } from '@/lib/types/club-page';
  */
 function extractAddressFromQuickIntro(quickIntro: any): string | undefined {
   if (!quickIntro || !quickIntro.content) return undefined;
-  
+
   try {
     // Flatten the content structure to extract all text
     const extractText = (content: any[]): string => {
@@ -17,24 +17,24 @@ function extractAddressFromQuickIntro(quickIntro: any): string | undefined {
         return item.value || '';
       }).join(' ');
     };
-    
+
     const fullText = extractText(quickIntro.content);
-    
+
     // Look for common address patterns - more specific to avoid schedule info
     const addressPatterns = [
       // Full address with postcode: "123 Street Name, Suburb VIC 3000"
       /(\d+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Lane|Ln|Place|Pl|Court|Ct|Boulevard|Blvd|Terrace|Tce|Way|Close|Crescent|Cres|Parade|Pde)[,\s]+[A-Za-z\s]+(?:VIC|NSW|QLD|WA|SA|TAS|NT|ACT)[\s]*\d{4})/i,
-      
+
       // Address with suburb: "123 Street Name, Suburb"
       /(\d+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Lane|Ln|Place|Pl|Court|Ct|Boulevard|Blvd|Terrace|Tce|Way|Close|Crescent|Cres|Parade|Pde)[,\s]+[A-Za-z\s]+(?:VIC|NSW|QLD|WA|SA|TAS|NT|ACT)?)/i,
-      
+
       // Address mentioned with context: "located at 123 Street Name" or "address: 123 Street Name"
       /(?:located\s+at|address:?|at)\s+(\d+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Lane|Ln|Place|Pl|Court|Ct|Boulevard|Blvd|Terrace|Tce|Way|Close|Crescent|Cres|Parade|Pde)[^.,]*(?:,\s*[A-Za-z\s]+)?)/i,
-      
+
       // Simple street address: "123 Street Name"
       /(\d+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Lane|Ln|Place|Pl|Court|Ct|Boulevard|Blvd|Terrace|Tce|Way|Close|Crescent|Cres|Parade|Pde))/i
     ];
-    
+
     for (const pattern of addressPatterns) {
       const match = fullText.match(pattern);
       if (match) {
@@ -45,7 +45,7 @@ function extractAddressFromQuickIntro(quickIntro: any): string | undefined {
         }
       }
     }
-    
+
     return undefined;
   } catch (error) {
     console.error('Error extracting address from quickIntro:', error);
@@ -59,7 +59,7 @@ function extractAddressFromQuickIntro(quickIntro: any): string | undefined {
 export async function getClubPageData(slug: string): Promise<ClubPageData | null> {
   try {
     const clubPage = await getEntryBySlug('clubPage', slug, 4);
-    
+
     if (!clubPage) {
       return null;
     }
@@ -117,24 +117,27 @@ function mapClubPageToData(clubPage: ClubPage): ClubPageData {
  */
 function mapClubToListItem(club: any): ClubListItem | null {
   try {
+    console.log("club", club)
     const clubItem: ClubListItem = {
       id: club.sys.id,
       slug: club.fields.slug,
       name: club.fields.name,
       website: club.fields.website,
+      venue: club.fields.clubVenue,
       schedules: club.fields.schedules || []
     };
 
     // Map location
     if (club.fields.location) {
+      console.log("club.fields.location", club.fields.location)
       // Try to get address from location field first
-      let address = club.fields.location.address;
-      
+      let address = club.fields.clubVenue;
+
       // If no address in location field, try to extract from quickIntro
       if (!address && club.fields.quickIntro) {
         address = extractAddressFromQuickIntro(club.fields.quickIntro);
       }
-      
+
       clubItem.location = {
         lat: club.fields.location.lat,
         lon: club.fields.location.lon,
@@ -152,6 +155,7 @@ function mapClubToListItem(club: any): ClubListItem | null {
       };
     }
 
+    console.log("Mapped club item:", clubItem);
     return clubItem;
   } catch (error) {
     console.error('Error mapping club to list item:', error);

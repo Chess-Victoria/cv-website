@@ -9,7 +9,7 @@ interface ClubsTableProps {
   title?: string;
 }
 
-export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTableProps) {
+export default function ClubsTable({ clubs, title = "All Chess Clubs" }: ClubsTableProps) {
   const [selectedFilter, setSelectedFilter] = React.useState<string | null>(null);
 
   if (!clubs || clubs.length === 0) {
@@ -30,7 +30,7 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
 
   // Generate A-Z filter buttons
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  
+
   // Get available letters (clubs that start with each letter)
   const availableLetters = new Set<string>();
   clubs.forEach(club => {
@@ -41,7 +41,7 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
   });
 
   // Filter clubs based on selected letter
-  const filteredClubs = selectedFilter 
+  const filteredClubs = selectedFilter
     ? clubs.filter(club => club.name.charAt(0).toUpperCase() === selectedFilter)
     : clubs;
 
@@ -68,7 +68,7 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
                     {alphabet.map(letter => {
                       const isAvailable = availableLetters.has(letter);
                       const isSelected = selectedFilter === letter;
-                      
+
                       return (
                         <button
                           key={letter}
@@ -119,7 +119,7 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
               <div className="col-lg-12">
                 <div className="text-center">
                   <p>
-                    {selectedFilter 
+                    {selectedFilter
                       ? `Showing ${filteredClubs.length} club${filteredClubs.length !== 1 ? 's' : ''} starting with "${selectedFilter}"`
                       : `Showing all ${clubs.length} clubs`
                     }
@@ -148,9 +148,9 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
                         </Link>
                         {club.website && (
                           <div>
-                            <a 
-                              href={club.website} 
-                              target="_blank" 
+                            <a
+                              href={club.website}
+                              target="_blank"
                               rel="noopener noreferrer"
                               className="text-muted"
                               style={{ fontSize: '12px' }}
@@ -161,7 +161,7 @@ export default function ClubsTable({ clubs , title="All Chess Clubs"}: ClubsTabl
                         )}
                       </td>
                       <td>
-                        {club.location?.address || 'Not specified'}
+                        {club.venue || 'Not specified'}
                       </td>
                       <td>
                         {club.contact ? (
