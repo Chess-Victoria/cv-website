@@ -161,7 +161,7 @@ export default function ClubsTable({ clubs, title = "All Chess Clubs" }: ClubsTa
                         )}
                       </td>
                       <td>
-                        {club.venue || 'Not specified'}
+                      {club.venue || 'Not specified'}
                       </td>
                       <td>
                         {club.contact ? (

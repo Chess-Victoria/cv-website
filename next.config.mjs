@@ -16,7 +16,7 @@ const nextConfig = {
             },
             {
                 source: '/cv-calendar',
-                destination: '/events/2026-victorian-champion-tournaments',
+                destination: '/events/2026-victorian-championships-tournaments',
                 permanent: true,
             },
         ]
