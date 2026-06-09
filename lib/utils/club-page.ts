@@ -127,23 +127,35 @@ function mapClubToListItem(club: any): ClubListItem | null {
       schedules: club.fields.schedules || []
     };
 
-    // Map location
-    if (club.fields.location) {
-      console.log("club.fields.location", club.fields.location)
-      // Try to get address from location field first
-      let address = club.fields.clubVenue;
+    const getAddressForLocation = (isSecondary: boolean) => {
+      let address = isSecondary
+        ? club.fields.secondaryClubVenue || club.fields.secondaryVenue
+        : club.fields.clubVenue;
 
-      // If no address in location field, try to extract from quickIntro
       if (!address && club.fields.quickIntro) {
         address = extractAddressFromQuickIntro(club.fields.quickIntro);
       }
 
-      clubItem.location = {
-        lat: club.fields.location.lat,
-        lon: club.fields.location.lon,
-        address: address
+      return address;
+    };
+
+    const mapLocation = (locationField: 'location' | 'secondaryLocation', isSecondary: boolean) => {
+      const rawLocation = club.fields[locationField];
+
+      if (!rawLocation) {
+        return undefined;
+      }
+
+      return {
+        lat: rawLocation.lat,
+        lon: rawLocation.lon,
+        address: getAddressForLocation(isSecondary),
+        label: isSecondary ? 'Secondary location' : 'Primary location'
       };
-    }
+    };
+
+    clubItem.location = mapLocation('location', false);
+    clubItem.secondaryLocation = mapLocation('secondaryLocation', true);
 
     // Map contact (person type)
     if (club.fields.contact && typeof club.fields.contact === 'object' && 'fields' in club.fields.contact) {

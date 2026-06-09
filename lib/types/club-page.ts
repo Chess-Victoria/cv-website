@@ -36,17 +36,21 @@ export interface ClubPageData {
   allClubs: ClubListItem[];
 }
 
+export interface ClubLocation {
+  lat: number;
+  lon: number;
+  address?: string;
+  label?: string;
+}
+
 // Individual club item for the listing
 export interface ClubListItem {
   id: string;
   slug: string;
   name: string;
   venue?: string;
-  location?: {
-    lat: number;
-    lon: number;
-    address?: string;
-  };
+  location?: ClubLocation;
+  secondaryLocation?: ClubLocation;
   contact?: {
     name: string;
     phone?: string;

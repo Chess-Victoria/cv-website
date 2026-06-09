@@ -55,6 +55,10 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
       lat: club.fields.location.lat,
       lon: club.fields.location.lon
     } : undefined,
+    secondaryLocation: club.fields.secondaryLocation ? {
+      lat: club.fields.secondaryLocation.lat,
+      lon: club.fields.secondaryLocation.lon
+    } : undefined,
     contact: undefined,
     currentEvents: undefined,
     images: []
@@ -78,7 +82,7 @@ function mapChessClubToData(club: ChessClub): ChessClubData {
   if (club.fields.currentEvents && typeof club.fields.currentEvents === 'object' && 'fields' in club.fields.currentEvents) {
     const eventsList = club.fields.currentEvents as any;
     const events = eventsList.fields.events || [];
-    
+
     clubData.currentEvents = {
       title: eventsList.fields.name || '',
       subtitle: eventsList.fields.slug || '',

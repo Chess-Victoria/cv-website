@@ -1,5 +1,12 @@
 import { Document } from '@contentful/rich-text-types';
 
+export interface ClubLocation {
+  lat: number;
+  lon: number;
+  address?: string;
+  label?: string;
+}
+
 // Contentful ChessClub entry structure
 export interface ChessClub {
   sys: {
@@ -19,6 +26,10 @@ export interface ChessClub {
       };
     };
     location?: {
+      lat: number;
+      lon: number;
+    };
+    secondaryLocation?: {
       lat: number;
       lon: number;
     };
@@ -88,6 +99,7 @@ export interface ChessClubData {
     lat: number;
     lon: number;
   };
+  secondaryLocation?: ClubLocation;
   website?: string;
   quickIntro?: any; // Raw Contentful response
   content?: any; // Raw Contentful response

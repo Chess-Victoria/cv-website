@@ -8,63 +8,78 @@ interface ClubsMapProps {
   clubs: ClubListItem[];
 }
 
+interface ClubMapMarker {
+  id: string;
+  club: ClubListItem;
+  location: NonNullable<ClubListItem['location']>;
+}
+
 export default function ClubsMap({ clubs }: ClubsMapProps) {
-  const [selectedClub, setSelectedClub] = useState<ClubListItem | null>(null)
+  const [selectedMarker, setSelectedMarker] = useState<ClubMapMarker | null>(null)
   const [camera, setCamera] = useState({
     center: { lat: -37.8136, lng: 144.9631 }, // Default to Melbourne
     zoom: 10
   })
   const initializedRef = useRef(false)
 
-  // Filter clubs with valid coordinates - memoized to prevent re-creation
-  const clubsWithCoords = useMemo(() => {
-    return clubs.filter(club => {
-      const hasCoords = club.location?.lat && club.location?.lon
-      return hasCoords
+  const clubsWithAnyLocation = useMemo(() => {
+    return clubs.filter((club) => {
+      const hasPrimary = typeof club.location?.lat === 'number' && typeof club.location?.lon === 'number'
+      const hasSecondary = typeof club.secondaryLocation?.lat === 'number' && typeof club.secondaryLocation?.lon === 'number'
+      return hasPrimary || hasSecondary
     })
   }, [clubs])
 
+  const markers = useMemo(() => {
+    return clubsWithAnyLocation.flatMap((club) => {
+      const clubMarkers: ClubMapMarker[] = []
+
+      if (typeof club.location?.lat === 'number' && typeof club.location?.lon === 'number') {
+        clubMarkers.push({
+          id: `${club.id}-primary`,
+          club,
+          location: club.location
+        })
+      }
+
+      if (typeof club.secondaryLocation?.lat === 'number' && typeof club.secondaryLocation?.lon === 'number') {
+        clubMarkers.push({
+          id: `${club.id}-secondary`,
+          club,
+          location: club.secondaryLocation
+        })
+      }
+
+      return clubMarkers
+    })
+  }, [clubsWithAnyLocation])
+
   // Debug logs removed for production
-
-  // Calculate bounds to fit all markers
-  const bounds = useMemo(() => {
-    if (clubsWithCoords.length === 0) return null
-
-    const lats = clubsWithCoords.map(club => club.location!.lat)
-    const lngs = clubsWithCoords.map(club => club.location!.lon)
-
-    return {
-      north: Math.max(...lats),
-      south: Math.min(...lats),
-      east: Math.max(...lngs),
-      west: Math.min(...lngs)
-    }
-  }, [clubsWithCoords])
 
   // Calculate initial center point (average of all coordinates)
   const initialCenter = useMemo(() => {
-    if (clubsWithCoords.length === 0) {
+    if (markers.length === 0) {
       return { lat: -37.8136, lng: 144.9631 } // Default to Melbourne
     }
-    
-    const centerLat = clubsWithCoords.reduce((sum, club) => sum + club.location!.lat, 0) / clubsWithCoords.length
-    const centerLng = clubsWithCoords.reduce((sum, club) => sum + club.location!.lon, 0) / clubsWithCoords.length
-    
+
+    const centerLat = markers.reduce((sum, marker) => sum + marker.location.lat, 0) / markers.length
+    const centerLng = markers.reduce((sum, marker) => sum + marker.location.lon, 0) / markers.length
+
     return { lat: centerLat, lng: centerLng }
-  }, [clubsWithCoords])
+  }, [markers])
 
   // Initialize camera state only once when clubs data is first available
   useEffect(() => {
-    if (clubsWithCoords.length > 0 && !initializedRef.current) {
+    if (markers.length > 0 && !initializedRef.current) {
       setCamera({
         center: initialCenter,
-        zoom: clubsWithCoords.length === 1 ? 12 : 10
+        zoom: markers.length === 1 ? 12 : 10
       })
       initializedRef.current = true
     }
-  }, [clubsWithCoords.length, initialCenter])
+  }, [markers.length, initialCenter])
 
-  if (clubsWithCoords.length === 0) {
+  if (markers.length === 0) {
     return (
       <div className="map-section-area sp10">
         <div className="container">
@@ -87,7 +102,11 @@ export default function ClubsMap({ clubs }: ClubsMapProps) {
                     {JSON.stringify(clubs.map(club => ({
                       name: club.name,
                       location: club.location,
-                      hasCoords: !!(club.location?.lat && club.location?.lon)
+                      secondaryLocation: club.secondaryLocation,
+                      hasCoords: !!(
+                        (typeof club.location?.lat === 'number' && typeof club.location?.lon === 'number') ||
+                        (typeof club.secondaryLocation?.lat === 'number' && typeof club.secondaryLocation?.lon === 'number')
+                      )
                     })), null, 2)}
                   </pre>
                 </details>
@@ -116,9 +135,9 @@ export default function ClubsMap({ clubs }: ClubsMapProps) {
               <Map
                 center={camera.center}
                 zoom={camera.zoom}
-                style={{ 
-                  width: '100%', 
-                  height: '500px', 
+                style={{
+                  width: '100%',
+                  height: '500px',
                   borderRadius: '10px',
                   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                 }}
@@ -136,59 +155,64 @@ export default function ClubsMap({ clubs }: ClubsMapProps) {
                   })
                 }}
               >
-                {clubsWithCoords.map((club) => (
+                {markers.map((marker) => (
                   <Marker
-                    key={club.id}
-                    position={{ lat: club.location!.lat, lng: club.location!.lon }}
-                    title={club.name}
-                    onClick={() => setSelectedClub(club)}
+                    key={marker.id}
+                    position={{ lat: marker.location.lat, lng: marker.location.lon }}
+                    title={marker.location.label ? `${marker.club.name} - ${marker.location.label}` : marker.club.name}
+                    onClick={() => setSelectedMarker(marker)}
                   />
                 ))}
 
-                {selectedClub && (
+                {selectedMarker && (
                   <InfoWindow
-                    position={{ lat: selectedClub.location!.lat, lng: selectedClub.location!.lon }}
-                    onCloseClick={() => setSelectedClub(null)}
+                    position={{ lat: selectedMarker.location.lat, lng: selectedMarker.location.lon }}
+                    onCloseClick={() => setSelectedMarker(null)}
                   >
                     <div style={{ padding: '10px', maxWidth: '250px' }}>
                       <h3 style={{ margin: '0 0 10px 0', color: '#333', fontSize: '16px' }}>
-                        {selectedClub.name}
+                        {selectedMarker.club.name}
                       </h3>
-                      {selectedClub.location?.address && (
+                      {selectedMarker.location.label && (
                         <p style={{ margin: '5px 0', color: '#666' }}>
-                          <strong>Address:</strong> {selectedClub.location.address}
+                          <strong>Pin:</strong> {selectedMarker.location.label}
                         </p>
                       )}
-                      {selectedClub.contact?.phone && (
+                      {selectedMarker.location.address && (
+                        <p style={{ margin: '5px 0', color: '#666' }}>
+                          <strong>Address:</strong> {selectedMarker.location.address}
+                        </p>
+                      )}
+                      {selectedMarker.club.contact?.phone && (
                         <p style={{ margin: '5px 0', color: '#666' }}>
                           <strong>Phone:</strong>{' '}
-                          <a href={`tel:${selectedClub.contact.phone}`} style={{ color: '#007bff' }}>
-                            {selectedClub.contact.phone}
+                          <a href={`tel:${selectedMarker.club.contact.phone}`} style={{ color: '#007bff' }}>
+                            {selectedMarker.club.contact.phone}
                           </a>
                         </p>
                       )}
-                      {selectedClub.contact?.email && (
+                      {selectedMarker.club.contact?.email && (
                         <p style={{ margin: '5px 0', color: '#666' }}>
                           <strong>Email:</strong>{' '}
-                          <a href={`mailto:${selectedClub.contact.email}`} style={{ color: '#007bff' }}>
-                            {selectedClub.contact.email}
+                          <a href={`mailto:${selectedMarker.club.contact.email}`} style={{ color: '#007bff' }}>
+                            {selectedMarker.club.contact.email}
                           </a>
                         </p>
                       )}
-                      {selectedClub.schedules && selectedClub.schedules.length > 0 && (
+                      {selectedMarker.club.schedules && selectedMarker.club.schedules.length > 0 && (
                         <>
                           <p style={{ margin: '5px 0', color: '#666' }}>
                             <strong>Schedule:</strong>
                           </p>
                           <ul style={{ margin: '5px 0', paddingLeft: '20px', color: '#666' }}>
-                            {selectedClub.schedules.map((schedule, index) => (
+                            {selectedMarker.club.schedules.map((schedule, index) => (
                               <li key={index}>{schedule}</li>
                             ))}
                           </ul>
                         </>
                       )}
                       <a
-                        href={`/chess-clubs/${selectedClub.slug}`}
+                        href={`/chess-clubs/${selectedMarker.club.slug}`}
                         style={{
                           display: 'inline-block',
                           marginTop: '10px',
@@ -208,8 +232,8 @@ export default function ClubsMap({ clubs }: ClubsMapProps) {
             </APIProvider>
             <div className="text-center mt-4">
               <p className="text-muted">
-                Click on any pin to see club details. {clubsWithCoords.length} clubs shown on map.
-                {clubsWithCoords.length > 1 && ' Use zoom and pan controls to explore the map.'}
+                Click on any pin to see club details. {markers.length} pins shown across {clubsWithAnyLocation.length} clubs.
+                {markers.length > 1 && ' Use zoom and pan controls to explore the map.'}
               </p>
             </div>
           </div>
