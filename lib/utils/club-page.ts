@@ -167,7 +167,6 @@ function mapClubToListItem(club: any): ClubListItem | null {
       };
     }
 
-    console.log("Mapped club item:", clubItem);
     return clubItem;
   } catch (error) {
     console.error('Error mapping club to list item:', error);

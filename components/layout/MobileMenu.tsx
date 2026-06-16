@@ -57,9 +57,9 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 							<Link href="/victorian-champions" className="hash-nav">Victorian Champions</Link>
 							<ul className={`sub-menu ${isAccordion == 2 ? 'open-sub' : ''}`} style={{ display: `${isAccordion == 2 ? 'block' : 'none'}` }}>
 								<li><Link href="/victorian-champions/victorian-junior-champions">Victorian Junior Champions</Link></li>
-								<li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li>
+								{/* <li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li> */}
 								<li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
-								<li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li>
+								{/* <li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li> */}
 								<li><Link href="/victorian-champions/victorian-open-champions">Victorian Open Champions</Link></li>
 								<li><Link href="/victorian-champions/victorian-women-champions">Victorian Women Champions</Link></li>
 							</ul>
