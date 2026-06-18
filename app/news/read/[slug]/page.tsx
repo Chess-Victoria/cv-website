@@ -9,6 +9,7 @@ import RichTextRenderer from '@/components/elements/RichTextRenderer'
 import type { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { formatDateOnlyInLocale } from '@/lib/utils/date-formatter'
 // ISR
 export const revalidate = 86400; // 24 hours
 
@@ -83,7 +84,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                   <div className="space32" />
                   <ul>
                     <li>
-                      <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(post.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })} <span> | </span></Link>
+                      <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{formatDateOnlyInLocale(post.date || '')} <span> | </span></Link>
                     </li>
                     {post.authorName ? (
                       <li>
@@ -243,7 +244,7 @@ export default async function NewsReadPage({ params }: NewsReadPageProps) {
                     ) : null}
                     <div className="content-area">
                       <ul>
-                        <li><Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(r.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })}</Link></li>
+                        <li><Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{formatDateOnlyInLocale(r.date || '')}</Link></li>
                         {r.authorName ? (<li><Link href="/#"><img src="/assets/img/icons/user1.svg" alt="" />{r.authorName}</Link></li>) : null}
                       </ul>
                       <div className="space20" />

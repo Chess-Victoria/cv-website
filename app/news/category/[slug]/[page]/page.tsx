@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getPostsByCategoryPageData } from "@/lib/utils/posts";
 import PageHeadContent from '@/components/elements/PageHeadContent';
+import { formatDateOnlyInLocale } from '@/lib/utils/date-formatter'
 
 // Static revalidation for Next.js 15
 export const revalidate = 86400; // 24 hours
@@ -45,7 +46,7 @@ export default async function NewsCategoryPage({ params }: CategoryPageProps) {
                     <div className="content-area">
                       <ul>
                         <li>
-                          <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(post.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })} <span> | </span></Link>
+                          <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{formatDateOnlyInLocale(post.date || '')} <span> | </span></Link>
                         </li>
                         {post.authorName ? (
                           <li>

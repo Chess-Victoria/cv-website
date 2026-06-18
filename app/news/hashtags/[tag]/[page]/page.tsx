@@ -3,12 +3,13 @@ import Link from "next/link";
 import { getPostsByHashtagPageData } from "@/lib/utils/posts";
 import Paginator from "@/components/elements/Paginator";
 import PageHeadContent from '@/components/elements/PageHeadContent';
+import { formatDateOnlyInLocale } from '@/lib/utils/date-formatter'
 
 // Static revalidation for Next.js 15
 export const revalidate = 86400; // 24 hours
 
-interface TagPageProps { 
-  params: Promise<{ tag: string; page: string }> 
+interface TagPageProps {
+  params: Promise<{ tag: string; page: string }>
 }
 
 export default async function NewsHashtagPage({ params }: TagPageProps) {
@@ -45,7 +46,7 @@ export default async function NewsHashtagPage({ params }: TagPageProps) {
                     <div className="content-area">
                       <ul>
                         <li>
-                          <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{new Date(post.date || '').toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })} <span> | </span></Link>
+                          <Link href="/#"><img src="/assets/img/icons/calender1.svg" alt="" />{formatDateOnlyInLocale(post.date || '')} <span> | </span></Link>
                         </li>
                         {post.authorName ? (
                           <li>

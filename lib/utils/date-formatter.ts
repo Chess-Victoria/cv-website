@@ -215,6 +215,32 @@ export function formatDateOnly(isoDateTime: string): string {
 }
 
 /**
+ * Format ISO datetime string to date only in a specific locale while keeping
+ * the Melbourne timezone boundary.
+ */
+export function formatDateOnlyInLocale(
+  isoDateTime: string,
+  locale = 'en-AU'
+): string {
+  try {
+    const date = parseIsoDateTime(isoDateTime);
+
+    if (!date) {
+      return isoDateTime;
+    }
+
+    return formatDateParts(date, locale, {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+    });
+  } catch (error) {
+    console.error('Error formatting date only:', error);
+    return isoDateTime;
+  }
+}
+
+/**
  * Format ISO datetime string to time only
  * Example: "2025-08-16T19:30+10:00" → "7:30 PM"
  */
