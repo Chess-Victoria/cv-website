@@ -9,6 +9,7 @@ type ContentfulMenuEntry = {
         name?: string
         url?: string
         isMainMenu?: boolean
+        hidden?: boolean
         items?: ContentfulMenuEntry[]
     }
 }
@@ -20,6 +21,10 @@ function normalizeMenuItem(entry: ContentfulMenuEntry, ancestorIds: Set<string> 
     }
 
     const fields = entry.fields ?? {}
+    if (fields.hidden) {
+        return null
+    }
+
     const nextAncestors = new Set(ancestorIds)
     nextAncestors.add(id)
 
