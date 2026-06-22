@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     // Verify the request is from Contentful using the secret key
     const authHeader = request.headers.get('authorization');
     const expectedSecret = process.env.CONTENTFUL_REVALIDATE_SECRET;
-    
+
     if (!expectedSecret) {
       console.error('CONTENTFUL_REVALIDATE_SECRET not configured');
       return NextResponse.json(
@@ -109,6 +109,13 @@ export async function POST(request: NextRequest) {
         revalidatePath('/about');
         revalidatePath('/contact');
         revalidateTag('site-config', {});
+        break;
+
+      case 'menu':
+        // Menu is used site-wide, so revalidate the layout and cached navigation data
+        revalidatePath('/', 'layout');
+        revalidatePath('/');
+        revalidateTag('menu', {});
         break;
 
       case 'announcement':

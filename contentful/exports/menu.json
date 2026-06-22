@@ -1,0 +1,116 @@
+{
+    "name": "Menu",
+    "description": "",
+    "displayField": "name",
+    "fields": [
+        {
+            "id": "name",
+            "name": "Name",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "type": "Array",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false,
+            "items": {
+                "type": "Link",
+                "validations": [
+                    {
+                        "linkContentType": [
+                            "menu"
+                        ]
+                    }
+                ],
+                "linkType": "Entry"
+            }
+        },
+        {
+            "id": "url",
+            "name": "url",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+        },
+        {
+            "id": "reference",
+            "name": "Reference",
+            "type": "Link",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false,
+            "linkType": "Entry"
+        },
+        {
+            "id": "isMainMenu",
+            "name": "IsMainMenu",
+            "type": "Boolean",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+        }
+    ],
+    "sys": {
+        "space": {
+            "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "j5mfd0rflg30"
+            }
+        },
+        "id": "menu",
+        "type": "ContentType",
+        "createdAt": "2026-06-22T10:08:56.755Z",
+        "updatedAt": "2026-06-22T10:14:43.024Z",
+        "environment": {
+            "sys": {
+                "id": "master",
+                "type": "Link",
+                "linkType": "Environment"
+            }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2026-06-22T10:14:43.024Z",
+        "firstPublishedAt": "2026-06-22T10:08:57.524Z",
+        "createdBy": {
+            "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2l6dHVcobMXFnKLqDloKFl"
+            }
+        },
+        "updatedBy": {
+            "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2l6dHVcobMXFnKLqDloKFl"
+            }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+            "sys": {
+                "type": "Link",
+                "linkType": "User",
+                "id": "2l6dHVcobMXFnKLqDloKFl"
+            }
+        },
+        "urn": "crn:contentful:::content:spaces/j5mfd0rflg30/environments/master/content_types/menu"
+    }
+}

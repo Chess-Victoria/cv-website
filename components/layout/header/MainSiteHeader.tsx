@@ -1,10 +1,10 @@
 'use client'
 import { SITE_CONFIG } from '@/lib/site-config';
 import Link from 'next/link'
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import MenuItems from '../MenuItems';
+import type { MenuItem } from '@/lib/types/menu';
 
-export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
+export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch, menu }: any & { menu: MenuItem[] }) {
     return (
         <>
             <header>
@@ -18,59 +18,7 @@ export default function MainSiteHeader({ scroll, isMobileMenu, handleMobileMenu,
                                     </div>
                                     <div className="main-menu">
                                         <ul>
-                                            <li><Link href="/about">About Chess Victoria <i className="fa-solid fa-angle-down" /></Link>
-
-                                                <ul className="dropdown-padding">
-                                                    <li>
-                                                        <Link href="/committees">Our Committees</Link>
-                                                    </li>
-                                                    <li><Link href="/about/players">Our Players</Link></li>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <Link href="/victorian-champions">Victorian Champions <i className="fa-solid fa-angle-down" /></Link>
-                                                <ul className="dropdown-padding">
-                                                    <li><Link href="/victorian-champions/victorian-junior-champions">Victorian Junior Champions</Link></li>
-                                                    {/* <li><Link href="/victorian-champions/australian-master">Australian Masters</Link></li> */}
-                                                    <li><Link href="/victorian-champions/victorian-champions">Victorian Champions</Link></li>
-                                                    {/* <li><Link href="/victorian-champions/victorian-country-champions">Victorian Country Champions</Link></li> */}
-                                                    <li><Link href="/victorian-champions/victorian-open-champions">Victorian Open Champions</Link></li>
-                                                    <li><Link href="/victorian-champions/victorian-women-champions">Victorian Women Champions</Link></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <Link href="/events">Events <i className="fa-solid fa-angle-down" /></Link>
-                                                <ul className="dropdown-padding">
-                                                    <li><Link href="/events/2026-chess-victoria/">Chess Victoria Events</Link></li>
-                                                    <li><Link href="/events/2026-victorian-championships-tournaments">Victorian Championships</Link></li>
-                                                    <li><Link href="/events/cv-interschool-events/">CV Intershool Events</Link></li>
-                                                    <li><Link href="/events/fide-tournaments">FIDE Tournaments</Link></li>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <Link href="/chess-clubs">Chess Clubs</Link>
-                                            </li>
-
-                                            <li>
-                                                <Link href="/news">News & Update <i className="fa-solid fa-angle-down" /></Link>
-                                                <ul className="dropdown-padding">
-                                                    <li><Link href="/news/category/chess-victoria-news/page-1">Chess Victoria News</Link></li>
-                                                    <li><Link href="/news/category/victorian-junior-updates/page-1">Victorian Junior News</Link></li>
-                                                    <li><Link href="/news/category/victorian-chess-news/page-1">Victorian Chess News</Link></li>
-                                                    <li><Link href="/news/category/tournament-results/page-1">Tournament Results</Link></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <Link href="/more">More <i className="fa-solid fa-angle-down" /></Link>
-                                                <ul className="dropdown-padding">
-                                                    <li><Link href="/documents">Documents</Link></li>
-                                                    <li><Link href="/players/search">Players Search</Link></li>
-                                                    <li><Link href="/faq">FAQ</Link></li>
-                                                    <li><Link href="/contact">Contact Us</Link></li>
-                                                </ul>
-                                            </li>
+                                            <MenuItems items={menu} mode="desktop" />
                                         </ul>
                                     </div>
                                     <div className="btn-area">
