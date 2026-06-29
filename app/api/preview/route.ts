@@ -13,12 +13,12 @@ export async function GET(request: NextRequest) {
   }
 
   // Validate required parameters
-  if (!slug) {
-    return new Response('Missing required parameter: slug', { status: 400 });
-  }
-
   if (!contentType) {
     return new Response('Missing required parameter: contentType', { status: 400 });
+  }
+
+  if (contentType !== 'documentLink' && contentType !== 'committee' && contentType !== 'committeeList' && contentType !== 'homePage' && contentType !== 'menu' && !slug) {
+    return new Response('Missing required parameter: slug', { status: 400 });
   }
 
   try {
@@ -28,22 +28,22 @@ export async function GET(request: NextRequest) {
 
     // Get the preview URL based on content type
     const previewUrl = getPreviewUrl(contentType, slug);
-    
+
     // Create redirect response
     const response = NextResponse.redirect(new URL(previewUrl, request.url));
-    
+
     // Set additional cookies for iframe compatibility
     // Use 'lax' for HTTP (localhost) and 'none' for HTTPS (production)
     const isHttps = process.env.NODE_ENV === 'production' || request.url.startsWith('https://');
     const sameSiteValue = isHttps ? 'none' : 'lax';
-    
+
     response.cookies.set('__prerender_bypass', '1', {
       httpOnly: false, // Allow client-side access
       secure: isHttps, // Only secure in HTTPS
       sameSite: sameSiteValue,
       path: '/',
     });
-    
+
     // Also set a custom preview cookie for additional detection
     response.cookies.set('contentful_preview', 'true', {
       httpOnly: false,
@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
       sameSite: sameSiteValue,
       path: '/',
     });
-    
+
     return response;
   } catch (error) {
     console.error('Preview API error:', error);
@@ -62,14 +62,31 @@ export async function GET(request: NextRequest) {
 /**
  * Generate the preview URL based on content type and slug
  */
-function getPreviewUrl(contentType: string, slug: string): string {
+function getPreviewUrl(contentType: string, slug: string | null): string {
+  const resolvedSlug = slug ?? '';
+
   switch (contentType) {
     case 'post':
-      return `/news/read/${slug}`;
+      return `/news/read/${resolvedSlug}`;
+    case 'event':
+      return `/event/${resolvedSlug}`;
+    case 'eventList':
+      return `/events/${resolvedSlug}`;
+    case 'chessClub':
+      return `/chess-clubs/${resolvedSlug}`;
+    case 'documentLink':
+      return '/documents';
+    case 'committee':
+    case 'committeeList':
+      return '/committees';
+    case 'homePage':
+      return '/';
+    case 'menu':
+      return '/';
     case 'page':
-      return `/pages/${slug}`;
+      return `/pages/${resolvedSlug}`;
     default:
       // For unknown content types, default to pages
-      return `/pages/${slug}`;
+      return `/pages/${resolvedSlug}`;
   }
 }
