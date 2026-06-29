@@ -72,7 +72,7 @@ function getPreviewUrl(contentType: string, slug: string | null): string {
       return `/event/${resolvedSlug}`;
     case 'eventList':
       return `/events/${resolvedSlug}`;
-    case 'chessClub':
+    case 'clubDetail':
       return `/chess-clubs/${resolvedSlug}`;
     case 'documentLink':
       return '/documents';
@@ -87,6 +87,6 @@ function getPreviewUrl(contentType: string, slug: string | null): string {
       return `/pages/${resolvedSlug}`;
     default:
       // For unknown content types, default to pages
-      return `/pages/${resolvedSlug}`;
+      return `/`;
   }
 }
