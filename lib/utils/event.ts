@@ -284,6 +284,16 @@ export const getEventListsForNavigation = async () => {
       return eventList.fields.events && Array.isArray(eventList.fields.events) && eventList.fields.events.length > 0;
     });
 
+    eventListsWithEvents.sort((firstEventList: any, secondEventList: any) => {
+      const nameComparison = secondEventList.fields.name.localeCompare(firstEventList.fields.name);
+
+      if (nameComparison !== 0) {
+        return nameComparison;
+      }
+
+      return new Date(secondEventList.sys.updatedAt).getTime() - new Date(firstEventList.sys.updatedAt).getTime();
+    });
+
     return eventListsWithEvents.map((eventList: any) => ({
       id: eventList.sys.id,
       name: eventList.fields.name,
