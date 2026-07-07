@@ -2,6 +2,27 @@ import { getEntries } from '@/lib/contentful'
 import { DocumentLink } from '@/lib/types/document-link'
 import { mapDocumentLink, groupDocumentLinksByType } from '@/lib/utils/document-link-mapper'
 
+const DOCUMENT_TYPE_ORDER = ['Information', 'Archived Documents']
+
+function compareDocumentTypes(firstType: string, secondType: string): number {
+  const firstIndex = DOCUMENT_TYPE_ORDER.indexOf(firstType)
+  const secondIndex = DOCUMENT_TYPE_ORDER.indexOf(secondType)
+
+  if (firstIndex !== -1 || secondIndex !== -1) {
+    if (firstIndex === -1) {
+      return 1
+    }
+
+    if (secondIndex === -1) {
+      return -1
+    }
+
+    return firstIndex - secondIndex
+  }
+
+  return firstType.localeCompare(secondType)
+}
+
 async function getDocumentLinks() {
   try {
     // Include level 2 ensures linked assets (documents) are included
@@ -16,7 +37,7 @@ async function getDocumentLinks() {
 
 export default async function DocumentsPageDataFetcher() {
   const groupedLinks = await getDocumentLinks();
-  const types = Object.keys(groupedLinks).sort();
+  const types = Object.keys(groupedLinks).sort(compareDocumentTypes);
 
   return (
     <div className="documents-section-area sp10" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
@@ -53,9 +74,9 @@ export default async function DocumentsPageDataFetcher() {
                                 <tr key={link.id}>
                                   <td>{link.name}</td>
                                   <td className="text-end">
-                                    <a 
-                                      href={link.url} 
-                                      target="_blank" 
+                                    <a
+                                      href={link.url}
+                                      target="_blank"
                                       rel="noopener noreferrer"
                                       className="btn btn-sm"
                                       style={{ backgroundColor: 'rgb(160, 43, 189)', color: 'white' }}
