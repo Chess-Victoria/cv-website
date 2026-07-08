@@ -4,9 +4,10 @@ import CommitteeMemberCard from "./CommitteeMemberCard";
 
 interface CommitteeListProps {
   committee: CommitteeListData;
+  basePath?: string;
 }
 
-export default function CommitteeList({ committee }: CommitteeListProps) {
+export default function CommitteeList({ committee, basePath }: CommitteeListProps) {
   if (!committee.members || committee.members.length === 0) {
     return null;
   }
@@ -24,7 +25,7 @@ export default function CommitteeList({ committee }: CommitteeListProps) {
         </div>
         <div className="row">
           {committee.members.map((member, index) => (
-            <CommitteeMemberCard key={`committee-member-${member.id}-${index}`} member={member} />
+            <CommitteeMemberCard key={`committee-member-${member.id}-${index}`} member={member} basePath={basePath} />
           ))}
         </div>
       </div>

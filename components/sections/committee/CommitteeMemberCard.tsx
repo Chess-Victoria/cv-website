@@ -6,11 +6,13 @@ import { getContactImage } from '@/lib/constants'
 
 interface CommitteeMemberCardProps {
   member: CommitteeMemberData;
+  basePath?: string;
 }
 
-export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps) {
+export default function CommitteeMemberCard({ member, basePath = "/committees" }: CommitteeMemberCardProps) {
   const imageUrl = member.avatarImage?.url || member.image?.url || member.person.image?.url || getContactImage();
   const imageAlt = member.avatarImage?.alt || member.image?.alt || member.person.image?.alt || member.person.name;
+  const memberHref = `${basePath}/${member.slug}`;
 
   return (
     <div className="col-lg-3 col-md-6">
@@ -21,13 +23,13 @@ export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps
           <div className="img1">
             <img src={imageUrl} alt={imageAlt} className="team-img4" />
             <div className="share">
-              <Link href={`/committees/${member.slug}`}>
+              <Link href={memberHref}>
                 <img src="/assets/img/icons/share1.svg" alt="" />
               </Link>
             </div>
             <ul>
               <li>
-                <Link href={`/committees/${member.slug}`} className="icon1">
+                <Link href={memberHref} className="icon1">
                   <i className="fa-solid fa-user" />
                 </Link>
               </li>
@@ -46,7 +48,7 @@ export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps
                 </li>
               )}
               <li>
-                <Link href={`/committees/${member.slug}`} className="icon4">
+                <Link href={memberHref} className="icon4">
                   <i className="fa-solid fa-info" />
                 </Link>
               </li>
@@ -56,7 +58,7 @@ export default function CommitteeMemberCard({ member }: CommitteeMemberCardProps
         <div className="space28" />
         <div className="content-area">
           <h3>
-            <Link href={`/committees/${member.slug}`}>
+            <Link href={memberHref}>
               {member.person.name}
             </Link>
           </h3>
