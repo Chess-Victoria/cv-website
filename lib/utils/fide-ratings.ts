@@ -12,7 +12,7 @@ export interface FideRecord {
   ratingMonth?: string
 }
 
-const FIDE_ZIP_URL = 'https://fide-fed-rating.truongthings.dev/AUS/standard/standard.json.zip'
+const FIDE_ZIP_URL = 'https://fide-fed-rating.truongthings.site/AUS/standard/standard.json.zip'
 
 async function fetchFideZipArrayBuffer(): Promise<ArrayBuffer> {
   const res = await fetch(FIDE_ZIP_URL, {
