@@ -1,7 +1,7 @@
 'use client'
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 
 interface RichTextRendererProps {
   content: any; // Raw Contentful response
@@ -34,6 +34,23 @@ export default function RichTextRenderer({ content, className }: RichTextRendere
       [BLOCKS.LIST_ITEM]: (node: any, children: any) => <li>{children}</li>,
       [BLOCKS.QUOTE]: (node: any, children: any) => <blockquote>{children}</blockquote>,
       [BLOCKS.HR]: () => <hr />,
+      // Embedded Asset (e.g., image)
+      [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+        const { title, file } = node?.data?.target?.fields ?? {};
+        const url = file?.url ? (file.url.startsWith('//') ? `https:${file.url}` : file.url) : '';
+        return url ? <img src={url} alt={title || ''} style={{ maxWidth: '100%' }} /> : null;
+      },
+      // Embedded Entry (e.g., linked contentful entry)
+      [BLOCKS.EMBEDDED_ENTRY]: (node: any) => {
+        // Render a fallback placeholder with entry title if available
+        const title = node?.data?.target?.fields?.title ?? 'Embedded Entry';
+        return <div className="embedded-entry">{title}</div>;
+      },
+      // Inline Embedded Entry (e.g., inline entry reference)
+      [INLINES.EMBEDDED_ENTRY]: (node: any) => {
+        const title = node?.data?.target?.fields?.title ?? 'Inline Entry';
+        return <span className="inline-embedded-entry">{title}</span>;
+      },
     },
     renderMark: {
       [MARKS.BOLD]: (text: any) => <strong>{text}</strong>,
